@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:graduation_project/feature/Register/presentation/pages/VerificationPhone.dart';
-import 'package:graduation_project/feature/Register/presentation/pages/widget/Custom_button.dart';
-import 'package:graduation_project/feature/Register/presentation/pages/widget/Email.dart';
-import 'package:graduation_project/feature/Register/presentation/pages/widget/Full_name.dart';
-import 'package:graduation_project/feature/Register/presentation/pages/widget/Password.dart';
+import 'package:graduation_project/feature/Authentication/presentation/pages/VerificationPhone.dart';
+import 'package:graduation_project/feature/Authentication/presentation/pages/widget/Custom_button.dart';
+import 'package:graduation_project/feature/Authentication/presentation/pages/widget/Email.dart';
+import 'package:graduation_project/feature/Authentication/presentation/pages/widget/Full_name.dart';
+import 'package:graduation_project/feature/Authentication/presentation/pages/widget/Password.dart';
 
 class FormAndButtonRegister extends StatefulWidget {
   const FormAndButtonRegister({super.key});

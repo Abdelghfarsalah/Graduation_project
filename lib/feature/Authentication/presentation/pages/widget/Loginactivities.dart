@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:graduation_project/core/fonts.dart';
-import 'package:graduation_project/feature/Register/presentation/pages/widget/ContinueWithAccounts.dart';
-import 'package:graduation_project/feature/Register/presentation/pages/widget/FormAndButtonLogin.dart';
+import 'package:graduation_project/feature/Authentication/presentation/pages/RegisterPage.dart';
+import 'package:graduation_project/feature/Authentication/presentation/pages/widget/ContinueWithAccounts.dart';
+import 'package:graduation_project/feature/Authentication/presentation/pages/widget/FormAndButtonLogin.dart';
 
 class Loginactivities extends StatelessWidget {
   const Loginactivities({super.key});
@@ -34,7 +35,13 @@ class Loginactivities extends StatelessWidget {
                           fontWeight: FontWeight.w400),
                     ),
                     TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Registerpage()),
+                          );
+                        },
                         child: Text(
                           "Sign up",
                           style: TextStyle(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:graduation_project/feature/Register/presentation/pages/widget/Back_button.dart';
-import 'package:graduation_project/feature/Register/presentation/pages/widget/OtpcodeContainer.dart';
+import 'package:graduation_project/feature/Authentication/presentation/pages/widget/Back_button.dart';
+import 'package:graduation_project/feature/Authentication/presentation/pages/widget/OtpcodeContainer.dart';
 
 class VerifyPhoneNumbercodebody extends StatefulWidget {
   const VerifyPhoneNumbercodebody({super.key});

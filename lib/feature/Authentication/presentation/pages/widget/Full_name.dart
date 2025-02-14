@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:graduation_project/feature/Register/presentation/pages/widget/customTextFiled.dart';
+import 'package:graduation_project/feature/Authentication/presentation/pages/widget/customTextFiled.dart';
 
 class FullName extends StatelessWidget {
   const FullName({super.key, required this.onChanged});

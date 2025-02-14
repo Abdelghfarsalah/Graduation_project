@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:graduation_project/core/fonts.dart';
-import 'package:graduation_project/feature/Register/presentation/pages/RegisterPage.dart';
+import 'package:graduation_project/feature/Authentication/presentation/pages/RegisterPage.dart';
 
 class RegisterButton extends StatelessWidget {
   const RegisterButton({super.key});

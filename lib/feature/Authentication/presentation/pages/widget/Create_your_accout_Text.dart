@@ -11,11 +11,12 @@ class CreateYourAccoutText extends StatelessWidget {
       child: Align(
         alignment: Alignment.centerLeft,
         child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 60),
+          padding: const EdgeInsets.symmetric(vertical: 30),
           child: Text(
             title,
+            maxLines: 1,
             style: TextStyle(
-                fontSize: 33,
+                fontSize: 25,
                 fontWeight: FontWeight.w600,
                 color: Colors.white,
                 fontFamily: appFonts.Poppins),

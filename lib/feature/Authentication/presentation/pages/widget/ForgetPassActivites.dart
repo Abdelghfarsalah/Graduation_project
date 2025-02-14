@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:graduation_project/feature/Register/presentation/pages/SendOtpbuphone.dart';
-import 'package:graduation_project/feature/Register/presentation/pages/SendOtpbyEmail.dart';
-import 'package:graduation_project/feature/Register/presentation/pages/widget/Custom_button.dart';
-import 'package:graduation_project/feature/Register/presentation/pages/widget/SentCodeForResetPasswordWidget.dart';
+import 'package:graduation_project/feature/Authentication/presentation/pages/SendOtpbyEmail.dart';
+import 'package:graduation_project/feature/Authentication/presentation/pages/VerificationPhone.dart';
+import 'package:graduation_project/feature/Authentication/presentation/pages/widget/Custom_button.dart';
+import 'package:graduation_project/feature/Authentication/presentation/pages/widget/SentCodeForResetPasswordWidget.dart';
 
 class Forgetpassactivites extends StatefulWidget {
   const Forgetpassactivites({super.key});
@@ -73,7 +73,11 @@ class _ForgetpassactivitesState extends State<Forgetpassactivites> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => SendotPbyphone()));
+                                builder: (context) => Verificationphone()));
+                        // Navigator.push(
+                        //     context,
+                        //     MaterialPageRoute(
+                        //         builder: (context) => SendotPbyphone()));
                       }
                     },
                     endcolor: Color(0xff9CC7FF),

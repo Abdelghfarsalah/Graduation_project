@@ -16,15 +16,17 @@ class Titels extends StatelessWidget {
       children: [
         Text(
           title,
+          maxLines: 1,
           style: TextStyle(
-              fontSize: 34,
+              fontSize: 30,
               fontWeight: FontWeight.w700,
               fontFamily: appFonts.Poppins),
         ),
         Text(
           subtitle,
+          maxLines: 1,
           style: TextStyle(
-              fontSize: 34,
+              fontSize: 30,
               fontWeight: FontWeight.w700,
               fontFamily: appFonts.Poppins),
         ),

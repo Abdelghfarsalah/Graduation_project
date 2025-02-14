@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:graduation_project/core/fonts.dart';
-import 'package:graduation_project/feature/Register/presentation/pages/widget/Custom_button.dart';
-import 'package:graduation_project/feature/Register/presentation/pages/widget/otp.dart';
+import 'package:graduation_project/feature/Authentication/presentation/pages/widget/Custom_button.dart';
+import 'package:graduation_project/feature/Authentication/presentation/pages/widget/otp.dart';
 
 class OtpcodeContainer extends StatelessWidget {
   const OtpcodeContainer({super.key});

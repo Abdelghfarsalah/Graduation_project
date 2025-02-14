@@ -1,7 +1,7 @@
 // login_bloc.dart
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:graduation_project/feature/Register/presentation/Manager/Login/Login_event.dart';
-import 'package:graduation_project/feature/Register/presentation/Manager/Login/Login_states.dart';
+import 'package:graduation_project/feature/Authentication/presentation/Manager/Login/Login_event.dart';
+import 'package:graduation_project/feature/Authentication/presentation/Manager/Login/Login_states.dart';
 
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
   LoginBloc() : super(LoginInitial()) {

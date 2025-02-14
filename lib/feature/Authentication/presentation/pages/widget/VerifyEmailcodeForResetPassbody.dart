@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:graduation_project/core/fonts.dart';
-import 'package:graduation_project/feature/Register/presentation/pages/ResetYourPasswordPage.dart';
-import 'package:graduation_project/feature/Register/presentation/pages/widget/Back_button.dart';
-import 'package:graduation_project/feature/Register/presentation/pages/widget/Custom_button.dart';
-import 'package:graduation_project/feature/Register/presentation/pages/widget/otp.dart';
+import 'package:graduation_project/feature/Authentication/presentation/pages/ResetYourPasswordPage.dart';
+import 'package:graduation_project/feature/Authentication/presentation/pages/widget/Back_button.dart';
+import 'package:graduation_project/feature/Authentication/presentation/pages/widget/Custom_button.dart';
+import 'package:graduation_project/feature/Authentication/presentation/pages/widget/otp.dart';
 
 class Verifyemailcodeforresetpassbody extends StatelessWidget {
   const Verifyemailcodeforresetpassbody({super.key});

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class Helper {
   static void showSuccessDialog(BuildContext context) {
@@ -77,5 +78,40 @@ class Helper {
     //   Navigator.of(context).pop(); // إغلاق الـ Dialog
     //   Navigator.pushReplacementNamed(context, '/home'); // انتقل إلى الصفحة الرئيسية
     // });
+  }
+
+  static List<BottomNavigationBarItem> Bottomnavbaritems() {
+    return <BottomNavigationBarItem>[
+      BottomNavigationBarItem(
+          icon: Icon(
+            FontAwesomeIcons.house,
+            size: 21,
+          ),
+          label: "Home"),
+      BottomNavigationBarItem(
+          icon: Icon(
+            FontAwesomeIcons.magnifyingGlass,
+            size: 21,
+          ),
+          label: "Search"),
+      BottomNavigationBarItem(
+          icon: Icon(
+            FontAwesomeIcons.users,
+            size: 21,
+          ),
+          label: "Community"),
+      BottomNavigationBarItem(
+          icon: Icon(
+            FontAwesomeIcons.comments,
+            size: 21,
+          ),
+          label: "Chats"),
+      BottomNavigationBarItem(
+          icon: Icon(
+            FontAwesomeIcons.user,
+            size: 21,
+          ),
+          label: "Account"),
+    ];
   }
 }

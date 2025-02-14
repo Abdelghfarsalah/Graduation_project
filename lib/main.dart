@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:graduation_project/feature/onboarding/presentaion/pages/Main_onboarding.dart';
+import 'package:graduation_project/core/Bloc_providers.dart';
+import 'package:graduation_project/feature/home/presentation/pages/home.dart';
 
 void main() {
-  runApp(const GraduationProject());
+  runApp(
+    AppBlocProviders.getblocprovider(
+      child: const GraduationProject(),
+    ),
+  );
 }
 
 class GraduationProject extends StatelessWidget {
@@ -12,7 +17,7 @@ class GraduationProject extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: MainOnboarding(),
+      home: Home(),
     );
   }
 }

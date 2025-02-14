@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:graduation_project/feature/Register/presentation/pages/widget/Custom_button.dart';
-import 'package:graduation_project/feature/Register/presentation/pages/widget/Email.dart';
-import 'package:graduation_project/feature/Register/presentation/pages/widget/VerifyEmailcodeForResetPassword.dart';
+import 'package:graduation_project/feature/Authentication/presentation/pages/widget/Custom_button.dart';
+import 'package:graduation_project/feature/Authentication/presentation/pages/widget/Email.dart';
+import 'package:graduation_project/feature/Authentication/presentation/pages/widget/VerifyEmailcodeForResetPassword.dart';
 
 class Enteremailtoforgetpass extends StatelessWidget {
   const Enteremailtoforgetpass({super.key});

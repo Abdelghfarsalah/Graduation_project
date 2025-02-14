@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:graduation_project/feature/Register/presentation/pages/widget/Back_button.dart';
-import 'package:graduation_project/feature/Register/presentation/pages/widget/Create_your_accout_Text.dart';
-import 'package:graduation_project/feature/Register/presentation/pages/widget/Registeractivities.dart';
+import 'package:graduation_project/feature/Authentication/presentation/pages/widget/Back_button.dart';
+import 'package:graduation_project/feature/Authentication/presentation/pages/widget/Create_your_accout_Text.dart';
+import 'package:graduation_project/feature/Authentication/presentation/pages/widget/Registeractivities.dart';
 
 class Registerbody extends StatelessWidget {
   const Registerbody({super.key});

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:graduation_project/core/fonts.dart';
-import 'package:graduation_project/feature/Register/presentation/pages/ForgetPassword.dart';
-import 'package:graduation_project/feature/Register/presentation/pages/VerificationPhone.dart';
-import 'package:graduation_project/feature/Register/presentation/pages/widget/Custom_button.dart';
-import 'package:graduation_project/feature/Register/presentation/pages/widget/Email.dart';
-import 'package:graduation_project/feature/Register/presentation/pages/widget/Password.dart';
+import 'package:graduation_project/feature/Authentication/presentation/pages/ForgetPassword.dart';
+import 'package:graduation_project/feature/Authentication/presentation/pages/widget/Custom_button.dart';
+import 'package:graduation_project/feature/Authentication/presentation/pages/widget/Email.dart';
+import 'package:graduation_project/feature/Authentication/presentation/pages/widget/Password.dart';
+import 'package:graduation_project/feature/home/presentation/pages/home.dart';
 
 class FormAndButtonLogin extends StatelessWidget {
   const FormAndButtonLogin({super.key});
@@ -50,9 +50,7 @@ class FormAndButtonLogin extends StatelessWidget {
               borderRadius: 14,
               onTap: () {
                 Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => Verificationphone()));
+                    context, MaterialPageRoute(builder: (context) => Home()));
               },
               endcolor: Color(0xff9CC7FF),
               color: Color(0xff5FA5FF),

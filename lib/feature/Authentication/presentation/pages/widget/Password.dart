@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:graduation_project/feature/Register/presentation/pages/widget/customTextFiled.dart';
+import 'package:graduation_project/feature/Authentication/presentation/pages/widget/customTextFiled.dart';
 
 class Password extends StatefulWidget {
   const Password({super.key, required this.onChanged});

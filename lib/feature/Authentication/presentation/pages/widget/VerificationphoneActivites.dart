@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:graduation_project/feature/Register/presentation/pages/Verify_Phone_NumberCode.dart';
-import 'package:graduation_project/feature/Register/presentation/pages/widget/Custom_button.dart';
-import 'package:graduation_project/feature/Register/presentation/pages/widget/VerificationphoneTextFiled.dart';
+import 'package:graduation_project/feature/Authentication/presentation/pages/Verify_Phone_NumberCode.dart';
+import 'package:graduation_project/feature/Authentication/presentation/pages/widget/Custom_button.dart';
+import 'package:graduation_project/feature/Authentication/presentation/pages/widget/VerificationphoneTextFiled.dart';
 
 class Verificationphoneactivites extends StatelessWidget {
   const Verificationphoneactivites({super.key});

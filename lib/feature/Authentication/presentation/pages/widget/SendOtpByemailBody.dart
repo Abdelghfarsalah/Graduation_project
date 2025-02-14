@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:graduation_project/feature/Register/presentation/pages/widget/Back_button.dart';
-import 'package:graduation_project/feature/Register/presentation/pages/widget/Create_your_accout_Text.dart';
-import 'package:graduation_project/feature/Register/presentation/pages/widget/EnterEmailToForgetPass.dart';
+import 'package:graduation_project/feature/Authentication/presentation/pages/widget/Back_button.dart';
+import 'package:graduation_project/feature/Authentication/presentation/pages/widget/Create_your_accout_Text.dart';
+import 'package:graduation_project/feature/Authentication/presentation/pages/widget/EnterEmailToForgetPass.dart';
 
 class Sendotpbyemailbody extends StatelessWidget {
   const Sendotpbyemailbody({super.key});
