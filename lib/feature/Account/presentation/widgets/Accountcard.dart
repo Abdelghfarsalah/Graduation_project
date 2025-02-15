@@ -86,6 +86,16 @@ class Accountcard extends StatelessWidget {
                                     Color(0xff5FA5FF),
                                     Color(0xff9CC7FF),
                                   ])),
+                          child: Center(
+                            child: Text(
+                              "Complete your Profile",
+                              style: TextStyle(
+                                  fontFamily: appFonts.Poppins,
+                                  fontSize: 16,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w700),
+                            ),
+                          ),
                         ),
                       ),
                       SizedBox(
