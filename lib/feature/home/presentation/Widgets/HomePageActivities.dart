@@ -30,7 +30,7 @@ class Homepageactivities extends StatelessWidget {
             child: Trendingtracks(),
           ),
           SizedBox(
-            height: 200,
+            height: MediaQuery.of(context).padding.bottom + 20,
           )
         ],
       ),

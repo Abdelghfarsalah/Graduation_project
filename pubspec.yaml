@@ -68,6 +68,9 @@ flutter:
     - assets/Icons/
     - assets/HomeImage/
     - assets/HomeImage/trendingTracksImages/
+    - assets/HomeImage/populartracks/
+    - assets/HomeImage/SearchImages/
+    - assets/HomeImage/Accountimages/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

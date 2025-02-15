@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:graduation_project/feature/Search/presentation/models/SearchModel.dart';
+import 'package:graduation_project/feature/home/presentation/models/PopularTracksmode.dart';
 
 class Helper {
   static void showSuccessDialog(BuildContext context) {
@@ -114,4 +116,59 @@ class Helper {
           label: "Account"),
     ];
   }
+
+  static final List<Populartracksmodel> Populartracks = [
+    Populartracksmodel(
+      Image: "assets/HomeImage/populartracks/3DDesign.png",
+      title: "3D Design",
+    ),
+    Populartracksmodel(
+      Image: "assets/HomeImage/populartracks/Graphic Design.png",
+      title: "Graphic Design",
+    ),
+    Populartracksmodel(
+      Image: "assets/HomeImage/populartracks/Web Development.png",
+      title: "Web Development",
+    ),
+    Populartracksmodel(
+      Image: "assets/HomeImage/populartracks/SEO & Marketing.png",
+      title: "SEO & Marketing",
+    ),
+    Populartracksmodel(
+      Image: "assets/HomeImage/populartracks/Finance & Accounting.png",
+      title: "Finance & Accounting",
+    ),
+    Populartracksmodel(
+      Image: "assets/HomeImage/populartracks/Personal Development.png",
+      title: "Personal Development",
+    ),
+    Populartracksmodel(
+      Image: "assets/HomeImage/populartracks/Office Productivity.png",
+      title: "Office Productivity",
+    ),
+    Populartracksmodel(
+      Image: "assets/HomeImage/populartracks/HR Management.png",
+      title: "HR Management",
+    )
+  ];
+  static final List<Searchmodel> searchresult = [
+    Searchmodel(
+        image: "assets/HomeImage/SearchImages/Design System.png",
+        title: "Design System"),
+    Searchmodel(
+        image: "assets/HomeImage/SearchImages/UX Design.png",
+        title: "UX Design"),
+    Searchmodel(
+        image: "assets/HomeImage/SearchImages/Design Development.png",
+        title: "Design Development"),
+    Searchmodel(
+        image: "assets/HomeImage/SearchImages/UX Design.png",
+        title: "UI Design"),
+    Searchmodel(
+        image: "assets/HomeImage/SearchImages/OR &Design Support.png",
+        title: "OR &Design Support"),
+    Searchmodel(
+        image: "assets/HomeImage/SearchImages/Graphic Design.png",
+        title: "Graphic Design"),
+  ];
 }

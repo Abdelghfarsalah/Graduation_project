@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:graduation_project/core/fonts.dart';
+import 'package:graduation_project/feature/home/presentation/pages/TrendingtracksPage.dart';
 
 class Trendingtracksheader extends StatelessWidget {
   const Trendingtracksheader({super.key});
@@ -18,7 +19,14 @@ class Trendingtracksheader extends StatelessWidget {
               color: Color(0xff202244)),
         ),
         GestureDetector(
-          onTap: () {},
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => Trendingtrackspage(),
+              ),
+            );
+          },
           child: Row(
             children: [
               Text(

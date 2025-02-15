@@ -58,6 +58,7 @@ class Trendingtrackscard extends StatelessWidget {
                     subtitle,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
+                    textAlign: TextAlign.center,
                     style: TextStyle(
                         fontSize: 10,
                         fontWeight: FontWeight.w300,
