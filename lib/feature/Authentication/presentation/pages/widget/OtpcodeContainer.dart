@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:graduation_project/core/fonts.dart';
+import 'package:graduation_project/feature/Authentication/presentation/pages/Questionspage.dart';
 import 'package:graduation_project/feature/Authentication/presentation/pages/widget/Custom_button.dart';
 import 'package:graduation_project/feature/Authentication/presentation/pages/widget/otp.dart';
 
@@ -27,7 +28,7 @@ class OtpcodeContainer extends StatelessWidget {
           left: 20,
           child: Container(
             width: MediaQuery.sizeOf(context).width * 0.9,
-            height: MediaQuery.sizeOf(context).height * 0.5,
+            height: MediaQuery.sizeOf(context).height * 0.6,
             decoration: BoxDecoration(
               color: Color(0xffF7F8FA),
               borderRadius: BorderRadius.only(
@@ -76,7 +77,14 @@ class OtpcodeContainer extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 20.0),
                   child: CustomButton(
                     borderRadius: 40,
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Questionspage(),
+                        ),
+                      );
+                    },
                     endcolor: Color(0xff9CC7FF),
                     color: Color(0xff5FA5FF),
                     width: MediaQuery.of(context).size.width,
