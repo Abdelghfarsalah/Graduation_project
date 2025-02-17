@@ -43,6 +43,7 @@ dependencies:
   share_plus: ^10.1.4
   flutter_gemini: ^3.0.0
   timer_count_down: ^2.2.2
+  modal_progress_hud_nsn: ^0.5.1
 
 dev_dependencies:
   flutter_test:

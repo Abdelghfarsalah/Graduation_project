@@ -1,0 +1,47 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:graduation_project/core/fonts.dart';
+import 'package:graduation_project/feature/Account/presentation/widgets/SettingCard.dart';
+import 'package:graduation_project/feature/home/presentation/manager/BottomNavBar/BottomNavBarBloc.dart';
+import 'package:graduation_project/feature/home/presentation/manager/BottomNavBar/BottomNavBarEvent.dart';
+import 'package:graduation_project/feature/onboarding/presentaion/pages/WelcomePage.dart';
+
+class ActionsSection extends StatelessWidget {
+  const ActionsSection({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          "Actions",
+          style: TextStyle(
+              color: Colors.black,
+              fontFamily: appFonts.Poppins,
+              fontSize: 16,
+              fontWeight: FontWeight.w600),
+        ),
+        SizedBox(
+          height: 10,
+        ),
+        Settingcard(
+            title: "Report a problem", icon: Icon(Icons.flag), onTap: () {}),
+        Settingcard(
+            title: "Add account", icon: Icon(Icons.people), onTap: () {}),
+        Settingcard(
+            title: "Log out",
+            icon: Icon(Icons.logout),
+            onTap: () {
+              Future.delayed(Duration(seconds: 2), () {
+                Navigator.pushAndRemoveUntil(
+                    context,
+                    MaterialPageRoute(builder: (context) => WelcomePage()),
+                    (predicate) => false);
+              });
+              context.read<Bottomnavbarbloc>().add(ChangeEvent(index: 0));
+            }),
+      ],
+    );
+  }
+}
