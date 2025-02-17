@@ -23,6 +23,7 @@ class _TextfiledcustomState extends State<Textfiledcustom> {
         child: TextField(
           controller: widget.bloc.controller,
           onChanged: (v) => value = v,
+          cursorColor: Colors.black,
           decoration: InputDecoration(
               filled: true,
               fillColor: Colors.white,

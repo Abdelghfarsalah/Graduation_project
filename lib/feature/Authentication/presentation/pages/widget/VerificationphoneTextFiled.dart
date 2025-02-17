@@ -19,6 +19,9 @@ class Verificationphonetextfiled extends StatelessWidget {
       ),
       onChanged: onChanged,
       validator: (data) {
+        if (data!.isEmpty) {
+          return "Phone is required";
+        }
         return null;
       },
       focusNode: FocusNode(),

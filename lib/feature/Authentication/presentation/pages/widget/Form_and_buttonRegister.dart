@@ -14,7 +14,9 @@ class FormAndButtonRegister extends StatefulWidget {
 
 class _FormAndButtonRegisterState extends State<FormAndButtonRegister> {
   GlobalKey<FormState> key = GlobalKey();
-
+  String email = "";
+  String pass = "";
+  String fullname = "";
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -22,25 +24,33 @@ class _FormAndButtonRegisterState extends State<FormAndButtonRegister> {
       child: Form(
           key: key,
           child: Column(children: [
-            FullName(onChanged: (data) {}),
+            FullName(onChanged: (data) {
+              fullname = data;
+            }),
             SizedBox(
               height: 20,
             ),
-            EmailTextField(onChanged: (data) {}),
+            EmailTextField(onChanged: (data) {
+              email = data;
+            }),
             SizedBox(
               height: 20,
             ),
-            Password(onChanged: (data) {}),
+            Password(onChanged: (data) {
+              pass = data;
+            }),
             SizedBox(
               height: 20,
             ),
             CustomButton(
               borderRadius: 14,
               onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => Verificationphone()));
+                if (key.currentState!.validate()) {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => Verificationphone()));
+                }
               },
               endcolor: Color(0xff9CC7FF),
               color: Color(0xff5FA5FF),

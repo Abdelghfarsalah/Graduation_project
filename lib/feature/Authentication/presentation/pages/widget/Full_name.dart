@@ -19,6 +19,9 @@ class FullName extends StatelessWidget {
       ),
       onChanged: onChanged,
       validator: (data) {
+        if (data!.isEmpty) {
+          return "Fullname is Required";
+        }
         return null;
       },
       focusNode: FocusNode(),

@@ -3,11 +3,22 @@ import 'package:graduation_project/core/fonts.dart';
 import 'package:graduation_project/feature/Authentication/presentation/pages/ResetYourPasswordPage.dart';
 import 'package:graduation_project/feature/Authentication/presentation/pages/widget/Back_button.dart';
 import 'package:graduation_project/feature/Authentication/presentation/pages/widget/Custom_button.dart';
+import 'package:graduation_project/feature/Authentication/presentation/pages/widget/Timing.dart';
 import 'package:graduation_project/feature/Authentication/presentation/pages/widget/otp.dart';
+import 'package:timer_count_down/timer_controller.dart';
 
-class Verifyemailcodeforresetpassbody extends StatelessWidget {
-  const Verifyemailcodeforresetpassbody({super.key});
+class Verifyemailcodeforresetpassbody extends StatefulWidget {
+  const Verifyemailcodeforresetpassbody({super.key, required this.Email});
+  final String Email;
 
+  @override
+  State<Verifyemailcodeforresetpassbody> createState() =>
+      _VerifyemailcodeforresetpassbodyState();
+}
+
+class _VerifyemailcodeforresetpassbodyState
+    extends State<Verifyemailcodeforresetpassbody> {
+  final CountdownController c = CountdownController(autoStart: true);
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -74,20 +85,27 @@ class Verifyemailcodeforresetpassbody extends StatelessWidget {
                                   fontSize: 14),
                             ),
                             SizedBox(
-                              height: 40,
+                              height: MediaQuery.sizeOf(context).width * 0.03,
                             ),
                             Text(
-                              "Nora---fcai.usc.edu.eg",
+                              widget.Email,
                               style: TextStyle(
                                   fontWeight: FontWeight.w400,
                                   color: Color(0xffACADB9),
                                   fontFamily: appFonts.Poppins,
                                   fontSize: 14),
                             ),
-                            SizedBox(
-                              height: 40,
-                            ),
                             Otp(),
+                            Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 30.0),
+                              child: Align(
+                                  alignment: Alignment.bottomLeft,
+                                  child: Timing(controller: c)),
+                            ),
+                            SizedBox(
+                              height: MediaQuery.sizeOf(context).width * 0.03,
+                            ),
                             Padding(
                               padding:
                                   const EdgeInsets.symmetric(horizontal: 20.0),
@@ -115,10 +133,9 @@ class Verifyemailcodeforresetpassbody extends StatelessWidget {
                               child: CustomButton(
                                 borderRadius: 40,
                                 onTap: () {
-                                  // Navigator.push(
-                                  //     context,
-                                  //     MaterialPageRoute(
-                                  //         builder: (context) => Verificationphone()));
+                                  if (c.isCompleted!) {
+                                    c.restart();
+                                  }
                                 },
                                 endcolor: Color(0xffC0DCFF),
                                 color: Color(0xffC0DCFF),

@@ -2,11 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:graduation_project/core/fonts.dart';
 import 'package:graduation_project/feature/Authentication/presentation/pages/Questionspage.dart';
 import 'package:graduation_project/feature/Authentication/presentation/pages/widget/Custom_button.dart';
+import 'package:graduation_project/feature/Authentication/presentation/pages/widget/Timing.dart';
 import 'package:graduation_project/feature/Authentication/presentation/pages/widget/otp.dart';
+import 'package:timer_count_down/timer_controller.dart';
 
-class OtpcodeContainer extends StatelessWidget {
-  const OtpcodeContainer({super.key});
+class OtpcodeContainer extends StatefulWidget {
+  const OtpcodeContainer({super.key, required this.phone});
+  final String phone;
 
+  @override
+  State<OtpcodeContainer> createState() => _OtpcodeContainerState();
+}
+
+class _OtpcodeContainerState extends State<OtpcodeContainer> {
+  CountdownController controller = CountdownController(autoStart: true);
+  @override
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -41,7 +51,7 @@ class OtpcodeContainer extends StatelessWidget {
             child: Column(
               children: [
                 SizedBox(
-                  height: 20,
+                  height: 15,
                 ),
                 Text(
                   "Verify Phone Number",
@@ -59,20 +69,26 @@ class OtpcodeContainer extends StatelessWidget {
                       fontSize: 14),
                 ),
                 SizedBox(
-                  height: 40,
+                  height: MediaQuery.sizeOf(context).height * 0.03,
                 ),
                 Text(
-                  "01204116925",
+                  widget.phone,
                   style: TextStyle(
                       fontWeight: FontWeight.w400,
                       color: Color(0xffACADB9),
                       fontFamily: appFonts.Poppins,
                       fontSize: 14),
                 ),
-                SizedBox(
-                  height: 40,
-                ),
                 Otp(),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 40.0),
+                  child: Align(
+                      alignment: Alignment.bottomLeft,
+                      child: Timing(
+                        controller: controller,
+                      )),
+                ),
+                SizedBox(height: MediaQuery.sizeOf(context).height * 0.03),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20.0),
                   child: CustomButton(
@@ -99,10 +115,9 @@ class OtpcodeContainer extends StatelessWidget {
                   child: CustomButton(
                     borderRadius: 40,
                     onTap: () {
-                      // Navigator.push(
-                      //     context,
-                      //     MaterialPageRoute(
-                      //         builder: (context) => Verificationphone()));
+                      if (controller.isCompleted!) {
+                        controller.restart();
+                      }
                     },
                     endcolor: Color(0xffC0DCFF),
                     color: Color(0xffC0DCFF),

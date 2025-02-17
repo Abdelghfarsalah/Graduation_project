@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:graduation_project/core/colors.dart';
 import 'package:graduation_project/core/fonts.dart';
-import 'package:graduation_project/feature/chat/presentation/pages/welcomepage.dart';
 
 class Homeappbar extends StatelessWidget {
   const Homeappbar({super.key});
@@ -52,13 +51,7 @@ class Homeappbar extends StatelessWidget {
               ),
               Spacer(),
               GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => WelcomepageChabot()),
-                  );
-                },
+                onTap: () {},
                 child: CircleAvatar(
                   radius: 14,
                   backgroundColor: Colors.white,

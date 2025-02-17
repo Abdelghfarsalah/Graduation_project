@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:graduation_project/core/fonts.dart';
+import 'package:graduation_project/feature/chat/presentation/pages/welcomepage.dart';
 import 'package:graduation_project/feature/onboarding/presentaion/pages/widget/Continue_With_Account_widget.dart';
 import 'package:graduation_project/feature/onboarding/presentaion/pages/widget/login_button.dart';
 import 'package:graduation_project/feature/onboarding/presentaion/pages/widget/register_button.dart';
@@ -24,12 +25,36 @@ class WelcomePage extends StatelessWidget {
             SizedBox(
               height: 50,
             ),
-            Text(
-              " Welcome to ",
-              style: TextStyle(
-                  fontSize: 40,
-                  fontFamily: appFonts.Urbanist,
-                  fontWeight: FontWeight.w700),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  " Welcome to ",
+                  style: TextStyle(
+                      fontSize: 40,
+                      fontFamily: appFonts.Urbanist,
+                      fontWeight: FontWeight.w700),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => WelcomepageChabot()),
+                    );
+                  },
+                  child: Container(
+                    height: 38,
+                    width: 38,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8),
+                        color: Colors.black),
+                    child: Center(
+                      child: Image.asset("assets/Bot/Boticon.png"),
+                    ),
+                  ),
+                )
+              ],
             ),
             Text(
               "Smart Path",

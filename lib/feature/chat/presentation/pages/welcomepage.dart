@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:graduation_project/feature/chat/presentation/widget/welcomepagebody.dart';
-import 'package:graduation_project/feature/home/presentation/pages/home.dart';
 
 class WelcomepageChabot extends StatelessWidget {
   const WelcomepageChabot({super.key});
@@ -30,10 +29,7 @@ class WelcomepageChabot extends StatelessWidget {
                 ]),
             child: IconButton(
                 onPressed: () {
-                  Navigator.pushAndRemoveUntil(
-                      context,
-                      MaterialPageRoute(builder: (context) => Home()),
-                      (data) => false);
+                  Navigator.pop(context);
                 },
                 icon: Icon(Icons.arrow_back_ios)),
           ),

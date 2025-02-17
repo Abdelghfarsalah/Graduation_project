@@ -4,7 +4,6 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:graduation_project/feature/chat/presentation/manager/chatbloc.dart';
 import 'package:graduation_project/feature/chat/presentation/manager/chatevent.dart';
 import 'package:graduation_project/feature/chat/presentation/widget/stream.dart';
-import 'package:graduation_project/feature/home/presentation/pages/home.dart';
 
 class Chatpage extends StatefulWidget {
   const Chatpage({super.key});
@@ -39,10 +38,12 @@ class _ChatpageState extends State<Chatpage> {
                 ]),
             child: IconButton(
                 onPressed: () {
-                  Navigator.pushAndRemoveUntil(
-                      context,
-                      MaterialPageRoute(builder: (context) => Home()),
-                      (data) => false);
+                  // Navigator.pushAndRemoveUntil(
+                  //     context,
+                  //     MaterialPageRoute(builder: (context) => Home()),
+                  //     (data) => false);
+                  Navigator.pop(context);
+                  Navigator.pop(context);
                 },
                 icon: Icon(Icons.arrow_back_ios)),
           ),

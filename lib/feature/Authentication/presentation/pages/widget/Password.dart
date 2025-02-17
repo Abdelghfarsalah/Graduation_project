@@ -28,6 +28,9 @@ class _PasswordState extends State<Password> {
       ),
       onChanged: widget.onChanged,
       validator: (data) {
+        if (data!.isEmpty) {
+          return "Password is Required";
+        }
         return null;
       },
       suffixicon: GestureDetector(

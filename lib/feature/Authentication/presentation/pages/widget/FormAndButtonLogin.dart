@@ -6,9 +6,17 @@ import 'package:graduation_project/feature/Authentication/presentation/pages/wid
 import 'package:graduation_project/feature/Authentication/presentation/pages/widget/Password.dart';
 import 'package:graduation_project/feature/home/presentation/pages/home.dart';
 
-class FormAndButtonLogin extends StatelessWidget {
+class FormAndButtonLogin extends StatefulWidget {
   const FormAndButtonLogin({super.key});
 
+  @override
+  State<FormAndButtonLogin> createState() => _FormAndButtonLoginState();
+}
+
+class _FormAndButtonLoginState extends State<FormAndButtonLogin> {
+  GlobalKey<FormState> key = GlobalKey();
+  String email = "";
+  String pass = "";
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -19,11 +27,15 @@ class FormAndButtonLogin extends StatelessWidget {
             SizedBox(
               height: 20,
             ),
-            EmailTextField(onChanged: (data) {}),
+            EmailTextField(onChanged: (data) {
+              email = data;
+            }),
             SizedBox(
               height: 20,
             ),
-            Password(onChanged: (data) {}),
+            Password(onChanged: (data) {
+              pass = data;
+            }),
             Align(
               alignment: Alignment.centerRight,
               child: TextButton(
@@ -49,8 +61,10 @@ class FormAndButtonLogin extends StatelessWidget {
             CustomButton(
               borderRadius: 14,
               onTap: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => Home()));
+                if (key.currentState!.validate()) {
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => Home()));
+                }
               },
               endcolor: Color(0xff9CC7FF),
               color: Color(0xff5FA5FF),

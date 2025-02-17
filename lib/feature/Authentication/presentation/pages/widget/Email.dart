@@ -19,6 +19,9 @@ class EmailTextField extends StatelessWidget {
       ),
       onChanged: onChanged,
       validator: (data) {
+        if (data!.isEmpty) {
+          return "Email is Required";
+        }
         return null;
       },
       focusNode: FocusNode(),
