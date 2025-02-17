@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:graduation_project/core/colors.dart';
 import 'package:graduation_project/core/fonts.dart';
-import 'package:graduation_project/feature/Notifications/presentation/pages/Notificationpages.dart';
+import 'package:graduation_project/feature/chat/presentation/pages/welcomepage.dart';
 
 class Homeappbar extends StatelessWidget {
   const Homeappbar({super.key});
@@ -56,7 +56,7 @@ class Homeappbar extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => Notificationpages()),
+                        builder: (context) => WelcomepageChabot()),
                   );
                 },
                 child: CircleAvatar(

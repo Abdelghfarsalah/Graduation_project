@@ -39,6 +39,9 @@ dependencies:
   flutter_svg: ^2.0.17
   smooth_page_indicator: ^1.2.0+3
   font_awesome_flutter: ^10.8.0
+  device_preview: ^1.2.0
+  share_plus: ^10.1.4
+  flutter_gemini: ^3.0.0
 
 dev_dependencies:
   flutter_test:
@@ -71,6 +74,7 @@ flutter:
     - assets/HomeImage/populartracks/
     - assets/HomeImage/SearchImages/
     - assets/HomeImage/Accountimages/
+    - assets/Bot/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
