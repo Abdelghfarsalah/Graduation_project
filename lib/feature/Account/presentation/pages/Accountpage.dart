@@ -5,6 +5,7 @@ import 'package:graduation_project/feature/Account/presentation/widgets/Accountc
 import 'package:graduation_project/feature/Account/presentation/widgets/BackgroundimageinAccount.dart';
 import 'package:graduation_project/feature/Account/presentation/widgets/DisplayPersonalinformation.dart';
 import 'package:graduation_project/feature/Account/presentation/widgets/PersonalInformationOther.dart';
+import 'package:graduation_project/feature/Account/presentation/widgets/SettingIcon.dart';
 
 class Accountpage extends StatelessWidget {
   const Accountpage({super.key});
@@ -19,7 +20,11 @@ class Accountpage extends StatelessWidget {
             height: MediaQuery.sizeOf(context).height * 0.5,
             child: Stack(
               alignment: Alignment.center,
-              children: [Backgroundimageinaccount(), Accountcard()],
+              children: [
+                Backgroundimageinaccount(),
+                Settingicon(),
+                Accountcard(),
+              ],
             ),
           ),
         ),
