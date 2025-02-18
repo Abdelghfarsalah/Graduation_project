@@ -1,0 +1,73 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:graduation_project/core/fonts.dart';
+import 'package:graduation_project/feature/RecommendationSystem/presentation/manager/Recommendationsystembloc/Recommendationsystembloc.dart';
+
+class Ratewidget extends StatefulWidget {
+  const Ratewidget({super.key, required this.onTap, required this.tech});
+  final void Function() onTap;
+  final String tech;
+  @override
+  State<Ratewidget> createState() => _RatewidgetState();
+}
+
+class _RatewidgetState extends State<Ratewidget> {
+  List<String> emojis = [
+    "🏆",
+    "😍",
+    "🚀",
+    "🚫",
+    "📊",
+    "😔",
+  ];
+
+  List<String> statuses = [
+    "Excellent",
+    "Beginner",
+    "Intermediate",
+    "Not interested",
+    "Average",
+    "Poor",
+  ];
+
+  int select = 0;
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: MediaQuery.sizeOf(context).height * 0.2,
+      child: Center(
+        child: GridView.builder(
+          physics: NeverScrollableScrollPhysics(), // يمنع التمرير
+          itemCount: statuses.length,
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2, mainAxisExtent: 40),
+          itemBuilder: (BuildContext context, int index) {
+            return GestureDetector(
+              onTap: () {
+                context
+                    .read<Recommendationsystembloc>()
+                    .ChangeValuerate(widget.tech, statuses[index]);
+                setState(() {
+                  select = index;
+                });
+              },
+              child: Row(
+                children: [
+                  Text(
+                    "${emojis[index]} ${statuses[index]}",
+                    style: TextStyle(
+                        fontFamily: appFonts.Poppins,
+                        fontSize: select == index ? 20 : 14,
+                        fontWeight: FontWeight.w500,
+                        color:
+                            select == index ? Color(0xff000000) : Colors.grey),
+                  ),
+                ],
+              ),
+            );
+          },
+        ),
+      ),
+    );
+  }
+}

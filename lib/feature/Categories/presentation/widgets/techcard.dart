@@ -21,7 +21,15 @@ class Techcard extends StatelessWidget {
         child: Center(
           child: Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Text(text),
+            child: Text(
+              text,
+              style: TextStyle(
+                fontFamily: "Poppins", // تأكد أن الخط معرف لديك
+                fontSize: 14,
+                fontWeight: FontWeight.w800,
+                color: Colors.white,
+              ),
+            ),
           ),
         ),
       ),

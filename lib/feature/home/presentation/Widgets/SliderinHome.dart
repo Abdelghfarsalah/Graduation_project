@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:graduation_project/feature/RecommendationSystem/presentation/pages/RecommendationSystempage.dart';
 import 'package:graduation_project/feature/home/presentation/Widgets/Slideritem.dart';
 import 'package:graduation_project/feature/home/presentation/pages/PopularTracks.dart';
 
@@ -22,7 +23,8 @@ class Sliderinhome extends StatelessWidget {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Populartracks()),
+                  MaterialPageRoute(
+                      builder: (context) => Recommendationsystempage()),
                 );
               },
               image: "assets/HomeImage/Sliderimage1.png",
@@ -33,12 +35,12 @@ class Sliderinhome extends StatelessWidget {
             ),
             Slideritem(
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Populartracks()),
-                );
+                // Navigator.push(
+                //   context,
+                //   MaterialPageRoute(builder: (context) => Populartracks()),
+                // );
               },
-              image: "assets/HomeImage/Sliderimage1.png",
+              image: "assets/HomeImage/CoreLanguages.png",
               title: "Core Languages",
             ),
             SizedBox(
@@ -51,7 +53,7 @@ class Sliderinhome extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => Populartracks()),
                 );
               },
-              image: "assets/HomeImage/Sliderimage1.png",
+              image: "assets/HomeImage/PopularTracks.png",
               title: "Popular Tracks",
             ),
             SizedBox(
