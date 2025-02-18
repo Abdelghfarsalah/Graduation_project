@@ -77,6 +77,10 @@ flutter:
     - assets/HomeImage/SearchImages/
     - assets/HomeImage/Accountimages/
     - assets/Bot/
+    - assets/HomeImage/Adobe/
+    - assets/HomeImage/ProgrammingPrograms/
+    - assets/HomeImage/OperationSystems/
+    - assets/HomeImage/DesignProgram/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

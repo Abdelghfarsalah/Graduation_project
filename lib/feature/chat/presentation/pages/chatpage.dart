@@ -43,7 +43,6 @@ class _ChatpageState extends State<Chatpage> {
                   //     MaterialPageRoute(builder: (context) => Home()),
                   //     (data) => false);
                   Navigator.pop(context);
-                  Navigator.pop(context);
                 },
                 icon: Icon(Icons.arrow_back_ios)),
           ),
