@@ -13,7 +13,7 @@ class darweritem extends StatelessWidget {
       child: Column(
         children: [
           ListTile(
-            title: Text("$title"),
+            title: Text(title),
             trailing: icon,
           ),
           const Divider(

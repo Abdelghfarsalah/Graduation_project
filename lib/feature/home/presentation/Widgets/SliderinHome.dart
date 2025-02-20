@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:graduation_project/feature/RecommendationSystem/presentation/pages/RecommendationSystempage.dart';
 import 'package:graduation_project/feature/home/presentation/Widgets/Slideritem.dart';
+import 'package:graduation_project/feature/home/presentation/pages/ActualProgrammingLanguages.dart';
 import 'package:graduation_project/feature/home/presentation/pages/PopularTracks.dart';
 
 class Sliderinhome extends StatelessWidget {
@@ -35,10 +36,11 @@ class Sliderinhome extends StatelessWidget {
             ),
             Slideritem(
               onTap: () {
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(builder: (context) => Populartracks()),
-                // );
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => Actualprogramminglanguages()),
+                );
               },
               image: "assets/HomeImage/CoreLanguages.png",
               title: "Core Languages",

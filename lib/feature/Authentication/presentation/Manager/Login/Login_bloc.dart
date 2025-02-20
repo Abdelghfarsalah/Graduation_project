@@ -1,23 +1,23 @@
 // login_bloc.dart
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:graduation_project/feature/Authentication/domain/usecase/loginUsecase.dart';
 import 'package:graduation_project/feature/Authentication/presentation/Manager/Login/Login_event.dart';
 import 'package:graduation_project/feature/Authentication/presentation/Manager/Login/Login_states.dart';
 
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
-  LoginBloc() : super(LoginInitial()) {
+  final Loginusecase loginusecase;
+  LoginBloc(this.loginusecase) : super(LoginInitial()) {
     on<LoginSubmitted>(_onLoginSubmitted);
   }
-
-  void _onLoginSubmitted(LoginSubmitted event, Emitter<LoginState> emit) {
+  Future<void> _onLoginSubmitted(
+      LoginSubmitted event, Emitter<LoginState> emit) async {
     emit(LoginLoading());
-
-    // Simulate login process
-    Future.delayed(Duration(seconds: 2), () {
-      if (event.email.contains('@') && event.password.length >= 6) {
-        emit(LoginSuccess());
-      } else {
-        emit(LoginFailure(error: 'Invalid email or password'));
-      }
+    var response =
+        await loginusecase.login(email: event.email, password: event.password);
+    response.fold((ifLeft) {
+      emit(LoginFailure(error: 'erro'));
+    }, (ifRight) {
+      emit(LoginSuccess(model: ifRight));
     });
   }
 }

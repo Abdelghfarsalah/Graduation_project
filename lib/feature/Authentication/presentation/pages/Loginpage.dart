@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:graduation_project/feature/Authentication/presentation/pages/widget/Loginbody.dart';
+import 'package:graduation_project/feature/Authentication/presentation/widget/Loginbody.dart';
 
 class Loginpage extends StatelessWidget {
   const Loginpage({super.key});

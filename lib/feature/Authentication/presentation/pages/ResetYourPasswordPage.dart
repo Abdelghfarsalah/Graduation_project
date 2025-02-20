@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:graduation_project/core/fonts.dart';
 import 'package:graduation_project/core/utils/helper.dart';
-import 'package:graduation_project/feature/Authentication/presentation/pages/widget/Back_button.dart';
-import 'package:graduation_project/feature/Authentication/presentation/pages/widget/Create_your_accout_Text.dart';
-import 'package:graduation_project/feature/Authentication/presentation/pages/widget/Custom_button.dart';
-import 'package:graduation_project/feature/Authentication/presentation/pages/widget/Password.dart';
-import 'package:graduation_project/feature/home/presentation/pages/home.dart';
+import 'package:graduation_project/feature/Authentication/presentation/widget/Back_button.dart';
+import 'package:graduation_project/feature/Authentication/presentation/widget/Create_your_accout_Text.dart';
+import 'package:graduation_project/feature/Authentication/presentation/widget/Custom_button.dart';
+import 'package:graduation_project/feature/Authentication/presentation/widget/Password.dart';
 
 class Resetyourpasswordpage extends StatefulWidget {
   const Resetyourpasswordpage({super.key});
@@ -94,10 +93,10 @@ class _ResetyourpasswordpageState extends State<Resetyourpasswordpage> {
                             borderRadius: 14,
                             onTap: () {
                               Helper.showSuccessDialog(context);
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => Home()));
+                              // Navigator.push(
+                              //     context,
+                              //     MaterialPageRoute(
+                              //         builder: (context) => Home()));
                             },
                             endcolor: Color(0xff9CC7FF),
                             color: Color(0xff5FA5FF),

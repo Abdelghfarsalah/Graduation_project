@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:graduation_project/feature/Authentication/presentation/pages/widget/VerifyPhoneNumbercodebody.dart';
+import 'package:graduation_project/feature/Authentication/presentation/widget/VerifyPhoneNumbercodebody.dart';
 
 class VerifyPhoneNumbercode extends StatelessWidget {
   const VerifyPhoneNumbercode({super.key, required this.phone});

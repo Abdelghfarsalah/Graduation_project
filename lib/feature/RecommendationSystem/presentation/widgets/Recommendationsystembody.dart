@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:graduation_project/core/fonts.dart';
-import 'package:graduation_project/feature/Authentication/presentation/pages/widget/Custom_button.dart';
+import 'package:graduation_project/feature/Authentication/presentation/widget/Custom_button.dart';
 import 'package:graduation_project/feature/RecommendationSystem/presentation/pages/Recommendationsystempagetow.dart';
 import 'package:graduation_project/feature/RecommendationSystem/presentation/widgets/TechRate.dart';
 

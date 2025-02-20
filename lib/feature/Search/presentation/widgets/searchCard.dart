@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:graduation_project/core/colors.dart';
 import 'package:graduation_project/core/fonts.dart';
-import 'package:graduation_project/feature/Search/presentation/models/SearchModel.dart';
+import 'package:graduation_project/feature/Search/domain/Entities/SearchModel.dart';
 
 class Searchcard extends StatelessWidget {
   const Searchcard({super.key, required this.model});

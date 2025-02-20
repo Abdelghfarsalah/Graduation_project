@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:graduation_project/core/colors.dart';
 import 'package:graduation_project/core/fonts.dart';
-import 'package:graduation_project/feature/Authentication/presentation/pages/widget/Custom_button.dart';
+import 'package:graduation_project/feature/Authentication/presentation/widget/Custom_button.dart';
 import 'package:graduation_project/feature/Categories/presentation/pages/Frameworkspage2.dart';
 import 'package:graduation_project/feature/Categories/presentation/widgets/BackendTrack.dart';
 import 'package:graduation_project/feature/Categories/presentation/widgets/frontEndtrack.dart';

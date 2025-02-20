@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:graduation_project/feature/Search/presentation/models/SearchModel.dart';
-import 'package:graduation_project/feature/home/presentation/models/PopularTracksmode.dart';
+import 'package:graduation_project/feature/Search/domain/Entities/SearchModel.dart';
+import 'package:graduation_project/feature/home/domain/Entities/PopularTracksmode.dart';
 
 class Helper {
   static void showSuccessDialog(BuildContext context) {

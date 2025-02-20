@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:graduation_project/core/colors.dart';
 import 'package:graduation_project/core/fonts.dart';
-import 'package:graduation_project/feature/Categories/presentation/models/roadmapmodel.dart';
+import 'package:graduation_project/feature/Categories/doamin/Entities/roadmapmodel.dart';
 
 class roadmapcard extends StatelessWidget {
   const roadmapcard({super.key, required this.model});

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:graduation_project/core/colors.dart';
 import 'package:graduation_project/core/fonts.dart';
-import 'package:graduation_project/feature/Account/presentation/model/PersonalInformationmodel.dart';
+import 'package:graduation_project/feature/Account/domain/Entities/PersonalInformationmodel.dart';
 
 class Personalinformationcard extends StatelessWidget {
   const Personalinformationcard({super.key, required this.model});

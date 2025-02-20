@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:graduation_project/feature/Authentication/presentation/pages/widget/SendOtpByemailBody.dart';
+import 'package:graduation_project/feature/Authentication/presentation/widget/SendOtpByemailBody.dart';
 
 class Sendotpbyemail extends StatelessWidget {
   const Sendotpbyemail({super.key});

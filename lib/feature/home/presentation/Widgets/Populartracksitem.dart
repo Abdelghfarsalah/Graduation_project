@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:graduation_project/feature/home/presentation/models/PopularTracksmode.dart';
+import 'package:graduation_project/feature/home/domain/Entities/PopularTracksmode.dart';
 
 class Populartracksitem extends StatelessWidget {
   const Populartracksitem({super.key, required this.model});

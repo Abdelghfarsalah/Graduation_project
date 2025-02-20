@@ -8,7 +8,6 @@ import 'package:graduation_project/feature/home/presentation/manager/BottomNavBa
 
 class Home extends StatelessWidget {
   const Home({super.key});
-
   @override
   Widget build(BuildContext context) {
     var bloc = BlocProvider.of<Bottomnavbarbloc>(context);

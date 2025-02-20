@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:graduation_project/core/colors.dart';
 import 'package:graduation_project/core/fonts.dart';
-import 'package:graduation_project/feature/Categories/presentation/widgets/AIandBigataEnvironments.dart';
-import 'package:graduation_project/feature/Categories/presentation/widgets/CybersecuritTestingEnvironments.dart';
+import 'package:graduation_project/core/utils/EnviromentHelper.dart';
+import 'package:graduation_project/feature/Categories/presentation/pages/Environmentthree.dart';
+import 'package:graduation_project/feature/Categories/presentation/widgets/ContinueButton.dart';
+import 'package:graduation_project/feature/Categories/presentation/widgets/Environmentonebody.dart';
 
 class Environmenttow extends StatelessWidget {
   const Environmenttow({super.key});
@@ -24,7 +26,7 @@ class Environmenttow extends StatelessWidget {
             )),
         centerTitle: true,
         title: Text(
-          "Environment",
+          "Design Program",
           style: TextStyle(
               color: appColor.Primarycolor,
               fontFamily: appFonts.Poppins,
@@ -32,7 +34,31 @@ class Environmenttow extends StatelessWidget {
               fontSize: 20),
         ),
       ),
-      body: Padding(
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
+          child: CustomScrollView(slivers: [
+            Environmentonebody(
+              Programs: Enviromenthelper.DesignProgram,
+            ),
+            SliverToBoxAdapter(
+              child: Continuebutton(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Environmentthree()),
+                  );
+                },
+              ),
+            )
+          ]),
+        ),
+      ),
+    );
+  }
+}
+/**
+ * Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
         child: SingleChildScrollView(
           child: Column(
@@ -53,7 +79,5 @@ class Environmenttow extends StatelessWidget {
             ],
           ),
         ),
-      ),
-    );
-  }
-}
+      )
+ */
