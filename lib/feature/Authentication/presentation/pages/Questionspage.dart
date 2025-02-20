@@ -5,6 +5,7 @@ import 'package:graduation_project/core/utils/helper.dart';
 import 'package:graduation_project/feature/Authentication/presentation/widget/Custom_button.dart';
 import 'package:graduation_project/feature/Authentication/presentation/widget/QuestionCard.dart';
 import 'package:graduation_project/feature/Authentication/presentation/widget/customappBarforQuestionpage.dart';
+import 'package:graduation_project/feature/home/presentation/pages/home.dart';
 
 class Questionspage extends StatefulWidget {
   const Questionspage({super.key});
@@ -108,10 +109,10 @@ class _QuestionspageState extends State<Questionspage> {
                   onTap: () {
                     if (key.currentState!.validate()) {
                       Helper.showSuccessDialog(context);
-                      // Future.delayed(Duration(seconds: 5), () {
-                      //   Navigator.push(context,
-                      //       MaterialPageRoute(builder: (context) => Home()));
-                      // });
+                      Future.delayed(Duration(seconds: 5), () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => Home()));
+                      });
                     }
                   },
                   endcolor: Color(0xff9CC7FF),

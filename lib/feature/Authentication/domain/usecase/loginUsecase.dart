@@ -1,11 +1,11 @@
 import 'package:dartz/dartz.dart';
 import 'package:graduation_project/core/failuers/loginFailuer.dart';
 import 'package:graduation_project/core/utils/SharedPreferencesDemo.dart';
-import 'package:graduation_project/feature/Authentication/data/repoImple/Loginrepoimple.dart';
 import 'package:graduation_project/feature/Authentication/domain/Entity/userinfo.dart';
+import 'package:graduation_project/feature/Authentication/domain/repo/Authrepo.dart';
 
 class Loginusecase {
-  final Authrepoimple authrepo;
+  final Authrepo authrepo;
 
   Loginusecase({required this.authrepo});
 

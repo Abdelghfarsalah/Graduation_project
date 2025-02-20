@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:graduation_project/feature/Authentication/presentation/pages/VerificationPhone.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:graduation_project/feature/Authentication/presentation/Manager/Register/register_bloc.dart';
+import 'package:graduation_project/feature/Authentication/presentation/Manager/Register/register_event.dart';
 import 'package:graduation_project/feature/Authentication/presentation/widget/Custom_button.dart';
 import 'package:graduation_project/feature/Authentication/presentation/widget/Email.dart';
 import 'package:graduation_project/feature/Authentication/presentation/widget/Full_name.dart';
@@ -31,6 +33,7 @@ class _FormAndButtonRegisterState extends State<FormAndButtonRegister> {
               height: 20,
             ),
             EmailTextField(onChanged: (data) {
+              context.read<RegisterBloc>().Email = data;
               email = data;
             }),
             SizedBox(
@@ -46,10 +49,9 @@ class _FormAndButtonRegisterState extends State<FormAndButtonRegister> {
               borderRadius: 14,
               onTap: () {
                 if (key.currentState!.validate()) {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => Verificationphone()));
+                  print(email);
+                  context.read<RegisterBloc>().add(RegisterSubmitted(
+                      email: email, password: pass, name: fullname));
                 }
               },
               endcolor: Color(0xff9CC7FF),

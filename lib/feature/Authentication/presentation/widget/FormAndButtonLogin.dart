@@ -8,7 +8,6 @@ import 'package:graduation_project/feature/Authentication/presentation/pages/For
 import 'package:graduation_project/feature/Authentication/presentation/widget/Custom_button.dart';
 import 'package:graduation_project/feature/Authentication/presentation/widget/Email.dart';
 import 'package:graduation_project/feature/Authentication/presentation/widget/Password.dart';
-import 'package:graduation_project/feature/home/presentation/pages/home.dart';
 
 class FormAndButtonLogin extends StatefulWidget {
   const FormAndButtonLogin({super.key});
@@ -65,8 +64,8 @@ class _FormAndButtonLoginState extends State<FormAndButtonLogin> {
             BlocListener<LoginBloc, LoginState>(
               listener: (context, state) {
                 if (state is LoginSuccess) {
-                  Navigator.push(
-                      context, MaterialPageRoute(builder: (context) => Home()));
+                  // Navigator.push(
+                  //     context, MaterialPageRoute(builder: (context) => Home()));
                 }
               },
               child: CustomButton(

@@ -11,7 +11,7 @@ class Timing extends StatelessWidget {
   Widget build(BuildContext context) {
     return Countdown(
       controller: controller,
-      seconds: 5,
+      seconds: 300,
       build: (BuildContext context, double time) => Text(
         "(${getTime(time)})",
         style: TextStyle(

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graduation_project/core/fonts.dart';
-import 'package:graduation_project/feature/Authentication/presentation/pages/Questionspage.dart';
+import 'package:graduation_project/feature/Authentication/presentation/Manager/Register/register_bloc.dart';
+import 'package:graduation_project/feature/Authentication/presentation/Manager/Register/register_event.dart';
 import 'package:graduation_project/feature/Authentication/presentation/widget/Custom_button.dart';
 import 'package:graduation_project/feature/Authentication/presentation/widget/Timing.dart';
 import 'package:graduation_project/feature/Authentication/presentation/widget/otp.dart';
@@ -16,7 +18,8 @@ class OtpcodeContainer extends StatefulWidget {
 
 class _OtpcodeContainerState extends State<OtpcodeContainer> {
   CountdownController controller = CountdownController(autoStart: true);
-  @override
+
+  GlobalKey<FormState> Formkey = GlobalKey();
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -79,7 +82,9 @@ class _OtpcodeContainerState extends State<OtpcodeContainer> {
                       fontFamily: appFonts.Poppins,
                       fontSize: 14),
                 ),
-                Otp(),
+                Otp(
+                  Formkey: Formkey,
+                ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 40.0),
                   child: Align(
@@ -94,12 +99,14 @@ class _OtpcodeContainerState extends State<OtpcodeContainer> {
                   child: CustomButton(
                     borderRadius: 40,
                     onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => Questionspage(),
-                        ),
-                      );
+                      context.read<RegisterBloc>().add(VerifyEmailEvent(
+                          email: '', otp: context.read<RegisterBloc>().otp));
+                      // Navigator.push(
+                      //   context,
+                      //   MaterialPageRoute(
+                      //     builder: (context) => Questionspage(),
+                      //   ),
+                      // );
                     },
                     endcolor: Color(0xff9CC7FF),
                     color: Color(0xff5FA5FF),

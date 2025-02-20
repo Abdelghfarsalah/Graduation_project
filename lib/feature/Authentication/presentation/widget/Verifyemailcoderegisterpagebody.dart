@@ -1,25 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graduation_project/core/fonts.dart';
-import 'package:graduation_project/feature/Authentication/presentation/Manager/resetpassword/Resetpassbloc.dart';
-import 'package:graduation_project/feature/Authentication/presentation/Manager/resetpassword/Resetpassevent.dart';
+import 'package:graduation_project/feature/Authentication/presentation/Manager/Register/register_bloc.dart';
+import 'package:graduation_project/feature/Authentication/presentation/Manager/Register/register_event.dart';
 import 'package:graduation_project/feature/Authentication/presentation/widget/Back_button.dart';
 import 'package:graduation_project/feature/Authentication/presentation/widget/Custom_button.dart';
 import 'package:graduation_project/feature/Authentication/presentation/widget/Timing.dart';
 import 'package:graduation_project/feature/Authentication/presentation/widget/otp.dart';
 import 'package:timer_count_down/timer_controller.dart';
 
-class Verifyemailcodeforresetpassbody extends StatefulWidget {
-  const Verifyemailcodeforresetpassbody({super.key, required this.Email});
+class Verifyemailcoderegisterpagebody extends StatefulWidget {
+  const Verifyemailcoderegisterpagebody({super.key, required this.Email});
   final String Email;
   @override
-  State<Verifyemailcodeforresetpassbody> createState() =>
+  State<Verifyemailcoderegisterpagebody> createState() =>
       _VerifyemailcodeforresetpassbodyState();
 }
 
 class _VerifyemailcodeforresetpassbodyState
-    extends State<Verifyemailcodeforresetpassbody> {
+    extends State<Verifyemailcoderegisterpagebody> {
   final CountdownController c = CountdownController(autoStart: true);
+
+  String otp = "";
   GlobalKey<FormState> Formkey = GlobalKey();
   @override
   Widget build(BuildContext context) {
@@ -116,13 +118,13 @@ class _VerifyemailcodeforresetpassbodyState
                               child: CustomButton(
                                 borderRadius: 40,
                                 onTap: () {
+                                  String lastotp =
+                                      context.read<RegisterBloc>().otp;
+                                  print(lastotp);
                                   if (Formkey.currentState!.validate()) {
-                                    context.read<Resetpassbloc>().add(
-                                        forgetpasswordotp(
-                                            email: widget.Email,
-                                            otp: context
-                                                .read<Resetpassbloc>()
-                                                .otp));
+                                    context.read<RegisterBloc>().add(
+                                        VerifyEmailEvent(
+                                            email: widget.Email, otp: lastotp));
                                   }
                                 },
                                 endcolor: Color(0xff9CC7FF),
@@ -141,6 +143,9 @@ class _VerifyemailcodeforresetpassbodyState
                                 borderRadius: 40,
                                 onTap: () {
                                   if (c.isCompleted!) {
+                                    context.read<RegisterBloc>().add(
+                                        resentdVerifyEmailEvent(
+                                            email: widget.Email));
                                     c.restart();
                                   }
                                 },

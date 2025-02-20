@@ -1,12 +1,14 @@
 // login_bloc.dart
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:graduation_project/feature/Authentication/data/repoImple/Loginrepoimple.dart';
 import 'package:graduation_project/feature/Authentication/domain/usecase/loginUsecase.dart';
 import 'package:graduation_project/feature/Authentication/presentation/Manager/Login/Login_event.dart';
 import 'package:graduation_project/feature/Authentication/presentation/Manager/Login/Login_states.dart';
 
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
   final Loginusecase loginusecase;
-  LoginBloc(this.loginusecase) : super(LoginInitial()) {
+  final Authrepoimple authrepoimple;
+  LoginBloc(this.loginusecase, this.authrepoimple) : super(LoginInitial()) {
     on<LoginSubmitted>(_onLoginSubmitted);
   }
   Future<void> _onLoginSubmitted(

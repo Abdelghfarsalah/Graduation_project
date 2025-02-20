@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:graduation_project/feature/Authentication/presentation/Manager/resetpassword/Resetpassbloc.dart';
+import 'package:graduation_project/feature/Authentication/presentation/Manager/resetpassword/Resetpassevent.dart';
 import 'package:graduation_project/feature/Authentication/presentation/widget/Custom_button.dart';
 import 'package:graduation_project/feature/Authentication/presentation/widget/Email.dart';
-import 'package:graduation_project/feature/Authentication/presentation/widget/VerifyEmailcodeForResetPassword.dart';
 
 class Enteremailtoforgetpass extends StatefulWidget {
   const Enteremailtoforgetpass({super.key});
@@ -47,15 +49,11 @@ class _EnteremailtoforgetpassState extends State<Enteremailtoforgetpass> {
                   child: CustomButton(
                     borderRadius: 14,
                     onTap: () {
+                      print("object");
                       if (key.currentState!.validate()) {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) =>
-                                  Verifyemailcodeforresetpassword(
-                                    email: Email,
-                                  )),
-                        );
+                        context
+                            .read<Resetpassbloc>()
+                            .add(forgetpassword(email: Email));
                       }
                     },
                     endcolor: Color(0xff9CC7FF),
