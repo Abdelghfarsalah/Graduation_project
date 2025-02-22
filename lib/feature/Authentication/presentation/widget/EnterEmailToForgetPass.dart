@@ -49,7 +49,6 @@ class _EnteremailtoforgetpassState extends State<Enteremailtoforgetpass> {
                   child: CustomButton(
                     borderRadius: 14,
                     onTap: () {
-                      print("object");
                       if (key.currentState!.validate()) {
                         context
                             .read<Resetpassbloc>()

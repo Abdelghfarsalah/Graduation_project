@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/fonts.dart';
 import 'package:graduation_project/feature/Authentication/presentation/Manager/Register/register_bloc.dart';
 import 'package:graduation_project/feature/Authentication/presentation/Manager/resetpassword/Resetpassbloc.dart';
@@ -42,48 +43,51 @@ class _OtpState extends State<Otp> {
 
   Widget buildOtpField(int index) {
     return SizedBox(
-      width: 50,
-      height: 50,
-      child: TextFormField(
-        controller: _controllers[index],
-        focusNode: _focusNodes[index],
-        keyboardType: TextInputType.number,
-        textAlign: TextAlign.center,
-        maxLength: 1,
-        validator: (data) {
-          if (data!.isEmpty) {
-            return "";
-          }
-          return null;
-        },
-        onChanged: (value) {
-          if (value.isNotEmpty && index < 5) {
-            FocusScope.of(context).requestFocus(_focusNodes[index + 1]);
-          } else if (value.isEmpty && index > 0) {
-            FocusScope.of(context).requestFocus(_focusNodes[index - 1]);
-          }
+      width: 40.w,
+      height: 50.h,
+      child: Center(
+        child: TextFormField(
+          controller: _controllers[index],
+          focusNode: _focusNodes[index],
+          keyboardType: TextInputType.number,
+          textAlign: TextAlign.center,
+          maxLength: 1,
+          validator: (data) {
+            if (data!.isEmpty) {
+              return "";
+            }
+            return null;
+          },
+          onChanged: (value) {
+            if (value.isNotEmpty && index < 5) {
+              FocusScope.of(context).requestFocus(_focusNodes[index + 1]);
+            } else if (value.isEmpty && index > 0) {
+              FocusScope.of(context).requestFocus(_focusNodes[index - 1]);
+            }
 
-          if (_controllers.every((controller) => controller.text.isNotEmpty)) {
-            saveOtpValues();
-          }
-        },
-        style: TextStyle(
-          color: Color(0xff0050D0),
-          fontFamily: appFonts.Poppins,
-          fontWeight: FontWeight.w300,
-        ),
-        cursorColor: Colors.green, // تغيير لون المؤشر
-        decoration: InputDecoration(
-          counterText: '',
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.all(
-              Radius.circular(100),
-            ),
+            if (_controllers
+                .every((controller) => controller.text.isNotEmpty)) {
+              saveOtpValues();
+            }
+          },
+          style: TextStyle(
+            color: Color(0xff0050D0),
+            fontFamily: appFonts.Poppins,
+            fontWeight: FontWeight.w300,
           ),
-          focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.green),
-            borderRadius: BorderRadius.all(
-              Radius.circular(100),
+          cursorColor: Colors.green, // تغيير لون المؤشر
+          decoration: InputDecoration(
+            counterText: '',
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.all(
+                Radius.circular(200.r),
+              ),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.green),
+              borderRadius: BorderRadius.all(
+                Radius.circular(200.r),
+              ),
             ),
           ),
         ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:graduation_project/feature/chat/presentation/manager/chatbloc.dart';
 
@@ -14,36 +15,37 @@ class MessageSend extends StatelessWidget {
       child: Row(
         children: [
           Container(
-            height: 37,
-            width: 37,
+            height: 37.h,
+            width: 37.w,
             decoration: BoxDecoration(
                 image: DecorationImage(
                     image: AssetImage("assets/Bot/Snederinbot.png"))),
           ),
           SizedBox(
-            width: 3,
+            width: 3.w,
           ),
           IntrinsicWidth(
             child: Container(
               constraints: BoxConstraints(
-                maxWidth: MediaQuery.sizeOf(context).width * 0.75, // أقصى عرض
+                maxWidth: MediaQuery.of(context).size.width * 0.73, // أقصى عرض
               ),
               child: Center(
-                  child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 18.0, vertical: 15),
-                child: SizedBox(
-                  width: MediaQuery.of(context).size.width * 0.8,
-                  child: Text(
-                    text,
-                    style: const TextStyle(
-                      color: Colors.black,
-                      fontSize: 18,
-                      fontWeight: FontWeight.w400,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 18.0, vertical: 15),
+                  child: SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.73,
+                    child: Text(
+                      text,
+                      style: const TextStyle(
+                        color: Colors.black,
+                        fontSize: 18,
+                        fontWeight: FontWeight.w400,
+                      ),
                     ),
                   ),
                 ),
-              )),
+              ),
             ),
           ),
           Spacer(),

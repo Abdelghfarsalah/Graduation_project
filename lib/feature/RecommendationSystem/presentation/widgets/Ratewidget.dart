@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/fonts.dart';
 import 'package:graduation_project/feature/RecommendationSystem/presentation/manager/Recommendationsystembloc/Recommendationsystembloc.dart';
 
@@ -57,7 +58,7 @@ class _RatewidgetState extends State<Ratewidget> {
                     "${emojis[index]} ${statuses[index]}",
                     style: TextStyle(
                         fontFamily: appFonts.Poppins,
-                        fontSize: select == index ? 20 : 14,
+                        fontSize: select == index ? 16.sp : 14.sp,
                         fontWeight: FontWeight.w500,
                         color:
                             select == index ? Color(0xff000000) : Colors.grey),

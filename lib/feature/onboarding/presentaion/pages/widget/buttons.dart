@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/fonts.dart';
 import 'package:graduation_project/feature/onboarding/presentaion/pages/WelcomePage.dart';
 
@@ -23,6 +24,8 @@ class Buttons extends StatelessWidget {
         ),
         GestureDetector(
           onTap: () {
+            // print("Height ${MediaQuery.sizeOf(context).height}");
+            // print("width ${MediaQuery.sizeOf(context).width}");
             if (controller.page != 3) {
               controller.nextPage(
                   duration: Duration(microseconds: 50),
@@ -33,8 +36,8 @@ class Buttons extends StatelessWidget {
             }
           },
           child: Container(
-            height: 45,
-            width: !Fourpage ? 112 : MediaQuery.sizeOf(context).width * 0.75,
+            height: 45.h,
+            width: !Fourpage ? 112.w : MediaQuery.sizeOf(context).width * 0.75,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(14),
               gradient: LinearGradient(colors: [

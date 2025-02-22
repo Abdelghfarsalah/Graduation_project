@@ -52,6 +52,7 @@ class _CustomtextfiledState extends State<Customtextfiled> {
             // ),
           ]),
       child: TextFormField(
+        cursorColor: appColor.Primarycolor,
         focusNode: widget.focusNode,
         onChanged: widget.onChanged,
         validator: widget.validator,

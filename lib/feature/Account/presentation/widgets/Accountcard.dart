@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:graduation_project/core/fonts.dart';
 
@@ -16,7 +17,7 @@ class Accountcard extends StatelessWidget {
           alignment: Alignment.center,
           children: [
             Container(
-              height: 246,
+              height: MediaQuery.sizeOf(context).height * 0.3,
               width: MediaQuery.of(context).size.width * 0.85,
               decoration: BoxDecoration(
                   color: Colors.white,
@@ -30,28 +31,28 @@ class Accountcard extends StatelessWidget {
                   borderRadius: BorderRadius.circular(33)),
             ),
             Positioned(
-              top: -50,
+              top: -50.h,
               child: CircleAvatar(
-                radius: 64,
+                radius: 64.r,
                 backgroundColor: Colors.blue,
                 child: CircleAvatar(
-                  radius: 60,
+                  radius: 60.r,
                   backgroundImage: AssetImage("assets/HomeImage/image 170.png"),
                 ),
               ),
             ),
             Positioned(
-              top: 70,
+              top: 70.h,
               child: Column(
                 children: [
                   SizedBox(
-                    height: 15,
+                    height: 15.h,
                   ),
                   Text(
                     "Rahaf Mohammad",
                     style: TextStyle(
                         fontFamily: appFonts.Poppins,
-                        fontSize: 20,
+                        fontSize: 20.sp,
                         fontWeight: FontWeight.w700),
                   ),
                   SizedBox(
@@ -62,12 +63,12 @@ class Accountcard extends StatelessWidget {
                       textAlign: TextAlign.center,
                       style: TextStyle(
                           fontFamily: appFonts.Poppins,
-                          fontSize: 12,
+                          fontSize: 12.sp,
                           fontWeight: FontWeight.w300),
                     ),
                   ),
                   SizedBox(
-                    height: 20,
+                    height: 9.h,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -75,7 +76,7 @@ class Accountcard extends StatelessWidget {
                       GestureDetector(
                         onTap: () {},
                         child: Container(
-                          height: 45,
+                          height: 45.h,
                           width: MediaQuery.of(context).size.width * 0.55,
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(6),
@@ -91,7 +92,7 @@ class Accountcard extends StatelessWidget {
                               "Complete your Profile",
                               style: TextStyle(
                                   fontFamily: appFonts.Poppins,
-                                  fontSize: 16,
+                                  fontSize: 16.sp,
                                   color: Colors.white,
                                   fontWeight: FontWeight.w700),
                             ),
@@ -99,13 +100,13 @@ class Accountcard extends StatelessWidget {
                         ),
                       ),
                       SizedBox(
-                        width: 20,
+                        width: 20.h,
                       ),
                       GestureDetector(
                         onTap: () {},
                         child: Container(
-                          height: 45,
-                          width: 45,
+                          height: 45.h,
+                          width: 45.w,
                           decoration: BoxDecoration(
                             color: Color(0xff9CC7FF).withOpacity(0.2),
                             borderRadius: BorderRadius.circular(6),

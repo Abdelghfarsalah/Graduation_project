@@ -9,7 +9,7 @@ class Customappbarsearch extends StatelessWidget {
   Widget build(BuildContext context) {
     return SliverAppBar(
       backgroundColor: Colors.white,
-
+      automaticallyImplyLeading: false,
       // centerTitle: true,
       title: Text(
         "Search",

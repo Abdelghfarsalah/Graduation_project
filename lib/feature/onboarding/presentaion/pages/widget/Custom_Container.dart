@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/feature/onboarding/presentaion/pages/widget/buttons.dart';
 import 'package:graduation_project/feature/onboarding/presentaion/pages/widget/smoothpageIndecator.dart';
 import 'package:graduation_project/feature/onboarding/presentaion/pages/widget/titels.dart';
@@ -22,7 +23,7 @@ class CustomContainer extends StatelessWidget {
       padding: const EdgeInsets.all(18),
       child: Container(
         width: MediaQuery.sizeOf(context).width,
-        height: MediaQuery.sizeOf(context).height * 0.38,
+        height: 320.h,
         decoration: BoxDecoration(
             color: Colors.white, borderRadius: BorderRadius.circular(12)),
         child: Padding(

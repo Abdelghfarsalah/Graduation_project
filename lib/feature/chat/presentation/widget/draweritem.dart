@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class darweritem extends StatelessWidget {
   const darweritem(
@@ -13,15 +14,16 @@ class darweritem extends StatelessWidget {
       child: Column(
         children: [
           ListTile(
-            title: Text(title),
-            trailing: icon,
+            title: Text(title,
+                style: TextStyle(fontSize: 16.sp)), // حجم النص متجاوب
+            trailing: SizedBox(
+                width: 24.w, height: 24.h, child: icon), // ضبط الأيقونة
           ),
-          const Divider(
-            height: 2,
-            color: Colors.grey,
-            endIndent: 10,
-            indent: 10,
-          )
+          Divider(
+            height: 2.h,
+            endIndent: 10.w,
+            indent: 10.w,
+          ),
         ],
       ),
     );

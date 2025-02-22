@@ -8,4 +8,5 @@ class Authapi {
   static String verifypasswordOTP = "$baseurl/auth/verify-password-OTP";
   static String register = "$baseurl/auth/register";
   static String resetpassword = "$baseurl/user/reset-password";
+  static String google = "$baseurl/auth/google";
 }

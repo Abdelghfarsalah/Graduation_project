@@ -23,7 +23,7 @@ class Verifyemailcodeforresetpassword extends StatelessWidget {
               loading = true;
             } else if (state is forgetpasswordotpFailure) {
               Fluttertoast.showToast(
-                  msg: "Please enter a valid email and password .",
+                  msg: "Please enter a valid otp.",
                   toastLength: Toast.LENGTH_SHORT,
                   gravity: ToastGravity.BOTTOM,
                   timeInSecForIosWeb: 1,

@@ -79,7 +79,7 @@ class _VerifyemailcodeforresetpassbodyState
                                   fontSize: 22),
                             ),
                             Text(
-                              "We Have Sent Code To Your Phone Number",
+                              "We Have Sent Code To Your Email",
                               style: TextStyle(
                                   fontWeight: FontWeight.w400,
                                   color: Color(0xffACADB9),

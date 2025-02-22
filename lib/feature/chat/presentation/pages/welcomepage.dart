@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/feature/chat/presentation/widget/welcomepagebody.dart';
 
 class WelcomepageChabot extends StatelessWidget {
@@ -13,25 +14,25 @@ class WelcomepageChabot extends StatelessWidget {
         backgroundColor: Colors.white,
         automaticallyImplyLeading: false,
         leading: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: EdgeInsets.all(8.0.w),
           child: Container(
-            height: 46,
-            width: 46,
+            height: 46.h,
+            width: 46.w,
             decoration: BoxDecoration(
                 color: Colors.white,
-                borderRadius: BorderRadius.circular(13),
+                borderRadius: BorderRadius.circular(13.r),
                 boxShadow: [
                   BoxShadow(
                       color: Color(0xffD3D7D8).withOpacity(0.3),
-                      blurRadius: 24,
+                      blurRadius: 24.r,
                       spreadRadius: 0,
-                      offset: Offset(6, 11))
+                      offset: Offset(6.w, 11.h))
                 ]),
             child: IconButton(
                 onPressed: () {
                   Navigator.pop(context);
                 },
-                icon: Icon(Icons.arrow_back_ios)),
+                icon: Icon(Icons.arrow_back_ios, size: 18.sp)),
           ),
         ),
       ),

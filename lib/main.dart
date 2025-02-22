@@ -1,15 +1,25 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gemini/flutter_gemini.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/Bloc_providers.dart';
 import 'package:graduation_project/feature/onboarding/presentaion/pages/Main_onboarding.dart';
 
 void main() {
   Gemini.init(apiKey: "AIzaSyAB6GPly8gecYvCVDFkRfZ7C6msqtF0Z5s");
+  // SystemChrome.setPreferredOrientations([
+  //   DeviceOrientation.portraitUp,
+  //   DeviceOrientation.portraitDown,
+  // ]).then((_) {
   runApp(
     AppBlocProviders.getblocprovider(
-      child: const GraduationProject(),
+      child: DevicePreview(
+        builder: (context) => const GraduationProject(),
+      ),
     ),
   );
+  // }
+  // );
 }
 
 class GraduationProject extends StatelessWidget {
@@ -17,9 +27,16 @@ class GraduationProject extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: MainOnboarding(),
-    );
+    return ScreenUtilInit(
+        designSize: const Size(411, 843),
+        minTextAdapt: true,
+        splitScreenMode: true,
+        // Use builder only if you need to use library outside ScreenUtilInit context
+        builder: (_, child) {
+          return MaterialApp(
+            debugShowCheckedModeBanner: false,
+            home: MainOnboarding(),
+          );
+        });
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/feature/RecommendationSystem/presentation/pages/RecommendationSystempage.dart';
 import 'package:graduation_project/feature/home/presentation/Widgets/Slideritem.dart';
 import 'package:graduation_project/feature/home/presentation/pages/ActualProgrammingLanguages.dart';
@@ -12,7 +13,7 @@ class Sliderinhome extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(top: MediaQuery.sizeOf(context).height * 0.24),
       child: SizedBox(
-        height: 200,
+        height: 220.h,
         child: ListView(
           physics: BouncingScrollPhysics(),
           scrollDirection: Axis.horizontal,

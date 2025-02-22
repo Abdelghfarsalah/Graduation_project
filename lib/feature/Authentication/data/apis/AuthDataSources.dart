@@ -126,4 +126,15 @@ class Authdatasources {
       return Left(" ${e.toString()}");
     }
   }
+
+  Future<Either<String, String>> Google() async {
+    try {
+      var response = await dio.get(
+        Authapi.google,
+      );
+      return Right(response.data ?? "تم تغيير كلمة المرور بنجاح");
+    } catch (e) {
+      return Left(" ${e.toString()}");
+    }
+  }
 }

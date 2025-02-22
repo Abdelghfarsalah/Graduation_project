@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/fonts.dart';
 
 class Titels extends StatelessWidget {
@@ -18,7 +19,7 @@ class Titels extends StatelessWidget {
           title,
           maxLines: 1,
           style: TextStyle(
-              fontSize: 30,
+              fontSize: 30.sp,
               fontWeight: FontWeight.w700,
               fontFamily: appFonts.Poppins),
         ),
@@ -26,7 +27,7 @@ class Titels extends StatelessWidget {
           subtitle,
           maxLines: 1,
           style: TextStyle(
-              fontSize: 30,
+              fontSize: 30.sp,
               fontWeight: FontWeight.w700,
               fontFamily: appFonts.Poppins),
         ),
@@ -39,7 +40,7 @@ class Titels extends StatelessWidget {
           overflow: TextOverflow.ellipsis,
           textAlign: TextAlign.center,
           style: TextStyle(
-              fontSize: 14,
+              fontSize: 14.sp,
               fontWeight: FontWeight.w400,
               color: Color.fromARGB(255, 161, 161, 161),
               fontFamily: appFonts.Poppins),

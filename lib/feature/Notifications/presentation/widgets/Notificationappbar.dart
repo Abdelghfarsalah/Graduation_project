@@ -8,6 +8,8 @@ class Notificationappbar extends StatelessWidget
   Widget build(BuildContext context) {
     return AppBar(
       automaticallyImplyLeading: false,
+      scrolledUnderElevation: 0,
+      backgroundColor: Colors.white,
       centerTitle: true,
       leading: IconButton(
         onPressed: () {

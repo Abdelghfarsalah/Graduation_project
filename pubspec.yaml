@@ -47,10 +47,20 @@ dependencies:
   dio: ^5.8.0+1
   dartz: ^0.10.1
   fluttertoast: ^8.2.12
+  flutter_screenutil: ^5.9.3
+  webview_flutter: ^4.10.0
+  flutter_launcher_icons: ^0.14.3
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_launcher_icons: "^0.14.3"
+  
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/IMG_٢٠٢٥٠٢٢٢_١٩٥٧٣٣.jpg"
+  min_sdk_android: 21 
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -86,6 +96,7 @@ flutter:
     - assets/HomeImage/DesignProgram/
     - assets/HomeImage/Technologies That Are NOT Programming Languages/
     - assets/HomeImage/ActualProgrammingLanguages/
+    - assets/IMG_٢٠٢٥٠٢٢٢_١٩٥٧٣٣.jpg
     - assets/HomeImage/LanguageandLibraryProgramming/
   #   - images/a_dot_ham.jpeg
 
