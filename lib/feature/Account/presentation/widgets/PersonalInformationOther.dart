@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/colors.dart';
 import 'package:graduation_project/core/fonts.dart';
 import 'package:graduation_project/feature/Notifications/presentation/pages/Notificationpages.dart';
@@ -18,7 +19,7 @@ class Personalinformationother extends StatelessWidget {
               "Other",
               style: TextStyle(
                   fontFamily: appFonts.Poppins,
-                  fontSize: 17,
+                  fontSize: 17.sp,
                   color: appColor.Primarycolor,
                   fontWeight: FontWeight.w700),
             ),
@@ -31,7 +32,7 @@ class Personalinformationother extends StatelessWidget {
                       "Language",
                       style: TextStyle(
                           fontFamily: appFonts.Poppins,
-                          fontSize: 14,
+                          fontSize: 14.sp,
                           color: Color(0xff001A4D),
                           fontWeight: FontWeight.w400),
                     ),
@@ -47,7 +48,7 @@ class Personalinformationother extends StatelessWidget {
                       "Notification Settings",
                       style: TextStyle(
                           fontFamily: appFonts.Poppins,
-                          fontSize: 14,
+                          fontSize: 14.sp,
                           color: Color(0xff001A4D),
                           fontWeight: FontWeight.w400),
                     ),
@@ -64,13 +65,11 @@ class Personalinformationother extends StatelessWidget {
                           color: Colors.grey,
                         )),
                   ),
-                  SizedBox(
-                    height: 20,
-                  ),
+                  SizedBox(height: 20.h),
                   GestureDetector(
                     onTap: () {},
                     child: Container(
-                      height: 45,
+                      height: 45.h,
                       width: MediaQuery.of(context).size.width * 0.55,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(6),
@@ -86,7 +85,7 @@ class Personalinformationother extends StatelessWidget {
                           "Save changes",
                           style: TextStyle(
                               fontFamily: appFonts.Poppins,
-                              fontSize: 20,
+                              fontSize: 20.sp,
                               color: Colors.white,
                               fontWeight: FontWeight.w700),
                         ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/fonts.dart';
 
 class Settingcard extends StatelessWidget {
@@ -15,7 +16,7 @@ class Settingcard extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        height: 60,
+        height: 60.h,
         width: double.infinity,
         color: Color(0xffF4F4F7),
         child: ListTile(
@@ -24,7 +25,7 @@ class Settingcard extends StatelessWidget {
             style: TextStyle(
                 color: Colors.black,
                 fontFamily: appFonts.Poppins,
-                fontSize: 16,
+                fontSize: 16.sp,
                 fontWeight: FontWeight.w600),
           ),
           leading: icon,

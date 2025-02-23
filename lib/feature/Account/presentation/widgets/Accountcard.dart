@@ -24,7 +24,7 @@ class Accountcard extends StatelessWidget {
                   boxShadow: [
                     BoxShadow(
                         color: Color(0xffB8B8D2).withOpacity(0.2),
-                        blurRadius: 12,
+                        blurRadius: 12.r,
                         spreadRadius: 0,
                         offset: Offset(2, 2))
                   ],

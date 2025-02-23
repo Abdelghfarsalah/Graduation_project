@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/feature/Account/presentation/pages/SettingPage.dart';
 
 class Settingicon extends StatelessWidget {
@@ -7,9 +8,9 @@ class Settingicon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-        top: 50,
+        top: 50.h,
         left: MediaQuery.of(context).size.width * 0.85,
-        right: 20,
+        right: 20.w,
         child: GestureDetector(
             onTap: () {
               Navigator.push(context,

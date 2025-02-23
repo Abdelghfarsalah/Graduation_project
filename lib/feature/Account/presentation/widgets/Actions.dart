@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/fonts.dart';
 import 'package:graduation_project/feature/Account/presentation/widgets/SettingCard.dart';
 import 'package:graduation_project/feature/home/presentation/manager/BottomNavBar/BottomNavBarBloc.dart';
@@ -19,11 +20,11 @@ class ActionsSection extends StatelessWidget {
           style: TextStyle(
               color: Colors.black,
               fontFamily: appFonts.Poppins,
-              fontSize: 16,
+              fontSize: 16.sp,
               fontWeight: FontWeight.w600),
         ),
         SizedBox(
-          height: 10,
+          height: 10.h,
         ),
         Settingcard(
             title: "Report a problem", icon: Icon(Icons.flag), onTap: () {}),

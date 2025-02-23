@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/colors.dart';
 import 'package:graduation_project/core/fonts.dart';
 import 'package:graduation_project/feature/Account/domain/Entities/PersonalInformationmodel.dart';
@@ -22,7 +23,7 @@ class _DisplaypersonalinformationState
         "RahafMohammadIS21@fcai.usc.edu.eg",
         style: TextStyle(
             fontFamily: appFonts.Poppins,
-            fontSize: 12,
+            fontSize: 12.sp,
             color: Color(0xff001A4D),
             fontWeight: FontWeight.w400),
       ),
@@ -33,7 +34,7 @@ class _DisplaypersonalinformationState
         "+201008751062",
         style: TextStyle(
             fontFamily: appFonts.Poppins,
-            fontSize: 12,
+            fontSize: 12.sp,
             color: Color(0xff001A4D),
             fontWeight: FontWeight.w400),
       ),
@@ -44,7 +45,7 @@ class _DisplaypersonalinformationState
         "UI Designer",
         style: TextStyle(
             fontFamily: appFonts.Poppins,
-            fontSize: 12,
+            fontSize: 12.sp,
             color: Color(0xff001A4D),
             fontWeight: FontWeight.w400),
       ),
@@ -55,7 +56,7 @@ class _DisplaypersonalinformationState
         "3",
         style: TextStyle(
             fontFamily: appFonts.Poppins,
-            fontSize: 12,
+            fontSize: 12.sp,
             color: Color(0xff001A4D),
             fontWeight: FontWeight.w400),
       ),
@@ -66,7 +67,7 @@ class _DisplaypersonalinformationState
         "4",
         style: TextStyle(
             fontFamily: appFonts.Poppins,
-            fontSize: 12,
+            fontSize: 12.sp,
             color: Color(0xff001A4D),
             fontWeight: FontWeight.w400),
       ),

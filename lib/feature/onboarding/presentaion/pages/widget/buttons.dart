@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:graduation_project/core/colors.dart';
 import 'package:graduation_project/core/fonts.dart';
 import 'package:graduation_project/feature/onboarding/presentaion/pages/WelcomePage.dart';
 
@@ -20,7 +21,10 @@ class Buttons extends StatelessWidget {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => WelcomePage()));
               },
-              child: Text("Skip")),
+              child: Text(
+                "Skip",
+                style: TextStyle(color: appColor.Primarycolor),
+              )),
         ),
         GestureDetector(
           onTap: () {

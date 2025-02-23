@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/feature/Account/presentation/widgets/AccountSection.dart';
 import 'package:graduation_project/feature/Account/presentation/widgets/Actions.dart';
 import 'package:graduation_project/feature/Account/presentation/widgets/CacheAndcellular.dart';
@@ -16,15 +17,15 @@ class Settingbody extends StatelessWidget {
           children: [
             Accountsection(),
             SizedBox(
-              height: 20,
+              height: 20.h,
             ),
             Supportandaboutsection(),
             SizedBox(
-              height: 20,
+              height: 20.h,
             ),
             Cacheandcellular(),
             SizedBox(
-              height: 20,
+              height: 20.h,
             ),
             ActionsSection()
           ],
