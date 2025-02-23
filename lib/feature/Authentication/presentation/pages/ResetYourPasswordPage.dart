@@ -20,7 +20,6 @@ class Resetyourpasswordpage extends StatefulWidget {
 }
 
 class _ResetyourpasswordpageState extends State<Resetyourpasswordpage> {
-  @override
   String pass = "";
   String Confirmpass = "";
   GlobalKey<FormState> key = GlobalKey();

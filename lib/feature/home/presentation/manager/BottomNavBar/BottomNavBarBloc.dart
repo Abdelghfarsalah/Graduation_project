@@ -20,7 +20,7 @@ class Bottomnavbarbloc extends Bloc<Bottomnavbarevent, Bottomnavbarstate> {
     WelcomepageChabot(),
     Accountpage()
   ];
-  void _Changeindex(ChangeEvent event, Emitter<Bottomnavbarstate> state) {
+  void _Changeindex(ChangeEvent event, Emitter<Bottomnavbarstate> emit) {
     currentindex = event.index;
     emit(BottomnavbarstateChaneg());
   }

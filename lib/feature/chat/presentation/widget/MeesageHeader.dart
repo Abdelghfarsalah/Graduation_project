@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:share_plus/share_plus.dart';
 
 class Meesageheader extends StatelessWidget {
   const Meesageheader({super.key, required this.text});
@@ -35,7 +36,7 @@ class Meesageheader extends StatelessWidget {
                 )),
             IconButton(
                 onPressed: () {
-                  // Share.share(text);
+                  Share.share(text);
                 },
                 icon: Icon(
                   Icons.share,
