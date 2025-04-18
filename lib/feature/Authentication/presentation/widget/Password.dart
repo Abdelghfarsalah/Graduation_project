@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:graduation_project/feature/Authentication/presentation/widget/customTextFiled.dart';
@@ -22,8 +23,8 @@ class _PasswordState extends State<Password> {
       labal: "Password",
       prefixicon: SvgPicture.asset(
         "assets/Icons/Lock Icon.svg",
-        height: 19,
-        width: 16,
+        height: 19.h,
+        width: 16.w,
         fit: BoxFit.none,
       ),
       onChanged: widget.onChanged,
@@ -40,17 +41,17 @@ class _PasswordState extends State<Password> {
           });
         },
         child: !obscureText
-            ? Icon(FontAwesomeIcons.eye, size: 18, color: Color(0xff1A6EFC))
+            ? Icon(FontAwesomeIcons.eye, size: 18.sp, color: Color(0xff1A6EFC))
             : Icon(
                 FontAwesomeIcons.eyeSlash,
-                size: 18,
+                size: 18.sp,
               ),
       ),
       focusNode: focusNode,
       prefixiconfocus: SvgPicture.asset(
         "assets/Icons/Lock Icon (1).svg",
-        height: 19,
-        width: 16,
+        height: 19.h,
+        width: 16.h,
         fit: BoxFit.none,
       ),
     );

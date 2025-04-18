@@ -55,7 +55,11 @@ class _StreamViewState extends State<StreamView> {
                     itemBuilder: (context, index) => bloc.chat[index],
                   ),
                 ),
-          Textfiledcustom(bloc: bloc),
+          Padding(
+            padding:
+                EdgeInsets.only(bottom: MediaQuery.of(context).padding.bottom),
+            child: Textfiledcustom(bloc: bloc),
+          ),
         ],
       );
     });

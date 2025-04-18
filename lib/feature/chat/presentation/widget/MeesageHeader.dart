@@ -35,14 +35,15 @@ class Meesageheader extends StatelessWidget {
                   color: Color(0xffBDBDBD),
                 )),
             IconButton(
-                onPressed: () {
-                  Share.share(text);
-                },
-                icon: Icon(
-                  Icons.share,
-                  size: 18,
-                  color: Color(0xffBDBDBD),
-                )),
+              onPressed: () {
+                Share.share(text);
+              },
+              icon: Icon(
+                Icons.share,
+                size: 18,
+                color: Color(0xffBDBDBD),
+              ),
+            ),
           ],
         ),
       ),

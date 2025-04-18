@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/feature/Authentication/presentation/Manager/Register/register_bloc.dart';
 import 'package:graduation_project/feature/Authentication/presentation/Manager/Register/register_event.dart';
 import 'package:graduation_project/feature/Authentication/presentation/widget/Custom_button.dart';
@@ -30,23 +31,23 @@ class _FormAndButtonRegisterState extends State<FormAndButtonRegister> {
               fullname = data;
             }),
             SizedBox(
-              height: 20,
+              height: 20.h,
             ),
             EmailTextField(onChanged: (data) {
               context.read<RegisterBloc>().Email = data;
               email = data;
             }),
             SizedBox(
-              height: 20,
+              height: 20.h,
             ),
             Password(onChanged: (data) {
               pass = data;
             }),
             SizedBox(
-              height: 20,
+              height: 20.h,
             ),
             CustomButton(
-              borderRadius: 14,
+              borderRadius: 14.r,
               onTap: () {
                 if (key.currentState!.validate()) {
                   print(email);

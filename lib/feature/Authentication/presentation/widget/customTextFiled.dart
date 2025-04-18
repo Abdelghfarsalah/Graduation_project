@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/colors.dart';
 import 'package:graduation_project/core/fonts.dart';
 
@@ -68,7 +69,7 @@ class _CustomtextfiledState extends State<Customtextfiled> {
           filled: true,
           hintStyle: TextStyle(
               color: Color(0xffC2C3CB),
-              fontSize: 14,
+              fontSize: 14.sp,
               fontFamily: appFonts.Poppins),
           fillColor: Colors.white,
           prefixIcon: widget.focusNode.hasFocus
@@ -85,7 +86,7 @@ class _CustomtextfiledState extends State<Customtextfiled> {
           focusedBorder: OutlineInputBorder(
             borderRadius:
                 BorderRadius.circular(16), // نفس نصف القطر عند التركيز
-            borderSide: BorderSide(color: appColor.Primarycolor, width: 2),
+            borderSide: BorderSide(color: appColor.Primarycolor, width: 2.w),
           ),
         ),
       ),

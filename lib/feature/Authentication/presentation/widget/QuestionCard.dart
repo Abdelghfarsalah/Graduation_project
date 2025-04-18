@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/colors.dart';
 
 class Questioncard extends StatelessWidget {
@@ -21,7 +22,7 @@ class Questioncard extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start, // محاذاة النص إلى اليسار
       children: [
-        Text(q, style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+        Text(q, style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold)),
         TextFormField(
           cursorColor: appColor.Primarycolor,
           keyboardType: keyboardType,
@@ -31,7 +32,7 @@ class Questioncard extends StatelessWidget {
             hintText: hint,
             hintStyle: TextStyle(
                 color: Color(0xffC4C4C4),
-                fontSize: 16,
+                fontSize: 16.sp,
                 fontWeight: FontWeight.w600),
             border: InputBorder.none, // حذف الحدود
             enabledBorder: InputBorder.none, // حذف الحدود عند عدم التركيز

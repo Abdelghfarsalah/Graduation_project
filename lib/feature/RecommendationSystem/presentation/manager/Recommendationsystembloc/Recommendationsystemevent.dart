@@ -1,3 +1,7 @@
 abstract class RecommendationsystemEvent {}
 
-// class Init extends RecommendationsystemEvent{}
+class recommendEvent extends RecommendationsystemEvent {
+  final Map<String, dynamic> data;
+
+  recommendEvent({required this.data});
+}

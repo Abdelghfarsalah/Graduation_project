@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/feature/Authentication/presentation/pages/Verify_Phone_NumberCode.dart';
 import 'package:graduation_project/feature/Authentication/presentation/widget/Custom_button.dart';
 import 'package:graduation_project/feature/Authentication/presentation/widget/VerificationphoneTextFiled.dart';
@@ -40,10 +41,10 @@ class _VerificationphoneactivitesState
                 ),
               ),
               SizedBox(
-                height: 30,
+                height: 30.h,
               ),
               CustomButton(
-                borderRadius: 14,
+                borderRadius: 14.r,
                 onTap: () {
                   if (key.currentState!.validate()) {
                     Navigator.push(
@@ -62,10 +63,10 @@ class _VerificationphoneactivitesState
                 text: 'Verification',
               ),
               SizedBox(
-                height: 15,
+                height: 15.h,
               ),
               CustomButton(
-                borderRadius: 14,
+                borderRadius: 14.r,
                 onTap: () {
                   // Navigator.push(
                   //     context,
@@ -83,11 +84,11 @@ class _VerificationphoneactivitesState
               Image.asset(
                 "assets/Icons/Businessman working on laptop.png",
                 fit: BoxFit.none,
-                height: 90,
-                width: 90,
+                height: 90.h,
+                width: 90.w,
               ),
               SizedBox(
-                height: 40,
+                height: 40.h,
               ),
             ],
           ),

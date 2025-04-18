@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:graduation_project/core/utils/animations.dart';
 import 'package:graduation_project/feature/RecommendationSystem/presentation/pages/RecommendationSystempage.dart';
 import 'package:graduation_project/feature/home/presentation/Widgets/Slideritem.dart';
 import 'package:graduation_project/feature/home/presentation/pages/ActualProgrammingLanguages.dart';
@@ -23,11 +24,13 @@ class Sliderinhome extends StatelessWidget {
             ),
             Slideritem(
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => Recommendationsystempage()),
-                );
+                Animationsforpages.navigateWithSlidepush(
+                    context, Recommendationsystempage());
+                // Navigator.push(
+                //   context,
+                //   MaterialPageRoute(
+                //       builder: (context) => Recommendationsystempage()),
+                // );
               },
               image: "assets/HomeImage/Sliderimage1.png",
               title: "Recommendation System",
@@ -37,11 +40,13 @@ class Sliderinhome extends StatelessWidget {
             ),
             Slideritem(
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => Actualprogramminglanguages()),
-                );
+                Animationsforpages.navigateWithSlidepush(
+                    context, Actualprogramminglanguages());
+                // Navigator.push(
+                //   context,
+                //   MaterialPageRoute(
+                //       builder: (context) => Actualprogramminglanguages()),
+                // );
               },
               image: "assets/HomeImage/CoreLanguages.png",
               title: "Core Languages",
@@ -51,10 +56,12 @@ class Sliderinhome extends StatelessWidget {
             ),
             Slideritem(
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Populartracks()),
-                );
+                Animationsforpages.navigateWithSlidepush(
+                    context, Populartracks());
+                // Navigator.push(
+                //   context,
+                //   MaterialPageRoute(builder: (context) => Populartracks()),
+                // );
               },
               image: "assets/HomeImage/PopularTracks.png",
               title: "Popular Tracks",

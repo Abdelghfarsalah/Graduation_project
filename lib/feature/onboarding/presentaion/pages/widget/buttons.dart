@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/colors.dart';
 import 'package:graduation_project/core/fonts.dart';
+import 'package:graduation_project/core/utils/animations.dart';
 import 'package:graduation_project/feature/onboarding/presentaion/pages/WelcomePage.dart';
 
 class Buttons extends StatelessWidget {
@@ -18,8 +19,10 @@ class Buttons extends StatelessWidget {
           visible: !Fourpage,
           child: TextButton(
               onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => WelcomePage()));
+                Animationsforpages.navigateWithSlidepush(
+                    context, WelcomePage());
+                // Navigator.push(context,
+                //     MaterialPageRoute(builder: (context) => WelcomePage()));
               },
               child: Text(
                 "Skip",
@@ -28,15 +31,14 @@ class Buttons extends StatelessWidget {
         ),
         GestureDetector(
           onTap: () {
-            // print("Height ${MediaQuery.sizeOf(context).height}");
-            // print("width ${MediaQuery.sizeOf(context).width}");
             if (controller.page != 3) {
               controller.nextPage(
                   duration: Duration(microseconds: 50),
                   curve: Curves.bounceInOut);
             } else {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => WelcomePage()));
+              Animationsforpages.navigateWithSlidepush(context, WelcomePage());
+              // Navigator.push(context,
+              //     MaterialPageRoute(builder: (context) => WelcomePage()));
             }
           },
           child: Container(

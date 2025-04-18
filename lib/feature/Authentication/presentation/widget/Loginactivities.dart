@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/fonts.dart';
 import 'package:graduation_project/feature/Authentication/presentation/pages/RegisterPage.dart';
 import 'package:graduation_project/feature/Authentication/presentation/widget/ContinueWithAccounts.dart';
@@ -14,8 +15,8 @@ class Loginactivities extends StatelessWidget {
         decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(40),
-              topRight: Radius.circular(40),
+              topLeft: Radius.circular(40.r),
+              topRight: Radius.circular(40.r),
             )),
         child: SingleChildScrollView(
           child: Padding(
@@ -30,7 +31,7 @@ class Loginactivities extends StatelessWidget {
                       "Already Have An Account?",
                       style: TextStyle(
                           fontFamily: appFonts.Poppins,
-                          fontSize: 14,
+                          fontSize: 14.sp,
                           color: Color(0xffACADB9),
                           fontWeight: FontWeight.w400),
                     ),
@@ -46,14 +47,14 @@ class Loginactivities extends StatelessWidget {
                           "Sign up",
                           style: TextStyle(
                               fontFamily: appFonts.Poppins,
-                              fontSize: 16,
+                              fontSize: 16.sp,
                               color: Color(0xff1A6EFC),
                               fontWeight: FontWeight.w500),
                         ))
                   ],
                 ),
                 SizedBox(
-                  height: 10,
+                  height: 10.h,
                 ),
                 Divider(
                   color: Color(0xffC2C3CB),
@@ -66,7 +67,7 @@ class Loginactivities extends StatelessWidget {
                     "Continue With Accounts",
                     style: TextStyle(
                         fontFamily: appFonts.Poppins,
-                        fontSize: 16,
+                        fontSize: 16.sp,
                         color: Color(0xffACADB9),
                         fontWeight: FontWeight.w500),
                   ),

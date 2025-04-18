@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:graduation_project/core/colors.dart';
 import 'package:graduation_project/feature/Authentication/presentation/Manager/resetpassword/Resetpassbloc.dart';
@@ -29,7 +30,7 @@ class Verifyemailcodeforresetpassword extends StatelessWidget {
                   timeInSecForIosWeb: 1,
                   backgroundColor: Colors.blue,
                   textColor: Colors.white,
-                  fontSize: 16.0);
+                  fontSize: 16.0.sp);
 
               loading = false;
             } else if (state is forgetpasswordotpSuccess) {

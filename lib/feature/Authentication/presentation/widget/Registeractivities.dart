@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/fonts.dart';
 import 'package:graduation_project/feature/Authentication/presentation/pages/Loginpage.dart';
 import 'package:graduation_project/feature/Authentication/presentation/widget/ContinueWithAccounts.dart';
@@ -30,7 +31,7 @@ class Registeractivities extends StatelessWidget {
                       "Already Have An Account?",
                       style: TextStyle(
                           fontFamily: appFonts.Poppins,
-                          fontSize: 14,
+                          fontSize: 14.sp,
                           color: Color(0xffACADB9),
                           fontWeight: FontWeight.w400),
                     ),
@@ -46,7 +47,7 @@ class Registeractivities extends StatelessWidget {
                           "Sign In",
                           style: TextStyle(
                               fontFamily: appFonts.Poppins,
-                              fontSize: 16,
+                              fontSize: 16.sp,
                               color: Color(0xff1A6EFC),
                               fontWeight: FontWeight.w500),
                         ))
@@ -66,7 +67,7 @@ class Registeractivities extends StatelessWidget {
                     "Continue With Accounts",
                     style: TextStyle(
                         fontFamily: appFonts.Poppins,
-                        fontSize: 16,
+                        fontSize: 16.sp,
                         color: Color(0xffACADB9),
                         fontWeight: FontWeight.w500),
                   ),

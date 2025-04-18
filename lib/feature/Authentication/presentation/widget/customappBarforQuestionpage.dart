@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/colors.dart';
 import 'package:graduation_project/core/fonts.dart';
 
@@ -24,7 +25,7 @@ class Customappbarforquestionpage extends StatelessWidget
         "Sign in",
         style: TextStyle(
             fontFamily: appFonts.Poppins,
-            fontSize: 15,
+            fontSize: 15.sp,
             color: appColor.Primarycolor),
       ),
     );

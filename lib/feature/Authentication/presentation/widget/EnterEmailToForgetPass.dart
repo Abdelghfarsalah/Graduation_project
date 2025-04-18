@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/feature/Authentication/presentation/Manager/resetpassword/Resetpassbloc.dart';
 import 'package:graduation_project/feature/Authentication/presentation/Manager/resetpassword/Resetpassevent.dart';
 import 'package:graduation_project/feature/Authentication/presentation/widget/Custom_button.dart';
@@ -42,12 +43,12 @@ class _EnteremailtoforgetpassState extends State<Enteremailtoforgetpass> {
                   ),
                 ),
                 SizedBox(
-                  height: 30,
+                  height: 30.h,
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 30.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 30),
                   child: CustomButton(
-                    borderRadius: 14,
+                    borderRadius: 14.r,
                     onTap: () {
                       if (key.currentState!.validate()) {
                         context

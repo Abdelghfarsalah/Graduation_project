@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class backButton extends StatelessWidget {
   const backButton({super.key});
@@ -12,8 +13,8 @@ class backButton extends StatelessWidget {
           Navigator.pop(context);
         },
         child: Container(
-          height: 46,
-          width: 46,
+          height: 46.h,
+          width: 46.w,
           decoration: BoxDecoration(
               color: Colors.white, borderRadius: BorderRadius.circular(16)),
           child: Center(
@@ -22,7 +23,7 @@ class backButton extends StatelessWidget {
               child: Icon(
                 Icons.arrow_back_ios,
                 color: Colors.blue,
-                size: 15,
+                size: 15.sp,
               ),
             ),
           ),

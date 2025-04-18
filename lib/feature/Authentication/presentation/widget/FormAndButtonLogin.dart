@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/fonts.dart';
 import 'package:graduation_project/feature/Authentication/presentation/Manager/Login/Login_bloc.dart';
 import 'package:graduation_project/feature/Authentication/presentation/Manager/Login/Login_event.dart';
@@ -28,13 +29,13 @@ class _FormAndButtonLoginState extends State<FormAndButtonLogin> {
           key: key,
           child: Column(children: [
             SizedBox(
-              height: 20,
+              height: 20.h,
             ),
             EmailTextField(onChanged: (data) {
               email = data;
             }),
             SizedBox(
-              height: 20,
+              height: 20.h,
             ),
             Password(onChanged: (data) {
               pass = data;
@@ -54,7 +55,7 @@ class _FormAndButtonLoginState extends State<FormAndButtonLogin> {
                   "Forget Password ?",
                   style: TextStyle(
                     fontFamily: appFonts.Poppins,
-                    fontSize: 14,
+                    fontSize: 14.sp,
                     fontWeight: FontWeight.w400,
                     color: Color(0xff323142),
                   ),
@@ -69,7 +70,7 @@ class _FormAndButtonLoginState extends State<FormAndButtonLogin> {
                 }
               },
               child: CustomButton(
-                borderRadius: 14,
+                borderRadius: 14.r,
                 onTap: () {
                   if (key.currentState!.validate()) {
                     context

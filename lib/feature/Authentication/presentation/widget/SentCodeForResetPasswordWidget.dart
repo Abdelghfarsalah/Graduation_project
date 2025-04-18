@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SentCodeForResetPasswordWidget extends StatelessWidget {
   const SentCodeForResetPasswordWidget(
@@ -16,7 +17,7 @@ class SentCodeForResetPasswordWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 30.0),
       child: Container(
-        height: 60,
+        height: 60.h,
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
@@ -30,7 +31,7 @@ class SentCodeForResetPasswordWidget extends StatelessWidget {
             BoxShadow(
               color: const Color.fromARGB(255, 174, 205, 245),
               offset: const Offset(4, 4),
-              blurRadius: 10,
+              blurRadius: 10.r,
               spreadRadius: 1,
             ),
           ],
@@ -40,7 +41,7 @@ class SentCodeForResetPasswordWidget extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10.0),
               child: CircleAvatar(
-                radius: 22,
+                radius: 22.r,
                 backgroundColor: const Color.fromARGB(255, 191, 218, 254),
                 child: icon,
               ),
@@ -52,7 +53,7 @@ class SentCodeForResetPasswordWidget extends StatelessWidget {
                 Text(
                   title,
                   style: TextStyle(
-                    fontSize: 17,
+                    fontSize: 17.sp,
                     fontWeight: FontWeight.w600,
                     fontFamily: "Poppins", // تأكد من إضافة الخط في pubspec.yaml
                     color: const Color(0xff0050D0),
@@ -61,7 +62,7 @@ class SentCodeForResetPasswordWidget extends StatelessWidget {
                 Text(
                   subtitle,
                   style: TextStyle(
-                    fontSize: 14,
+                    fontSize: 14.sp,
                     fontFamily: "Poppins",
                     color: const Color(0xffACADB9),
                   ),

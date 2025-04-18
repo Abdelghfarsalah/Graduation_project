@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:graduation_project/feature/Authentication/presentation/widget/customTextFiled.dart';
 
@@ -13,8 +14,8 @@ class EmailTextField extends StatelessWidget {
       labal: "Enter Your Email",
       prefixicon: SvgPicture.asset(
         "assets/Icons/Email Icon.svg",
-        height: 19,
-        width: 16,
+        height: 19.h,
+        width: 16.w,
         fit: BoxFit.none,
       ),
       onChanged: onChanged,
@@ -27,8 +28,8 @@ class EmailTextField extends StatelessWidget {
       focusNode: FocusNode(),
       prefixiconfocus: SvgPicture.asset(
         "assets/Icons/Email Icon (1).svg",
-        height: 19,
-        width: 16,
+        height: 19.h,
+        width: 16.w,
         fit: BoxFit.none,
       ),
     );

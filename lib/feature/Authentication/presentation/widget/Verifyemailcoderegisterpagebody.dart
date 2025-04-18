@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/fonts.dart';
 import 'package:graduation_project/feature/Authentication/presentation/Manager/Register/register_bloc.dart';
 import 'package:graduation_project/feature/Authentication/presentation/Manager/Register/register_event.dart';
@@ -54,31 +55,31 @@ class _VerifyemailcodeforresetpassbodyState
                           )),
                     )),
                     Positioned(
-                      top: -100,
-                      left: 20,
+                      top: -100.h,
+                      left: 20.w,
                       child: Container(
                         width: MediaQuery.sizeOf(context).width * 0.9,
                         height: MediaQuery.sizeOf(context).height * 0.5,
                         decoration: BoxDecoration(
                           color: Color(0xffF7F8FA),
                           borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(40),
-                            topRight: Radius.circular(40),
-                            bottomLeft: Radius.circular(40),
-                            bottomRight: Radius.circular(40),
+                            topLeft: Radius.circular(40.r),
+                            topRight: Radius.circular(40.r),
+                            bottomLeft: Radius.circular(40.r),
+                            bottomRight: Radius.circular(40.r),
                           ),
                         ),
                         child: Column(
                           children: [
                             SizedBox(
-                              height: 20,
+                              height: 20.h,
                             ),
                             Text(
                               "Verify Email",
                               style: TextStyle(
                                   fontWeight: FontWeight.w600,
                                   fontFamily: appFonts.Poppins,
-                                  fontSize: 22),
+                                  fontSize: 22.sp),
                             ),
                             Text(
                               "We Have Sent Code To Your Phone Number",
@@ -86,7 +87,7 @@ class _VerifyemailcodeforresetpassbodyState
                                   fontWeight: FontWeight.w400,
                                   color: Color(0xffACADB9),
                                   fontFamily: appFonts.Poppins,
-                                  fontSize: 14),
+                                  fontSize: 14.sp),
                             ),
                             SizedBox(
                               height: MediaQuery.sizeOf(context).width * 0.03,
@@ -97,7 +98,7 @@ class _VerifyemailcodeforresetpassbodyState
                                   fontWeight: FontWeight.w400,
                                   color: Color(0xffACADB9),
                                   fontFamily: appFonts.Poppins,
-                                  fontSize: 14),
+                                  fontSize: 14.sp),
                             ),
                             Otp(
                               Formkey: Formkey,
@@ -116,7 +117,7 @@ class _VerifyemailcodeforresetpassbodyState
                               padding:
                                   const EdgeInsets.symmetric(horizontal: 20.0),
                               child: CustomButton(
-                                borderRadius: 40,
+                                borderRadius: 40.r,
                                 onTap: () {
                                   String lastotp =
                                       context.read<RegisterBloc>().otp;
@@ -134,13 +135,13 @@ class _VerifyemailcodeforresetpassbodyState
                               ),
                             ),
                             SizedBox(
-                              height: 15,
+                              height: 15.h,
                             ),
                             Padding(
                               padding:
                                   const EdgeInsets.symmetric(horizontal: 20.0),
                               child: CustomButton(
-                                borderRadius: 40,
+                                borderRadius: 40.r,
                                 onTap: () {
                                   if (c.isCompleted!) {
                                     context.read<RegisterBloc>().add(

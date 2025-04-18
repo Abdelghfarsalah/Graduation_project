@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/colors.dart';
 import 'package:graduation_project/core/fonts.dart';
 import 'package:timer_count_down/timer_controller.dart';
@@ -16,7 +17,7 @@ class Timing extends StatelessWidget {
         "(${getTime(time)})",
         style: TextStyle(
             fontFamily: appFonts.Poppins,
-            fontSize: 14,
+            fontSize: 14.sp,
             color: appColor.Primarycolor,
             fontWeight: FontWeight.w400),
       ),

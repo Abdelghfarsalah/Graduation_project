@@ -1,24 +1,34 @@
+import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:graduation_project/feature/RecommendationSystem/data/datasources/recommendDatasources.dart';
 import 'package:graduation_project/feature/RecommendationSystem/presentation/manager/Recommendationsystembloc/RecommendationsystemState.dart';
 import 'package:graduation_project/feature/RecommendationSystem/presentation/manager/Recommendationsystembloc/Recommendationsystemevent.dart';
 
 class Recommendationsystembloc
     extends Bloc<RecommendationsystemEvent, Recommendationsystemstate> {
-  Recommendationsystembloc() : super(Init());
-  Map<String, String> rates = {
-    'Database Fundamental': 'Excellent',
-    'Forensics Fundamental': 'Excellent',
+  Recommendationsystembloc() : super(Init()) {
+    on<recommendEvent>(_recommend);
+  }
+  Recommenddatasources recommenddatasources = Recommenddatasources(dio: Dio());
+  Map<String, dynamic> rates = {
     'Computer Architecture': 'Excellent',
-    'Technical Communication': 'Excellent',
-    'Distributed Computed Systems': 'Excellent',
-    'AI Machine Learning': 'Excellent',
+    'Leadership Experience': 'Excellent',
     'Cyber Security': 'Excellent',
-    'Computer Networks': 'Excellent',
+    'Networking': 'Excellent',
+    'Software Development': 'Excellent',
+    'Programming Skills': 'Excellent',
+    'Project Management': 'Excellent',
+    'Forensics Fundamentals': 'Excellent',
+    'Technical Communication': 'Excellent',
+    'AI_ML': 'Excellent',
     'Software Engineering': 'Excellent',
     'Business Analysis': 'Excellent',
-    'Software Development': 'Excellent',
+    'Database Fundamentals': 'Excellent',
+    'Communication Skills': 'Excellent',
     'Data Science': 'Excellent',
-    'Programming Skills': 'Excellent',
+    'Troubleshooting Skills': 'Excellent',
+    'Graphics Designing': 'Excellent',
+    "top_n": 3
   };
 
   Map<String, bool> Interest = {
@@ -41,6 +51,43 @@ class Recommendationsystembloc
     "Technical Writer": false,
     "Information Security Specialist": false
   };
+
+  Future<void> _recommend(
+      recommendEvent event, Emitter<Recommendationsystemstate> emit) async {
+    try {
+      emit(recommendLoading());
+
+      Map<String, dynamic> requestData = {
+        "Database_Fundamentals": event.data['Database Fundamentals'],
+        "Computer_Architecture": event.data['Computer Architecture'],
+        "Leadership_Experience": event.data['Leadership Experience'],
+        "Cyber_Security": event.data['Cyber Security'],
+        "Networking": event.data['Networking'],
+        "Software_Development": event.data['Software Development'],
+        "Programming_Skills": event.data['Programming Skills'],
+        "Project_Management": event.data['Project Management'],
+        "Computer_Forensics_Fundamentals": event.data['Forensics Fundamentals'],
+        "Technical_Communication": event.data['Technical Communication'],
+        "AI_ML": event.data['AI_ML'],
+        "Software_Engineering": event.data['Software Engineering'],
+        "Business_Analysis": event.data['Business Analysis'],
+        "Communication_Skills": event.data['Communication Skills'],
+        "Data_Science": event.data['Data Science'],
+        "Troubleshooting_Skills": event.data['Troubleshooting Skills'],
+        "Graphics_Designing": event.data['Graphics Designing'],
+        "top_n": 3,
+      };
+
+      var response = await recommenddatasources.recommend(requestData);
+      response.fold((l) {}, (r) {
+        emit(recommendSuccess(jops: r));
+      });
+    } catch (e, stacktrace) {
+      print("Error: $e");
+      print("Stacktrace: $stacktrace");
+      emit(recommendFailuer());
+    }
+  }
 
   void ChangeValuerate(String key, String value) {
     rates[key] = value;

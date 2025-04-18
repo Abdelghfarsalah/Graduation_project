@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:graduation_project/core/colors.dart';
 import 'package:graduation_project/core/fonts.dart';
@@ -101,45 +102,45 @@ class _ResetyourpasswordpageState extends State<Resetyourpasswordpage> {
                                   Text(". Password should be 8-20 characters",
                                       style: TextStyle(
                                           fontFamily: appFonts.Poppins,
-                                          fontSize: 12,
+                                          fontSize: 12.sp,
                                           color: Color(0xff838383))),
                                   Text(
                                       ". Password should have a lower case letter",
                                       style: TextStyle(
                                           fontFamily: appFonts.Poppins,
-                                          fontSize: 12,
+                                          fontSize: 12.sp,
                                           color: Color(0xff838383))),
                                   Text(
                                       ". Password should have a upper case letter",
                                       style: TextStyle(
                                           fontFamily: appFonts.Poppins,
-                                          fontSize: 12,
+                                          fontSize: 12.sp,
                                           color: Color(0xff838383))),
                                   Text(
                                       ". Password should have a number or\n    acceptable characters",
                                       style: TextStyle(
                                           fontFamily: appFonts.Poppins,
-                                          fontSize: 12,
+                                          fontSize: 12.sp,
                                           color: Color(0xff838383))),
                                   SizedBox(
-                                    height: 20,
+                                    height: 20.h,
                                   ),
                                   Text("Confirm Password",
                                       style: TextStyle(
                                           fontFamily: appFonts.Poppins,
-                                          fontSize: 14,
+                                          fontSize: 14.sp,
                                           color: Color(0xff282828))),
                                   SizedBox(
-                                    height: 10,
+                                    height: 10.h,
                                   ),
                                   Password(onChanged: (data) {
                                     Confirmpass = data;
                                   }),
                                   SizedBox(
-                                    height: 10,
+                                    height: 10.h,
                                   ),
                                   CustomButton(
-                                    borderRadius: 14,
+                                    borderRadius: 14.r,
                                     onTap: () {
                                       if (pass != Confirmpass) {
                                         Fluttertoast.showToast(

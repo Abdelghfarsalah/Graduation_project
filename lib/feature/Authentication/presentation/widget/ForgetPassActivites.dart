@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:graduation_project/feature/Authentication/presentation/pages/SendOtpbyEmail.dart';
 import 'package:graduation_project/feature/Authentication/presentation/widget/Custom_button.dart';
@@ -20,8 +21,8 @@ class _ForgetpassactivitesState extends State<Forgetpassactivites> {
         decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(40),
-              topRight: Radius.circular(40),
+              topLeft: Radius.circular(40.r),
+              topRight: Radius.circular(40.r),
             )),
         child: SingleChildScrollView(
           child: Padding(
@@ -41,7 +42,7 @@ class _ForgetpassactivitesState extends State<Forgetpassactivites> {
                       subtitle: "Code Send to your email"),
                 ),
                 SizedBox(
-                  height: 25,
+                  height: 25.r,
                 ),
                 GestureDetector(
                   onTap: () {
@@ -56,12 +57,12 @@ class _ForgetpassactivitesState extends State<Forgetpassactivites> {
                       subtitle: "Code Send to your Phone"),
                 ),
                 SizedBox(
-                  height: 40,
+                  height: 40.h,
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 30.0),
                   child: CustomButton(
-                    borderRadius: 14,
+                    borderRadius: 14.r,
                     onTap: () {
                       if (Selectemail) {
                         Navigator.push(

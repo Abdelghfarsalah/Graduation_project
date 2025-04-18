@@ -16,38 +16,36 @@ class _RatewidgetState extends State<Ratewidget> {
   List<String> emojis = [
     "🏆",
     "😍",
-    "🚀",
     "🚫",
     "📊",
-    "😔",
   ];
 
   List<String> statuses = [
     "Excellent",
     "Beginner",
-    "Intermediate",
     "Not interested",
     "Average",
-    "Poor",
   ];
 
   int select = 0;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: MediaQuery.sizeOf(context).height * 0.2,
+      height: MediaQuery.sizeOf(context).height * 0.15,
       child: Center(
         child: GridView.builder(
           physics: NeverScrollableScrollPhysics(), // يمنع التمرير
           itemCount: statuses.length,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2, mainAxisExtent: 40),
+              crossAxisCount: 2, mainAxisExtent: 50),
           itemBuilder: (BuildContext context, int index) {
             return GestureDetector(
               onTap: () {
                 context
                     .read<Recommendationsystembloc>()
                     .ChangeValuerate(widget.tech, statuses[index]);
+                print(widget.tech);
+                print(statuses[index] + "============================");
                 setState(() {
                   select = index;
                 });

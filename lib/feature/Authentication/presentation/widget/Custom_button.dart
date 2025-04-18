@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/fonts.dart';
 
 class CustomButton extends StatelessWidget {
@@ -37,7 +38,7 @@ class CustomButton extends StatelessWidget {
                 fontFamily: appFonts.Poppins,
                 color: Colors.white,
                 fontWeight: FontWeight.w500,
-                fontSize: 16),
+                fontSize: 16.sp),
           ),
         ),
       ),

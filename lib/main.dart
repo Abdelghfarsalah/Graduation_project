@@ -1,4 +1,3 @@
-import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gemini/flutter_gemini.dart';
@@ -15,9 +14,7 @@ void main() {
   ]);
   runApp(
     AppBlocProviders.getblocprovider(
-      child: DevicePreview(
-        builder: (context) => const GraduationProject(),
-      ),
+      child: const GraduationProject(),
     ),
   );
 }

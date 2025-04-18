@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:graduation_project/core/fonts.dart';
 import 'package:graduation_project/core/utils/helper.dart';
@@ -32,17 +33,17 @@ class _QuestionspageState extends State<Questionspage> {
                     "Hello  ",
                     style: TextStyle(
                       fontFamily: appFonts.Poppins,
-                      fontSize: 16,
+                      fontSize: 16.sp,
                     ),
                   ),
                   Icon(
                     FontAwesomeIcons.pen,
-                    size: 14,
+                    size: 14.sp,
                   )
                 ],
               ),
               SizedBox(
-                height: 20,
+                height: 20.h,
               ),
               Form(
                 key: key,
@@ -105,7 +106,7 @@ class _QuestionspageState extends State<Questionspage> {
               Padding(
                 padding: EdgeInsets.symmetric(vertical: 20),
                 child: CustomButton(
-                  borderRadius: 14,
+                  borderRadius: 14.r,
                   onTap: () {
                     if (key.currentState!.validate()) {
                       Helper.showSuccessDialog(context);
