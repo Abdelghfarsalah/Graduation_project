@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/colors.dart';
 import 'package:graduation_project/core/fonts.dart';
+import 'package:graduation_project/core/utils/SharedPreferencesDemo.dart';
 import 'package:graduation_project/feature/Account/domain/Entities/PersonalInformationmodel.dart';
 import 'package:graduation_project/feature/Account/presentation/widgets/FingerPrintbutton.dart';
 import 'package:graduation_project/feature/Account/presentation/widgets/PersonalInformationCard.dart';
@@ -18,16 +19,29 @@ class _DisplaypersonalinformationState
     extends State<Displaypersonalinformation> {
   final List<Personalinformationmodel> PersonalinformationList = [
     Personalinformationmodel(
-      title: "Email",
-      icon: Text(
-        "RahafMohammadIS21@fcai.usc.edu.eg",
-        style: TextStyle(
-            fontFamily: appFonts.Poppins,
-            fontSize: 12.sp,
-            color: Color(0xff001A4D),
-            fontWeight: FontWeight.w400),
-      ),
-    ),
+        title: "Email",
+        icon: FutureBuilder(
+          future: SharedPreferencesDemo.getUserEmail(),
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return CircularProgressIndicator(); // أو شيمر مثلاً
+            } else if (snapshot.hasError) {
+              return Text("Error loading email");
+            } else if (snapshot.hasData) {
+              return Text(
+                snapshot.data!,
+                style: TextStyle(
+                  fontFamily: appFonts.Poppins,
+                  fontSize: 12.sp,
+                  color: Color(0xff001A4D),
+                  fontWeight: FontWeight.w400,
+                ),
+              );
+            } else {
+              return Text("No email found");
+            }
+          },
+        )),
     Personalinformationmodel(
       title: "Mobile Phone",
       icon: Text(

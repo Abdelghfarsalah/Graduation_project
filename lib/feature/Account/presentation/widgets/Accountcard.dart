@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:graduation_project/core/fonts.dart';
+import 'package:graduation_project/core/utils/SharedPreferencesDemo.dart';
 
 class Accountcard extends StatelessWidget {
   const Accountcard({super.key});
@@ -48,12 +49,26 @@ class Accountcard extends StatelessWidget {
                   SizedBox(
                     height: 15.h,
                   ),
-                  Text(
-                    "Rahaf Mohammad",
-                    style: TextStyle(
-                        fontFamily: appFonts.Poppins,
-                        fontSize: 20.sp,
-                        fontWeight: FontWeight.w700),
+                  FutureBuilder<String>(
+                    future: getUserName(),
+                    builder: (context, snapshot) {
+                      if (snapshot.connectionState == ConnectionState.waiting) {
+                        return CircularProgressIndicator(); // أو Placeholder
+                      } else if (snapshot.hasError) {
+                        return Text("Error: ${snapshot.error}");
+                      } else if (snapshot.hasData) {
+                        return Text(
+                          snapshot.data!,
+                          style: TextStyle(
+                            fontFamily: appFonts.Poppins,
+                            fontSize: 20.sp,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        );
+                      } else {
+                        return Text("No name available");
+                      }
+                    },
                   ),
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.8,
@@ -129,4 +144,9 @@ class Accountcard extends StatelessWidget {
       ),
     );
   }
+}
+
+Future<String> getUserName() async {
+  var x = await SharedPreferencesDemo.getUserName(); // مثال للتأخير
+  return x;
 }

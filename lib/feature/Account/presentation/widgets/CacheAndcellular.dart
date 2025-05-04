@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:graduation_project/core/fonts.dart';
+import 'package:graduation_project/core/utils/accountHelper.dart';
 import 'package:graduation_project/feature/Account/presentation/widgets/SettingCard.dart';
 
 class Cacheandcellular extends StatelessWidget {
@@ -24,9 +25,11 @@ class Cacheandcellular extends StatelessWidget {
           height: 10.h,
         ),
         Settingcard(
-            title: "Free up space",
+            title: "Delete Account",
             icon: Icon(FontAwesomeIcons.trash),
-            onTap: () {}),
+            onTap: () {
+              Accounthelper.showdialogfordelete(context);
+            }),
         Settingcard(
             title: "Data Saver",
             icon: Icon(Icons.outbond_outlined),
