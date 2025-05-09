@@ -1,0 +1,96 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:graduation_project/feature/recommendChat/presentation/manager/reccomend_chat_bloc_bloc.dart';
+import 'package:graduation_project/feature/recommendChat/presentation/manager/reccomend_chat_bloc_state.dart';
+import 'package:graduation_project/feature/recommendChat/presentation/pages/widgets/agentMessage.dart';
+import 'package:graduation_project/feature/recommendChat/presentation/pages/widgets/customfiledforrecommendchat.dart';
+import 'package:graduation_project/feature/recommendChat/presentation/pages/widgets/userMessage.dart';
+
+class Recommendchatview extends StatefulWidget {
+  const Recommendchatview({super.key});
+
+  @override
+  State<Recommendchatview> createState() => _StreamViewState();
+}
+
+class _StreamViewState extends State<Recommendchatview> {
+  final ScrollController _scrollController = ScrollController();
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) => _scrollToBottom());
+  }
+
+  void _scrollToBottom() {
+    if (_scrollController.hasClients) {
+      _scrollController.jumpTo(_scrollController.position.maxScrollExtent);
+    }
+  }
+
+  void _returnToStart() {
+    if (_scrollController.hasClients) {
+      _scrollController.jumpTo(_scrollController.position.minScrollExtent);
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    var bloc = context.read<ReccomendChatBlocBloc>();
+    return BlocConsumer<ReccomendChatBlocBloc, ReccomendChatBlocState>(
+      listener: (context, state) {
+        var bloc = context.read<ReccomendChatBlocBloc>();
+        if (bloc.bottom) {
+          _scrollToBottom();
+        } else {
+          _returnToStart();
+        }
+      },
+      builder: (context, state) {
+        return Column(
+          children: [
+            Expanded(
+              child: ListView.builder(
+                itemCount: context.read<ReccomendChatBlocBloc>().chat.length,
+                controller: _scrollController,
+                itemBuilder: (context, index) {
+                  return context
+                          .read<ReccomendChatBlocBloc>()
+                          .chat[index]
+                          .fromuser
+                      ? Usermessage(
+                          text: bloc.chat[index].question!.length != 0
+                              ? bloc.chat[index].question!
+                              : bloc.chat[index].track)
+                      : Agentmessage(
+                          text: context
+                              .read<ReccomendChatBlocBloc>()
+                              .chat[index]
+                              .roadmap,
+                        );
+                },
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(
+                  bottom: MediaQuery.of(context).padding.bottom),
+              child: customfiledforrecommendchat(),
+            ),
+          ],
+        );
+      },
+    );
+  }
+}
+
+/**
+ * 
+ * BlocConsumer<BotBloc, StateBot>(listener: (context, state) {
+      var bloc = context.read<BotBloc>();
+      if (bloc.bottom) {
+        _scrollToBottom();
+      } else {
+        _returnToStart();
+      }
+    },
+ */

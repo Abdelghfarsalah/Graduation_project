@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:graduation_project/core/colors.dart';
 import 'package:graduation_project/core/fonts.dart';
 import 'package:graduation_project/core/utils/SharedPreferencesDemo.dart';
+import 'package:graduation_project/core/utils/animations.dart';
+import 'package:graduation_project/feature/recommendChat/presentation/pages/recommendchatPage.dart';
 
 class Homeappbar extends StatelessWidget {
   const Homeappbar({super.key});
@@ -65,15 +67,18 @@ class Homeappbar extends StatelessWidget {
               ),
               Spacer(),
               GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  Animationsforpages.navigateWithSlidepush(
+                      context, Recommendchatpage());
+                },
                 child: CircleAvatar(
-                  radius: 14,
+                  radius: 16,
                   backgroundColor: Colors.white,
                   child: CircleAvatar(
-                    radius: 12,
+                    radius: 14,
                     backgroundColor: appColor.Primarycolor,
                     child: Center(
-                      child: Image.asset("assets/HomeImage/Notification.png"),
+                      child: Image.asset("assets/Icons/logo.png"),
                     ),
                   ),
                 ),

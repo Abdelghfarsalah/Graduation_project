@@ -16,6 +16,7 @@ import 'package:graduation_project/feature/Authentication/presentation/Manager/r
 import 'package:graduation_project/feature/RecommendationSystem/presentation/manager/Recommendationsystembloc/Recommendationsystembloc.dart';
 import 'package:graduation_project/feature/chat/presentation/manager/chatbloc.dart';
 import 'package:graduation_project/feature/home/presentation/manager/BottomNavBar/BottomNavBarBloc.dart';
+import 'package:graduation_project/feature/recommendChat/presentation/manager/reccomend_chat_bloc_bloc.dart';
 
 class AppBlocProviders {
   static getblocprovider({required Widget child}) {
@@ -67,6 +68,9 @@ class AppBlocProviders {
             ),
           ),
         ),
+      ),
+      BlocProvider(
+        create: (context) => ReccomendChatBlocBloc(dio: Dio()),
       )
     ], child: child);
   }
