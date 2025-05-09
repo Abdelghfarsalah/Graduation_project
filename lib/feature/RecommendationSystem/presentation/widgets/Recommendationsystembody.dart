@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graduation_project/core/fonts.dart';
+import 'package:graduation_project/core/utils/animations.dart';
 import 'package:graduation_project/feature/RecommendationSystem/presentation/manager/Recommendationsystembloc/RecommendationsystemState.dart';
 import 'package:graduation_project/feature/RecommendationSystem/presentation/manager/Recommendationsystembloc/Recommendationsystembloc.dart';
 import 'package:graduation_project/feature/RecommendationSystem/presentation/manager/Recommendationsystembloc/Recommendationsystemevent.dart';
 import 'package:graduation_project/feature/RecommendationSystem/presentation/widgets/TechRate.dart';
+import 'package:graduation_project/feature/recommendChat/presentation/manager/reccomend_chat_bloc_bloc.dart';
+import 'package:graduation_project/feature/recommendChat/presentation/manager/reccomend_chat_bloc_event.dart';
+import 'package:graduation_project/feature/recommendChat/presentation/pages/recommendchatPage.dart';
 
 class Recommendationsystembody extends StatelessWidget {
   const Recommendationsystembody({super.key});
@@ -223,7 +227,11 @@ class Recommendationsystembody extends StatelessWidget {
                                     trailing: Icon(Icons.arrow_forward_ios,
                                         size: 16, color: Colors.teal),
                                     onTap: () {
-                                      // Action when a job is tapped
+                                      context.read<ReccomendChatBlocBloc>().add(
+                                          Fetchroadmap(state.jops[index].job));
+                                      Animationsforpages
+                                          .navigateWithSlidepushandreplace(
+                                              context, Recommendchatpage());
                                     },
                                   ),
                                 ),
@@ -293,3 +301,4 @@ class Recommendationsystembody extends StatelessWidget {
     );
   }
 }
+/**  */
