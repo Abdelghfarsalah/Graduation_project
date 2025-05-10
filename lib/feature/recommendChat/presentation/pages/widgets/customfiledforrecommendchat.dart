@@ -30,6 +30,7 @@ class _TextfiledcustomState extends State<customfiledforrecommendchat> {
               fillColor: Color(0xffE8EBF0),
               suffixIcon: IconButton(
                 onPressed: () {
+                  print(value);
                   if (value.isNotEmpty) {
                     if (context.read<ReccomendChatBlocBloc>().track.length !=
                             0 &&

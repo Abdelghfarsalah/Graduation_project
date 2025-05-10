@@ -227,6 +227,9 @@ class Recommendationsystembody extends StatelessWidget {
                                     trailing: Icon(Icons.arrow_forward_ios,
                                         size: 16, color: Colors.teal),
                                     onTap: () {
+                                      context
+                                          .read<ReccomendChatBlocBloc>()
+                                          .add(ClearMessages());
                                       context.read<ReccomendChatBlocBloc>().add(
                                           Fetchroadmap(state.jops[index].job));
                                       Animationsforpages

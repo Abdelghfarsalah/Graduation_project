@@ -51,6 +51,7 @@ dependencies:
   webview_flutter: ^4.10.0
   flutter_launcher_icons: ^0.14.3
   shimmer: ^3.0.0
+  lottie: ^3.3.1
 
 dev_dependencies:
   flutter_test:
@@ -90,6 +91,7 @@ flutter:
     - assets/HomeImage/populartracks/
     - assets/HomeImage/SearchImages/
     - assets/HomeImage/Accountimages/
+    - assets/lottei/
     - assets/Bot/
     - assets/HomeImage/Adobe/
     - assets/HomeImage/ProgrammingPrograms/

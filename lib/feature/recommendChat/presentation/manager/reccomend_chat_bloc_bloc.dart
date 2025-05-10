@@ -57,7 +57,7 @@ class ReccomendChatBlocBloc
       roadmap = response.data["roadmap"];
       print(roadmap);
 
-      emit(Success());
+      emit(SuccessRoadmapstate());
     } catch (e) {
       print(e.toString());
       emit(Failuer());
@@ -89,9 +89,8 @@ class ReccomendChatBlocBloc
       chat.add(FlutterRoadmapModel.fromJson(response.data));
       print(chat[chat.length - 1].roadmap);
       print(roadmap);
-
       roadmap = response.data["roadmap"];
-      emit(Success());
+      emit(SuccessRoadmapstate());
     } catch (e) {
       print(e.toString());
       emit(Failuer());
@@ -100,7 +99,7 @@ class ReccomendChatBlocBloc
 
   void _onAddMessage(AddMessage event, Emitter<ReccomendChatBlocState> emit) {
     // chat.add(event.message);
-    emit(Success());
+    emit(SuccessRoadmapstate());
   }
 
   void _onClearMessages(
@@ -108,17 +107,17 @@ class ReccomendChatBlocBloc
     chat.clear();
     track = "";
     roadmap = "";
-    emit(Success());
+    emit(clearstate());
   }
 
   void _onScrollToStart(
       ScrollToStart event, Emitter<ReccomendChatBlocState> emit) {
     bottom = false;
-    emit(Success());
+    emit(SuccessRoadmapstate());
   }
 
   void _onScrollToEnd(ScrollToEnd event, Emitter<ReccomendChatBlocState> emit) {
     bottom = true;
-    emit(Success());
+    emit(SuccessRoadmapstate());
   }
 }

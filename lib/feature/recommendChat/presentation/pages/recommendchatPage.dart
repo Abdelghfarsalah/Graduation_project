@@ -13,7 +13,7 @@ class Recommendchatpage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.blue[50],
       appBar: AppBar(
         backgroundColor: appColor.Primarycolor,
         automaticallyImplyLeading: false,
@@ -41,7 +41,7 @@ class Recommendchatpage extends StatelessWidget {
                 child: Row(
                   children: [
                     Icon(
-                      FontAwesomeIcons.trash,
+                      FontAwesomeIcons.solidChartBar,
                       color: Colors.grey.withOpacity(0.2),
                       size: 18.sp,
                     ),

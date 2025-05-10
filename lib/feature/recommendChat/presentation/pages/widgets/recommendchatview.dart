@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graduation_project/feature/recommendChat/presentation/manager/reccomend_chat_bloc_bloc.dart';
 import 'package:graduation_project/feature/recommendChat/presentation/manager/reccomend_chat_bloc_state.dart';
+import 'package:graduation_project/feature/recommendChat/presentation/pages/widgets/RoadmapEmptyContent.dart';
 import 'package:graduation_project/feature/recommendChat/presentation/pages/widgets/agentMessage.dart';
 import 'package:graduation_project/feature/recommendChat/presentation/pages/widgets/customfiledforrecommendchat.dart';
 import 'package:graduation_project/feature/recommendChat/presentation/pages/widgets/userMessage.dart';
@@ -47,36 +48,50 @@ class _StreamViewState extends State<Recommendchatview> {
         }
       },
       builder: (context, state) {
-        return Column(
-          children: [
-            Expanded(
-              child: ListView.builder(
-                itemCount: context.read<ReccomendChatBlocBloc>().chat.length,
-                controller: _scrollController,
-                itemBuilder: (context, index) {
-                  return context
-                          .read<ReccomendChatBlocBloc>()
-                          .chat[index]
-                          .fromuser
-                      ? Usermessage(
-                          text: bloc.chat[index].question!.length != 0
-                              ? bloc.chat[index].question!
-                              : bloc.chat[index].track)
-                      : Agentmessage(
-                          text: context
-                              .read<ReccomendChatBlocBloc>()
-                              .chat[index]
-                              .roadmap,
-                        );
-                },
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(
-                  bottom: MediaQuery.of(context).padding.bottom),
-              child: customfiledforrecommendchat(),
-            ),
-          ],
+        return BlocConsumer<ReccomendChatBlocBloc, ReccomendChatBlocState>(
+          listener: (context, state) {
+            // if (state is Loading) {
+            //   showLoadingAnalog(context);
+            // } else if (state is SuccessRoadmapstate || state is Failuer) {
+            //   Navigator.of(context).pop(); // Close the dialog
+            // }
+          },
+          builder: (context, state) {
+            return Column(
+              children: [
+                context.read<ReccomendChatBlocBloc>().chat.length == 0
+                    ? CreateLearningMapPage()
+                    : Expanded(
+                        child: ListView.builder(
+                          itemCount:
+                              context.read<ReccomendChatBlocBloc>().chat.length,
+                          controller: _scrollController,
+                          itemBuilder: (context, index) {
+                            return context
+                                    .read<ReccomendChatBlocBloc>()
+                                    .chat[index]
+                                    .fromuser
+                                ? Usermessage(
+                                    text: bloc.chat[index].question!.length != 0
+                                        ? bloc.chat[index].question!
+                                        : bloc.chat[index].track)
+                                : Agentmessage(
+                                    text: context
+                                        .read<ReccomendChatBlocBloc>()
+                                        .chat[index]
+                                        .roadmap,
+                                  );
+                          },
+                        ),
+                      ),
+                Padding(
+                  padding: EdgeInsets.only(
+                      bottom: MediaQuery.of(context).padding.bottom),
+                  child: customfiledforrecommendchat(),
+                ),
+              ],
+            );
+          },
         );
       },
     );
