@@ -69,7 +69,10 @@ class Homeappbar extends StatelessWidget {
               GestureDetector(
                 onTap: () {
                   Animationsforpages.navigateWithSlidepush(
-                      context, Recommendchatpage());
+                      context,
+                      Recommendchatpage(
+                        text: '',
+                      ));
                 },
                 child: CircleAvatar(
                   radius: 16,

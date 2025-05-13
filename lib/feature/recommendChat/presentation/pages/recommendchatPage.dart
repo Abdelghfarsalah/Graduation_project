@@ -7,11 +7,27 @@ import 'package:graduation_project/feature/recommendChat/presentation/manager/re
 import 'package:graduation_project/feature/recommendChat/presentation/manager/reccomend_chat_bloc_event.dart';
 import 'package:graduation_project/feature/recommendChat/presentation/pages/widgets/recommendchatview.dart';
 
-class Recommendchatpage extends StatelessWidget {
-  const Recommendchatpage({super.key});
+class Recommendchatpage extends StatefulWidget {
+  const Recommendchatpage({super.key, required this.text});
+  final String text;
+  @override
+  State<Recommendchatpage> createState() => _RecommendchatpageState();
+}
+
+class _RecommendchatpageState extends State<Recommendchatpage> {
+  void initState() {
+    super.initState();
+    if (widget.text.length != 0) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        context.read<ReccomendChatBlocBloc>().add(ClearMessages());
+        context.read<ReccomendChatBlocBloc>().add(Fetchroadmap(widget.text));
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
+    print(widget.text.length);
     return Scaffold(
       backgroundColor: Colors.blue[50],
       appBar: AppBar(

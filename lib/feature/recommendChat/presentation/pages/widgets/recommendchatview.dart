@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graduation_project/feature/recommendChat/presentation/manager/reccomend_chat_bloc_bloc.dart';
 import 'package:graduation_project/feature/recommendChat/presentation/manager/reccomend_chat_bloc_state.dart';
+import 'package:graduation_project/feature/recommendChat/presentation/pages/widgets/LoadingAnalog.dart';
 import 'package:graduation_project/feature/recommendChat/presentation/pages/widgets/RoadmapEmptyContent.dart';
 import 'package:graduation_project/feature/recommendChat/presentation/pages/widgets/agentMessage.dart';
 import 'package:graduation_project/feature/recommendChat/presentation/pages/widgets/customfiledforrecommendchat.dart';
@@ -50,11 +51,13 @@ class _StreamViewState extends State<Recommendchatview> {
       builder: (context, state) {
         return BlocConsumer<ReccomendChatBlocBloc, ReccomendChatBlocState>(
           listener: (context, state) {
-            // if (state is Loading) {
-            //   showLoadingAnalog(context);
-            // } else if (state is SuccessRoadmapstate || state is Failuer) {
-            //   Navigator.of(context).pop(); // Close the dialog
-            // }
+            print(state);
+            print("========================");
+            if (state is Loading) {
+              showLoadingAnalog(context);
+            } else if (state is SuccessRoadmapstate || state is Failuer) {
+              Navigator.of(context).pop(); // Close the dialog
+            }
           },
           builder: (context, state) {
             return Column(

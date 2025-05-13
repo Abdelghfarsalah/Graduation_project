@@ -6,8 +6,6 @@ import 'package:graduation_project/feature/RecommendationSystem/presentation/man
 import 'package:graduation_project/feature/RecommendationSystem/presentation/manager/Recommendationsystembloc/Recommendationsystembloc.dart';
 import 'package:graduation_project/feature/RecommendationSystem/presentation/manager/Recommendationsystembloc/Recommendationsystemevent.dart';
 import 'package:graduation_project/feature/RecommendationSystem/presentation/widgets/TechRate.dart';
-import 'package:graduation_project/feature/recommendChat/presentation/manager/reccomend_chat_bloc_bloc.dart';
-import 'package:graduation_project/feature/recommendChat/presentation/manager/reccomend_chat_bloc_event.dart';
 import 'package:graduation_project/feature/recommendChat/presentation/pages/recommendchatPage.dart';
 
 class Recommendationsystembody extends StatelessWidget {
@@ -224,15 +222,17 @@ class Recommendationsystembody extends StatelessWidget {
                                     ),
                                     trailing: Icon(Icons.arrow_forward_ios,
                                         size: 16, color: Colors.teal),
-                                    onTap: () {
-                                      context
-                                          .read<ReccomendChatBlocBloc>()
-                                          .add(ClearMessages());
-                                      context.read<ReccomendChatBlocBloc>().add(
-                                          Fetchroadmap(state.jops[index].job));
-                                      Animationsforpages
-                                          .navigateWithSlidepushandreplace(
-                                              context, Recommendchatpage());
+                                    onTap: () async {
+                                      // context
+                                      //     .read<ReccomendChatBlocBloc>()
+                                      //     .add(ClearMessages());
+                                      // context.read<ReccomendChatBlocBloc>().add(
+                                      //     Fetchroadmap(state.jops[index].job));
+                                      Animationsforpages.navigateWithSlidepush(
+                                          context,
+                                          Recommendchatpage(
+                                            text: state.jops[index].job,
+                                          ));
                                     },
                                   ),
                                 ),
