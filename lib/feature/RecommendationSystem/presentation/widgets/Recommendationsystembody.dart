@@ -138,8 +138,6 @@ class Recommendationsystembody extends StatelessWidget {
               width: MediaQuery.of(context).size.width * 0.5,
             ),
 
-            ///////
-
             Align(
               alignment: Alignment.center,
               child: BlocListener<Recommendationsystembloc,
