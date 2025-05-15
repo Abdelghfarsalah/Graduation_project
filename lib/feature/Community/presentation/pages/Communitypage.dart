@@ -5,6 +5,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:graduation_project/core/colors.dart';
+import 'package:graduation_project/core/utils/SharedPreferencesDemo.dart';
 import 'package:graduation_project/feature/Community/domain/modelCommunity/MessageModel.dart';
 import 'package:graduation_project/feature/Community/presentation/pages/widgets/messagetile.dart';
 import 'package:image_picker/image_picker.dart';
@@ -18,8 +19,6 @@ class Communitypage extends StatefulWidget {
 }
 
 class _ChatPageState extends State<Communitypage> {
-  final String authToken =
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODE2NjExNTczNTRkYTMxZmJjY2EyMzIiLCJlbWFpbCI6ImFiZGVsZ2hmYXJzYWxhaDhAZ21haWwuY29tIiwiaWF0IjoxNzQ3MzIzOTM4LCJleHAiOjE3Nzg4ODE1Mzh9.5qnc8EeWwf1mLl_8PFtiDi8eKXH6cZ-x7b9TygB7-CY";
   final TextEditingController _controller = TextEditingController();
   final ScrollController _scrollController = ScrollController();
 
@@ -80,6 +79,7 @@ class _ChatPageState extends State<Communitypage> {
     const int limit = 20; // ممكن تزود الرقم حسب ما السيرفر يسمح
 
     try {
+      var authToken = await SharedPreferencesDemo.getToken();
       while (true) {
         final response = await dio.get(
           "http://164.128.130.9:2530/api/v1/message",
@@ -123,7 +123,7 @@ class _ChatPageState extends State<Communitypage> {
   Future<void> sendMessage() async {
     try {
       final text = _controller.text.length != 0 ? _controller.text : "";
-
+      var authToken = await SharedPreferencesDemo.getToken();
       FormData formData = FormData.fromMap({
         'message': text,
         if (selectedImage != null)
@@ -143,7 +143,7 @@ class _ChatPageState extends State<Communitypage> {
           },
         ),
       );
-
+      var userId = await SharedPreferencesDemo.getUserId();
       if (response.statusCode == 201) {
         _controller.clear();
         socket.emit("sendMessage", {
@@ -173,7 +173,7 @@ class _ChatPageState extends State<Communitypage> {
     }
   }
 
-  final String userId = "681661157354da31fbcca232";
+  // final String userId = "681661157354da31fbcca232";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
