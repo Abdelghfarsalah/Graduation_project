@@ -21,7 +21,9 @@ class Bottomnavbarbloc extends Bloc<Bottomnavbarevent, Bottomnavbarstate> {
     Accountpage()
   ];
   void _Changeindex(ChangeEvent event, Emitter<Bottomnavbarstate> emit) {
-    currentindex = event.index;
-    emit(BottomnavbarstateChaneg());
+    emit(BottomnavbarstateChaneg(index: event.index));
+    if (event.index != 2) {
+      currentindex = event.index;
+    }
   }
 }

@@ -53,6 +53,8 @@ dependencies:
   shimmer: ^3.0.0
   lottie: ^3.3.1
   loading_indicator: ^3.1.1
+  socket_io_client: ^3.1.2
+  image_picker: ^1.1.2
 
 dev_dependencies:
   flutter_test:

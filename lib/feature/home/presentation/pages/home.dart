@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graduation_project/core/colors.dart';
+import 'package:graduation_project/core/utils/animations.dart';
 import 'package:graduation_project/core/utils/helper.dart';
+import 'package:graduation_project/feature/Community/presentation/pages/Communitypage.dart';
 import 'package:graduation_project/feature/home/presentation/manager/BottomNavBar/BottomNavBarBloc.dart';
 import 'package:graduation_project/feature/home/presentation/manager/BottomNavBar/BottomNavBarEvent.dart';
 import 'package:graduation_project/feature/home/presentation/manager/BottomNavBar/BottomNavBarState.dart';
@@ -11,7 +13,7 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var bloc = BlocProvider.of<Bottomnavbarbloc>(context);
-    return BlocBuilder<Bottomnavbarbloc, Bottomnavbarstate>(
+    return BlocConsumer<Bottomnavbarbloc, Bottomnavbarstate>(
       builder: (context, state) {
         return Scaffold(
           extendBody: true,
@@ -48,6 +50,13 @@ class Home extends StatelessWidget {
                 items: Helper.Bottomnavbaritems()),
           ),
         );
+      },
+      listener: (BuildContext context, state) {
+        if (state is BottomnavbarstateChaneg) {
+          if (state.index == 2) {
+            Animationsforpages.navigateWithSlidepush(context, Communitypage());
+          }
+        }
       },
     );
   }
