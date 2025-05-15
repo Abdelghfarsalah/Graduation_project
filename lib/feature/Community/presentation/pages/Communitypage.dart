@@ -63,6 +63,8 @@ class _ChatPageState extends State<Communitypage> {
     });
 
     socket.on('newMessage', (data) {
+      if (!mounted) return; // ✅ تأكد إن الشاشة لسه موجودة
+
       setState(() {
         messages.insert(0, MessageModel.fromJson(data));
       });
@@ -173,7 +175,16 @@ class _ChatPageState extends State<Communitypage> {
     }
   }
 
-  // final String userId = "681661157354da31fbcca232";
+  @override
+  @override
+  void dispose() {
+    socket.off('newMessage'); // ✅ افصل الاستماع لعدم حدوث setState بعد الخروج
+    socket.disconnect(); // ✅ اقفل الاتصال
+    _controller.dispose(); // ✅ تنظيف كنترولر النص
+    _scrollController.dispose(); // ✅ تنظيف ScrollController
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

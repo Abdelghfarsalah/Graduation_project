@@ -30,7 +30,6 @@ class _MessagetileState extends State<Messagetile> {
 
   @override
   Widget build(BuildContext context) {
-    // إذا لسه userId مش جاهز، ارجع مؤشر تحميل أو SizedBox
     if (userId == null) return const SizedBox();
 
     bool isMe = widget.msg.sender.id == userId;
