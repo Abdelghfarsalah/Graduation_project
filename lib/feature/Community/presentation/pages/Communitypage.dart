@@ -3,6 +3,8 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:graduation_project/core/colors.dart';
 import 'package:graduation_project/feature/Community/domain/modelCommunity/MessageModel.dart';
 import 'package:graduation_project/feature/Community/presentation/pages/widgets/messagetile.dart';
 import 'package:image_picker/image_picker.dart';
@@ -177,11 +179,19 @@ class _ChatPageState extends State<Communitypage> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.grey.shade900, // خلفية داكنة أكثر لجو عصري
-        elevation: 2, // ظل خفيف لإبراز الـ AppBar
+        automaticallyImplyLeading: false,
+        leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: Icon(
+              Icons.arrow_back_ios,
+              color: Colors.white,
+            )),
+        backgroundColor: appColor.Primarycolor,
         centerTitle: false, // عنوان على اليسار لأسلوب محادثة أكثر
         title: Text(
-          "AI Community", // اسم عام للمجموعة
+          "Community", // اسم عام للمجموعة
           style: TextStyle(
             color: Colors.white,
             fontWeight: FontWeight.w700,
@@ -235,7 +245,10 @@ class _ChatPageState extends State<Communitypage> {
                   ),
                 ),
                 IconButton(
-                  icon: const Icon(Icons.send),
+                  icon: Icon(
+                    FontAwesomeIcons.paperPlane,
+                    color: appColor.Primarycolor,
+                  ),
                   onPressed: sendMessage,
                 ),
               ],
