@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:graduation_project/core/colors.dart';
 import 'package:graduation_project/feature/Community/domain/modelCommunity/MessageModel.dart';
 
 class Othermessage extends StatelessWidget {
@@ -27,7 +28,7 @@ class Othermessage extends StatelessWidget {
                       padding:
                           EdgeInsets.symmetric(vertical: 8, horizontal: 12.w),
                       decoration: BoxDecoration(
-                        color: const Color.fromARGB(255, 238, 238, 238),
+                        color: Colors.white,
                         borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(20.r),
                           topRight: Radius.circular(20.r),
@@ -41,7 +42,7 @@ class Othermessage extends StatelessWidget {
                             msg.sender.name,
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
-                              color: Colors.black87,
+                              color: appColor.Primarycolor,
                             ),
                           ),
                           const SizedBox(height: 4),

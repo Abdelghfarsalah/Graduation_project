@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:graduation_project/core/fonts.dart';
 import 'package:graduation_project/core/utils/SharedPreferencesDemo.dart';
+import 'package:graduation_project/feature/Account/presentation/widgets/avatarImageinAccount.dart';
 
 class Accountcard extends StatelessWidget {
   const Accountcard({super.key});
@@ -33,14 +34,7 @@ class Accountcard extends StatelessWidget {
             ),
             Positioned(
               top: -50.h,
-              child: CircleAvatar(
-                radius: 64.r,
-                backgroundColor: Colors.blue,
-                child: CircleAvatar(
-                  radius: 60.r,
-                  backgroundImage: AssetImage("assets/HomeImage/image 170.png"),
-                ),
-              ),
+              child: Avatarimageinaccount(),
             ),
             Positioned(
               top: 70.h,

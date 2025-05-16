@@ -23,6 +23,7 @@ class VerifyEmailusecase {
         createdAt: DateTime.now().toString(),
         updatedAt: DateTime.now().toString(),
         token: ifRight.data.token,
+        avatar: "",
       );
       return right(ifRight);
     });

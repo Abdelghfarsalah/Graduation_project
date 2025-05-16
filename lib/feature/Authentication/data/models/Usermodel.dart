@@ -59,6 +59,7 @@ class User {
   final bool isVerified;
   final bool isVerifiedOtp;
   final String createdAt;
+  final String avatar;
   final String updatedAt;
   final int v;
 
@@ -69,6 +70,7 @@ class User {
     required this.isVerified,
     required this.isVerifiedOtp,
     required this.createdAt,
+    required this.avatar,
     required this.updatedAt,
     required this.v,
   });
@@ -83,6 +85,7 @@ class User {
       createdAt: json['createdAt'] ?? '',
       updatedAt: json['updatedAt'] ?? '',
       v: json['__v'] ?? 0,
+      avatar: json['avatar'],
     );
   }
 
@@ -120,6 +123,7 @@ extension UserMapper on User {
       accountCreatedAt: createdAt,
       accountUpdatedAt: updatedAt,
       version: v,
+      avatar: avatar,
     );
   }
 }

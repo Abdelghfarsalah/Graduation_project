@@ -47,7 +47,7 @@ class ReccomendChatBlocBloc
           "============================================================================");
       track = event.text;
       var response = await dio.post(
-          "https://agent-production-bc22.up.railway.app/generate-roadmap",
+          "http://164.128.130.9:8000/docs/generate-roadmap",
           data: {"track": event.text});
       print(
           "============================================================================");
@@ -79,13 +79,12 @@ class ReccomendChatBlocBloc
     try {
       print(
           "=============${track}===========================dfdfd=====================${roadmap.length}===============");
-      var response = await dio.post(
-          "https://agent-production-bc22.up.railway.app/generate-roadmap",
-          data: {
-            "track": track,
-            "roadmap": roadmap,
-            "question": event.Question
-          });
+      var response = await dio
+          .post("http://164.128.130.9:8000/docs/generate-roadmap", data: {
+        "track": track,
+        "roadmap": roadmap,
+        "question": event.Question
+      });
       chat.add(FlutterRoadmapModel.fromJson(response.data));
       print(chat[chat.length - 1].roadmap);
       print(roadmap);

@@ -26,6 +26,7 @@ class Loginusecase {
         createdAt: ifRight.user.accountCreatedAt,
         updatedAt: ifRight.user.accountUpdatedAt,
         token: ifRight.authToken,
+        avatar: ifRight.user.avatar,
       );
       return right(ifRight);
     });

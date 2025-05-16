@@ -9,12 +9,14 @@ class SharedPreferencesDemo {
   static const String _keyCreatedAt = "createdAt";
   static const String _keyUpdatedAt = "updatedAt";
   static const String _keyToken = "token";
+  static const String _avatar = "avatar";
 
   /// حفظ كل بيانات المستخدم مرة واحدة
   static Future<void> saveUserData({
     required String id,
     required String name,
     required String email,
+    required String avatar,
     required bool isVerified,
     required bool isVerifiedOtp,
     required String createdAt,
@@ -23,6 +25,7 @@ class SharedPreferencesDemo {
   }) async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString(_keyUserId, id);
+    await prefs.setString(_avatar, avatar);
     await prefs.setString(_keyName, name);
     await prefs.setString(_keyEmail, email);
     await prefs.setBool(_keyIsVerified, isVerified);
@@ -140,6 +143,17 @@ class SharedPreferencesDemo {
   static Future<String?> getToken() async {
     final prefs = await SharedPreferences.getInstance();
     return prefs.getString(_keyToken);
+  }
+
+  static Future<void> setavatar(String avatar) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString(_avatar, avatar);
+  }
+
+  /// 🔹 Token
+  static Future<String?> getavatar() async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getString(_avatar);
   }
 
   static Future<void> setToken(String token) async {

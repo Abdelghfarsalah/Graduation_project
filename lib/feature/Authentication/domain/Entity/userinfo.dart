@@ -12,11 +12,13 @@ class UserModel {
   final bool isEmailVerified;
   final bool isOtpVerified;
   final String accountCreatedAt;
+  final String avatar;
   final String accountUpdatedAt;
   final int version;
 
   UserModel({
     required this.userId,
+    required this.avatar,
     required this.fullName,
     required this.emailAddress,
     required this.isEmailVerified,

@@ -89,6 +89,7 @@ flutter:
   assets:
     - assets/onboarding/
     - assets/Icons/
+    - assets/community/
     - assets/HomeImage/
     - assets/HomeImage/trendingTracksImages/
     - assets/HomeImage/populartracks/

@@ -37,6 +37,7 @@ class MyMessage extends StatelessWidget {
                           EdgeInsets.symmetric(vertical: 8.h, horizontal: 12.w),
                       margin: EdgeInsets.symmetric(vertical: 4.h),
                       decoration: BoxDecoration(
+                        border: Border.all(width: 1, color: Colors.white),
                         color: Colors.blue[200],
                         borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(20.r),

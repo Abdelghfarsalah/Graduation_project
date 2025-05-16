@@ -3,6 +3,7 @@ import 'package:graduation_project/core/colors.dart';
 import 'package:graduation_project/core/fonts.dart';
 import 'package:graduation_project/core/utils/SharedPreferencesDemo.dart';
 import 'package:graduation_project/core/utils/animations.dart';
+import 'package:graduation_project/feature/home/presentation/Widgets/avatarImage.dart';
 import 'package:graduation_project/feature/recommendChat/presentation/pages/recommendchatPage.dart';
 
 class Homeappbar extends StatelessWidget {
@@ -19,14 +20,15 @@ class Homeappbar extends StatelessWidget {
               top: MediaQuery.of(context).padding.top, bottom: 90),
           child: Row(
             children: [
-              CircleAvatar(
-                radius: 25,
-                backgroundColor: Colors.white,
-                child: CircleAvatar(
-                  radius: 23,
-                  backgroundImage: AssetImage("assets/HomeImage/image 170.png"),
-                ),
-              ),
+              Avatarimage(),
+              // CircleAvatar(
+              //   radius: 25,
+              //   backgroundColor: Colors.white,
+              //   child: CircleAvatar(
+              //     radius: 23,
+              //     backgroundImage: AssetImage("assets/HomeImage/image 170.png"),
+              //   ),
+              // ),
               SizedBox(
                 width: 5,
               ),
