@@ -34,7 +34,11 @@ class _TextfiledcustomState extends State<customfiledforrecommendchat> {
                   if (value.isNotEmpty) {
                     if (context.read<ReccomendChatBlocBloc>().track.length !=
                             0 &&
-                        context.read<ReccomendChatBlocBloc>().roadmap.length !=
+                        context
+                                .read<ReccomendChatBlocBloc>()
+                                .roadmap
+                                .title!
+                                .length !=
                             0) {
                       context
                           .read<ReccomendChatBlocBloc>()

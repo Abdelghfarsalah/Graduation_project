@@ -2,30 +2,17 @@ import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:graduation_project/feature/recommendChat/domain/model.dart';
+import 'package:graduation_project/feature/recommendChat/domain/RoadmapModel%20.dart';
 
 import 'reccomend_chat_bloc_event.dart';
 import 'reccomend_chat_bloc_state.dart';
 
-// extension ReccomendChatBlocBlocExt on BuildContext {
-//   ReccomendChatBlocBloc get reccomendChatBlocBloc => read<ReccomendChatBlocBloc>();
-//   ReccomendChatBlocState get reccomendChatBlocBlocState => reccomendChatBlocBloc.state;
-
-//   void addReccomendChatBlocEvent(ReccomendChatBlocEvent event) {
-//     reccomendChatBlocBloc.add(event);
-//   }
-
-//   void init() {
-//     addReccomendChatBlocEvent(InitEvent());
-//   }
-// }
-
 class ReccomendChatBlocBloc
     extends Bloc<ReccomendChatBlocEvent, ReccomendChatBlocState> {
-  List<FlutterRoadmapModel> chat = [];
+  List<Roadmapmodel> chat = [];
   bool bottom = true;
   String track = "";
-  String roadmap = "";
+  late Roadmapmodel roadmap;
   final Dio dio;
   final TextEditingController controller = TextEditingController();
   ReccomendChatBlocBloc({required this.dio}) : super(Initrecommendstate()) {
@@ -39,24 +26,20 @@ class ReccomendChatBlocBloc
 
   Future<void> _onFetchData(
       Fetchroadmap event, Emitter<ReccomendChatBlocState> emit) async {
-    chat.add(FlutterRoadmapModel(
-        track: event.text, fromuser: true, roadmap: '', question: event.text));
+    chat.add(Roadmapmodel(title: event.text, fromuser: true));
     emit(Loading());
     try {
       print(
-          "============================================================================");
+          "=========================================loading===================================");
       track = event.text;
       var response = await dio.post(
-          "http://164.128.130.9:8000/docs/generate-roadmap",
+          "http://164.128.130.9:8000/generate-roadmap",
           data: {"track": event.text});
       print(
-          "============================================================================");
-
-      chat.add(FlutterRoadmapModel.fromJson(response.data));
-      print(chat[chat.length - 1].roadmap);
-      roadmap = response.data["roadmap"];
-      print(roadmap);
-
+          "===============success=============================================================");
+      print(response.data);
+      roadmap = Roadmapmodel.fromJson(response.data);
+      chat.add(roadmap);
       emit(SuccessRoadmapstate());
     } catch (e) {
       print(e.toString());
@@ -72,22 +55,22 @@ class ReccomendChatBlocBloc
 
   Future<void> _FetchroadmapwithQuestion(FetchroadmapwithQuestion event,
       Emitter<ReccomendChatBlocState> emit) async {
-    chat.add(FlutterRoadmapModel(
-        track: '', fromuser: true, roadmap: '', question: event.Question));
+    chat.add(Roadmapmodel(title: event.Question, fromuser: true));
     print(event.Question);
     emit(Loading());
     try {
       print(
-          "=============${track}===========================dfdfd=====================${roadmap.length}===============");
+          "=============${track}===========================dfdfd===============================");
+      print(roadmap.title);
+      print(event.Question);
       var response = await dio
-          .post("http://164.128.130.9:8000/docs/generate-roadmap", data: {
+          .post("http://164.128.130.9:8000/generate-roadmap", data: {
         "track": track,
-        "roadmap": roadmap,
+        "roadmap": roadmap.toJson(),
         "question": event.Question
       });
-      chat.add(FlutterRoadmapModel.fromJson(response.data));
-      print(chat[chat.length - 1].roadmap);
-      print(roadmap);
+      chat.add(Roadmapmodel.fromJson(response.data));
+
       roadmap = response.data["roadmap"];
       emit(SuccessRoadmapstate());
     } catch (e) {
@@ -105,7 +88,6 @@ class ReccomendChatBlocBloc
       ClearMessages event, Emitter<ReccomendChatBlocState> emit) {
     chat.clear();
     track = "";
-    roadmap = "";
     emit(clearstate());
   }
 

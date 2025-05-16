@@ -70,19 +70,17 @@ class _StreamViewState extends State<Recommendchatview> {
                               context.read<ReccomendChatBlocBloc>().chat.length,
                           controller: _scrollController,
                           itemBuilder: (context, index) {
-                            return context
+                            var fromuser = context
                                     .read<ReccomendChatBlocBloc>()
                                     .chat[index]
-                                    .fromuser
-                                ? Usermessage(
-                                    text: bloc.chat[index].question!.length != 0
-                                        ? bloc.chat[index].question!
-                                        : bloc.chat[index].track)
+                                    .fromuser ??
+                                false;
+                            return fromuser
+                                ? Usermessage(text: bloc.chat[index].title!)
                                 : Agentmessage(
                                     text: context
                                         .read<ReccomendChatBlocBloc>()
-                                        .chat[index]
-                                        .roadmap,
+                                        .chat[index],
                                   );
                           },
                         ),

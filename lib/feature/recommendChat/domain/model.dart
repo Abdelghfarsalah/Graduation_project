@@ -1,4 +1,6 @@
-class FlutterRoadmapModel {
+import 'package:graduation_project/feature/recommendChat/domain/parentclass.dart';
+
+class FlutterRoadmapModel extends Parentclass {
   final String track;
   final String? question;
   final String roadmap;

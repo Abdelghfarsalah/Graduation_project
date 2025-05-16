@@ -6,12 +6,8 @@ class StepModel {
   final String? description;
   final List<CategoryModel>? categories;
 
-  StepModel({
-    this.stepNumber,
-    this.stepTitle,
-    this.description,
-    this.categories,
-  });
+  StepModel(
+      {this.stepNumber, this.stepTitle, this.description, this.categories});
 
   factory StepModel.fromJson(Map<String, dynamic> json) {
     return StepModel(
@@ -22,5 +18,14 @@ class StepModel {
           ?.map((e) => CategoryModel.fromJson(e))
           .toList(),
     );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'step_number': stepNumber,
+      'step_title': stepTitle,
+      'description': description,
+      'categories': categories?.map((e) => e.toJson()).toList(),
+    };
   }
 }
