@@ -47,7 +47,7 @@ class ReccomendChatBlocBloc
           "============================================================================");
       track = event.text;
       var response = await dio.post(
-          "http://164.128.130.9:8000/docs/generate-roadmap",
+          "http://164.128.130.9:8000/generate-roadmap",
           data: {"track": event.text});
       print(
           "============================================================================");
@@ -80,7 +80,7 @@ class ReccomendChatBlocBloc
       print(
           "=============${track}===========================dfdfd=====================${roadmap.length}===============");
       var response = await dio
-          .post("http://164.128.130.9:8000/docs/generate-roadmap", data: {
+          .post("http://164.128.130.9:8000/generate-roadmap", data: {
         "track": track,
         "roadmap": roadmap,
         "question": event.Question
