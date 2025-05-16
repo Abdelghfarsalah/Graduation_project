@@ -55,6 +55,7 @@ dependencies:
   loading_indicator: ^3.1.1
   socket_io_client: ^3.1.2
   image_picker: ^1.1.2
+  image: ^4.5.4
 
 dev_dependencies:
   flutter_test:

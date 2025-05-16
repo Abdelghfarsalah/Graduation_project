@@ -51,7 +51,6 @@ class ReccomendChatBlocBloc
           data: {"track": event.text});
       print(
           "============================================================================");
-
       chat.add(FlutterRoadmapModel.fromJson(response.data));
       print(chat[chat.length - 1].roadmap);
       roadmap = response.data["roadmap"];
