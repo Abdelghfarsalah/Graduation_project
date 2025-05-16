@@ -3,11 +3,14 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:graduation_project/core/colors.dart';
 import 'package:graduation_project/core/utils/SharedPreferencesDemo.dart';
 import 'package:graduation_project/feature/Community/domain/modelCommunity/MessageModel.dart';
+import 'package:graduation_project/feature/Community/presentation/pages/widgets/customappbar.dart';
 import 'package:graduation_project/feature/Community/presentation/pages/widgets/messagetile.dart';
+import 'package:http_parser/http_parser.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:socket_io_client/socket_io_client.dart' as IO;
 
@@ -64,7 +67,7 @@ class _ChatPageState extends State<Communitypage> {
 
     socket.on('newMessage', (data) {
       if (!mounted) return; // ✅ تأكد إن الشاشة لسه موجودة
-
+      print(data);
       setState(() {
         messages.insert(0, MessageModel.fromJson(data));
       });
@@ -93,7 +96,6 @@ class _ChatPageState extends State<Communitypage> {
             headers: {'Authorization': authToken},
           ),
         );
-
         if (response.statusCode == 200) {
           final List<dynamic> jsonMessages = response.data['data']['messages'];
           final List<MessageModel> fetchedMessages =
@@ -124,14 +126,21 @@ class _ChatPageState extends State<Communitypage> {
 
   Future<void> sendMessage() async {
     try {
-      final text = _controller.text.length != 0 ? _controller.text : "";
+      if (selectedImage != null) {
+        print("Path: ${selectedImage!.path}");
+        print("File exists: ${await File(selectedImage!.path).exists()}");
+        print("Size: ${(await selectedImage!.length())} bytes");
+      }
+      final text = _controller.text.length != 0 ? _controller.text : " ";
       var authToken = await SharedPreferencesDemo.getToken();
+
       FormData formData = FormData.fromMap({
         'message': text,
         if (selectedImage != null)
           'image': await MultipartFile.fromFile(
             selectedImage!.path,
-            filename: selectedImage!.path.split('/').last,
+            filename: 'upload.jpg',
+            contentType: MediaType("image", "jpeg"),
           ),
       });
 
@@ -145,6 +154,7 @@ class _ChatPageState extends State<Communitypage> {
           },
         ),
       );
+
       var userId = await SharedPreferencesDemo.getUserId();
       if (response.statusCode == 201) {
         _controller.clear();
@@ -155,7 +165,9 @@ class _ChatPageState extends State<Communitypage> {
               ? base64Encode(await selectedImage!.readAsBytes())
               : null,
         });
-
+        setState(() {
+          selectedImage = null;
+        });
         print("✅ Message sent and added to UI");
       } else {
         print("Error sending message: ${response.statusCode}");
@@ -189,83 +201,86 @@ class _ChatPageState extends State<Communitypage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        leading: IconButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            icon: Icon(
-              Icons.arrow_back_ios,
-              color: Colors.white,
-            )),
-        backgroundColor: appColor.Primarycolor,
-        centerTitle: false, // عنوان على اليسار لأسلوب محادثة أكثر
-        title: Text(
-          "Community", // اسم عام للمجموعة
-          style: TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.w700,
-            fontSize: 22,
-          ),
-        ),
-        iconTheme: IconThemeData(color: Colors.blue.shade300),
-        actions: [
-          IconButton(
-            color: Colors.white,
-            icon: Icon(Icons.search), // أيقونة بحث
-            onPressed: () {
-              // وظيفة البحث
-            },
-          ),
-          IconButton(
-            color: Colors.white,
-            icon: Icon(Icons.more_vert), // أيقونة المزيد
-            onPressed: () {
-              // وظائف إضافية
-            },
-          ),
-        ],
-      ),
-      body: Column(
-        children: [
-          Expanded(
-            child: ListView(
-              controller: _scrollController,
-              reverse: true,
-              padding: const EdgeInsets.all(8),
-              children: messages.map((msg) => Messagetile(msg: msg)).toList(),
+      appBar: CustomappbarforCoummunity(),
+      body: Container(
+        decoration: BoxDecoration(
+            image: DecorationImage(
+                fit: BoxFit.fill,
+                image: AssetImage(
+                    "assets/community/whatsapp-chat-rmzlyx15fhausbaf.jpg"))),
+        child: Column(
+          children: [
+            Expanded(
+              child: ListView(
+                controller: _scrollController,
+                reverse: true,
+                padding: const EdgeInsets.all(8),
+                children: messages.map((msg) => Messagetile(msg: msg)).toList(),
+              ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(bottom: 5),
-            child: Row(
-              children: [
-                IconButton(
-                  icon: const Icon(Icons.image),
-                  onPressed: pickImage,
-                ),
-                Expanded(
-                  child: TextField(
-                    cursorColor: Colors.black,
-                    controller: _controller,
-                    decoration: const InputDecoration(
-                      hintText: "Write a message...",
-                      border: InputBorder.none,
+            if (selectedImage != null)
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(20.r),
+                      bottomRight: Radius.circular(20.r),
+                      bottomLeft: Radius.circular(20.r),
+                      topRight: Radius.circular(20.r),
+                    ),
+                    child: Image.file(
+                      selectedImage!,
+                      width: MediaQuery.sizeOf(context).width * 0.6,
+                      height: MediaQuery.sizeOf(context).height * 0.3,
+                      fit: BoxFit.cover,
                     ),
                   ),
-                ),
-                IconButton(
-                  icon: Icon(
-                    FontAwesomeIcons.paperPlane,
-                    color: appColor.Primarycolor,
+                  IconButton(
+                    onPressed: () {
+                      setState(() {
+                        selectedImage = null;
+                      });
+                    },
+                    icon: Icon(
+                      Icons.delete,
+                      size: 30,
+                      color: Colors.red,
+                    ),
+                  )
+                ],
+              ),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 5),
+              child: Row(
+                children: [
+                  IconButton(
+                    icon: const Icon(Icons.image),
+                    onPressed: pickImage,
                   ),
-                  onPressed: sendMessage,
-                ),
-              ],
+                  Expanded(
+                    child: TextField(
+                      cursorColor: Colors.black,
+                      controller: _controller,
+                      decoration: const InputDecoration(
+                        hintText: "Write a message...",
+                        border: InputBorder.none,
+                      ),
+                    ),
+                  ),
+                  IconButton(
+                    icon: Icon(
+                      FontAwesomeIcons.paperPlane,
+                      color: appColor.Primarycolor,
+                    ),
+                    onPressed: sendMessage,
+                  ),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
