@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graduation_project/feature/Account/domain/repos/repo.dart';
-import 'package:graduation_project/feature/Account/presentation/manager/delete/update_avatar/update_avatar_event.dart';
+import 'package:graduation_project/feature/Account/presentation/manager/update_avatar/update_avatar_event.dart';
 
 import 'update_avatar_state.dart';
 

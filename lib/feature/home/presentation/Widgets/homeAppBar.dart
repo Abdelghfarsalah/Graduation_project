@@ -36,26 +36,33 @@ class Homeappbar extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  FutureBuilder<String>(
-                    future: SharedPreferencesDemo
-                        .getUserName(), // تستدعي القيم المحفوظة
-                    builder: (context, snapshot) {
-                      if (snapshot.connectionState == ConnectionState.waiting) {
-                        return CircularProgressIndicator(); // عرض مؤشر تحميل أثناء جلب البيانات
-                      } else if (snapshot.hasError) {
-                        return Text("خطأ في تحميل الاسم"); // التعامل مع الأخطاء
-                      } else {
-                        return Text(
-                          snapshot.data ?? "اسم غير متوفر",
-                          style: TextStyle(
-                            fontFamily: appFonts.Poppins,
-                            fontSize: 22,
-                            fontWeight: FontWeight.w600,
-                            color: Colors.white,
-                          ),
-                        );
-                      }
-                    },
+                  SizedBox(
+                    width: MediaQuery.sizeOf(context).width * 0.5,
+                    child: FutureBuilder<String>(
+                      future: SharedPreferencesDemo
+                          .getUserName(), // تستدعي القيم المحفوظة
+                      builder: (context, snapshot) {
+                        if (snapshot.connectionState ==
+                            ConnectionState.waiting) {
+                          return CircularProgressIndicator(); // عرض مؤشر تحميل أثناء جلب البيانات
+                        } else if (snapshot.hasError) {
+                          return Text(
+                              "خطأ في تحميل الاسم"); // التعامل مع الأخطاء
+                        } else {
+                          return Text(
+                            snapshot.data ?? "اسم غير متوفر",
+                            style: TextStyle(
+                              fontFamily: appFonts.Poppins,
+                              fontSize: 22,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.white,
+                            ),
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                          );
+                        }
+                      },
+                    ),
                   ),
                   Text(
                     "Let’s start learning ",

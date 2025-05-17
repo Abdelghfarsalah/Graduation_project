@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:graduation_project/core/colors.dart';
 import 'package:graduation_project/core/fonts.dart';
-import 'package:graduation_project/feature/Account/presentation/manager/delete/update_avatar/update_avatar_bloc.dart';
-import 'package:graduation_project/feature/Account/presentation/manager/delete/update_avatar/update_avatar_state.dart';
+import 'package:graduation_project/feature/Account/presentation/manager/update_avatar/update_avatar_bloc.dart';
+import 'package:graduation_project/feature/Account/presentation/manager/update_avatar/update_avatar_state.dart';
 import 'package:graduation_project/feature/Account/presentation/widgets/Accountcard.dart';
 import 'package:graduation_project/feature/Account/presentation/widgets/BackgroundimageinAccount.dart';
 import 'package:graduation_project/feature/Account/presentation/widgets/DisplayPersonalinformation.dart';
@@ -31,6 +32,16 @@ class _AccountpageState extends State<Accountpage> {
         } else {
           inAsyncCall = false;
         }
+        if (state is UpdateAvatarSuccess) {
+          Fluttertoast.showToast(
+            msg: "Name Avatar successfully 🎉",
+            toastLength: Toast.LENGTH_SHORT,
+            gravity: ToastGravity.BOTTOM,
+            backgroundColor: const Color(0xFF008060), // soft green
+            textColor: Colors.white,
+            fontSize: 16.0,
+          );
+        }
       },
       builder: (context, state) {
         return ModalProgressHUD(
@@ -38,7 +49,7 @@ class _AccountpageState extends State<Accountpage> {
             width: MediaQuery.sizeOf(context).width * 0.5,
             height: MediaQuery.sizeOf(context).height * 0.3,
             child: LoadingIndicator(
-                indicatorType: Indicator.lineScale,
+                indicatorType: Indicator.ballScaleMultiple,
                 colors: const [
                   Color(0xFFF5F5F5),
                   Color(0xFF90CAF9),

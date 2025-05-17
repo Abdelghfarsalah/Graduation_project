@@ -28,4 +28,14 @@ class accountRepoimplemnts implements accountrepo {
       return right(ifRight);
     });
   }
+
+  @override
+  Future<Either<bool, String>> updateUserName(String username) async {
+    var reponse = await data.updateUserName(username);
+    return reponse.fold((ifLeft) {
+      return left(ifLeft);
+    }, (ifRight) {
+      return right(ifRight);
+    });
+  }
 }

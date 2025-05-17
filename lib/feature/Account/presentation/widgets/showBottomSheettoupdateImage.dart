@@ -5,8 +5,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:graduation_project/core/colors.dart';
-import 'package:graduation_project/feature/Account/presentation/manager/delete/update_avatar/update_avatar_bloc.dart';
-import 'package:graduation_project/feature/Account/presentation/manager/delete/update_avatar/update_avatar_event.dart';
+import 'package:graduation_project/feature/Account/presentation/manager/update_avatar/update_avatar_bloc.dart';
+import 'package:graduation_project/feature/Account/presentation/manager/update_avatar/update_avatar_event.dart';
 import 'package:graduation_project/feature/Authentication/presentation/widget/Custom_button.dart';
 import 'package:image_picker/image_picker.dart';
 

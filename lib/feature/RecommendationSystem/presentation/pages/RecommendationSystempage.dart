@@ -34,7 +34,7 @@ class _RecommendationsystempageState extends State<Recommendationsystempage> {
             width: MediaQuery.sizeOf(context).width * 0.95,
             height: MediaQuery.sizeOf(context).height * 0.3,
             child: LoadingIndicator(
-                indicatorType: Indicator.lineScale,
+                indicatorType: Indicator.ballScaleMultiple,
                 colors: const [
                   Color(0xFFF5F5F5),
                   Color(0xFF90CAF9),

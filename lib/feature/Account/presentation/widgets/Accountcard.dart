@@ -4,8 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:graduation_project/core/fonts.dart';
 import 'package:graduation_project/core/utils/SharedPreferencesDemo.dart';
-import 'package:graduation_project/feature/Account/presentation/manager/delete/update_avatar/update_avatar_bloc.dart';
-import 'package:graduation_project/feature/Account/presentation/manager/delete/update_avatar/update_avatar_state.dart';
+import 'package:graduation_project/feature/Account/presentation/manager/update_avatar/update_avatar_bloc.dart';
+import 'package:graduation_project/feature/Account/presentation/manager/update_avatar/update_avatar_state.dart';
 import 'package:graduation_project/feature/Account/presentation/widgets/avatarImageinAccount.dart';
 
 class Accountcard extends StatefulWidget {

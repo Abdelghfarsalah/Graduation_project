@@ -4,7 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graduation_project/feature/Account/data/dataSources/datasourecs.dart';
 import 'package:graduation_project/feature/Account/data/repoimpl/repoimplemnts.dart';
 import 'package:graduation_project/feature/Account/presentation/manager/delete/deletebloc.dart';
-import 'package:graduation_project/feature/Account/presentation/manager/delete/update_avatar/update_avatar_bloc.dart';
+import 'package:graduation_project/feature/Account/presentation/manager/update_avatar/update_avatar_bloc.dart';
+import 'package:graduation_project/feature/Account/presentation/manager/update_name/update_name_bloc.dart';
 import 'package:graduation_project/feature/Authentication/data/apis/AuthDataSources.dart';
 import 'package:graduation_project/feature/Authentication/data/repoImple/Loginrepoimple.dart';
 import 'package:graduation_project/feature/Authentication/domain/usecase/VerifyEmailUsecase.dart';
@@ -75,6 +76,10 @@ class AppBlocProviders {
       ),
       BlocProvider(
         create: (context) => UpdateAvatarBloc(
+            accountRepoimplemnts(data: accountdatasources(dio: Dio()))),
+      ),
+      BlocProvider(
+        create: (context) => UpdateNameBloc(
             accountRepoimplemnts(data: accountdatasources(dio: Dio()))),
       )
     ], child: child);

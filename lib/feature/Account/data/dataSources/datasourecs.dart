@@ -81,4 +81,34 @@ class accountdatasources {
       return Left(false);
     }
   }
+
+  Future<Either<bool, String>> updateUserName(String username) async {
+    try {
+      FormData formData = FormData.fromMap({'name': username});
+      final String url = 'http://164.128.130.9:2530/api/v1/user';
+      var token = await SharedPreferencesDemo.getToken();
+      final response = await dio.put(
+        url,
+        data: formData,
+        options: Options(
+          headers: {
+            'Authorization': 'Bearer $token',
+            'User-Agent': 'PostmanRuntime/7.43.4',
+            'Accept': '*/*',
+          },
+        ),
+      );
+      if (response.statusCode == 200) {
+        await SharedPreferencesDemo.setUserName(
+            response.data['data']['user']['name']);
+        return Right(response.data['data']['user']['name']);
+      } else {
+        print('Upload failed: ${response.statusCode}');
+        print('Response data: ${response.data}');
+        return Left(false);
+      }
+    } on Exception {
+      return Left(false);
+    }
+  }
 }
