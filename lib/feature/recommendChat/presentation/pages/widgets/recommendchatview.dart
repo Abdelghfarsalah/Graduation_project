@@ -25,6 +25,7 @@ class _StreamViewState extends State<Recommendchatview> {
   }
 
   void _scrollToBottom() {
+    print("object");
     if (_scrollController.hasClients) {
       _scrollController.jumpTo(_scrollController.position.maxScrollExtent);
     }

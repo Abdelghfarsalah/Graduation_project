@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/widgets.dart';
@@ -59,18 +61,25 @@ class ReccomendChatBlocBloc
     print(event.Question);
     emit(Loading());
     try {
+      String jsonString = jsonEncode(roadmap.toJson());
+      String escaped = jsonEncode(jsonString);
+      print(jsonString);
       print(
           "=============${track}===========================dfdfd===============================");
+      print(
+          "=============${event.Question}===========================dfdfd===============================");
+      print(
+          "=============${escaped.length}===========================dfdfd===============================");
       print(roadmap.title);
       print(event.Question);
       var response = await dio
           .post("http://164.128.130.9:8000/generate-roadmap", data: {
         "track": track,
-        "roadmap": roadmap.toJson(),
-        "question": event.Question
+        "question": event.Question,
+        "roadmap": "$escaped"
       });
-      chat.add(Roadmapmodel.fromJson(response.data));
 
+      chat.add(Roadmapmodel.fromJson(response.data));
       roadmap = response.data["roadmap"];
       emit(SuccessRoadmapstate());
     } catch (e) {
@@ -94,11 +103,11 @@ class ReccomendChatBlocBloc
   void _onScrollToStart(
       ScrollToStart event, Emitter<ReccomendChatBlocState> emit) {
     bottom = false;
-    emit(SuccessRoadmapstate());
+    emit(scrollstate());
   }
 
   void _onScrollToEnd(ScrollToEnd event, Emitter<ReccomendChatBlocState> emit) {
     bottom = true;
-    emit(SuccessRoadmapstate());
+    emit(scrollstate());
   }
 }

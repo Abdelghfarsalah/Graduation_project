@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'dart:io';
 
 import 'package:dio/dio.dart';
@@ -66,7 +65,7 @@ class _ChatPageState extends State<Communitypage> {
     });
 
     socket.on('newMessage', (data) {
-      if (!mounted) return; // ✅ تأكد إن الشاشة لسه موجودة
+      if (!mounted) return;
       print(data);
       setState(() {
         messages.insert(0, MessageModel.fromJson(data));
@@ -93,7 +92,9 @@ class _ChatPageState extends State<Communitypage> {
             if (lastMessageId != null) 'lastMessageId': lastMessageId,
           },
           options: Options(
-            headers: {'Authorization': authToken},
+            headers: {
+              'Authorization': 'Bearer $authToken',
+            },
           ),
         );
         if (response.statusCode == 200) {
@@ -117,7 +118,6 @@ class _ChatPageState extends State<Communitypage> {
       setState(() {
         messages = allMessages;
       });
-
       print("✅ Total messages fetched: ${allMessages.length}");
     } catch (e, s) {
       print("❗ Exception while fetching all messages: $e\n$s");
@@ -126,12 +126,12 @@ class _ChatPageState extends State<Communitypage> {
 
   Future<void> sendMessage() async {
     try {
-      if (selectedImage != null) {
-        print("Path: ${selectedImage!.path}");
-        print("File exists: ${await File(selectedImage!.path).exists()}");
-        print("Size: ${(await selectedImage!.length())} bytes");
-      }
-      final text = _controller.text.length != 0 ? _controller.text : " ";
+      // if (selectedImage != null) {
+      //   print("Path: ${selectedImage!.path}");
+      //   print("File exists: ${await File(selectedImage!.path).exists()}");
+      //   print("Size: ${(await selectedImage!.length())} bytes");
+      // }
+      final text = _controller.text.length != 0 ? _controller.text : "";
       var authToken = await SharedPreferencesDemo.getToken();
 
       FormData formData = FormData.fromMap({
@@ -149,7 +149,7 @@ class _ChatPageState extends State<Communitypage> {
         data: formData,
         options: Options(
           headers: {
-            'Authorization': authToken,
+            'Authorization': 'Bearer $authToken',
             'Content-Type': 'multipart/form-data',
           },
         ),
@@ -157,21 +157,17 @@ class _ChatPageState extends State<Communitypage> {
 
       var userId = await SharedPreferencesDemo.getUserId();
       if (response.statusCode == 201) {
+        final imageUrl = response.data['data']['message']['image'];
         _controller.clear();
         socket.emit("sendMessage", {
           'senderId': userId,
           'content': text,
-          'imageBase64': selectedImage != null
-              ? base64Encode(await selectedImage!.readAsBytes())
-              : null,
+          'image': imageUrl,
         });
         setState(() {
           selectedImage = null;
         });
-        print("✅ Message sent and added to UI");
-      } else {
-        print("Error sending message: ${response.statusCode}");
-        print("Response body: ${response.data}");
+        print("✅ Message sent, waiting for socket to receive it...");
       }
     } catch (e, stackTrace) {
       print("Exception occurred while sending message: $e");
