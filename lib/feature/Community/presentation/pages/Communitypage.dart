@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:dio/dio.dart';
@@ -9,7 +10,6 @@ import 'package:graduation_project/core/utils/SharedPreferencesDemo.dart';
 import 'package:graduation_project/feature/Community/domain/modelCommunity/MessageModel.dart';
 import 'package:graduation_project/feature/Community/presentation/pages/widgets/customappbar.dart';
 import 'package:graduation_project/feature/Community/presentation/pages/widgets/messagetile.dart';
-import 'package:http_parser/http_parser.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:socket_io_client/socket_io_client.dart' as IO;
 
@@ -124,54 +124,85 @@ class _ChatPageState extends State<Communitypage> {
     }
   }
 
+  // Future<void> sendMessage() async {
+  //   try {
+  //     // if (selectedImage != null) {
+  //     //   print("Path: ${selectedImage!.path}");
+  //     //   print("File exists: ${await File(selectedImage!.path).exists()}");
+  //     //   print("Size: ${(await selectedImage!.length())} bytes");
+  //     // }
+  //     final text = _controller.text.length != 0 ? _controller.text : "";
+  //     var authToken = await SharedPreferencesDemo.getToken();
+
+  //     FormData formData = FormData.fromMap({
+  //       'message': text,
+  //       if (selectedImage != null)
+  //         'image': await MultipartFile.fromFile(
+  //           selectedImage!.path,
+  //           filename: 'upload.jpg',
+  //           contentType: MediaType("image", "jpeg"),
+  //         ),
+  //     });
+
+  //     final response = await dio.post(
+  //       "http://164.128.130.9:2530/api/v1/message",
+  //       data: formData,
+  //       options: Options(
+  //         headers: {
+  //           'Authorization': 'Bearer $authToken',
+  //           'Content-Type': 'multipart/form-data',
+  //         },
+  //       ),
+  //     );
+
+  //     var userId = await SharedPreferencesDemo.getUserId();
+  //     if (response.statusCode == 201) {
+  //       final imageUrl = response.data['data']['message']['image'];
+  //       _controller.clear();
+  //       // socket.emit("sendMessage", {
+  //       //   'senderId': userId,
+  //       //   'content': text,
+  //       //   'image': imageUrl,
+  //       // });
+  //       setState(() {
+  //         selectedImage = null;
+  //       });
+  //       print("✅ Message sent, waiting for socket to receive it...");
+  //     }
+  //   } catch (e, stackTrace) {
+  //     print("Exception occurred while sending message: $e");
+  //     print("StackTrace: $stackTrace");
+  //   }
+  // }
   Future<void> sendMessage() async {
     try {
-      // if (selectedImage != null) {
-      //   print("Path: ${selectedImage!.path}");
-      //   print("File exists: ${await File(selectedImage!.path).exists()}");
-      //   print("Size: ${(await selectedImage!.length())} bytes");
-      // }
-      final text = _controller.text.length != 0 ? _controller.text : "";
-      var authToken = await SharedPreferencesDemo.getToken();
+      final text = _controller.text.trim();
+      if (text.isEmpty && selectedImage == null) return;
 
-      FormData formData = FormData.fromMap({
-        'message': text,
-        if (selectedImage != null)
-          'image': await MultipartFile.fromFile(
-            selectedImage!.path,
-            filename: 'upload.jpg',
-            contentType: MediaType("image", "jpeg"),
-          ),
+      final userId = await SharedPreferencesDemo.getUserId();
+      String? base64Image;
+
+      if (selectedImage != null) {
+        final bytes = await selectedImage!.readAsBytes();
+        base64Image = "data:image/jpeg;base64,${base64Encode(bytes)}";
+      }
+
+      // 👇 ابعت الرسالة مباشرة إلى السيرفر باستخدام socket
+      socket.emit("sendMessage", {
+        'senderId': userId,
+        'content': text,
+        if (base64Image != null) 'imageBase64': base64Image,
       });
 
-      final response = await dio.post(
-        "http://164.128.130.9:2530/api/v1/message",
-        data: formData,
-        options: Options(
-          headers: {
-            'Authorization': 'Bearer $authToken',
-            'Content-Type': 'multipart/form-data',
-          },
-        ),
-      );
+      _controller.clear();
+      setState(() {
+        selectedImage = null;
+      });
 
-      var userId = await SharedPreferencesDemo.getUserId();
-      if (response.statusCode == 201) {
-        final imageUrl = response.data['data']['message']['image'];
-        _controller.clear();
-        socket.emit("sendMessage", {
-          'senderId': userId,
-          'content': text,
-          'image': imageUrl,
-        });
-        setState(() {
-          selectedImage = null;
-        });
-        print("✅ Message sent, waiting for socket to receive it...");
-      }
+      print("✅ Message sent via socket");
     } catch (e, stackTrace) {
-      print("Exception occurred while sending message: $e");
-      print("StackTrace: $stackTrace");
+      print("❌ Error sending message: $e");
+      print("🧱 StackTrace: $stackTrace");
     }
   }
 
