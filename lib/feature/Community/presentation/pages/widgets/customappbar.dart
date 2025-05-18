@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:graduation_project/core/colors.dart';
 import 'package:graduation_project/core/fonts.dart';
 
 class CustomappbarforCoummunity extends StatelessWidget
@@ -10,7 +9,7 @@ class CustomappbarforCoummunity extends StatelessWidget
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: Colors.white,
+      backgroundColor: Color(0xFF424242),
       scrolledUnderElevation: 0,
       automaticallyImplyLeading: false,
       leading: Center(
@@ -20,7 +19,7 @@ class CustomappbarforCoummunity extends StatelessWidget
             },
             child: Icon(
               Icons.arrow_back_ios,
-              color: appColor.Primarycolor,
+              color: Colors.white,
             )),
       ),
       centerTitle: false, // عنوان على اليسار لأسلوب محادثة أكثر
@@ -30,15 +29,15 @@ class CustomappbarforCoummunity extends StatelessWidget
           Text(
             "Smart Path - Community", // اسم عام للمجموعة
             style: TextStyle(
-                color: Color(0xff303030),
+                color: Colors.white,
                 fontWeight: FontWeight.w500,
-                fontSize: 16.w,
+                fontSize: 18.w,
                 fontFamily: appFonts.Poppins),
           ),
           Text(
             "4,412 Members", // اسم عام للمجموعة
             style: TextStyle(
-                color: Color(0xff686A8A),
+                color: Colors.white,
                 fontWeight: FontWeight.w400,
                 fontSize: 12.w,
                 fontFamily: appFonts.Poppins),
@@ -55,7 +54,7 @@ class CustomappbarforCoummunity extends StatelessWidget
         //   },
         // ),
         IconButton(
-          color: Colors.black,
+          color: Colors.white,
           icon: Icon(Icons.more_vert), // أيقونة المزيد
           onPressed: () {
             // وظائف إضافية

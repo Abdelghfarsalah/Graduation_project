@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:graduation_project/core/fonts.dart';
+import 'package:graduation_project/core/utils/communityHelper.dart';
 import 'package:graduation_project/feature/Community/domain/modelCommunity/MessageModel.dart';
 
 class MyMessage extends StatelessWidget {
@@ -13,14 +15,10 @@ class MyMessage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             CircleAvatar(
-              radius: 18.r,
-              backgroundColor: Colors.blue,
-              child: CircleAvatar(
-                radius: 17.r,
-                backgroundColor: Colors.white,
-                backgroundImage: NetworkImage(
-                  msg.sender.avatar,
-                ),
+              radius: 19.r,
+              backgroundColor: Colors.white,
+              backgroundImage: NetworkImage(
+                msg.sender.avatar,
               ),
             ),
             SizedBox(
@@ -38,7 +36,7 @@ class MyMessage extends StatelessWidget {
                       margin: EdgeInsets.symmetric(vertical: 4.h),
                       decoration: BoxDecoration(
                         border: Border.all(width: 1, color: Colors.white),
-                        color: Colors.blue[200],
+                        color: Color(0xffE3FFEA),
                         borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(20.r),
                           topRight: Radius.circular(20.r),
@@ -48,15 +46,38 @@ class MyMessage extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          // Text(
-                          //   msg.sender.name,
-                          //   style: TextStyle(
-                          //       fontWeight: FontWeight.bold, color: Colors.white),
-                          // ),
-                          // const SizedBox(height: 4),
+                          Row(
+                            children: [
+                              SizedBox(
+                                width: MediaQuery.sizeOf(context).width * 0.4,
+                                child: Text(
+                                  msg.sender.name,
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black,
+                                      fontFamily: appFonts.Poppins),
+                                ),
+                              ),
+                              Spacer(),
+                              Text(
+                                Communityhelper.formatDateTime(msg.createdAt),
+                                style: TextStyle(
+                                  color: Colors.grey[500],
+                                  fontSize: 12,
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            height: 5.h,
+                          ),
                           Text(
                             msg.content,
-                            style: TextStyle(color: Colors.white),
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontFamily: appFonts.Poppins),
                           ),
                         ],
                       ),

@@ -227,7 +227,7 @@ class _ChatPageState extends State<Communitypage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Color(0xFF2E7D32),
       appBar: CustomappbarforCoummunity(),
       body: Container(
         decoration: BoxDecoration(

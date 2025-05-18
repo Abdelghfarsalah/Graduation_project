@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:graduation_project/core/colors.dart';
+import 'package:graduation_project/core/fonts.dart';
+import 'package:graduation_project/core/utils/communityHelper.dart';
 import 'package:graduation_project/feature/Community/domain/modelCommunity/MessageModel.dart';
 
 class Othermessage extends StatelessWidget {
@@ -11,7 +12,7 @@ class Othermessage extends StatelessWidget {
     return Align(
       alignment: Alignment.centerRight,
       child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 12.w),
+        padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 0.w),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.end,
           crossAxisAlignment: CrossAxisAlignment.end,
@@ -38,18 +39,40 @@ class Othermessage extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
-                          Text(
-                            msg.sender.name,
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: appColor.Primarycolor,
-                            ),
+                          Row(
+                            children: [
+                              Text(
+                                Communityhelper.formatDateTime(msg.createdAt),
+                                style: TextStyle(
+                                  color: Colors.grey[500],
+                                  fontSize: 12,
+                                ),
+                              ),
+                              Spacer(),
+                              Text(
+                                msg.sender.name,
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black,
+                                    fontFamily: appFonts.Poppins),
+                              ),
+                            ],
                           ),
                           const SizedBox(height: 4),
                           Text(
                             msg.content,
                             style: TextStyle(color: Colors.black87),
                           ),
+                          // Text(
+                          //   Communityhelper.formatDateTime(msg.createdAt),
+                          //   textAlign: TextAlign.center,
+                          //   style: TextStyle(
+                          //     color: Colors.grey[500],
+                          //     fontSize: 10,
+                          //   ),
+                          // ),
                         ],
                       ),
                     ),
@@ -76,12 +99,8 @@ class Othermessage extends StatelessWidget {
             ),
             CircleAvatar(
               radius: 18.r,
-              backgroundColor: Colors.blue,
-              child: CircleAvatar(
-                radius: 17.r,
-                backgroundImage: NetworkImage(
-                  msg.sender.avatar,
-                ),
+              backgroundImage: NetworkImage(
+                msg.sender.avatar,
               ),
             )
           ],
