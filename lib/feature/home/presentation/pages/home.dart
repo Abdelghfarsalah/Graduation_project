@@ -54,7 +54,8 @@ class Home extends StatelessWidget {
       listener: (BuildContext context, state) {
         if (state is BottomnavbarstateChaneg) {
           if (state.index == 2) {
-            Animationsforpages.navigateWithSlidepush(context, Communitypage());
+            Animationsforpages.navigateWithSlidepushfrombottpm(
+                context, Communitypage());
           }
         }
       },
