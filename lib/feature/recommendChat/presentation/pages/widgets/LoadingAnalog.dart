@@ -20,6 +20,7 @@ class _AnimatedLoadingDialog extends StatefulWidget {
 
 class _AnimatedLoadingDialogState extends State<_AnimatedLoadingDialog> {
   String message = "Generating your personalized roadmap...";
+  String animatiofile = "assets/lottei/Animation - 1747582239237.json";
   Timer? _timer;
 
   @override
@@ -28,6 +29,7 @@ class _AnimatedLoadingDialogState extends State<_AnimatedLoadingDialog> {
     _timer = Timer(Duration(seconds: 10), () {
       setState(() {
         message = "Optimizing content based on your preferences...";
+        animatiofile = "assets/lottei/Animation - 1747582500907.json";
       });
     });
   }
@@ -41,6 +43,7 @@ class _AnimatedLoadingDialogState extends State<_AnimatedLoadingDialog> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
+      backgroundColor: Colors.white,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       content: Column(
         mainAxisSize: MainAxisSize.min,
@@ -48,7 +51,7 @@ class _AnimatedLoadingDialogState extends State<_AnimatedLoadingDialog> {
           // CircularProgressIndicator(
           //   color: Colors.teal,
           // ),
-          Lottie.asset('assets/lottei/Animation - 1721330018459.json'),
+          Lottie.asset(animatiofile),
           SizedBox(height: 20),
           AnimatedSwitcher(
             duration: Duration(milliseconds: 500),
