@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/fonts.dart';
@@ -99,10 +100,11 @@ class Othermessage extends StatelessWidget {
             ),
             CircleAvatar(
               radius: 18.r,
-              backgroundImage: NetworkImage(
+              backgroundColor: Colors.white,
+              backgroundImage: CachedNetworkImageProvider(
                 msg.sender.avatar,
               ),
-            )
+            ),
           ],
         ),
       ),

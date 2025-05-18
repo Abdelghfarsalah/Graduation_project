@@ -17,7 +17,7 @@ class MyMessage extends StatelessWidget {
             CircleAvatar(
               radius: 19.r,
               backgroundColor: Colors.white,
-              backgroundImage: NetworkImage(
+              backgroundImage: CachedNetworkImageProvider(
                 msg.sender.avatar,
               ),
             ),
