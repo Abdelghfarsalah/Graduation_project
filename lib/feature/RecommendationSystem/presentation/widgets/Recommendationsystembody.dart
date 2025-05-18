@@ -170,8 +170,7 @@ class Recommendationsystembody extends StatelessWidget {
                             ),
                           ],
                         ),
-                        content: Column(
-                          mainAxisSize: MainAxisSize.min,
+                        content: ListView(
                           children: [
                             ...List.generate(3, (index) {
                               final job = state.jops[index].job;

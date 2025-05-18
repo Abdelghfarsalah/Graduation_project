@@ -34,6 +34,16 @@ class _RecommendchatpageState extends State<Recommendchatpage> {
         backgroundColor: appColor.Primarycolor,
         automaticallyImplyLeading: false,
         title: Image.asset("assets/Icons/logo.png"),
+        leading: Center(
+          child: GestureDetector(
+              onTap: () {
+                Navigator.pop(context);
+              },
+              child: Icon(
+                Icons.arrow_back_ios,
+                color: Colors.white,
+              )),
+        ),
         actions: [
           PopupMenuButton<String>(
             color: Colors.white,
