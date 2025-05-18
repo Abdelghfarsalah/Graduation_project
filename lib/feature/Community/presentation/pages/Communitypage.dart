@@ -5,7 +5,6 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:graduation_project/core/colors.dart';
 import 'package:graduation_project/core/utils/SharedPreferencesDemo.dart';
 import 'package:graduation_project/feature/Community/domain/modelCommunity/MessageModel.dart';
 import 'package:graduation_project/feature/Community/presentation/pages/widgets/customappbar.dart';
@@ -227,7 +226,7 @@ class _ChatPageState extends State<Communitypage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF2E7D32),
+      backgroundColor: Color(0xFF9DB89D),
       appBar: CustomappbarforCoummunity(),
       body: Container(
         decoration: BoxDecoration(
@@ -299,7 +298,7 @@ class _ChatPageState extends State<Communitypage> {
                   IconButton(
                     icon: Icon(
                       FontAwesomeIcons.paperPlane,
-                      color: appColor.Primarycolor,
+                      color: Colors.black26,
                     ),
                     onPressed: sendMessage,
                   ),

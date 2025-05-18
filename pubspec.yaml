@@ -60,6 +60,7 @@ dependencies:
   url_launcher: ^6.3.1
   google_fonts: ^6.2.1
   cached_network_image: ^3.4.1
+  photo_view: ^0.15.0
 
 dev_dependencies:
   flutter_test:

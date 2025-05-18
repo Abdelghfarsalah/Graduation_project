@@ -2,8 +2,11 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/fonts.dart';
+import 'package:graduation_project/core/utils/animations.dart';
 import 'package:graduation_project/core/utils/communityHelper.dart';
 import 'package:graduation_project/feature/Community/domain/modelCommunity/MessageModel.dart';
+import 'package:graduation_project/feature/Community/presentation/pages/displayImage.dart';
+import 'package:shimmer/shimmer.dart';
 
 class Othermessage extends StatelessWidget {
   const Othermessage({super.key, required this.msg});
@@ -50,14 +53,20 @@ class Othermessage extends StatelessWidget {
                                 ),
                               ),
                               Spacer(),
-                              Text(
-                                msg.sender.name,
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.black,
-                                    fontFamily: appFonts.Poppins),
+                              SizedBox(
+                                width: MediaQuery.sizeOf(context).width * 0.4,
+                                child: Align(
+                                  alignment: Alignment.bottomRight,
+                                  child: Text(
+                                    msg.sender.name,
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.black,
+                                        fontFamily: appFonts.Poppins),
+                                  ),
+                                ),
                               ),
                             ],
                           ),
@@ -81,15 +90,39 @@ class Othermessage extends StatelessWidget {
                     height: 5.h,
                   ),
                   if (msg.image != null)
-                    ClipRRect(
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(20.r),
-                        bottomRight: Radius.circular(20.r),
-                        bottomLeft: Radius.circular(20.r),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.only(top: 0),
-                        child: Image.network(msg.image!, height: 200.h),
+                    GestureDetector(
+                      onTap: () {
+                        Animationsforpages.navigateWithSlidepush(
+                            context, DisplayImage(imageUrl: msg.image!));
+                      },
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(20.r),
+                          bottomRight: Radius.circular(20.r),
+                          bottomLeft: Radius.circular(20.r),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 0),
+                          child: CachedNetworkImage(
+                            imageUrl: msg.image!,
+                            height: 250.h,
+                            width: double
+                                .infinity, // اختياري، لو حابب تمتد على عرض الشاشة
+                            fit: BoxFit
+                                .cover, // اختياري، حسب طريقة العرض اللي تحبها
+                            placeholder: (context, url) => Shimmer.fromColors(
+                              baseColor: Colors.grey[300]!,
+                              highlightColor: Colors.grey[100]!,
+                              child: Container(
+                                height: 200.h,
+                                width: double.infinity,
+                                color: Colors.white,
+                              ),
+                            ),
+                            errorWidget: (context, url, error) =>
+                                Icon(Icons.error),
+                          ),
+                        ),
                       ),
                     ),
                 ],

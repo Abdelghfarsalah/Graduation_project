@@ -1,8 +1,12 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/fonts.dart';
+import 'package:graduation_project/core/utils/animations.dart';
 import 'package:graduation_project/core/utils/communityHelper.dart';
 import 'package:graduation_project/feature/Community/domain/modelCommunity/MessageModel.dart';
+import 'package:graduation_project/feature/Community/presentation/pages/displayImage.dart';
+import 'package:shimmer/shimmer.dart';
 
 class MyMessage extends StatelessWidget {
   const MyMessage({super.key, required this.msg});
@@ -84,13 +88,35 @@ class MyMessage extends StatelessWidget {
                     ),
                   ),
                   if (msg.image != null)
-                    ClipRRect(
-                      borderRadius: BorderRadius.only(
-                        topRight: Radius.circular(20.r),
-                        bottomRight: Radius.circular(20.r),
-                        bottomLeft: Radius.circular(20.r),
+                    GestureDetector(
+                      onTap: () {
+                        Animationsforpages.navigateWithSlidepushfromleft(
+                            context, DisplayImage(imageUrl: msg.image!));
+                      },
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.only(
+                          topRight: Radius.circular(20.r),
+                          bottomRight: Radius.circular(20.r),
+                          bottomLeft: Radius.circular(20.r),
+                        ),
+                        child: CachedNetworkImage(
+                          imageUrl: msg.image!,
+                          height: 200.h,
+                          width: double.infinity, // إذا حبيت تملي العرض
+                          fit: BoxFit.cover, // علشان الصورة تبان بشكل مرتب
+                          placeholder: (context, url) => Shimmer.fromColors(
+                            baseColor: Colors.grey[300]!,
+                            highlightColor: Colors.grey[100]!,
+                            child: Container(
+                              height: 200.h,
+                              width: double.infinity,
+                              color: Colors.white,
+                            ),
+                          ),
+                          errorWidget: (context, url, error) =>
+                              Icon(Icons.error),
+                        ),
                       ),
-                      child: Image.network(msg.image!, height: 150.h),
                     ),
                   SizedBox(
                     height: 5,
