@@ -233,7 +233,7 @@ class _ChatPageState extends State<Communitypage> {
             image: DecorationImage(
                 fit: BoxFit.fill,
                 image: AssetImage(
-                    "assets/community/whatsapp-chat-rmzlyx15fhausbaf.jpg"))),
+                    "assets/community/d36bcceceaa1d390489ec70d93154311.jpg"))),
         child: Column(
           children: [
             Expanded(
@@ -287,6 +287,7 @@ class _ChatPageState extends State<Communitypage> {
                   ),
                   Expanded(
                     child: TextField(
+                      style: TextStyle(color: Colors.white),
                       cursorColor: Colors.black,
                       controller: _controller,
                       decoration: const InputDecoration(
@@ -298,7 +299,7 @@ class _ChatPageState extends State<Communitypage> {
                   IconButton(
                     icon: Icon(
                       FontAwesomeIcons.paperPlane,
-                      color: Colors.black26,
+                      color: Color(0xffE3FFEA),
                     ),
                     onPressed: sendMessage,
                   ),

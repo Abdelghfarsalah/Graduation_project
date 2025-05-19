@@ -6,6 +6,7 @@ import 'package:graduation_project/core/utils/animations.dart';
 import 'package:graduation_project/core/utils/communityHelper.dart';
 import 'package:graduation_project/feature/Community/domain/modelCommunity/MessageModel.dart';
 import 'package:graduation_project/feature/Community/presentation/pages/displayImage.dart';
+import 'package:graduation_project/feature/Community/presentation/pages/widgets/customshareicon.dart';
 import 'package:shimmer/shimmer.dart';
 
 class MyMessage extends StatelessWidget {
@@ -18,18 +19,23 @@ class MyMessage extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            CircleAvatar(
-              radius: 19.r,
-              backgroundColor: Colors.white,
-              backgroundImage: CachedNetworkImageProvider(
-                msg.sender.avatar,
+            GestureDetector(
+              onTap: () {
+                Communityhelper.showdialogDisplayimageProfile(context, msg);
+              },
+              child: CircleAvatar(
+                radius: 19.r,
+                backgroundColor: Colors.white,
+                backgroundImage: CachedNetworkImageProvider(
+                  msg.sender.avatar,
+                ),
               ),
             ),
             SizedBox(
               width: 5.w,
             ),
             SizedBox(
-              width: MediaQuery.sizeOf(context).width * 0.8,
+              width: MediaQuery.sizeOf(context).width * 0.7,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -101,14 +107,14 @@ class MyMessage extends StatelessWidget {
                         ),
                         child: CachedNetworkImage(
                           imageUrl: msg.image!,
-                          height: 200.h,
+                          // height: 200.h,
                           width: double.infinity, // إذا حبيت تملي العرض
                           fit: BoxFit.cover, // علشان الصورة تبان بشكل مرتب
                           placeholder: (context, url) => Shimmer.fromColors(
                             baseColor: Colors.grey[300]!,
                             highlightColor: Colors.grey[100]!,
                             child: Container(
-                              height: 200.h,
+                              // height: 200.h,
                               width: double.infinity,
                               color: Colors.white,
                             ),
@@ -124,6 +130,9 @@ class MyMessage extends StatelessWidget {
                 ],
               ),
             ),
+            Customshareicon(
+              msg: msg,
+            )
           ],
         ));
   }

@@ -9,7 +9,7 @@ class CustomappbarforCoummunity extends StatelessWidget
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: Color(0xFF424242),
+      backgroundColor: Color(0xFF0B1014),
       scrolledUnderElevation: 0,
       automaticallyImplyLeading: false,
       leading: Center(
@@ -18,7 +18,8 @@ class CustomappbarforCoummunity extends StatelessWidget
               Navigator.pop(context);
             },
             child: Icon(
-              Icons.arrow_back_ios,
+              Icons.keyboard_arrow_down,
+              size: 50.h,
               color: Colors.white,
             )),
       ),

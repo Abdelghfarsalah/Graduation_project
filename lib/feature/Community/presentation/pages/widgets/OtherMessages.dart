@@ -1,11 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:graduation_project/core/fonts.dart';
 import 'package:graduation_project/core/utils/animations.dart';
-import 'package:graduation_project/core/utils/communityHelper.dart';
 import 'package:graduation_project/feature/Community/domain/modelCommunity/MessageModel.dart';
 import 'package:graduation_project/feature/Community/presentation/pages/displayImage.dart';
+import 'package:graduation_project/feature/Community/presentation/pages/widgets/OtherMessageavatar.dart';
+import 'package:graduation_project/feature/Community/presentation/pages/widgets/Othermessageheader.dart';
+import 'package:graduation_project/feature/Community/presentation/pages/widgets/customshareicon.dart';
 import 'package:shimmer/shimmer.dart';
 
 class Othermessage extends StatelessWidget {
@@ -21,8 +22,11 @@ class Othermessage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.end,
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
+            Customshareicon(
+              msg: msg,
+            ),
             SizedBox(
-              width: MediaQuery.sizeOf(context).width * 0.78,
+              width: MediaQuery.sizeOf(context).width * 0.7,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
@@ -43,46 +47,14 @@ class Othermessage extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
-                          Row(
-                            children: [
-                              Text(
-                                Communityhelper.formatDateTime(msg.createdAt),
-                                style: TextStyle(
-                                  color: Colors.grey[500],
-                                  fontSize: 12,
-                                ),
-                              ),
-                              Spacer(),
-                              SizedBox(
-                                width: MediaQuery.sizeOf(context).width * 0.4,
-                                child: Align(
-                                  alignment: Alignment.bottomRight,
-                                  child: Text(
-                                    msg.sender.name,
-                                    maxLines: 1,
-                                    overflow: TextOverflow.ellipsis,
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.black,
-                                        fontFamily: appFonts.Poppins),
-                                  ),
-                                ),
-                              ),
-                            ],
+                          Othermessageheader(
+                            msg: msg,
                           ),
                           const SizedBox(height: 4),
                           Text(
                             msg.content,
                             style: TextStyle(color: Colors.black87),
                           ),
-                          // Text(
-                          //   Communityhelper.formatDateTime(msg.createdAt),
-                          //   textAlign: TextAlign.center,
-                          //   style: TextStyle(
-                          //     color: Colors.grey[500],
-                          //     fontSize: 10,
-                          //   ),
-                          // ),
                         ],
                       ),
                     ),
@@ -131,13 +103,9 @@ class Othermessage extends StatelessWidget {
             SizedBox(
               width: 5.w,
             ),
-            CircleAvatar(
-              radius: 18.r,
-              backgroundColor: Colors.white,
-              backgroundImage: CachedNetworkImageProvider(
-                msg.sender.avatar,
-              ),
-            ),
+            Othermessageavatar(
+              msg: msg,
+            )
           ],
         ),
       ),
