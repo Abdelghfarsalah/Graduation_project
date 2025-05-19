@@ -23,7 +23,7 @@ class _RatewidgetState extends State<Ratewidget> {
   List<String> statuses = [
     "Excellent",
     "Beginner",
-    "Not interested",
+    "Not Interested",
     "Average",
   ];
 
