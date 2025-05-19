@@ -26,7 +26,7 @@ class Communityhelper {
           tag: msg.sender.avatar,
           child: Container(
             width: MediaQuery.sizeOf(context).width,
-            height: MediaQuery.sizeOf(context).height * 0.4,
+            height: MediaQuery.sizeOf(context).height * 0.5,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20.r),
               image: DecorationImage(
@@ -64,6 +64,55 @@ class Communityhelper {
                 ),
               ],
             ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  static void showdialogDisplaycommunityIcon(
+      BuildContext context, String image, String name) {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        contentPadding: EdgeInsets.all(0),
+        content: Container(
+          width: MediaQuery.sizeOf(context).width,
+          height: MediaQuery.sizeOf(context).height * 0.5,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20.r),
+            image: DecorationImage(
+              fit: BoxFit.fill,
+              image: AssetImage(image),
+            ),
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              FittedBox(
+                child: Container(
+                  width: MediaQuery.sizeOf(context).width,
+                  height: 50.h,
+                  padding: EdgeInsets.all(15.h),
+                  decoration: BoxDecoration(
+                    color: Colors.black.withOpacity(0.5),
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(20.r),
+                      topRight: Radius.circular(20.r),
+                    ),
+                  ),
+                  child: Text(
+                    name,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                        fontFamily: appFonts.Poppins),
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
       ),

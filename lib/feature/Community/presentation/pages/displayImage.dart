@@ -1,5 +1,11 @@
+import 'dart:typed_data';
+
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gal/gal.dart';
+import 'package:loading_icon_button/loading_icon_button.dart';
 // import 'package:image_downloader/image_downloader.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:share_plus/share_plus.dart';
@@ -14,24 +20,22 @@ class DisplayImage extends StatefulWidget {
 }
 
 class _DisplayImageState extends State<DisplayImage> {
-  // _saveNetworkImage() async {
-  //   try {
-  //     // Saved with this method.
-  //     var imageId = await ImageDownloader.downloadImage(
-  //         "https://raw.githubusercontent.com/wiki/ko2ic/image_downloader/images/flutter.png");
-  //     if (imageId == null) {
-  //       return;
-  //     }
+  final LoadingButtonController _btnController = LoadingButtonController();
+  Future<void> downloadAndSave() async {
+    try {
+      final response = await Dio().get(
+        widget.imageUrl,
+        options: Options(responseType: ResponseType.bytes),
+      );
+      Uint8List imageBytes = Uint8List.fromList(response.data);
 
-  //     // Below is a method of obtaining saved image information.
-  //     var fileName = await ImageDownloader.findName(imageId);
-  //     var path = await ImageDownloader.findPath(imageId);
-  //     var size = await ImageDownloader.findByteSize(imageId);
-  //     var mimeType = await ImageDownloader.findMimeType(imageId);
-  //   } on PlatformException catch (error) {
-  //     print(error);
-  //   }
-  // }
+      await Gal.putImageBytes(imageBytes, name: 'downloaded_image');
+      _btnController.success();
+      _btnController.reset();
+    } catch (e) {
+      _btnController.reset();
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -59,11 +63,9 @@ class _DisplayImageState extends State<DisplayImage> {
               size: 20,
             ),
           )),
-      body: Center(
-        child: SizedBox(
-          width: MediaQuery.sizeOf(context).width,
-          // height: MediaQuery.sizeOf(context).height * 0.5,
-          child: Center(
+      body: Stack(
+        children: [
+          Center(
             child: PhotoView(
               imageProvider: CachedNetworkImageProvider(widget.imageUrl),
               backgroundDecoration: const BoxDecoration(
@@ -73,7 +75,20 @@ class _DisplayImageState extends State<DisplayImage> {
               maxScale: PhotoViewComputedScale.covered * 3.0,
             ),
           ),
-        ),
+          Positioned(
+              bottom: 50.h,
+              left: MediaQuery.sizeOf(context).width * 0.2,
+              child: LoadingButton(
+                primaryColor: Colors.black.withOpacity(0.3),
+                child: const Text('Download the image'),
+                iconData: Icons.download,
+                valueColor: Colors.greenAccent,
+                iconColor: Colors.lightGreen,
+                onPressed: () => downloadAndSave(),
+                successColor: Colors.lightGreen,
+                controller: _btnController,
+              ))
+        ],
       ),
     );
   }

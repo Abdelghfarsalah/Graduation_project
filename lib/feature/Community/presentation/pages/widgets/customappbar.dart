@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/fonts.dart';
+import 'package:graduation_project/core/utils/communityHelper.dart';
 
 class CustomappbarforCoummunity extends StatelessWidget
     implements PreferredSizeWidget {
@@ -24,24 +25,42 @@ class CustomappbarforCoummunity extends StatelessWidget
             )),
       ),
       centerTitle: false, // عنوان على اليسار لأسلوب محادثة أكثر
-      title: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      title: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Text(
-            "Smart Path - Community", // اسم عام للمجموعة
-            style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.w500,
-                fontSize: 18.w,
-                fontFamily: appFonts.Poppins),
+          GestureDetector(
+            onTap: () {
+              Communityhelper.showdialogDisplaycommunityIcon(context,
+                  'assets/IMG_٢٠٢٥٠٢٢٢_١٩٥٧٣٣.jpg', 'Smart Path Community');
+            },
+            child: CircleAvatar(
+                radius: 19.r,
+                backgroundColor: Colors.white,
+                backgroundImage: AssetImage('assets/IMG_٢٠٢٥٠٢٢٢_١٩٥٧٣٣.jpg')),
           ),
-          Text(
-            "4,412 Members", // اسم عام للمجموعة
-            style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.w400,
-                fontSize: 12.w,
-                fontFamily: appFonts.Poppins),
+          SizedBox(
+            width: 10.w,
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "Community", // اسم عام للمجموعة
+                style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w500,
+                    fontSize: 18.w,
+                    fontFamily: appFonts.Poppins),
+              ),
+              Text(
+                "4,412 Members", // اسم عام للمجموعة
+                style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w400,
+                    fontSize: 12.w,
+                    fontFamily: appFonts.Poppins),
+              ),
+            ],
           ),
         ],
       ),

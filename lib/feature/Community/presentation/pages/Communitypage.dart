@@ -288,7 +288,7 @@ class _ChatPageState extends State<Communitypage> {
                   Expanded(
                     child: TextField(
                       style: TextStyle(color: Colors.white),
-                      cursorColor: Colors.black,
+                      cursorColor: Colors.white,
                       controller: _controller,
                       decoration: const InputDecoration(
                         hintText: "Write a message...",
