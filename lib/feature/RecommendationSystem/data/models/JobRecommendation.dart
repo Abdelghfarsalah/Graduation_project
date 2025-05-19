@@ -5,7 +5,7 @@ class JobRecommendation {
 
   factory JobRecommendation.fromJson(Map<String, dynamic> json) {
     return JobRecommendation(
-      job: json['job'],
+      job: json['track'],
     );
   }
 }

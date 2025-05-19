@@ -27,7 +27,7 @@ class _RatewidgetState extends State<Ratewidget> {
     "Average",
   ];
 
-  int select = 0;
+  int select = 1;
   @override
   Widget build(BuildContext context) {
     return SizedBox(

@@ -1,4 +1,3 @@
-import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gemini/flutter_gemini.dart';
@@ -13,11 +12,9 @@ void main() {
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]);
-  runApp(DevicePreview(
-      enabled: true, // تفعيل في وضع التطوير فقط
-      builder: (context) => AppBlocProviders.getblocprovider(
-            child: const GraduationProject(),
-          )));
+  runApp(AppBlocProviders.getblocprovider(
+    child: const GraduationProject(),
+  ));
 }
 
 class GraduationProject extends StatelessWidget {

@@ -1,3 +1,3 @@
 abstract class SaveImageBlocEvent {}
 
-class InitEvent extends SaveImageBlocEvent {}
+class SaveImage extends SaveImageBlocEvent {}

@@ -18,10 +18,11 @@ class Recommenddatasources {
           options: Options(headers: {"Content-Type": "application/json"}));
 
       List<JobRecommendation> JobRecommendations = [];
-
-      for (var x in response.data["recommendations"]) {
+      print(response.data["top_recommendations"]);
+      for (var x in response.data["top_recommendations"]) {
         JobRecommendations.add(JobRecommendation.fromJson(x));
       }
+
       print(JobRecommendations[0].job);
       print(JobRecommendations[1].job);
       print(JobRecommendations[2].job);
