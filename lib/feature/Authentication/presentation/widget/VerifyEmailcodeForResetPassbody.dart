@@ -33,16 +33,20 @@ class _VerifyemailcodeforresetpassbodyState
               child: backButton(),
             ),
           ),
+          SliverToBoxAdapter(
+            child: SizedBox(
+              height: MediaQuery.sizeOf(context).height * 0.2,
+            ),
+          ),
           SliverFillRemaining(
             hasScrollBody: false,
             child: Column(
               children: [
-                Expanded(child: SizedBox()),
+                // Expanded(child: SizedBox()),
                 Stack(
                   clipBehavior: Clip.none,
                   children: [
-                    Expanded(
-                        child: Container(
+                    Container(
                       width: MediaQuery.sizeOf(context).width,
                       height: MediaQuery.sizeOf(context).height * 0.7,
                       decoration: BoxDecoration(
@@ -51,7 +55,7 @@ class _VerifyemailcodeforresetpassbodyState
                             topLeft: Radius.circular(40),
                             topRight: Radius.circular(40),
                           )),
-                    )),
+                    ),
                     Positioned(
                       top: -100.h,
                       left: 20.w,

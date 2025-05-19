@@ -8,8 +8,7 @@ class Homepageactivities extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-        child: Container(
+    return Container(
       width: double.infinity,
       decoration: BoxDecoration(
           color: Colors.white,
@@ -34,6 +33,6 @@ class Homepageactivities extends StatelessWidget {
           )
         ],
       ),
-    ));
+    );
   }
 }

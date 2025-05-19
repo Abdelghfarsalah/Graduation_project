@@ -43,7 +43,7 @@ class _OtpState extends State<Otp> {
 
   Widget buildOtpField(int index) {
     return SizedBox(
-      width: 40.w,
+      width: 50.w,
       height: 50.h,
       child: Center(
         child: TextFormField(
