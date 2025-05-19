@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/utils/animations.dart';
 import 'package:graduation_project/feature/recommendChat/domain/RoadmapModel%20.dart';
 import 'package:graduation_project/feature/recommendChat/presentation/pages/widgets/displaytimeLine.dart';
@@ -49,15 +50,49 @@ class Agentmessage extends StatelessWidget {
                   ),
                   elevation: 3,
                 ),
-                child: Text(
-                  'Click here to show timeline',
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: Colors.black.withOpacity(0.3),
-                    fontWeight: FontWeight.bold,
-                    letterSpacing: 1.2,
+                child: FittedBox(
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Show Timeline',
+                        style: TextStyle(
+                          fontSize: 18,
+                          color: Colors.black.withOpacity(0.3),
+                          fontWeight: FontWeight.bold,
+                          letterSpacing: 1.2,
+                        ),
+                      ),
+                      SizedBox(
+                        width: 15.w,
+                      ),
+                      Icon(
+                        Icons.keyboard_arrow_right_rounded,
+                        color: Colors.black.withOpacity(0.3),
+                        size: 10.sp,
+                      ),
+                      Icon(
+                        Icons.keyboard_arrow_right_rounded,
+                        color: Colors.black.withOpacity(0.3),
+                        size: 15.sp,
+                      ),
+                      Icon(
+                        Icons.keyboard_arrow_right_rounded,
+                        color: Colors.black.withOpacity(0.3),
+                        size: 20.sp,
+                      ),
+                      Icon(
+                        Icons.keyboard_arrow_right_rounded,
+                        color: Colors.black.withOpacity(0.3),
+                        size: 25.sp,
+                      )
+                    ],
                   ),
                 ),
+              ),
+              SizedBox(
+                height: 15.h,
               )
             ],
           ),

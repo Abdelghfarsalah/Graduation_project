@@ -41,7 +41,6 @@ class _DisplaytimelineState extends State<Displaytimeline> {
         title: Text('Roadmap Timeline'),
         backgroundColor: Colors.white,
         centerTitle: true,
-        elevation: 4,
       ),
       body: ListView.builder(
         itemCount: widget.mdoel.steps!.length,
