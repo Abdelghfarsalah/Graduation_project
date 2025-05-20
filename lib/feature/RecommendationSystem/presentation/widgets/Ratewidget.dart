@@ -13,13 +13,13 @@ class Ratewidget extends StatefulWidget {
 }
 
 class _RatewidgetState extends State<Ratewidget> {
-  List<String> emojis = [
-    "🏆",
-    "😍",
-    "🚫",
-    "📊",
-  ];
-
+  // List<String> emojis = [
+  //   "🏆",
+  //   "😍",
+  //   "🚫",
+  //   "📊",
+  // ];
+  //emojis[index]}
   List<String> statuses = [
     "Excellent",
     "Beginner",
@@ -53,7 +53,7 @@ class _RatewidgetState extends State<Ratewidget> {
               child: Row(
                 children: [
                   Text(
-                    "${emojis[index]} ${statuses[index]}",
+                    "${statuses[index]}",
                     style: TextStyle(
                         fontFamily: appFonts.Poppins,
                         fontSize: select == index ? 16.sp : 14.sp,

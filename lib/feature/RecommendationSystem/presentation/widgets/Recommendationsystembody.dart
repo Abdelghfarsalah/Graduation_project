@@ -47,7 +47,7 @@ class Recommendationsystembody extends StatelessWidget {
               onTap: () {},
               color: Color(0xffA8A7DA),
               text: 'Technical_Communication',
-              width: MediaQuery.of(context).size.width * 0.7,
+              width: MediaQuery.of(context).size.width * 0.6,
             ),
             Techrate(
               onTap: () {},
@@ -65,7 +65,7 @@ class Recommendationsystembody extends StatelessWidget {
               onTap: () {},
               color: Color(0xffC0DAA7),
               text: 'Biology_Biochemistry_Basic',
-              width: MediaQuery.of(context).size.width * 0.7,
+              width: MediaQuery.of(context).size.width * 0.6,
             ),
             Techrate(
               onTap: () {},

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:graduation_project/core/fonts.dart';
 import 'package:graduation_project/feature/recommendChat/domain/RoadmapModel%20.dart';
 import 'package:timeline_tile/timeline_tile.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -47,6 +49,19 @@ class _DisplaytimelineState extends State<Displaytimeline> {
         itemBuilder: (context, index) => Container(
           color: blueWhiteGradientColors[index],
           child: TimelineTile(
+            hasIndicator: true,
+            indicatorStyle: IndicatorStyle(
+                indicator: Container(
+                  height: 60.h,
+                  width: 60.w,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: Colors.white),
+                  child: Center(
+                    child: Text("${index + 1}"),
+                  ),
+                ),
+                color: Colors.black),
             alignment: TimelineAlign.manual,
             lineXY: 0.3,
             endChild: Column(
@@ -71,35 +86,42 @@ class _DisplaytimelineState extends State<Displaytimeline> {
                                   fontSize: 14,
                                   color: Colors.blueAccent),
                             ),
-                            ...?category.items?.map((item) => Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.only(
-                                          left: 12, top: 2),
-                                      child: Text(
-                                        "- ${item.title ?? ""}",
-                                        style: TextStyle(fontSize: 13),
-                                      ),
-                                    ),
-                                    GestureDetector(
-                                      onTap: () {
-                                        _launchURL(item.link ??
-                                            "https://www.figma.com/design/LIyLwTzP0FkIdzlVO72Cuo/GP_Smart-Path?node-id=0-1&p=f&t=m7qkcy9d9aSb0d3l-0");
-                                      },
-                                      child: Padding(
-                                        padding: const EdgeInsets.only(
-                                            left: 12, top: 2, bottom: 15),
-                                        child: Text(
-                                          "Click Here",
-                                          style: TextStyle(
-                                              color: Colors.blueAccent,
-                                              fontSize: 13),
+                            ...?category.items
+                                ?.asMap()
+                                .entries
+                                .map((item) => Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 12, top: 2),
+                                          child: Text(
+                                            "${item.key + 1} - ${item.value.title ?? ""}",
+                                            style: TextStyle(
+                                                fontSize: 13.sp,
+                                                fontFamily: appFonts.Poppins,
+                                                fontWeight: FontWeight.w900),
+                                          ),
                                         ),
-                                      ),
-                                    )
-                                  ],
-                                )),
+                                        GestureDetector(
+                                          onTap: () {
+                                            _launchURL(item.value.link ??
+                                                "https://www.figma.com/design/LIyLwTzP0FkIdzlVO72Cuo/GP_Smart-Path?node-id=0-1&p=f&t=m7qkcy9d9aSb0d3l-0");
+                                          },
+                                          child: Padding(
+                                            padding: const EdgeInsets.only(
+                                                left: 12, top: 2, bottom: 15),
+                                            child: Text(
+                                              "Click Here",
+                                              style: TextStyle(
+                                                  color: Colors.blueAccent,
+                                                  fontSize: 13),
+                                            ),
+                                          ),
+                                        )
+                                      ],
+                                    )),
                           ],
                         ),
                       );
@@ -107,7 +129,14 @@ class _DisplaytimelineState extends State<Displaytimeline> {
                   )
               ],
             ),
-            startChild: Text(widget.mdoel.steps![index].stepTitle ?? ""),
+            startChild: Text(
+              "${widget.mdoel.steps![index].stepTitle ?? ""}",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  fontSize: 13.sp,
+                  fontFamily: appFonts.Poppins,
+                  fontWeight: FontWeight.w900),
+            ),
           ),
         ),
       ),

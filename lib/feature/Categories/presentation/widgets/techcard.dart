@@ -15,7 +15,7 @@ class Techcard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 5.0),
       child: Container(
-        height: 51,
+        height: 51.h,
         width: width,
         decoration:
             BoxDecoration(color: color, borderRadius: BorderRadius.circular(8)),

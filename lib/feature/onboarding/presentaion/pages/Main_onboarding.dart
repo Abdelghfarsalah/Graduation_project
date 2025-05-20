@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:graduation_project/core/utils/SharedPreferencesDemo.dart';
 import 'package:graduation_project/feature/onboarding/presentaion/pages/Page_four.dart';
 import 'package:graduation_project/feature/onboarding/presentaion/pages/first_page.dart';
 import 'package:graduation_project/feature/onboarding/presentaion/pages/second_page.dart';
@@ -13,6 +14,16 @@ class MainOnboarding extends StatefulWidget {
 
 class _MainOnboardingState extends State<MainOnboarding> {
   final PageController _controller = PageController();
+  @override
+  void setState(VoidCallback fn) {
+    // TODO: implement setState
+    super.setState(fn);
+    setfirsttime();
+  }
+
+  Future<void> setfirsttime() async {
+    await SharedPreferencesDemo.setFirstTime();
+  }
 
   @override
   Widget build(BuildContext context) {

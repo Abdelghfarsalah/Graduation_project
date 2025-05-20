@@ -166,9 +166,9 @@ class SharedPreferencesDemo {
     sharedPreferences.setBool("FirstTime", false);
   }
 
-  static getFirstTime() async {
+  static Future<bool> getFirstTime() async {
     setFirstTime();
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-    sharedPreferences.getBool("FirstTime");
+    return await sharedPreferences.getBool("FirstTime") ?? true;
   }
 }
