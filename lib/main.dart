@@ -4,6 +4,7 @@ import 'package:flutter_gemini/flutter_gemini.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/Bloc_providers.dart';
 import 'package:graduation_project/core/utils/SharedPreferencesDemo.dart';
+import 'package:graduation_project/feature/home/presentation/pages/home.dart';
 import 'package:graduation_project/feature/onboarding/presentaion/pages/Main_onboarding.dart';
 import 'package:graduation_project/feature/onboarding/presentaion/pages/WelcomePage.dart';
 
@@ -16,16 +17,21 @@ void main() async {
   ]);
   ;
   final bool seenOnboarding = await SharedPreferencesDemo.getFirstTime();
+  final bool haveToken =
+      await SharedPreferencesDemo.getToken() == null ? false : true;
   runApp(AppBlocProviders.getblocprovider(
     child: GraduationProject(
       seenOnboarding: seenOnboarding,
+      haveToken: haveToken,
     ),
   ));
 }
 
 class GraduationProject extends StatelessWidget {
-  const GraduationProject({super.key, required this.seenOnboarding});
+  const GraduationProject(
+      {super.key, required this.seenOnboarding, required this.haveToken});
   final bool seenOnboarding;
+  final bool haveToken;
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
@@ -36,7 +42,11 @@ class GraduationProject extends StatelessWidget {
         builder: (_, child) {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
-            home: seenOnboarding ? MainOnboarding() : WelcomePage(),
+            home: seenOnboarding
+                ? MainOnboarding()
+                : haveToken
+                    ? Home()
+                    : WelcomePage(),
           );
         });
   }

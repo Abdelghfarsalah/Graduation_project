@@ -13,14 +13,11 @@ class Othermessageavatar extends StatelessWidget {
       onTap: () {
         Communityhelper.showdialogDisplayimageProfile(context, msg);
       },
-      child: Hero(
-        tag: msg.sender.avatar,
-        child: CircleAvatar(
-          radius: 18.r,
-          backgroundColor: Colors.white,
-          backgroundImage: CachedNetworkImageProvider(
-            msg.sender.avatar,
-          ),
+      child: CircleAvatar(
+        radius: 18.r,
+        backgroundColor: Colors.white,
+        backgroundImage: CachedNetworkImageProvider(
+          msg.sender.avatar,
         ),
       ),
     );

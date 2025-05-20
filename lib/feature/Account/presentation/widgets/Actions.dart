@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/fonts.dart';
+import 'package:graduation_project/core/utils/SharedPreferencesDemo.dart';
 import 'package:graduation_project/feature/Account/presentation/widgets/SettingCard.dart';
 import 'package:graduation_project/feature/home/presentation/manager/BottomNavBar/BottomNavBarBloc.dart';
 import 'package:graduation_project/feature/home/presentation/manager/BottomNavBar/BottomNavBarEvent.dart';
@@ -33,7 +34,8 @@ class ActionsSection extends StatelessWidget {
         Settingcard(
             title: "Log out",
             icon: Icon(Icons.logout),
-            onTap: () {
+            onTap: () async {
+              await SharedPreferencesDemo.clearToken();
               Future.delayed(Duration(seconds: 2), () {
                 Navigator.pushAndRemoveUntil(
                     context,

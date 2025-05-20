@@ -161,6 +161,11 @@ class SharedPreferencesDemo {
     await prefs.setString(_keyToken, token);
   }
 
+  static Future<void> clearToken() async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.remove(_keyToken);
+  }
+
   static setFirstTime() async {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     sharedPreferences.setBool("FirstTime", false);
