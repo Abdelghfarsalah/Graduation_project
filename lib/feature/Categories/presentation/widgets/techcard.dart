@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Techcard extends StatelessWidget {
   const Techcard(
@@ -25,7 +26,7 @@ class Techcard extends StatelessWidget {
               text,
               style: TextStyle(
                 fontFamily: "Poppins", // تأكد أن الخط معرف لديك
-                fontSize: 14,
+                fontSize: 14.sp,
                 fontWeight: FontWeight.w800,
                 color: Colors.white,
               ),

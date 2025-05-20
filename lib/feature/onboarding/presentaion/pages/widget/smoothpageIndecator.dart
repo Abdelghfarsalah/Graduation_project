@@ -11,6 +11,9 @@ class Smoothpageindecator extends StatelessWidget {
     return SmoothPageIndicator(
       controller: controller,
       count: 4,
+      onDotClicked: (index) {
+        controller.jumpToPage(index);
+      },
       axisDirection: Axis.horizontal,
       effect: SlideEffect(
           spacing: 15,

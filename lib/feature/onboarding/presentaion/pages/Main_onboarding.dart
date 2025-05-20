@@ -17,24 +17,26 @@ class _MainOnboardingState extends State<MainOnboarding> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: PageView(
-        physics: NeverScrollableScrollPhysics(),
-        controller: _controller,
-        children: [
-          FirstPage(
-            controller: _controller,
-          ),
-          SecondPage(
-            controller: _controller,
-          ),
-          ThirdPage(
-            controller: _controller,
-          ),
-          PageFour(
-            controller: _controller,
-          ),
-        ],
-      ),
+      body: Stack(children: [
+        PageView(
+          // physics: NeverScrollableScrollPhysics(),
+          controller: _controller,
+          children: [
+            FirstPage(
+              controller: _controller,
+            ),
+            SecondPage(
+              controller: _controller,
+            ),
+            ThirdPage(
+              controller: _controller,
+            ),
+            PageFour(
+              controller: _controller,
+            ),
+          ],
+        ),
+      ]),
     );
   }
 }
