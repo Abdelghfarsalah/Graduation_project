@@ -176,4 +176,16 @@ class SharedPreferencesDemo {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     return await sharedPreferences.getBool("FirstTime") ?? true;
   }
+
+  //for safe community chat
+  static Future<void> saveGroupName(String name) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString('groupName', name);
+  }
+
+  /// جلب الاسم فقط
+  static Future<String?> getGroupName() async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getString('groupName');
+  }
 }

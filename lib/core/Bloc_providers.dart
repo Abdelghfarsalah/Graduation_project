@@ -15,6 +15,9 @@ import 'package:graduation_project/feature/Authentication/domain/usecase/resendo
 import 'package:graduation_project/feature/Authentication/presentation/Manager/Login/Login_bloc.dart';
 import 'package:graduation_project/feature/Authentication/presentation/Manager/Register/register_bloc.dart';
 import 'package:graduation_project/feature/Authentication/presentation/Manager/resetpassword/Resetpassbloc.dart';
+import 'package:graduation_project/feature/Community/data/communityDataSourses.dart';
+import 'package:graduation_project/feature/Community/presentation/manager/chnage_chat/chnage_chat_bloc.dart';
+import 'package:graduation_project/feature/Community/presentation/manager/community_chat_bloc/community_chat_bloc_bloc.dart';
 import 'package:graduation_project/feature/RecommendationSystem/presentation/manager/Recommendationsystembloc/Recommendationsystembloc.dart';
 import 'package:graduation_project/feature/chat/presentation/manager/chatbloc.dart';
 import 'package:graduation_project/feature/home/presentation/manager/BottomNavBar/BottomNavBarBloc.dart';
@@ -23,6 +26,13 @@ import 'package:graduation_project/feature/recommendChat/presentation/manager/re
 class AppBlocProviders {
   static getblocprovider({required Widget child}) {
     return MultiBlocProvider(providers: [
+      BlocProvider(
+        create: (context) => CommunityChatBlocBloc(
+            datasources: Communitydatasourses(dio: Dio())),
+      ),
+      BlocProvider(
+        create: (context) => ChnageChatBloc(),
+      ),
       BlocProvider(create: (context) => Bottomnavbarbloc()),
       BlocProvider(create: (context) => BotBloc()),
       BlocProvider(

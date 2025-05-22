@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:graduation_project/core/utils/SharedPreferencesDemo.dart';
 
 class Avatarimage extends StatelessWidget {
-  const Avatarimage({super.key});
-
+  const Avatarimage({super.key, required this.height});
+  final double height;
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<String?>(
@@ -19,10 +19,10 @@ class Avatarimage extends StatelessWidget {
             !snapshot.hasData ||
             snapshot.data == null) {
           return CircleAvatar(
-            radius: 25,
+            radius: height,
             backgroundColor: Colors.white,
             child: CircleAvatar(
-              radius: 23,
+              radius: height - 1,
               backgroundImage:
                   AssetImage("assets/HomeImage/default.png"), // صورة افتراضية
             ),

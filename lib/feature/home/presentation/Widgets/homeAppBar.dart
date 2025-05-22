@@ -20,7 +20,9 @@ class Homeappbar extends StatelessWidget {
               top: MediaQuery.of(context).padding.top, bottom: 90),
           child: Row(
             children: [
-              Avatarimage(),
+              Avatarimage(
+                height: 25,
+              ),
               // CircleAvatar(
               //   radius: 25,
               //   backgroundColor: Colors.white,
