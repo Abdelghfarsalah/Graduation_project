@@ -12,10 +12,17 @@ class Communityhelper {
 
     String day = dateTime.day.toString().padLeft(2, '0');
     String month = dateTime.month.toString().padLeft(2, '0');
-    String hours = dateTime.hour.toString().padLeft(2, '0');
+
+    int hour = dateTime.hour;
+    String period = hour >= 12 ? 'PM' : 'AM';
+
+    hour = hour % 12;
+    if (hour == 0) hour = 12;
+
+    String hours = hour.toString().padLeft(2, '0');
     String minutes = dateTime.minute.toString().padLeft(2, '0');
 
-    return "$day/$month $hours:$minutes";
+    return "$day/$month $hours:$minutes $period";
   }
 
   static void showdialogDisplayimageProfile(

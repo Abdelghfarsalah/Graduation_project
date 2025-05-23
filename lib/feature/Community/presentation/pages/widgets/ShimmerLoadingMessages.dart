@@ -9,7 +9,7 @@ class ShimmerLoadingMessages extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: List.generate(20, (index) {
-        final bool isEven = index % 2 == 0;
+        // final bool isEven = index % 2 == 0;
 
         final avatar = CircleAvatar(
           radius: 20.r,
