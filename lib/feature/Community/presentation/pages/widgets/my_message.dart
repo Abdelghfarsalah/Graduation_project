@@ -14,126 +14,139 @@ class MyMessage extends StatelessWidget {
   final MessageModel msg;
   @override
   Widget build(BuildContext context) {
-    return Align(
-        alignment: Alignment.centerLeft,
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: [
-            GestureDetector(
-              onTap: () {
-                Communityhelper.showdialogDisplayimageProfile(context, msg);
-              },
-              child: CircleAvatar(
-                radius: 19.r,
-                backgroundColor: Colors.white,
-                backgroundImage: CachedNetworkImageProvider(
-                  msg.sender.avatar,
-                ),
+    return Padding(
+      padding: EdgeInsets.only(left: 15.0.w),
+      child: Align(
+          alignment: Alignment.centerLeft,
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              // GestureDetector(
+              //   onTap: () {
+              //     Communityhelper.showdialogDisplayimageProfile(context, msg);
+              //   },
+              //   child: CircleAvatar(
+              //     radius: 19.r,
+              //     backgroundColor: Colors.white,
+              //     backgroundImage: CachedNetworkImageProvider(
+              //       msg.sender.avatar,
+              //     ),
+              //   ),
+              // ),
+              SizedBox(
+                width: 5.w,
               ),
-            ),
-            SizedBox(
-              width: 5.w,
-            ),
-            SizedBox(
-              width: MediaQuery.sizeOf(context).width * 0.7,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    child: Container(
-                      padding:
-                          EdgeInsets.symmetric(vertical: 8.h, horizontal: 12.w),
-                      margin: EdgeInsets.symmetric(vertical: 4.h),
-                      decoration: BoxDecoration(
-                        border: Border.all(width: 1, color: Colors.white),
-                        color: Color(0xffE3FFEA),
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(20.r),
-                          topRight: Radius.circular(20.r),
-                          bottomRight: Radius.circular(20.r),
+              SizedBox(
+                width: MediaQuery.sizeOf(context).width * 0.8,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      child: Container(
+                        padding: EdgeInsets.symmetric(
+                            vertical: 8.h, horizontal: 12.w),
+                        margin: EdgeInsets.symmetric(vertical: 4.h),
+                        decoration: BoxDecoration(
+                          // border: Border.all(width: 1, color: Colors.white),
+                          color: Color(0xff144D37),
+                          borderRadius: BorderRadius.only(
+                            bottomLeft: Radius.circular(10.r),
+                            topRight: Radius.circular(10.r),
+                            bottomRight: Radius.circular(10.r),
+                          ),
                         ),
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            children: [
-                              SizedBox(
-                                width: MediaQuery.sizeOf(context).width * 0.4,
-                                child: Text(
-                                  msg.sender.name,
-                                  maxLines: 1,
-                                  overflow: TextOverflow.ellipsis,
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.black,
-                                      fontFamily: appFonts.Poppins),
-                                ),
-                              ),
-                              Spacer(),
-                              Text(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            SizedBox(
+                              height: 5.h,
+                            ),
+                            Text(
+                              msg.content,
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w500,
+                                  fontFamily: appFonts.Poppins),
+                            ),
+                            Align(
+                              alignment: Alignment.bottomRight,
+                              child: Text(
                                 Communityhelper.formatDateTime(msg.createdAt),
                                 style: TextStyle(
-                                  color: Colors.grey[500],
-                                  fontSize: 12,
+                                  color: Colors.grey[100],
+                                  fontSize: 10,
                                 ),
                               ),
-                            ],
-                          ),
-                          SizedBox(
-                            height: 5.h,
-                          ),
-                          Text(
-                            msg.content,
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontFamily: appFonts.Poppins),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  if (msg.image != null)
-                    GestureDetector(
-                      onTap: () {
-                        Animationsforpages.navigateWithSlidepushfromleft(
-                            context, DisplayImage(imageUrl: msg.image!));
-                      },
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.only(
-                          topRight: Radius.circular(20.r),
-                          bottomRight: Radius.circular(20.r),
-                          bottomLeft: Radius.circular(20.r),
-                        ),
-                        child: CachedNetworkImage(
-                          imageUrl: msg.image!,
-                          // height: 200.h,
-                          width: double.infinity, // إذا حبيت تملي العرض
-                          fit: BoxFit.cover, // علشان الصورة تبان بشكل مرتب
-                          placeholder: (context, url) => Shimmer.fromColors(
-                            baseColor: Colors.grey[300]!,
-                            highlightColor: Colors.grey[100]!,
-                            child: Container(
-                              // height: 200.h,
-                              width: double.infinity,
-                              color: Colors.white,
                             ),
-                          ),
-                          errorWidget: (context, url, error) =>
-                              Icon(Icons.error),
+                          ],
                         ),
                       ),
                     ),
-                  SizedBox(
-                    height: 5,
-                  )
-                ],
+                    if (msg.image != null)
+                      GestureDetector(
+                        onTap: () {
+                          Animationsforpages.navigateWithSlidepushfromleft(
+                              context, DisplayImage(imageUrl: msg.image!));
+                        },
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(10.r),
+                            bottomRight: Radius.circular(10.r),
+                            bottomLeft: Radius.circular(10.r),
+                          ),
+                          child: CachedNetworkImage(
+                            imageUrl: msg.image!,
+                            // height: 200.h,
+                            width: double.infinity, // إذا حبيت تملي العرض
+                            fit: BoxFit.cover, // علشان الصورة تبان بشكل مرتب
+                            placeholder: (context, url) => Shimmer.fromColors(
+                              baseColor: Colors.grey[300]!,
+                              highlightColor: Colors.grey[100]!,
+                              child: Container(
+                                // height: 200.h,
+                                width: double.infinity,
+                                color: Colors.white,
+                              ),
+                            ),
+                            errorWidget: (context, url, error) =>
+                                Icon(Icons.error),
+                          ),
+                        ),
+                      ),
+                    SizedBox(
+                      height: 5,
+                    )
+                  ],
+                ),
               ),
-            ),
-            Customshareicon(
-              msg: msg,
-            )
-          ],
-        ));
+              Center(
+                child: Customshareicon(
+                  msg: msg,
+                ),
+              )
+            ],
+          )),
+    );
   }
+}
+
+class MessageTail extends CustomPainter {
+  final Color color;
+  MessageTail({required this.color});
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final paint = Paint()..color = color;
+
+    final path = Path();
+    path.moveTo(0, 0);
+    path.lineTo(size.width, size.height / 2);
+    path.lineTo(0, size.height);
+    path.close();
+
+    canvas.drawPath(path, paint);
+  }
+
+  @override
+  bool shouldRepaint(CustomPainter oldDelegate) => false;
 }

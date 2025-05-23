@@ -220,7 +220,10 @@ class _CommunitybodyState extends State<Communitybody> {
             child: Row(
               children: [
                 IconButton(
-                  icon: const Icon(Icons.image),
+                  icon: const Icon(
+                    Icons.image,
+                    color: Colors.white,
+                  ),
                   onPressed: pickImage,
                 ),
                 Expanded(
@@ -230,6 +233,7 @@ class _CommunitybodyState extends State<Communitybody> {
                     controller: _controller,
                     decoration: const InputDecoration(
                       hintText: "Write a message...",
+                      hintStyle: TextStyle(color: Colors.white),
                       border: InputBorder.none,
                     ),
                   ),

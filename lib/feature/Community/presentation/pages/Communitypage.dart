@@ -61,7 +61,7 @@ class _ChatPageState extends State<Communitypage> {
             groupsResponse: widget.groupsResponse,
           ),
         ),
-        backgroundColor: Color(0xFF9DB89D),
+        // backgroundColor: Color(0xFF9DB89D),
         appBar: CustomappbarforCoummunity(
           scaffoldkey: key,
           currentgroup: bloc,

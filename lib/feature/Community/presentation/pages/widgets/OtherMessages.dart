@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/utils/animations.dart';
+import 'package:graduation_project/core/utils/communityHelper.dart';
 import 'package:graduation_project/feature/Community/domain/modelCommunity/MessageModel.dart';
 import 'package:graduation_project/feature/Community/presentation/pages/displayImage.dart';
 import 'package:graduation_project/feature/Community/presentation/pages/widgets/OtherMessageavatar.dart';
@@ -20,10 +21,11 @@ class Othermessage extends StatelessWidget {
         padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 0.w),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.end,
-          crossAxisAlignment: CrossAxisAlignment.end,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Customshareicon(
-              msg: msg,
+            Align(
+              alignment: Alignment.center,
+              child: Customshareicon(msg: msg),
             ),
             SizedBox(
               width: MediaQuery.sizeOf(context).width * 0.7,
@@ -37,11 +39,11 @@ class Othermessage extends StatelessWidget {
                       padding:
                           EdgeInsets.symmetric(vertical: 8, horizontal: 12.w),
                       decoration: BoxDecoration(
-                        color: Colors.white,
+                        color: Color(0xff242626),
                         borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(20.r),
-                          topRight: Radius.circular(20.r),
-                          bottomLeft: Radius.circular(20.r),
+                          bottomRight: Radius.circular(10.r),
+                          topLeft: Radius.circular(10.r),
+                          bottomLeft: Radius.circular(10.r),
                         ),
                       ),
                       child: Column(
@@ -53,7 +55,17 @@ class Othermessage extends StatelessWidget {
                           const SizedBox(height: 4),
                           Text(
                             msg.content,
-                            style: TextStyle(color: Colors.black87),
+                            style: TextStyle(color: Colors.white),
+                          ),
+                          Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              Communityhelper.formatDateTime(msg.createdAt),
+                              style: TextStyle(
+                                color: Colors.grey[100],
+                                fontSize: 10,
+                              ),
+                            ),
                           ),
                         ],
                       ),
@@ -69,9 +81,9 @@ class Othermessage extends StatelessWidget {
                       },
                       child: ClipRRect(
                         borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(20.r),
-                          bottomRight: Radius.circular(20.r),
-                          bottomLeft: Radius.circular(20.r),
+                          topLeft: Radius.circular(10.r),
+                          bottomRight: Radius.circular(10.r),
+                          bottomLeft: Radius.circular(10.r),
                         ),
                         child: Padding(
                           padding: const EdgeInsets.only(top: 0),

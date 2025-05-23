@@ -2,7 +2,6 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:graduation_project/core/fonts.dart';
-import 'package:graduation_project/core/utils/communityHelper.dart';
 import 'package:graduation_project/feature/Community/domain/modelCommunity/MessageModel.dart';
 
 class Othermessageheader extends StatefulWidget {
@@ -24,16 +23,9 @@ class _OthermessageheaderState extends State<Othermessageheader> {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Text(
-          Communityhelper.formatDateTime(widget.msg.createdAt),
-          style: TextStyle(
-            color: Colors.grey[500],
-            fontSize: 12,
-          ),
-        ),
         Spacer(),
         SizedBox(
-          width: MediaQuery.sizeOf(context).width * 0.4,
+          width: MediaQuery.sizeOf(context).width * 0.5,
           child: Align(
             alignment: Alignment.bottomRight,
             child: Text(
