@@ -34,18 +34,12 @@ class ShimmerLoadingMessages extends StatelessWidget {
             baseColor: Colors.grey.shade300,
             highlightColor: Colors.grey.shade100,
             child: Row(crossAxisAlignment: CrossAxisAlignment.start, children:
-                    // ?
-                    [
+                // ?
+                [
               avatar,
               SizedBox(width: 12.w),
               messageBox,
-            ]
-                // : [
-                //     messageBox,
-                //     SizedBox(width: 12.w),
-                //     avatar,
-                //   ],
-                ),
+            ]),
           ),
         );
       }),

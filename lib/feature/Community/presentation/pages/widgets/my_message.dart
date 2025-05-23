@@ -17,17 +17,19 @@ class MyMessage extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(left: 5.0.w),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
+        // crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
+            // crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SizedBox(
-                width: MediaQuery.sizeOf(context).width * 0.8,
+                // width: MediaQuery.sizeOf(context).width * 0.8,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
+                      constraints: BoxConstraints(
+                          maxWidth: MediaQuery.sizeOf(context).width * 0.8),
                       child: Container(
                         padding: EdgeInsets.symmetric(
                             vertical: 8.h, horizontal: 12.w),
@@ -49,19 +51,20 @@ class MyMessage extends StatelessWidget {
                             ),
                             Text(
                               msg.content,
+                              textAlign: TextAlign.left,
                               style: TextStyle(
                                   color: Colors.white,
                                   fontWeight: FontWeight.w500,
                                   fontFamily: appFonts.Poppins),
                             ),
-                            Align(
-                              alignment: Alignment.bottomRight,
-                              child: Text(
-                                Communityhelper.formatDateTime(msg.createdAt),
-                                style: TextStyle(
-                                  color: Colors.grey[100],
-                                  fontSize: 10,
-                                ),
+                            SizedBox(
+                              height: 10.h,
+                            ),
+                            Text(
+                              Communityhelper.formatDateTime(msg.createdAt),
+                              style: TextStyle(
+                                color: const Color.fromARGB(255, 202, 202, 202),
+                                fontSize: 10,
                               ),
                             ),
                           ],

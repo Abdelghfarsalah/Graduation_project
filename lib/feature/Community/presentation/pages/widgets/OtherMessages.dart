@@ -15,111 +15,131 @@ class Othermessage extends StatelessWidget {
   final MessageModel msg;
   @override
   Widget build(BuildContext context) {
-    return Align(
-      alignment: Alignment.centerRight,
-      child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 0.w),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Customshareicon(msg: msg.content),
-            SizedBox(
-              width: MediaQuery.sizeOf(context).width * 0.7,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
+    return Padding(
+      padding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 0.w),
+      child: Column(
+        // mainAxisAlignment: MainAxisAlignment.end,
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: [
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Column(
                 children: [
-                  if (msg.content.isNotEmpty)
-                    Container(
-                      margin: const EdgeInsets.symmetric(
-                          vertical: 0, horizontal: 0),
-                      padding:
-                          EdgeInsets.symmetric(vertical: 8, horizontal: 12.w),
-                      decoration: BoxDecoration(
-                        color: Color(0xff242626),
-                        borderRadius: BorderRadius.only(
-                          bottomRight: Radius.circular(10.r),
-                          topLeft: Radius.circular(10.r),
-                          bottomLeft: Radius.circular(10.r),
-                        ),
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          Othermessageheader(
-                            msg: msg,
-                          ),
-                          const SizedBox(height: 4),
-                          Text(
-                            msg.content,
-                            style: TextStyle(color: Colors.white),
-                          ),
-                          Align(
-                            alignment: Alignment.centerLeft,
-                            child: Text(
-                              Communityhelper.formatDateTime(msg.createdAt),
-                              style: TextStyle(
-                                color: Colors.grey[100],
-                                fontSize: 10,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
                   SizedBox(
-                    height: 5.h,
+                    height: 50.h,
                   ),
-                  if (msg.image != null)
-                    GestureDetector(
-                      onTap: () {
-                        Animationsforpages.navigateWithSlidepush(
-                            context, DisplayImage(imageUrl: msg.image!));
-                      },
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(10.r),
-                          bottomRight: Radius.circular(10.r),
-                          bottomLeft: Radius.circular(10.r),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.only(top: 0),
-                          child: CachedNetworkImage(
-                            imageUrl: msg.image!,
-                            height: 250.h,
-                            width: double
-                                .infinity, // اختياري، لو حابب تمتد على عرض الشاشة
-                            fit: BoxFit
-                                .cover, // اختياري، حسب طريقة العرض اللي تحبها
-                            placeholder: (context, url) => Shimmer.fromColors(
-                              baseColor: Colors.grey[300]!,
-                              highlightColor: Colors.grey[100]!,
-                              child: Container(
-                                height: 200.h,
-                                width: double.infinity,
-                                color: Colors.white,
-                              ),
-                            ),
-                            errorWidget: (context, url, error) =>
-                                Icon(Icons.error),
-                          ),
-                        ),
-                      ),
-                    ),
+                  Customshareicon(msg: msg.content),
                 ],
               ),
-            ),
-            SizedBox(
-              width: 5.w,
-            ),
-            Align(
-                heightFactor: 1.0,
-                alignment: Alignment.topCenter,
-                child: Othermessageavatar(
-                  msg: msg,
-                ))
-          ],
-        ),
+              ConstrainedBox(
+                constraints: BoxConstraints(
+                  maxWidth: MediaQuery.sizeOf(context).width * 0.7,
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    if (msg.content.isNotEmpty)
+                      Container(
+                        margin: const EdgeInsets.symmetric(
+                            vertical: 0, horizontal: 0),
+                        padding:
+                            EdgeInsets.symmetric(vertical: 8, horizontal: 12.w),
+                        decoration: BoxDecoration(
+                          color: Color(0xff242626),
+                          borderRadius: BorderRadius.only(
+                            bottomRight: Radius.circular(10.r),
+                            topLeft: Radius.circular(10.r),
+                            bottomLeft: Radius.circular(10.r),
+                          ),
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            Othermessageheader(
+                              msg: msg,
+                            ),
+                            const SizedBox(height: 4),
+                            ConstrainedBox(
+                              constraints: BoxConstraints(
+                                  maxWidth:
+                                      MediaQuery.sizeOf(context).width * 0.8),
+                              child: Text(
+                                msg.content,
+                                style: TextStyle(color: Colors.white),
+                              ),
+                            ),
+                            Align(
+                              alignment: Alignment.centerLeft,
+                              child: Text(
+                                Communityhelper.formatDateTime(msg.createdAt),
+                                style: TextStyle(
+                                  color:
+                                      const Color.fromARGB(255, 202, 202, 202),
+                                  fontSize: 10,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    SizedBox(
+                      height: 5.h,
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                width: 5.w,
+              ),
+              Othermessageavatar(
+                msg: msg,
+              )
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              if (msg.image != null) Customshareicon(msg: msg.image ?? ""),
+              if (msg.image != null)
+                GestureDetector(
+                  onTap: () {
+                    Animationsforpages.navigateWithSlidepush(
+                        context, DisplayImage(imageUrl: msg.image!));
+                  },
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(10.r),
+                      bottomRight: Radius.circular(10.r),
+                      bottomLeft: Radius.circular(10.r),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 0),
+                      child: CachedNetworkImage(
+                        imageUrl: msg.image!,
+                        height: 250.h,
+                        width: MediaQuery.sizeOf(context).width *
+                            0.7, // اختياري، لو حابب تمتد على عرض الشاشة
+                        fit:
+                            BoxFit.cover, // اختياري، حسب طريقة العرض اللي تحبها
+                        placeholder: (context, url) => Shimmer.fromColors(
+                          baseColor: Colors.grey[300]!,
+                          highlightColor: Colors.grey[100]!,
+                          child: Container(
+                            // height: 200.h,
+                            width: MediaQuery.sizeOf(context).width * 0.7,
+                            color: Colors.white,
+                          ),
+                        ),
+                        errorWidget: (context, url, error) => Icon(Icons.error),
+                      ),
+                    ),
+                  ),
+                ),
+            ],
+          )
+        ],
       ),
     );
   }
