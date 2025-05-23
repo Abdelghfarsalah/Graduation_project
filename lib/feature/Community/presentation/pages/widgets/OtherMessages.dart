@@ -23,10 +23,7 @@ class Othermessage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.end,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Align(
-              alignment: Alignment.center,
-              child: Customshareicon(msg: msg),
-            ),
+            Customshareicon(msg: msg),
             SizedBox(
               width: MediaQuery.sizeOf(context).width * 0.7,
               child: Column(
@@ -115,9 +112,12 @@ class Othermessage extends StatelessWidget {
             SizedBox(
               width: 5.w,
             ),
-            Othermessageavatar(
-              msg: msg,
-            )
+            Align(
+                heightFactor: 1.0,
+                alignment: Alignment.topCenter,
+                child: Othermessageavatar(
+                  msg: msg,
+                ))
           ],
         ),
       ),

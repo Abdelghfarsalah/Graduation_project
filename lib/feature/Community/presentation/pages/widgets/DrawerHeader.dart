@@ -14,8 +14,9 @@ class CustomDrawerheader extends StatelessWidget {
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: [
-            Color(0xFF1C2933),
+            // Color(0xFF1C2933),
             Color(0xFF324A5E),
+            Color(0xFF0B1014),
           ],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
