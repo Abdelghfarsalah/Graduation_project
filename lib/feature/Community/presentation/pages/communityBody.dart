@@ -216,25 +216,43 @@ class _CommunitybodyState extends State<Communitybody> {
               ],
             ),
           Padding(
-            padding: const EdgeInsets.only(bottom: 5),
+            padding: EdgeInsets.only(bottom: 5.h, left: 10.w),
             child: Row(
               children: [
-                IconButton(
-                  icon: const Icon(
-                    Icons.image,
-                    color: Colors.white,
+                Container(
+                  decoration: BoxDecoration(
+                      color: Color.fromARGB(255, 43, 51, 56),
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(20.r),
+                        bottomLeft: Radius.circular(20.r),
+                      )),
+                  child: IconButton(
+                    icon: const Icon(
+                      Icons.image,
+                      color: Colors.white,
+                    ),
+                    onPressed: pickImage,
                   ),
-                  onPressed: pickImage,
                 ),
                 Expanded(
-                  child: TextField(
-                    style: TextStyle(color: Colors.white),
-                    cursorColor: Colors.white,
-                    controller: _controller,
-                    decoration: const InputDecoration(
-                      hintText: "Write a message...",
-                      hintStyle: TextStyle(color: Colors.white),
-                      border: InputBorder.none,
+                  child: Container(
+                    decoration: BoxDecoration(
+                        color: Color.fromARGB(255, 43, 51, 56),
+                        borderRadius: BorderRadius.only(
+                          topRight: Radius.circular(20.r),
+                          bottomRight: Radius.circular(20.r),
+                        )),
+                    child: TextField(
+                      style: TextStyle(color: Colors.white),
+                      cursorColor: Colors.white,
+                      controller: _controller,
+                      decoration: InputDecoration(
+                        contentPadding: EdgeInsets.all(5),
+                        hintText: "Write a message...",
+                        hintStyle:
+                            TextStyle(color: Colors.white, fontSize: 15.sp),
+                        border: InputBorder.none,
+                      ),
                     ),
                   ),
                 ),
