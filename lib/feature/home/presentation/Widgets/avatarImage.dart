@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:graduation_project/core/utils/SharedPreferencesDemo.dart';
+import 'package:graduation_project/feature/Account/presentation/widgets/DisplayAccountImage.dart';
 
 class Avatarimage extends StatelessWidget {
   const Avatarimage({super.key, required this.height});
@@ -28,14 +29,24 @@ class Avatarimage extends StatelessWidget {
             ),
           );
         } else {
-          return CircleAvatar(
-            radius: 25,
-            backgroundColor: Colors.white,
+          return GestureDetector(
+            onLongPress: () {
+              CustomDialogForAccountAvatar.showCustomImageDialog(
+                  context, snapshot.data!);
+            },
+            onTap: () {
+              CustomDialogForAccountAvatar.showCustomImageDialog(
+                  context, snapshot.data!);
+            },
             child: CircleAvatar(
-                radius: 23,
-                backgroundColor: Colors.white,
-                backgroundImage: NetworkImage(
-                    snapshot.data!)), // من المسار اللي محفوظ في Shared
+              radius: 25,
+              backgroundColor: Colors.white,
+              child: CircleAvatar(
+                  radius: 23,
+                  backgroundColor: Colors.white,
+                  backgroundImage: NetworkImage(
+                      snapshot.data!)), // من المسار اللي محفوظ في Shared
+            ),
           );
         }
       },

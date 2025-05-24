@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/utils/SharedPreferencesDemo.dart';
+import 'package:graduation_project/feature/Account/presentation/widgets/DisplayAccountImage.dart';
 import 'package:graduation_project/feature/Account/presentation/widgets/editAvatarimage.dart';
 
 class Avatarimageinaccount extends StatelessWidget {
@@ -33,14 +34,24 @@ class Avatarimageinaccount extends StatelessWidget {
           return Stack(
             clipBehavior: Clip.none,
             children: [
-              CircleAvatar(
-                radius: 64.r,
-                backgroundColor: Colors.white,
+              GestureDetector(
+                onLongPress: () {
+                  CustomDialogForAccountAvatar.showCustomImageDialog(
+                      context, snapshot.data!);
+                },
+                onTap: () {
+                  CustomDialogForAccountAvatar.showCustomImageDialog(
+                      context, snapshot.data!);
+                },
                 child: CircleAvatar(
-                    radius: 64.r,
-                    backgroundColor: Colors.white,
-                    backgroundImage: NetworkImage(
-                        snapshot.data!)), // من المسار اللي محفوظ في Shared
+                  radius: 64.r,
+                  backgroundColor: Colors.white,
+                  child: CircleAvatar(
+                      radius: 64.r,
+                      backgroundColor: Colors.white,
+                      backgroundImage: NetworkImage(
+                          snapshot.data!)), // من المسار اللي محفوظ في Shared
+                ),
               ),
               Editavatarimage()
             ],
