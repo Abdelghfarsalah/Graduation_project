@@ -16,7 +16,6 @@ class FullChatShimmer extends StatelessWidget {
             ),
           ),
 
-          // طبقة شبه شفافة عشان الشيمر يبان
           Positioned.fill(
             child: Container(
               color: Colors.black.withOpacity(0.3),

@@ -21,82 +21,79 @@ class Othermessage extends StatelessWidget {
         // mainAxisAlignment: MainAxisAlignment.end,
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              Column(
-                children: [
-                  SizedBox(
-                    height: 50.h,
+          IntrinsicHeight(
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Align(
+                    alignment: Alignment.center,
+                    child: Customshareicon(msg: msg.content)),
+                ConstrainedBox(
+                  constraints: BoxConstraints(
+                    maxWidth: MediaQuery.sizeOf(context).width * 0.7,
                   ),
-                  Customshareicon(msg: msg.content),
-                ],
-              ),
-              ConstrainedBox(
-                constraints: BoxConstraints(
-                  maxWidth: MediaQuery.sizeOf(context).width * 0.7,
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    if (msg.content.isNotEmpty)
-                      Container(
-                        margin: const EdgeInsets.symmetric(
-                            vertical: 0, horizontal: 0),
-                        padding:
-                            EdgeInsets.symmetric(vertical: 8, horizontal: 12.w),
-                        decoration: BoxDecoration(
-                          color: Color(0xff242626),
-                          borderRadius: BorderRadius.only(
-                            bottomRight: Radius.circular(10.r),
-                            topLeft: Radius.circular(10.r),
-                            bottomLeft: Radius.circular(10.r),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      if (msg.content.isNotEmpty)
+                        Container(
+                          margin: const EdgeInsets.symmetric(
+                              vertical: 0, horizontal: 0),
+                          padding: EdgeInsets.symmetric(
+                              vertical: 8, horizontal: 12.w),
+                          decoration: BoxDecoration(
+                            color: Color(0xff242626),
+                            borderRadius: BorderRadius.only(
+                              bottomRight: Radius.circular(10.r),
+                              topLeft: Radius.circular(10.r),
+                              bottomLeft: Radius.circular(10.r),
+                            ),
                           ),
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
-                            Othermessageheader(
-                              msg: msg,
-                            ),
-                            const SizedBox(height: 4),
-                            ConstrainedBox(
-                              constraints: BoxConstraints(
-                                  maxWidth:
-                                      MediaQuery.sizeOf(context).width * 0.8),
-                              child: Text(
-                                msg.content,
-                                style: TextStyle(color: Colors.white),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              Othermessageheader(
+                                msg: msg,
                               ),
-                            ),
-                            Align(
-                              alignment: Alignment.centerLeft,
-                              child: Text(
-                                Communityhelper.formatDateTime(msg.createdAt),
-                                style: TextStyle(
-                                  color:
-                                      const Color.fromARGB(255, 202, 202, 202),
-                                  fontSize: 10,
+                              const SizedBox(height: 4),
+                              ConstrainedBox(
+                                constraints: BoxConstraints(
+                                    maxWidth:
+                                        MediaQuery.sizeOf(context).width * 0.8),
+                                child: Text(
+                                  msg.content,
+                                  style: TextStyle(color: Colors.white),
                                 ),
                               ),
-                            ),
-                          ],
+                              Align(
+                                alignment: Alignment.centerLeft,
+                                child: Text(
+                                  Communityhelper.formatDateTime(msg.createdAt),
+                                  style: TextStyle(
+                                    color: const Color.fromARGB(
+                                        255, 202, 202, 202),
+                                    fontSize: 10,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
+                      SizedBox(
+                        height: 5.h,
                       ),
-                    SizedBox(
-                      height: 5.h,
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-              SizedBox(
-                width: 5.w,
-              ),
-              Othermessageavatar(
-                msg: msg,
-              )
-            ],
+                SizedBox(
+                  width: 5.w,
+                ),
+                Othermessageavatar(
+                  msg: msg,
+                )
+              ],
+            ),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,

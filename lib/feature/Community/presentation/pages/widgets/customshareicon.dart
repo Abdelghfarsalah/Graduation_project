@@ -8,20 +8,17 @@ class Customshareicon extends StatelessWidget {
   final String msg;
   @override
   Widget build(BuildContext context) {
-    return Align(
-      alignment: Alignment.center,
-      child: Padding(
-        padding: EdgeInsets.only(bottom: 20.0.h, right: 10.r, left: 10.w),
-        child: GestureDetector(
-          onTap: () {
-            final text = '${msg}';
-            Share.share(text);
-          },
-          child: Icon(
-            FontAwesomeIcons.share,
-            size: 15,
-            color: Colors.white,
-          ),
+    return Padding(
+      padding: EdgeInsets.only(bottom: 20.0.h, right: 10.r, left: 10.w),
+      child: GestureDetector(
+        onTap: () {
+          final text = '${msg}';
+          Share.share(text);
+        },
+        child: Icon(
+          FontAwesomeIcons.share,
+          size: 15,
+          color: Colors.white,
         ),
       ),
     );

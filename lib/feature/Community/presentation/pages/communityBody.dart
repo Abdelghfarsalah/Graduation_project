@@ -220,6 +220,7 @@ class _CommunitybodyState extends State<Communitybody> {
             child: Row(
               children: [
                 Container(
+                  height: 60.h,
                   decoration: BoxDecoration(
                       color: Color.fromARGB(255, 43, 51, 56),
                       borderRadius: BorderRadius.only(
@@ -236,6 +237,7 @@ class _CommunitybodyState extends State<Communitybody> {
                 ),
                 Expanded(
                   child: Container(
+                    height: 60.h,
                     decoration: BoxDecoration(
                         color: Color.fromARGB(255, 43, 51, 56),
                         borderRadius: BorderRadius.only(
