@@ -28,7 +28,7 @@ class CustomDialogForAccountAvatar {
                   // الصورة فقط في المنتصف
                   Center(
                     child: SizedBox(
-                      width: MediaQuery.sizeOf(context).width * 0.7,
+                      width: MediaQuery.sizeOf(context).width * 0.8,
                       child: GestureDetector(
                         onTap: () {
                           Animationsforpages.navigateWithSlidepushfromcenter(
