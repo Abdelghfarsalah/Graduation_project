@@ -2,8 +2,11 @@ import 'dart:ui';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/utils/animations.dart';
+import 'package:graduation_project/feature/Account/presentation/widgets/DownloadAvatarImge.dart';
 import 'package:graduation_project/feature/Community/presentation/pages/displayImage.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:shimmer/shimmer.dart';
 
 class CustomDialogForAccountAvatar {
@@ -38,23 +41,63 @@ class CustomDialogForAccountAvatar {
                             ),
                           );
                         },
-                        child: ClipOval(
-                          // ✅ هذا هو المهم لجعل الصورة دائرية
-                          child: CachedNetworkImage(
-                            imageUrl: imageUrl,
-                            placeholder: (context, url) => Shimmer.fromColors(
-                              baseColor: Colors.grey[300]!,
-                              highlightColor: Colors.grey[100]!,
-                              child: Container(
-                                width: 200,
-                                height: 200,
-                                color: Colors.white,
+                        child: CachedNetworkImage(
+                          fit: BoxFit.contain,
+                          imageUrl: imageUrl,
+                          imageBuilder: (context, imageProvider) => Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Container(
+                                constraints: BoxConstraints(
+                                    maxHeight:
+                                        MediaQuery.sizeOf(context).height * 0.5,
+                                    maxWidth:
+                                        MediaQuery.sizeOf(context).width * 0.8),
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  image: DecorationImage(
+                                    image: imageProvider,
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
                               ),
-                            ),
-                            errorWidget: (context, url, error) =>
-                                const Icon(Icons.error, size: 48),
-                            fit: BoxFit.cover, // أفضل تغطية داخل الشكل الدائري
+                              SizedBox(
+                                height: 20.h,
+                              ),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  GestureDetector(
+                                    onTap: () {
+                                      final text = imageUrl;
+                                      Share.share(text);
+                                    },
+                                    child: Icon(
+                                      Icons.share,
+                                      size: 30.sp,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  Downloadavatarimge(imageUrl: imageUrl),
+                                ],
+                              )
+                            ],
                           ),
+                          placeholder: (context, url) => Shimmer.fromColors(
+                            baseColor: Colors.grey[300]!,
+                            highlightColor: Colors.grey[100]!,
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                shape: BoxShape.circle,
+                              ),
+                              width: 200,
+                              height: 200,
+                            ),
+                          ),
+                          errorWidget: (context, url, error) =>
+                              const Icon(Icons.error, size: 48),
                         ),
                       ),
                     ),

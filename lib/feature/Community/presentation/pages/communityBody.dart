@@ -315,7 +315,7 @@ class _CommunitybodyState extends State<Communitybody> {
 
   void _scrollListener() {
     if (_scrollController.offset >=
-            _scrollController.position.maxScrollExtent - 75 &&
+            _scrollController.position.maxScrollExtent - 90 &&
         !isLoadingMore &&
         hasMoreMessages) {
       fetchMessages(); // تحميل بيانات جديدة
