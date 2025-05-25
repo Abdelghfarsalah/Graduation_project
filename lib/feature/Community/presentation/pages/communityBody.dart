@@ -315,7 +315,7 @@ class _CommunitybodyState extends State<Communitybody> {
 
   void _scrollListener() {
     if (_scrollController.offset >=
-            _scrollController.position.maxScrollExtent - 90 &&
+            _scrollController.position.maxScrollExtent - 50 &&
         !isLoadingMore &&
         hasMoreMessages) {
       fetchMessages(); // تحميل بيانات جديدة
@@ -374,7 +374,7 @@ class _CommunitybodyState extends State<Communitybody> {
   Future<void> fetchMessages() async {
     isLoadingMore = true;
 
-    const int limit = 10;
+    const int limit = 20;
 
     try {
       var authToken = await SharedPreferencesDemo.getToken();

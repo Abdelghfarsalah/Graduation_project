@@ -66,43 +66,49 @@ class _ShowbottomsheettoupdateimageState
           ),
           Spacer(),
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               SizedBox(
                 width: 5.w,
               ),
-              Text(
-                "Select image",
-                style: TextStyle(
-                  fontSize: 12, // حجم خط أكبر
-                  fontWeight: FontWeight.bold, // خط عريض
-                  color: Colors.blueAccent, // لون أزرق جذاب
-                  letterSpacing: 1.2, // تباعد بين الحروف
-                  shadows: [
-                    // ظل بسيط للنص
-                    Shadow(
-                      offset: Offset(1, 1),
-                      blurRadius: 3.r,
-                      color: Colors.black26,
-                    ),
-                  ],
-                ),
-                textAlign: TextAlign.center, // توسيط النص
-              ),
-              Spacer(),
-              Container(
-                height: 35.h,
-                width: 100.w,
-                decoration: BoxDecoration(
-                    color: Colors.blue.withOpacity(0.5),
-                    borderRadius: BorderRadius.circular(12)),
-                child: Center(
-                  child: GestureDetector(
-                    onTap: () async {
-                      await pickImageFromGallery();
-                    },
+              // Text(
+              //   "Select image",
+              //   style: TextStyle(
+              //     fontSize: 12, // حجم خط أكبر
+              //     fontWeight: FontWeight.bold, // خط عريض
+              //     color: Colors.blueAccent, // لون أزرق جذاب
+              //     letterSpacing: 1.2, // تباعد بين الحروف
+              //     shadows: [
+              //       // ظل بسيط للنص
+              //       Shadow(
+              //         offset: Offset(1, 1),
+              //         blurRadius: 3.r,
+              //         color: Colors.black26,
+              //       ),
+              //     ],
+              //   ),
+              //   textAlign: TextAlign.center, // توسيط النص
+              // ),
+              // Spacer(),
+              GestureDetector(
+                onTap: () async {
+                  await pickImageFromGallery();
+                },
+                child: Container(
+                  height: 35.h,
+                  width: 100.w,
+                  decoration: BoxDecoration(
+                      border: Border.all(
+                        width: 2.w,
+                        color: Colors.blue.withOpacity(0.5),
+                      ),
+                      // color: Colors.blue.withOpacity(0.5),
+                      borderRadius: BorderRadius.circular(12)),
+                  child: Center(
                     child: Icon(
                       Icons.photo,
-                      color: Colors.white,
+                      color: Colors.greenAccent,
+                      size: 18,
                     ),
                   ),
                 ),
@@ -110,20 +116,25 @@ class _ShowbottomsheettoupdateimageState
               SizedBox(
                 width: 5.w,
               ),
-              Container(
-                height: 35.h,
-                width: 100.w,
-                decoration: BoxDecoration(
-                    color: Colors.blue.withOpacity(0.5),
-                    borderRadius: BorderRadius.circular(12)),
-                child: Center(
-                  child: GestureDetector(
-                    onTap: () async {
-                      await pickImageFromCamera();
-                    },
+              GestureDetector(
+                onTap: () async {
+                  await pickImageFromCamera();
+                },
+                child: Container(
+                  height: 35.h,
+                  width: 100.w,
+                  decoration: BoxDecoration(
+                      border: Border.all(
+                        width: 2.w,
+                        color: Colors.blue.withOpacity(0.5),
+                      ),
+                      // color: Colors.blue.withOpacity(0.5),
+                      borderRadius: BorderRadius.circular(12)),
+                  child: Center(
                     child: Icon(
                       FontAwesomeIcons.camera,
-                      color: Colors.white,
+                      color: Colors.grey,
+                      size: 18,
                     ),
                   ),
                 ),
@@ -170,7 +181,7 @@ class _ShowbottomsheettoupdateimageState
               color: appColor.Primarycolor,
               width: MediaQuery.sizeOf(context).width * 0.9,
               text: "Update Image",
-              endcolor: const Color.fromARGB(255, 147, 146, 146),
+              endcolor: appColor.Primarycolor,
               borderRadius: 20),
           Spacer(),
         ],
