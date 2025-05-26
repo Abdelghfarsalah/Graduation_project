@@ -53,9 +53,11 @@ class VerifyEmailData {
 class UserModel {
   final String name;
   final String email;
+  final String avatar;
 
   UserModel({
     required this.name,
+    required this.avatar,
     required this.email,
   });
 
@@ -63,13 +65,11 @@ class UserModel {
     return UserModel(
       name: json['name'],
       email: json['email'],
+      avatar: json['avatar'],
     );
   }
 
   Map<String, dynamic> toJson() {
-    return {
-      'name': name,
-      'email': email,
-    };
+    return {'name': name, 'email': email, 'avatar': avatar};
   }
 }

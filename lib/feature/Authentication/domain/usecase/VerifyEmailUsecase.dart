@@ -23,7 +23,9 @@ class VerifyEmailusecase {
         createdAt: DateTime.now().toString(),
         updatedAt: DateTime.now().toString(),
         token: ifRight.data.token,
-        avatar: "",
+        avatar: ifRight.data.user.avatar.length == 0
+            ? "https://images.icon-icons.com/1378/PNG/512/avatardefault_92824.png"
+            : ifRight.data.user.avatar,
       );
       return right(ifRight);
     });
