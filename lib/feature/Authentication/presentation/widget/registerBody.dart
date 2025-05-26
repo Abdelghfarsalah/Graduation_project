@@ -16,7 +16,7 @@ class Registerbody extends StatelessWidget {
           CreateYourAccoutText(
             title: "Create your Account",
           ),
-          Spacer(),
+          // Spacer(),
           Registeractivities(),
         ],
       ),

@@ -58,7 +58,7 @@ class Authdatasources {
     try {
       var response = await dio
           .post(Authapi.verifyemail, data: {"email": email, "otp": otp});
-
+      print(response.data);
       return Right(VerifyEmailModel.fromJson(response.data));
     } on DioException catch (e) {
       String errorMessage = Dioerrorhelper.handleDioError(e);
