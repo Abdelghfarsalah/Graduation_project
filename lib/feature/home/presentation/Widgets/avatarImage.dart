@@ -35,6 +35,7 @@ class Avatarimage extends StatelessWidget {
                   context, snapshot.data!);
             },
             onTap: () {
+              print(snapshot.data!);
               CustomDialogForAccountAvatar.showCustomImageDialog(
                   context, snapshot.data!);
             },

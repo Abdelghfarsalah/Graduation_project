@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/feature/recommendChat/domain/RoadmapModel%20.dart';
 import 'package:graduation_project/feature/recommendChat/presentation/pages/widgets/SectionTimeline.dart';
 import 'package:graduation_project/feature/recommendChat/presentation/pages/widgets/customlisttimelineview.dart';
-import 'package:url_launcher/url_launcher.dart';
+// import 'package:url_launcher/url_launcher.dart';
 
 class Displaytimeline extends StatefulWidget {
   const Displaytimeline({super.key, required this.mdoel});
@@ -26,102 +26,103 @@ class _DisplaytimelineState extends State<Displaytimeline> {
     Color(0xFF0288D1), // Blue 700 (Dark)
     Color(0xFF01579B), // Blue 900 (Very dark)
   ];
-  Future<void> _launchURL(String link) async {
-    final uri = Uri.parse(link);
-    if (await canLaunchUrl(uri)) {
-      await launchUrl(uri, mode: LaunchMode.externalApplication);
-    } else {
-      throw 'Could not launch $link';
-    }
-  }
+  // Future<void> _launchURL(String link) async {
+  //   final uri = Uri.parse(link);
+  //   if (await canLaunchUrl(uri)) {
+  //     await launchUrl(uri, mode: LaunchMode.externalApplication);
+  //   } else {
+  //     throw 'Could not launch $link';
+  //   }
+  // }
 
   bool timline = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.white,
-        appBar: AppBar(
-          automaticallyImplyLeading: false,
-          leading: GestureDetector(
-            onTap: () {
-              Navigator.pop(context);
-            },
-            child: Icon(Icons.arrow_back_ios),
-          ),
-          scrolledUnderElevation: 0,
-          title: Container(
-            height: 40.h,
-            decoration: BoxDecoration(
-                color: Colors.grey[200],
-                borderRadius: BorderRadius.all(Radius.circular(50))),
-            child: Row(
-              children: [
-                Expanded(
-                  child: GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        timline = true;
-                      });
-                    },
-                    child: AnimatedContainer(
-                      decoration: BoxDecoration(
-                          color: timline ? Colors.grey[700] : Colors.grey[200],
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(50),
-                            bottomLeft: Radius.circular(50),
-                          )),
-                      duration: Duration(seconds: 1),
-                      child: Center(
-                        child: Text(
-                          "timeline",
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 14,
-                              color: timline ? Colors.white : Colors.black),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                Expanded(
-                  child: GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        timline = false;
-                      });
-                    },
-                    child: AnimatedContainer(
-                      decoration: BoxDecoration(
-                          color: !timline ? Colors.grey[700] : Colors.grey[200],
-                          borderRadius: BorderRadius.only(
-                            topRight: Radius.circular(50),
-                            bottomRight: Radius.circular(50),
-                          )),
-                      duration: Duration(seconds: 1),
-                      child: Center(
-                        child: Text(
-                          "Section",
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 14,
-                              color: !timline ? Colors.white : Colors.black),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          backgroundColor: Colors.white,
-          centerTitle: true,
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        leading: GestureDetector(
+          onTap: () {
+            Navigator.pop(context);
+          },
+          child: Icon(Icons.arrow_back_ios),
         ),
-        body: timline
-            ? Customlisttimelineview(
-                mdoel: widget.mdoel,
-              )
-            : Sectiontimeline(
-                mdoel: widget.mdoel,
-              ));
+        scrolledUnderElevation: 0,
+        title: Container(
+          height: 40.h,
+          decoration: BoxDecoration(
+              color: Colors.grey[200],
+              borderRadius: BorderRadius.all(Radius.circular(50))),
+          child: Row(
+            children: [
+              Expanded(
+                child: GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      timline = true;
+                    });
+                  },
+                  child: AnimatedContainer(
+                    decoration: BoxDecoration(
+                        color: timline ? Colors.grey[700] : Colors.grey[200],
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(50),
+                          bottomLeft: Radius.circular(50),
+                        )),
+                    duration: Duration(seconds: 1),
+                    child: Center(
+                      child: Text(
+                        "timeline",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 14,
+                            color: timline ? Colors.white : Colors.black),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              Expanded(
+                child: GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      timline = false;
+                    });
+                  },
+                  child: AnimatedContainer(
+                    decoration: BoxDecoration(
+                        color: !timline ? Colors.grey[700] : Colors.grey[200],
+                        borderRadius: BorderRadius.only(
+                          topRight: Radius.circular(50),
+                          bottomRight: Radius.circular(50),
+                        )),
+                    duration: Duration(seconds: 1),
+                    child: Center(
+                      child: Text(
+                        "Section",
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 14,
+                            color: !timline ? Colors.white : Colors.black),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+        backgroundColor: Colors.white,
+        centerTitle: true,
+      ),
+      body: timline
+          ? Customlisttimelineview(
+              mdoel: widget.mdoel,
+            )
+          : Sectiontimeline(
+              mdoel: widget.mdoel,
+            ),
+    );
   }
 }

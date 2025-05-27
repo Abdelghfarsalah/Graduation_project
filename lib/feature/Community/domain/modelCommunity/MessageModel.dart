@@ -20,7 +20,13 @@ class MessageModel {
   factory MessageModel.fromJson(Map<String, dynamic> json) {
     return MessageModel(
       id: json['_id'],
-      sender: SenderModel.fromJson(json['sender']),
+      sender: json['sender'] != null
+          ? SenderModel.fromJson(json['sender'])
+          : SenderModel(
+              id: '',
+              name: 'SmartPath User',
+              avatar:
+                  "https://images.icon-icons.com/1378/PNG/512/avatardefault_92824.png"),
       image: json['image'],
       content: json['content'],
       createdAt: json['createdAt'],

@@ -26,7 +26,9 @@ class Loginusecase {
         createdAt: ifRight.user.accountCreatedAt,
         updatedAt: ifRight.user.accountUpdatedAt,
         token: ifRight.authToken,
-        avatar: ifRight.user.avatar,
+        avatar: ifRight.user.avatar.length == 0
+            ? "https://images.icon-icons.com/1378/PNG/512/avatardefault_92824.png"
+            : ifRight.user.avatar,
       );
       return right(ifRight);
     });

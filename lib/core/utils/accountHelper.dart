@@ -8,6 +8,7 @@ import 'package:graduation_project/feature/Account/presentation/manager/delete/d
 import 'package:graduation_project/feature/home/presentation/manager/BottomNavBar/BottomNavBarBloc.dart';
 import 'package:graduation_project/feature/home/presentation/manager/BottomNavBar/BottomNavBarEvent.dart';
 import 'package:graduation_project/feature/onboarding/presentaion/pages/WelcomePage.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shimmer/shimmer.dart';
 
 class Accounthelper {
@@ -55,7 +56,9 @@ class Accounthelper {
                   if (state is DeleteFailure) {
                     Navigator.pop(context);
                   } else if (state is DeleteSuccess) {
-                    Future.delayed(Duration(seconds: 0), () {
+                    Future.delayed(Duration(seconds: 0), () async {
+                      final prefs = await SharedPreferences.getInstance();
+                      prefs.clear();
                       context
                           .read<Bottomnavbarbloc>()
                           .add(ChangeEvent(index: 0));
