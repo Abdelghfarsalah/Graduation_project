@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:graduation_project/core/utils/SharedPreferencesDemo.dart';
 import 'package:graduation_project/feature/Account/presentation/manager/delete/deletebloc.dart';
 import 'package:graduation_project/feature/Account/presentation/manager/delete/deleteevent.dart';
 import 'package:graduation_project/feature/Account/presentation/manager/delete/deletestatus.dart';
 import 'package:graduation_project/feature/home/presentation/manager/BottomNavBar/BottomNavBarBloc.dart';
 import 'package:graduation_project/feature/home/presentation/manager/BottomNavBar/BottomNavBarEvent.dart';
 import 'package:graduation_project/feature/onboarding/presentaion/pages/WelcomePage.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shimmer/shimmer.dart';
 
 class Accounthelper {
@@ -57,8 +57,9 @@ class Accounthelper {
                     Navigator.pop(context);
                   } else if (state is DeleteSuccess) {
                     Future.delayed(Duration(seconds: 0), () async {
-                      final prefs = await SharedPreferences.getInstance();
-                      prefs.clear();
+                      // final prefs = await SharedPreferences.getInstance();
+                      // prefs.clear();
+                      await SharedPreferencesDemo.clearToken();
                       context
                           .read<Bottomnavbarbloc>()
                           .add(ChangeEvent(index: 0));

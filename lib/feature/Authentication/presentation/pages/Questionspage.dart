@@ -110,9 +110,12 @@ class _QuestionspageState extends State<Questionspage> {
                   onTap: () {
                     if (key.currentState!.validate()) {
                       Helper.showSuccessDialog(context);
-                      Future.delayed(Duration(seconds: 5), () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => Home()));
+                      Future.delayed(Duration(seconds: 3), () {
+                        Navigator.pushAndRemoveUntil(
+                          context,
+                          MaterialPageRoute(builder: (context) => Home()),
+                          (Route<dynamic> route) => false,
+                        );
                       });
                     }
                   },
