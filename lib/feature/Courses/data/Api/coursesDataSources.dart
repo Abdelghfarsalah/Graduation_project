@@ -96,4 +96,35 @@ class Coursesdatasources {
       return Left(false);
     }
   }
+
+  Future<Either<bool, bool>> markvideoAsWatched(
+      {required String courseID, required String videoId}) async {
+    try {
+      String token = await SharedPreferencesDemo.getToken() ?? "";
+      var response = await dio.post(
+        Courseshelper.markvideoAsWatched,
+        data: {"courseId": courseID, "videoId": videoId},
+        options: Options(headers: {
+          'Authorization': 'Bearer $token',
+          'Content-Type': 'application/json',
+        }),
+      );
+      print(
+          "==========================================================================================================================================");
+      print(response.data);
+      return Right(true);
+    } on DioException catch (e) {
+      print(e.toString());
+      print(
+          "==========================================================================================================================================");
+
+      return Left(false); // Error case
+    } catch (e) {
+      print(
+          "==========================================================================================================================================");
+
+      print(e.toString());
+      return Left(false);
+    }
+  }
 }

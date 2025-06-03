@@ -20,4 +20,7 @@ class Courseshelper {
   static String GetProgressCoursesMethod({required String id}) {
     return GetProgressCourses + id;
   }
+
+  //======================
+  static String markvideoAsWatched = "$baseurl/courses/mark-video-watched";
 }

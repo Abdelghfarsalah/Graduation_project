@@ -50,4 +50,16 @@ class Coursesrepoimple implements Coursesrepo {
       return right(ifRight);
     });
   }
+
+  @override
+  Future<Either<bool, bool>> markvideoAsWatched(
+      {required String courseID, required String videoId}) async {
+    var resonse = await coursesdatasources.markvideoAsWatched(
+        courseID: courseID, videoId: videoId);
+    return resonse.fold((ifLeft) {
+      return left(ifLeft);
+    }, (ifRight) {
+      return right(ifRight);
+    });
+  }
 }

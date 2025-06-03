@@ -2,33 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/feature/Courses/domain/models/Section.dart';
 import 'package:graduation_project/feature/Courses/presentation/widgets/videocard.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class Displaysection extends StatefulWidget {
   const Displaysection({
     super.key,
     required this.section,
     required this.index,
+    required this.courseId,
   });
 
   final Section section;
   final int index;
-
+  final String courseId;
   @override
   State<Displaysection> createState() => _CustomDropdownState();
 }
 
 class _CustomDropdownState extends State<Displaysection> {
   bool _isExpanded = false;
-
-  Future<void> _launchURL(String link) async {
-    final uri = Uri.parse(link);
-    if (await canLaunchUrl(uri)) {
-      await launchUrl(uri, mode: LaunchMode.externalApplication);
-    } else {
-      throw 'Could not launch $link';
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -113,6 +104,7 @@ class _CustomDropdownState extends State<Displaysection> {
                       ...widget.section.videos.map((video) {
                         return Videocard(
                           video: video,
+                          courseId: widget.courseId,
                         );
                       }).toList(),
                     ],

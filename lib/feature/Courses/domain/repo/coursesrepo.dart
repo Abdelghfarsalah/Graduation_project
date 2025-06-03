@@ -9,4 +9,6 @@ abstract class Coursesrepo {
   Future<Either<bool, EnrollmentResponse>> Enrollment({required String id});
   Future<Either<bool, CourseWithProgressResponse>> Getcoursewithprogress(
       {required String id});
+  Future<Either<bool, bool>> markvideoAsWatched(
+      {required String courseID, required String videoId});
 }
