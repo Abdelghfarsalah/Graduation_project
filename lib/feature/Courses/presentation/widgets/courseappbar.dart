@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:graduation_project/core/fonts.dart';
 
 class Courseappbar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
@@ -19,7 +20,15 @@ class Courseappbar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       backgroundColor: backgroundColor,
       foregroundColor: foregroundColor,
-      title: Text(title),
+      title: Text(
+        title,
+        style: TextStyle(
+          fontSize: 25,
+          fontFamily: appFonts.Poppins,
+          fontWeight: FontWeight.bold,
+          color: Colors.black,
+        ),
+      ),
       elevation: elevation,
     );
   }

@@ -18,7 +18,6 @@ class _CoursesPageState extends State<CoursesPage> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    print("object+++++++++++++++++++++++++");
   }
 
   @override

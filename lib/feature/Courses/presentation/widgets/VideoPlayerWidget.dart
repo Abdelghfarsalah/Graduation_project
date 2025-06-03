@@ -39,7 +39,7 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
         _controller.play();
       });
     _controller.addListener(() {
-      setState(() {}); // كل مرة يتغير الوقت، يحدث الواجهة
+      if (mounted) setState(() {}); // كل مرة يتغير الوقت، يحدث الواجهة
     });
   }
 

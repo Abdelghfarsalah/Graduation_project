@@ -12,7 +12,7 @@ class Displayallcourses extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Popular Courses',
+          'Explore courses or search for what you need',
           style: TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.w600,
