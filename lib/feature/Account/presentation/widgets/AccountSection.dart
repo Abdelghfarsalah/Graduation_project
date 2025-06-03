@@ -5,6 +5,8 @@ import 'package:graduation_project/core/fonts.dart';
 import 'package:graduation_project/core/utils/SharedPreferencesDemo.dart';
 import 'package:graduation_project/core/utils/animations.dart';
 import 'package:graduation_project/feature/Account/presentation/pages/Editpage.dart';
+import 'package:graduation_project/feature/Account/presentation/pages/SettingPages/PrivacyPage.dart';
+import 'package:graduation_project/feature/Account/presentation/pages/SettingPages/SecurityPage.dart';
 import 'package:graduation_project/feature/Account/presentation/widgets/SettingCard.dart';
 import 'package:graduation_project/feature/Notifications/presentation/pages/Notificationpages.dart';
 
@@ -40,7 +42,11 @@ class Accountsection extends StatelessWidget {
                   ));
             }),
         Settingcard(
-            title: "security", icon: Icon(Icons.security), onTap: () {}),
+            title: "security",
+            icon: Icon(Icons.security),
+            onTap: () {
+              Animationsforpages.navigateWithSlidepush(context, SecurityPage());
+            }),
         Settingcard(
             title: "Notifications",
             icon: Icon(FontAwesomeIcons.bell),
@@ -51,7 +57,9 @@ class Accountsection extends StatelessWidget {
         Settingcard(
             title: "Privacy",
             icon: Icon(Icons.lock_outline_rounded),
-            onTap: () {})
+            onTap: () {
+              Animationsforpages.navigateWithSlidepush(context, PrivacyPage());
+            })
       ],
     );
   }

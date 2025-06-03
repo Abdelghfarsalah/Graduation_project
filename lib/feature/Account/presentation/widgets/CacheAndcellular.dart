@@ -3,6 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:graduation_project/core/fonts.dart';
 import 'package:graduation_project/core/utils/accountHelper.dart';
+import 'package:graduation_project/core/utils/animations.dart';
+import 'package:graduation_project/feature/Account/presentation/pages/SettingPages/DataSaverPage.dart';
 import 'package:graduation_project/feature/Account/presentation/widgets/SettingCard.dart';
 
 class Cacheandcellular extends StatelessWidget {
@@ -33,7 +35,10 @@ class Cacheandcellular extends StatelessWidget {
         Settingcard(
             title: "Data Saver",
             icon: Icon(Icons.outbond_outlined),
-            onTap: () {}),
+            onTap: () {
+              Animationsforpages.navigateWithSlidepush(
+                  context, DataSaverPage());
+            }),
       ],
     );
   }

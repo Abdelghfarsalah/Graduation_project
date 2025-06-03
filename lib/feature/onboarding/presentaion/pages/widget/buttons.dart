@@ -36,7 +36,8 @@ class Buttons extends StatelessWidget {
                   duration: Duration(microseconds: 50),
                   curve: Curves.bounceInOut);
             } else {
-              Animationsforpages.navigateWithSlidepush(context, WelcomePage());
+              Animationsforpages.navigateWithSlidepushandreplace(
+                  context, WelcomePage());
               // Navigator.push(context,
               //     MaterialPageRoute(builder: (context) => WelcomePage()));
             }

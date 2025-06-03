@@ -104,10 +104,10 @@ class Helper {
           label: "Community"),
       BottomNavigationBarItem(
           icon: Icon(
-            FontAwesomeIcons.comments,
+            Icons.school,
             size: 21,
           ),
-          label: "Chats"),
+          label: "Courses"),
       BottomNavigationBarItem(
           icon: Icon(
             FontAwesomeIcons.user,

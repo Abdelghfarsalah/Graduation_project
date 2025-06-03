@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/fonts.dart';
+import 'package:graduation_project/core/utils/animations.dart';
+import 'package:graduation_project/feature/Account/presentation/pages/SettingPages/HelpAndSupport.dart';
+import 'package:graduation_project/feature/Account/presentation/pages/SettingPages/TermsAndPolicies.dart';
 import 'package:graduation_project/feature/Account/presentation/widgets/SettingCard.dart';
 
 class Supportandaboutsection extends StatelessWidget {
@@ -29,11 +32,17 @@ class Supportandaboutsection extends StatelessWidget {
         Settingcard(
             title: "Help & Support",
             icon: Icon(Icons.help_outline_outlined),
-            onTap: () {}),
+            onTap: () {
+              Animationsforpages.navigateWithSlidepush(
+                  context, HelpAndSupportPage());
+            }),
         Settingcard(
             title: "Terms and Policies",
             icon: Icon(Icons.outbond_outlined),
-            onTap: () {}),
+            onTap: () {
+              Animationsforpages.navigateWithSlidepush(
+                  context, TermsAndPoliciesPage());
+            }),
       ],
     );
   }

@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/fonts.dart';
 import 'package:graduation_project/core/utils/SharedPreferencesDemo.dart';
+import 'package:graduation_project/core/utils/animations.dart';
+import 'package:graduation_project/feature/Account/presentation/pages/SettingPages/ReportProblemPage.dart';
 import 'package:graduation_project/feature/Account/presentation/widgets/SettingCard.dart';
 import 'package:graduation_project/feature/home/presentation/manager/BottomNavBar/BottomNavBarBloc.dart';
 import 'package:graduation_project/feature/home/presentation/manager/BottomNavBar/BottomNavBarEvent.dart';
@@ -28,7 +30,12 @@ class ActionsSection extends StatelessWidget {
           height: 10.h,
         ),
         Settingcard(
-            title: "Report a problem", icon: Icon(Icons.flag), onTap: () {}),
+            title: "Report a problem",
+            icon: Icon(Icons.flag),
+            onTap: () {
+              Animationsforpages.navigateWithSlidepush(
+                  context, ReportProblemPage());
+            }),
         Settingcard(
             title: "Add account", icon: Icon(Icons.people), onTap: () {}),
         Settingcard(

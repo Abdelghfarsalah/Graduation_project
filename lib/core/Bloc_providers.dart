@@ -18,6 +18,9 @@ import 'package:graduation_project/feature/Authentication/presentation/Manager/r
 import 'package:graduation_project/feature/Community/data/communityDataSourses.dart';
 import 'package:graduation_project/feature/Community/presentation/manager/chnage_chat/chnage_chat_bloc.dart';
 import 'package:graduation_project/feature/Community/presentation/manager/community_chat_bloc/community_chat_bloc_bloc.dart';
+import 'package:graduation_project/feature/Courses/data/Api/coursesDataSources.dart';
+import 'package:graduation_project/feature/Courses/data/repoimplemts/CoursesrepoImple.dart';
+import 'package:graduation_project/feature/Courses/presentation/manager/course_progress/course_progress_bloc.dart';
 import 'package:graduation_project/feature/RecommendationSystem/presentation/manager/Recommendationsystembloc/Recommendationsystembloc.dart';
 import 'package:graduation_project/feature/chat/presentation/manager/chatbloc.dart';
 import 'package:graduation_project/feature/home/presentation/manager/BottomNavBar/BottomNavBarBloc.dart';
@@ -33,6 +36,13 @@ class AppBlocProviders {
       BlocProvider(
         create: (context) => ChnageChatBloc(),
       ),
+      BlocProvider(
+          create: (context) => CourseProgressBloc(
+                  coursesrepo: Coursesrepoimple(
+                coursesdatasources: Coursesdatasources(
+                  dio: Dio(),
+                ),
+              ))),
       BlocProvider(create: (context) => Bottomnavbarbloc()),
       BlocProvider(create: (context) => BotBloc()),
       BlocProvider(
