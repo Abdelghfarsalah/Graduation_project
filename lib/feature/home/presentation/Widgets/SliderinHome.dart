@@ -4,10 +4,20 @@ import 'package:graduation_project/core/utils/animations.dart';
 import 'package:graduation_project/feature/Categories/presentation/pages/roadmaps.dart';
 import 'package:graduation_project/feature/RecommendationSystem/presentation/pages/RecommendationSystempage.dart';
 import 'package:graduation_project/feature/home/presentation/Widgets/Slideritem.dart';
-import 'package:graduation_project/feature/home/presentation/pages/MentorPage.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Sliderinhome extends StatelessWidget {
   const Sliderinhome({super.key});
+  final String url = 'https://adplist.org'; // غيّر الرابط هنا
+
+  Future<void> _launchURL() async {
+    final Uri uri = Uri.parse(url);
+    if (await canLaunchUrl(uri)) {
+      await launchUrl(uri, mode: LaunchMode.externalApplication);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +74,8 @@ class Sliderinhome extends StatelessWidget {
                 //   context,
                 //   MaterialPageRoute(builder: (context) => Populartracks()),
                 // );
-                Animationsforpages.navigateWithSlidepush(context, Mentorpage());
+                // Animationsforpages.navigateWithSlidepush(context, Mentorpage());
+                _launchURL();
               },
               image: "assets/HomeImage/PopularTracks.png",
               title: "Mentor App",
