@@ -22,10 +22,13 @@ class Avatarimage extends StatelessWidget {
           return CircleAvatar(
             radius: height,
             backgroundColor: Colors.white,
-            child: CircleAvatar(
-              radius: height - 1,
-              backgroundImage:
-                  AssetImage("assets/HomeImage/default.png"), // صورة افتراضية
+            child: FittedBox(
+              child: CircleAvatar(
+                radius: height - 1,
+                backgroundImage: AssetImage(
+                  "assets/HomeImage/default.png",
+                ), // صورة افتراضية
+              ),
             ),
           );
         } else {

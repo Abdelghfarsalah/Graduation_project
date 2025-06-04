@@ -285,15 +285,15 @@ class _RecommendationsystembodyState extends State<Recommendationsystembody> {
                               //   Icons.design_services,
                               //   Icons.mobile_friendly
                               // ];
-                              final colors = [
-                                // Colors.blue.shade100,
-                                // Colors.blue.shade50,
-                                // Colors.blue.shade200,
-                                appColor.Primarycolor,
-                                appColor.Primarycolor,
-                                appColor.Primarycolor,
-                                appColor.Primarycolor,
-                              ];
+                              // final colors = [
+                              //   // Colors.blue.shade100,
+                              //   // Colors.blue.shade50,
+                              //   // Colors.blue.shade200,
+                              //   appColor.Primarycolor,
+                              //   appColor.Primarycolor,
+                              //   appColor.Primarycolor,
+                              //   appColor.Primarycolor,
+                              // ];
                               return Padding(
                                 padding:
                                     const EdgeInsets.symmetric(vertical: 6),

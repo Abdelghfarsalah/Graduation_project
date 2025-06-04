@@ -19,8 +19,9 @@ class Slideritem extends StatelessWidget {
           Container(
             height: 154,
             width: 249,
-            decoration:
-                BoxDecoration(image: DecorationImage(image: AssetImage(image))),
+            decoration: BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage(image), fit: BoxFit.fill)),
           ),
           SizedBox(
             height: 10,
