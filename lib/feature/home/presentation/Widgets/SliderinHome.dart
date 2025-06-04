@@ -4,6 +4,7 @@ import 'package:graduation_project/core/utils/animations.dart';
 import 'package:graduation_project/feature/Categories/presentation/pages/roadmaps.dart';
 import 'package:graduation_project/feature/RecommendationSystem/presentation/pages/RecommendationSystempage.dart';
 import 'package:graduation_project/feature/home/presentation/Widgets/Slideritem.dart';
+import 'package:graduation_project/feature/home/presentation/pages/MentorPage.dart';
 
 class Sliderinhome extends StatelessWidget {
   const Sliderinhome({super.key});
@@ -56,12 +57,14 @@ class Sliderinhome extends StatelessWidget {
             ),
             Slideritem(
               onTap: () {
+                //https://adplist.org/
                 // Animationsforpages.navigateWithSlidepush(
                 //     context, Populartracks());
                 // Navigator.push(
                 //   context,
                 //   MaterialPageRoute(builder: (context) => Populartracks()),
                 // );
+                Animationsforpages.navigateWithSlidepush(context, Mentorpage());
               },
               image: "assets/HomeImage/PopularTracks.png",
               title: "Mentor App",

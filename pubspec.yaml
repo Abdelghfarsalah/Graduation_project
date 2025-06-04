@@ -48,7 +48,7 @@ dependencies:
   dartz: ^0.10.1
   fluttertoast: ^8.2.12
   flutter_screenutil: ^5.9.3
-  webview_flutter: ^4.10.0
+  webview_flutter: ^4.13.0
   flutter_launcher_icons: ^0.14.3
   shimmer: ^3.0.0
   lottie: ^3.3.1
@@ -114,6 +114,7 @@ flutter:
     - assets/HomeImage/ActualProgrammingLanguages/
     - assets/IMG_٢٠٢٥٠٢٢٢_١٩٥٧٣٣.jpg
     - assets/HomeImage/LanguageandLibraryProgramming/
+    - assets/Initiatives/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
