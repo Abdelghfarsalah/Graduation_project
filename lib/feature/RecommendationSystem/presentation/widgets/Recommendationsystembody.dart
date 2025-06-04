@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:graduation_project/core/colors.dart';
 import 'package:graduation_project/core/fonts.dart';
 import 'package:graduation_project/core/utils/animations.dart';
 import 'package:graduation_project/feature/RecommendationSystem/presentation/manager/Recommendationsystembloc/RecommendationsystemState.dart';
@@ -8,8 +9,16 @@ import 'package:graduation_project/feature/RecommendationSystem/presentation/man
 import 'package:graduation_project/feature/RecommendationSystem/presentation/widgets/TechRate.dart';
 import 'package:graduation_project/feature/recommendChat/presentation/pages/recommendchatPage.dart';
 
-class Recommendationsystembody extends StatelessWidget {
+class Recommendationsystembody extends StatefulWidget {
   const Recommendationsystembody({super.key});
+
+  @override
+  State<Recommendationsystembody> createState() =>
+      _RecommendationsystembodyState();
+}
+
+class _RecommendationsystembodyState extends State<Recommendationsystembody> {
+  final Color cardcolor = appColor.Primarycolor;
 
   @override
   Widget build(BuildContext context) {
@@ -33,98 +42,98 @@ class Recommendationsystembody extends StatelessWidget {
             ),
             Techrate(
               onTap: () {},
-              color: Color(0xffA7D7DA),
-              text: 'Programming_Skills',
+              color: cardcolor,
+              text: 'Programming Skills',
               width: MediaQuery.of(context).size.width * 0.5,
             ),
             Techrate(
               onTap: () {},
-              color: Color(0xffDAB9A7),
-              text: 'Computer_Architecture',
+              color: cardcolor,
+              text: 'Computer Architecture',
               width: MediaQuery.of(context).size.width * 0.6,
             ),
             Techrate(
               onTap: () {},
-              color: Color(0xffA8A7DA),
-              text: 'Technical_Communication',
+              color: cardcolor,
+              text: 'Technical Communication',
               width: MediaQuery.of(context).size.width * 0.6,
             ),
             Techrate(
               onTap: () {},
-              color: Color(0xffD0A7DA),
-              text: 'Cyber_Security',
+              color: cardcolor,
+              text: 'Cyber Security',
               width: MediaQuery.of(context).size.width * 0.5,
             ),
             Techrate(
               onTap: () {},
-              color: Color(0xffDAAAA7),
+              color: cardcolor,
               text: 'AI',
               width: MediaQuery.of(context).size.width * 0.5,
             ),
             Techrate(
               onTap: () {},
-              color: Color(0xffC0DAA7),
-              text: 'Biology_Biochemistry_Basic',
+              color: cardcolor,
+              text: 'Biology Biochemistry Basic',
               width: MediaQuery.of(context).size.width * 0.6,
             ),
             Techrate(
               onTap: () {},
-              color: Color(0xff95B2DE),
+              color: cardcolor,
               text: 'Networking',
               width: MediaQuery.of(context).size.width * 0.5,
             ),
             Techrate(
               onTap: () {},
-              color: Color(0xffEBE07C),
-              text: 'Troubleshooting_Skills',
+              color: cardcolor,
+              text: 'Troubleshooting Skills',
               width: MediaQuery.of(context).size.width * 0.5,
             ),
             Techrate(
               onTap: () {},
-              color: Color(0xffDAA7C2),
-              text: 'Database_Fundamentals',
+              color: cardcolor,
+              text: 'Database Fundamentals',
               width: MediaQuery.of(context).size.width * 0.5,
             ),
             Techrate(
               onTap: () {},
-              color: Color(0xffB7E4C7),
-              text: 'Leadership_Experience',
+              color: cardcolor,
+              text: 'Leadership Experience',
               width: MediaQuery.of(context).size.width * 0.5,
             ),
             Techrate(
               onTap: () {},
-              color: Color(0xffFBC4AB),
-              text: 'Project_Management',
+              color: cardcolor,
+              text: 'Project Management',
               width: MediaQuery.of(context).size.width * 0.5,
             ),
             Techrate(
               onTap: () {},
-              color: Color(0xff89CFF0),
-              text: 'Software_Engineering',
+              color: cardcolor,
+              text: 'Software Engineering',
               width: MediaQuery.of(context).size.width * 0.5,
             ),
             Techrate(
               onTap: () {},
-              color: Color(0xffC0DAA7),
-              text: 'Business_knowledge',
+              color: cardcolor,
+              text: 'Business knowledge',
               width: MediaQuery.of(context).size.width * 0.5,
             ),
             Techrate(
               onTap: () {},
-              color: Color(0xffD8BFD8),
-              text: 'Communication_Skills',
+              color: cardcolor,
+              text: 'Communication Skills',
               width: MediaQuery.of(context).size.width * 0.5,
             ),
             Techrate(
               onTap: () {},
-              color: Color(0xffD8BFD8),
-              text: 'Data_Science',
+              color: cardcolor,
+              text: 'Data Science',
               width: MediaQuery.of(context).size.width * 0.5,
             ),
             Techrate(
               onTap: () {},
-              color: Color(0xffD8BFD8),
-              text: 'Graphics_Designing',
+              color: cardcolor,
+              text: 'Graphics Designing',
               width: MediaQuery.of(context).size.width * 0.5,
             ),
 
@@ -251,18 +260,19 @@ class Recommendationsystembody extends StatelessWidget {
                             Text(
                               '🚀 Recommended Jobs for You',
                               style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.teal,
-                              ),
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                  color: appColor.Primarycolor,
+                                  fontFamily: appFonts.Poppins),
                             ),
                             SizedBox(height: 10),
                             Text(
                               'Choose the path that matches your skills and start your journey! ✨',
                               style: TextStyle(
-                                fontSize: 14,
-                                color: Colors.black87,
-                              ),
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.black,
+                                  fontFamily: appFonts.Poppins),
                             ),
                           ],
                         ),
@@ -270,53 +280,58 @@ class Recommendationsystembody extends StatelessWidget {
                           children: [
                             ...List.generate(3, (index) {
                               final job = state.jops[index].job;
-                              final icons = [
-                                Icons.code,
-                                Icons.design_services,
-                                Icons.mobile_friendly
-                              ];
+                              // final icons = [
+                              //   Icons.code,
+                              //   Icons.design_services,
+                              //   Icons.mobile_friendly
+                              // ];
                               final colors = [
-                                Colors.teal.shade100,
-                                Colors.teal.shade50,
-                                Colors.teal.shade200
+                                // Colors.blue.shade100,
+                                // Colors.blue.shade50,
+                                // Colors.blue.shade200,
+                                appColor.Primarycolor,
+                                appColor.Primarycolor,
+                                appColor.Primarycolor,
+                                appColor.Primarycolor,
                               ];
                               return Padding(
                                 padding:
                                     const EdgeInsets.symmetric(vertical: 6),
                                 child: Container(
                                   decoration: BoxDecoration(
-                                    gradient: LinearGradient(
-                                      colors: [
-                                        colors[index % colors.length],
-                                        Colors.white
-                                      ],
-                                      begin: Alignment.topLeft,
-                                      end: Alignment.bottomRight,
-                                    ),
+                                    // gradient: LinearGradient(
+                                    //   colors: [
+                                    //     colors[index % colors.length],
+                                    //     Colors.white
+                                    //   ],
+                                    //   begin: Alignment.topLeft,
+                                    //   end: Alignment.bottomRight,
+                                    // ),
+                                    color: appColor.Primarycolor,
                                     borderRadius: BorderRadius.circular(15),
-                                    border:
-                                        Border.all(color: Colors.teal.shade200),
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: Colors.black12,
-                                        blurRadius: 4,
-                                        offset: Offset(0, 2),
-                                      )
-                                    ],
+                                    border: Border.all(
+                                        color: appColor.Primarycolor),
+                                    // boxShadow: [
+                                    //   BoxShadow(
+                                    //     color: Colors.black12,
+                                    //     blurRadius: 4,
+                                    //     offset: Offset(0, 2),
+                                    //   )
+                                    // ],
                                   ),
                                   child: ListTile(
-                                    leading: Icon(icons[index % icons.length],
-                                        size: 28, color: Colors.teal),
+                                    // leading: Icon(icons[index % icons.length],
+                                    //     size: 28, color: Colors.teal),
                                     title: Text(
                                       job,
                                       style: TextStyle(
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w600,
-                                        color: Colors.teal.shade800,
-                                      ),
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white,
+                                          fontFamily: appFonts.Poppins),
                                     ),
                                     trailing: Icon(Icons.arrow_forward_ios,
-                                        size: 16, color: Colors.teal),
+                                        size: 16, color: Colors.white),
                                     onTap: () async {
                                       // context
                                       //     .read<ReccomendChatBlocBloc>()
@@ -337,10 +352,10 @@ class Recommendationsystembody extends StatelessWidget {
                             Text(
                               'If you want to generate a learning roadmap, just tap on a job.',
                               style: TextStyle(
-                                fontSize: 13,
-                                fontStyle: FontStyle.italic,
-                                color: Colors.grey.shade700,
-                              ),
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black,
+                                  fontFamily: appFonts.Poppins),
                               textAlign: TextAlign.center,
                             ),
                           ],
@@ -349,7 +364,7 @@ class Recommendationsystembody extends StatelessWidget {
                           TextButton(
                             onPressed: () => Navigator.pop(context),
                             child: Text('Close',
-                                style: TextStyle(color: Colors.teal)),
+                                style: TextStyle(color: appColor.Primarycolor)),
                           )
                         ],
                       ),

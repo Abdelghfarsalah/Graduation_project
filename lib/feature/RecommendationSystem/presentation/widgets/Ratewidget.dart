@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:graduation_project/core/colors.dart';
 import 'package:graduation_project/core/fonts.dart';
 import 'package:graduation_project/feature/RecommendationSystem/presentation/manager/Recommendationsystembloc/Recommendationsystembloc.dart';
 
@@ -41,23 +42,35 @@ class _RatewidgetState extends State<Ratewidget> {
           itemBuilder: (BuildContext context, int index) {
             return GestureDetector(
               onTap: () {
-                context
-                    .read<Recommendationsystembloc>()
-                    .ChangeValuerate(widget.tech, statuses[index]);
-                print(widget.tech);
-                print(statuses[index] + "============================");
+                context.read<Recommendationsystembloc>().ChangeValuerate(
+                    widget.tech.replaceFirstMapped(
+                        RegExp(r'^( *)(.*?)( *)$'),
+                        (match) =>
+                            '${match[1]}${match[2]!.replaceAll(' ', '_')}${match[3]}'),
+                    statuses[index]);
+
                 setState(() {
                   select = index;
                 });
               },
               child: Row(
                 children: [
+                  select == index
+                      ? Icon(
+                          Icons.check_box,
+                          color: appColor.Primarycolor,
+                        )
+                      : Icon(
+                          Icons.check_box_outline_blank_outlined,
+                          size: 18,
+                        ),
                   Text(
                     "${statuses[index]}",
                     style: TextStyle(
                         fontFamily: appFonts.Poppins,
                         fontSize: select == index ? 16.sp : 14.sp,
-                        fontWeight: FontWeight.w500,
+                        fontWeight:
+                            select == index ? FontWeight.w600 : FontWeight.w500,
                         color:
                             select == index ? Color(0xff000000) : Colors.grey),
                   ),
