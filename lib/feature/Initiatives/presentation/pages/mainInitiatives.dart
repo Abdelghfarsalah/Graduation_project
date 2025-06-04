@@ -3,6 +3,7 @@ import 'package:graduation_project/core/utils/animations.dart';
 import 'package:graduation_project/feature/Initiatives/presentation/pages/DigitalPioneersnitiative.dart';
 import 'package:graduation_project/feature/Initiatives/presentation/pages/DigitalYouthofEgypt.dart';
 import 'package:graduation_project/feature/Initiatives/presentation/pages/EgyptDigitalPioneersInitiative.dart';
+import 'package:graduation_project/feature/Initiatives/presentation/pages/EgyptFWB.dart';
 import 'package:graduation_project/feature/Initiatives/presentation/pages/Iti3.dart';
 import 'package:graduation_project/feature/Initiatives/presentation/pages/Iti9.dart';
 import 'package:graduation_project/feature/Initiatives/presentation/widgets/InitiativesItem.dart';
@@ -17,7 +18,7 @@ class Initiativespage extends StatelessWidget {
         InitiativesItem(
           onTap: () {
             Animationsforpages.navigateWithSlidepush(
-                context, Egyptdigitalpioneersinitiative());
+                context, EgyptDigitalPioneersInitiative());
           },
           image: 'assets/Initiatives/image1.png',
           title: 'Egypt Digital Pioneers Initiative',
@@ -26,8 +27,17 @@ class Initiativespage extends StatelessWidget {
         ),
         InitiativesItem(
           onTap: () {
+            Animationsforpages.navigateWithSlidepush(context, FWD());
+          },
+          image: 'assets/Initiatives/image.png',
+          title: 'Egypt FWB',
+          subtitle:
+              'Our Future is Digital (FWD) is an 18-month initiative offering multiple scholarships.',
+        ),
+        InitiativesItem(
+          onTap: () {
             Animationsforpages.navigateWithSlidepush(
-                context, Digitalpioneersnitiative());
+                context, DigitalPioneersInitiative());
           },
           image: 'assets/Initiatives/image2.png',
           title: 'Digital Pioneers Initiative',
@@ -37,7 +47,7 @@ class Initiativespage extends StatelessWidget {
         InitiativesItem(
           onTap: () {
             Animationsforpages.navigateWithSlidepush(
-                context, Digitalyouthofegypt());
+                context, DigitalYouthOfEgypt());
           },
           image: 'assets/Initiatives/image3.png',
           title: 'Digital Youth of Egypt',

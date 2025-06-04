@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class DigitalYouthOfEgypt extends StatefulWidget {
-  const DigitalYouthOfEgypt({super.key});
+class FWD extends StatefulWidget {
+  const FWD({super.key});
 
   @override
-  State<DigitalYouthOfEgypt> createState() => _DigitalYouthOfEgyptState();
+  State<FWD> createState() => _FWDState();
 }
 
-class _DigitalYouthOfEgyptState extends State<DigitalYouthOfEgypt> {
+class _FWDState extends State<FWD> {
   void _launchURL(String url) async {
     final uri = Uri.parse(url);
     if (!await launchUrl(uri, mode: LaunchMode.externalApplication)) {
@@ -27,13 +27,13 @@ class _DigitalYouthOfEgyptState extends State<DigitalYouthOfEgypt> {
             expandedHeight: 180.h,
             flexibleSpace: FlexibleSpaceBar(
               background: Image.asset(
-                "assets/Initiatives/image3.png",
+                "assets/Initiatives/image.png", // عدل اسم الصورة حسب الموجود عندك
                 fit: BoxFit.cover,
                 color: Colors.black.withOpacity(0.8),
                 colorBlendMode: BlendMode.darken,
               ),
               title: Text(
-                "Digital Youth of Egypt",
+                "Future Work is Digital (FWD)",
                 style: TextStyle(
                   fontSize: 18.sp,
                   fontWeight: FontWeight.w600,
@@ -70,7 +70,7 @@ class _DigitalYouthOfEgyptState extends State<DigitalYouthOfEgypt> {
                         ),
                         child: ClipOval(
                           child: Image.asset(
-                            "assets/Initiatives/image3.png",
+                            "assets/Initiatives/image.png",
                             fit: BoxFit.contain,
                           ),
                         ),
@@ -81,20 +81,27 @@ class _DigitalYouthOfEgyptState extends State<DigitalYouthOfEgypt> {
                     Divider(color: Colors.grey[300], height: 1),
                     SizedBox(height: 24.h),
 
-                    // About the Initiative
+                    // About the Program
                     _buildSection(
-                      title: "About the Initiative",
+                      title: "About the FWD Initiative",
                       content:
-                          "A fully-funded four-month scholarship targeting the qualification of 2,500 fresh graduates from Egyptian universities across the country. The initiative offers training in diverse digital fields, with a strong focus on electronics and embedded systems, aligning with the presidential initiative \"Egypt Makes Electronics.\"\n\n"
-                          "It aims to boost youth employment and entrepreneurship opportunities, bridge the skills gap between graduates and market demands, and develop both technical and personal skills through a comprehensive methodology covering a wide range of digital competencies to serve various career paths.",
+                          "Future Work is Digital (FWD) is an 18-month initiative offering multiple scholarships that provide learners and trainees with a comprehensive educational experience to develop their skills and build their capabilities. "
+                          "Through the scholarship program, learners can attend courses offered by Udacity online classes, engage in practical projects reviewed by experts, participate in online support webinars, receive continuous coaching and mentoring by industry professionals, "
+                          "and enhance their networking with peers via an interactive community and ongoing training and job opportunities.",
                     ),
 
-                    // Benefits Section
+                    _buildSection(
+                      title: "Program Goals",
+                      content:
+                          "The FWD scholarship aims to empower learners by improving their technological and professional development skills to enable them to successfully compete for jobs in the digital business field and freelancing opportunities provided by leading tech companies worldwide.",
+                    ),
+
+                    // Benefits
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Program Structure",
+                          "Benefits of Joining Future Work is Digital",
                           style: TextStyle(
                             fontSize: 18.sp,
                             fontWeight: FontWeight.w600,
@@ -103,13 +110,11 @@ class _DigitalYouthOfEgyptState extends State<DigitalYouthOfEgypt> {
                         ),
                         SizedBox(height: 12.h),
                         _buildBulletPoint(
-                            "Three-month technical training in digital skills."),
+                            "Technical training offering technology-based courses in the most in-demand fields: Web (design & development), data, business, and cloud computing, tailored for all professional levels."),
                         _buildBulletPoint(
-                            "Training on personal development and English language."),
+                            "Job readiness training including full training on digital freelancing, Agile methodologies, and professional consulting."),
                         _buildBulletPoint(
-                            "One-month on-the-job training provided by 60+ partner companies."),
-                        _buildBulletPoint(
-                            "Covers tracks like: electronics and embedded systems, network infrastructure, cybersecurity, DevOps, and telecom engineering."),
+                            "Access to many job opportunities, training for freelancing or employment in tech fields."),
                       ],
                     ),
 
@@ -117,7 +122,7 @@ class _DigitalYouthOfEgyptState extends State<DigitalYouthOfEgypt> {
                     Divider(color: Colors.grey[300], height: 1),
                     SizedBox(height: 24.h),
 
-                    // Links Section
+                    // Important Links
                     Text(
                       "Important Links",
                       style: TextStyle(
@@ -130,19 +135,27 @@ class _DigitalYouthOfEgyptState extends State<DigitalYouthOfEgypt> {
                     _buildLinkTile(
                       icon: Icons.language,
                       title: "Official Website",
-                      url: "https://www.nti.sci.eg/",
+                      url:
+                          "https://www.itida.gov.eg/arabic/Programs/future-work-is-digital/Pages/default.aspx",
                     ),
                     _buildLinkTile(
-                      icon: Icons.ondemand_video,
+                      icon: Icons.play_circle_outline,
                       title: "Introductory Video",
-                      url: "https://www.facebook.com/watch/?v=954974122304829",
+                      url: "https://youtu.be/bwcUd8xja6A?si=l6XY3RnwTuFPDXVC",
+                    ),
+                    _buildLinkTile(
+                      icon: Icons.play_circle_outline,
+                      title: "Student Testimonials",
+                      url: "https://youtu.be/n4PgOM4H2cg?si=_OKzowtBFWbSLGGY",
                     ),
 
+                    // Apply Button
                     SizedBox(height: 32.h),
                     SizedBox(
                       width: double.infinity,
                       child: OutlinedButton(
-                        onPressed: () => _launchURL("https://www.nti.sci.eg/"),
+                        onPressed: () => _launchURL(
+                            "https://www.itida.gov.eg/arabic/Programs/future-work-is-digital/Pages/default.aspx"),
                         style: OutlinedButton.styleFrom(
                           padding: EdgeInsets.symmetric(vertical: 16.h),
                           side: BorderSide(color: Colors.grey[800]!),
@@ -151,7 +164,7 @@ class _DigitalYouthOfEgyptState extends State<DigitalYouthOfEgypt> {
                           ),
                         ),
                         child: Text(
-                          "APPLY NOW",
+                          "LEARN MORE",
                           style: TextStyle(
                             fontSize: 16.sp,
                             fontWeight: FontWeight.w600,
@@ -251,14 +264,15 @@ class _DigitalYouthOfEgyptState extends State<DigitalYouthOfEgypt> {
             children: [
               Icon(icon, color: Colors.grey[600], size: 22.w),
               SizedBox(width: 16.w),
-              Text(
-                title,
-                style: TextStyle(
-                  fontSize: 16.sp,
-                  color: Colors.grey[800],
+              Expanded(
+                child: Text(
+                  title,
+                  style: TextStyle(
+                    fontSize: 16.sp,
+                    color: Colors.grey[800],
+                  ),
                 ),
               ),
-              const Spacer(),
               Icon(Icons.arrow_forward_ios,
                   size: 16.w, color: Colors.grey[500]),
             ],

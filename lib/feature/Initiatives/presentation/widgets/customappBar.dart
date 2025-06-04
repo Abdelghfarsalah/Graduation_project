@@ -33,6 +33,8 @@ class CustomAppBarInitiative extends StatelessWidget
       ),
       backgroundColor: Colors.white,
       centerTitle: true,
+      elevation: 0,
+      scrolledUnderElevation: 0,
       actions: [
         Padding(
           padding: const EdgeInsets.only(right: 12.0),
@@ -40,10 +42,14 @@ class CustomAppBarInitiative extends StatelessWidget
             onTap: () {},
             child: CircleAvatar(
               radius: 20,
-              backgroundColor: Colors.black,
-              child: CircleAvatar(
-                radius: 19,
-                backgroundImage: AssetImage(image),
+              backgroundColor: Colors.white,
+              child: ClipOval(
+                child: Image.asset(
+                  image,
+                  width: 38, // أقل من أو يساوي القطر
+                  height: 38,
+                  fit: BoxFit.contain, // علشان تملى الدائرة كاملة بدون فراغ
+                ),
               ),
             ),
           ),
