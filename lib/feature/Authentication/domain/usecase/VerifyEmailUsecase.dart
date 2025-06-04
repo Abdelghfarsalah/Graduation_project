@@ -15,7 +15,7 @@ class VerifyEmailusecase {
     var response = await repo.verifyEmail(email: email, otp: otp);
     return response.fold((ifLeft) => left(ifLeft), (ifRight) {
       SharedPreferencesDemo.saveUserData(
-        id: "ifRight.user.userId",
+        id: ifRight.data.user.id,
         name: ifRight.data.user.name,
         email: ifRight.data.user.email,
         isVerified: false,
