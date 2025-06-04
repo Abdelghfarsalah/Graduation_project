@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:graduation_project/feature/Initiatives/presentation/widgets/widgettoplayVideo.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class FWD extends StatefulWidget {
@@ -121,33 +122,62 @@ class _FWDState extends State<FWD> {
                     SizedBox(height: 24.h),
                     Divider(color: Colors.grey[300], height: 1),
                     SizedBox(height: 24.h),
-
-                    // Important Links
                     Text(
-                      "Important Links",
+                      "Introductory Video",
                       style: TextStyle(
                         fontSize: 18.sp,
                         fontWeight: FontWeight.w600,
                         color: Colors.grey[900],
                       ),
                     ),
-                    SizedBox(height: 16.h),
-                    _buildLinkTile(
-                      icon: Icons.language,
-                      title: "Official Website",
-                      url:
-                          "https://www.itida.gov.eg/arabic/Programs/future-work-is-digital/Pages/default.aspx",
+                    SizedBox(height: 24.h),
+                    CustomVideoPlayer(
+                      assetPath: 'assets/Initiatives/videos/FWK1.mp4',
                     ),
-                    _buildLinkTile(
-                      icon: Icons.play_circle_outline,
-                      title: "Introductory Video",
-                      url: "https://youtu.be/bwcUd8xja6A?si=l6XY3RnwTuFPDXVC",
+                    SizedBox(height: 24.h),
+                    Divider(color: Colors.grey[300], height: 1),
+                    SizedBox(height: 24.h),
+                    Text(
+                      "Student Testimonials",
+                      style: TextStyle(
+                        fontSize: 18.sp,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.grey[900],
+                      ),
                     ),
-                    _buildLinkTile(
-                      icon: Icons.play_circle_outline,
-                      title: "Student Testimonials",
-                      url: "https://youtu.be/n4PgOM4H2cg?si=_OKzowtBFWbSLGGY",
+                    SizedBox(height: 24.h),
+                    CustomVideoPlayer(
+                      assetPath: 'assets/Initiatives/videos/FWK2.mp4',
                     ),
+                    SizedBox(height: 24.h),
+                    Divider(color: Colors.grey[300], height: 1),
+                    SizedBox(height: 24.h),
+                    // Important Links
+                    // Text(
+                    //   "Important Links",
+                    //   style: TextStyle(
+                    //     fontSize: 18.sp,
+                    //     fontWeight: FontWeight.w600,
+                    //     color: Colors.grey[900],
+                    //   ),
+                    // ),
+                    // SizedBox(height: 16.h),
+                    // _buildLinkTile(
+                    //   icon: Icons.language,
+                    //   title: "Official Website",
+                    //   url:
+                    //       "https://www.itida.gov.eg/arabic/Programs/future-work-is-digital/Pages/default.aspx",
+                    // ),
+                    // _buildLinkTile(
+                    //   icon: Icons.play_circle_outline,
+                    //   title: "Introductory Video",
+                    //   url: "https://youtu.be/bwcUd8xja6A?si=l6XY3RnwTuFPDXVC",
+                    // ),
+                    // _buildLinkTile(
+                    //   icon: Icons.play_circle_outline,
+                    //   title: "Student Testimonials",
+                    //   url: "https://youtu.be/n4PgOM4H2cg?si=_OKzowtBFWbSLGGY",
+                    // ),
 
                     // Apply Button
                     SizedBox(height: 32.h),
@@ -164,7 +194,7 @@ class _FWDState extends State<FWD> {
                           ),
                         ),
                         child: Text(
-                          "LEARN MORE",
+                          "APPLY NOW",
                           style: TextStyle(
                             fontSize: 16.sp,
                             fontWeight: FontWeight.w600,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:graduation_project/feature/Initiatives/presentation/widgets/widgettoplayVideo.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class DigitalPioneersInitiative extends StatefulWidget {
@@ -118,31 +119,44 @@ class _DigitalPioneersInitiativeState extends State<DigitalPioneersInitiative> {
                         _buildBulletPoint("Free full accommodation & meals"),
                       ],
                     ),
-
                     SizedBox(height: 24.h),
                     Divider(color: Colors.grey[300], height: 1),
                     SizedBox(height: 24.h),
-
-                    // Links Section
                     Text(
-                      "Important Links",
+                      "Introductory Video",
                       style: TextStyle(
                         fontSize: 18.sp,
                         fontWeight: FontWeight.w600,
                         color: Colors.grey[900],
                       ),
                     ),
-                    SizedBox(height: 16.h),
-                    _buildLinkTile(
-                      icon: Icons.language,
-                      title: "Official Website",
-                      url: "https://www.digilians.gov.eg/",
+                    SizedBox(height: 24.h),
+                    CustomVideoPlayer(
+                      assetPath: 'assets/Initiatives/videos/DPI1.mp4',
                     ),
-                    _buildLinkTile(
-                      icon: Icons.ondemand_video,
-                      title: "Introductory Video",
-                      url: "https://youtu.be/4iybOr64jZ4",
-                    ),
+                    SizedBox(height: 24.h),
+                    Divider(color: Colors.grey[300], height: 1),
+                    SizedBox(height: 24.h),
+                    // Links Section
+                    // Text(
+                    //   "Important Links",
+                    //   style: TextStyle(
+                    //     fontSize: 18.sp,
+                    //     fontWeight: FontWeight.w600,
+                    //     color: Colors.grey[900],
+                    //   ),
+                    // ),
+                    // SizedBox(height: 16.h),
+                    // _buildLinkTile(
+                    //   icon: Icons.language,
+                    //   title: "Official Website",
+                    //   url: "https://www.digilians.gov.eg/",
+                    // ),
+                    // _buildLinkTile(
+                    //   icon: Icons.ondemand_video,
+                    //   title: "Introductory Video",
+                    //   url: "https://youtu.be/4iybOr64jZ4",
+                    // ),
 
                     SizedBox(height: 32.h),
                     SizedBox(

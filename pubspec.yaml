@@ -115,6 +115,13 @@ flutter:
     - assets/IMG_٢٠٢٥٠٢٢٢_١٩٥٧٣٣.jpg
     - assets/HomeImage/LanguageandLibraryProgramming/
     - assets/Initiatives/
+    - assets/Initiatives/videos/Ep2.mp4
+    - assets/Initiatives/videos/Ep1.mp4
+    - assets/Initiatives/videos/FWK1.mp4
+    - assets/Initiatives/videos/FWK2.mp4
+    - assets/Initiatives/videos/DPI1.mp4
+    - assets/Initiatives/videos/DYI1.mp4
+    
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
