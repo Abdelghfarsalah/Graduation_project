@@ -45,7 +45,9 @@ class Trendingtrackscard extends StatelessWidget {
                     height: height / 2,
                     width: width,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(20),
+                          topRight: Radius.circular(20)),
                       image: DecorationImage(
                         fit: BoxFit.fill,
                         image: AssetImage(image),
@@ -86,7 +88,9 @@ class Trendingtrackscard extends StatelessWidget {
                     height: height / 2.5,
                     width: width,
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
+                        borderRadius: BorderRadius.only(
+                            bottomLeft: Radius.circular(20),
+                            bottomRight: Radius.circular(20)),
                         image: DecorationImage(
                             fit: BoxFit.fill,
                             image: AssetImage(
