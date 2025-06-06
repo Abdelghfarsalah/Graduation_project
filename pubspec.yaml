@@ -121,6 +121,9 @@ flutter:
     - assets/Initiatives/videos/FWK2.mp4
     - assets/Initiatives/videos/DPI1.mp4
     - assets/Initiatives/videos/DYI1.mp4
+    - assets/tredingTracks/AiAndML/
+    - assets/tredingTracks/CyberSecurity/
+    - assets/tredingTracks/DigitalTwins/
     
   #   - images/a_dot_ham.jpeg
 

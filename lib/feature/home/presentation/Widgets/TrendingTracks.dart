@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:graduation_project/core/utils/animations.dart';
 import 'package:graduation_project/feature/home/presentation/Widgets/TrendingTracksCard.dart';
 import 'package:graduation_project/feature/home/presentation/Widgets/TrendingtracksHeader.dart';
+import 'package:graduation_project/feature/tredingTracks/presentations/pages/AiMlPage.dart';
+import 'package:graduation_project/feature/tredingTracks/presentations/pages/Cybersecurity.dart';
+import 'package:graduation_project/feature/tredingTracks/presentations/pages/DigitalTwinsPage.dart';
 
 class Trendingtracks extends StatelessWidget {
   const Trendingtracks({super.key});
@@ -22,11 +26,15 @@ class Trendingtracks extends StatelessWidget {
                   padding: 15,
                   height: 202,
                   width: MediaQuery.sizeOf(context).width * 0.43,
-                  image: 'assets/HomeImage/trendingTracksImages/Cs.png',
-                  title: 'Computer Science',
-                  color: Color(0xffFFB4B4).withOpacity(0.5),
+                  image: 'assets/tredingTracks/AiAndML/image.png',
+                  title: 'Artificial Intelligence (AI)',
+                  color: Color(0xff0F161E),
                   top: false,
-                  subtitle: 'Software Engineering',
+                  subtitle: ' and Machine Learning (ML)',
+                  onTap: () {
+                    Animationsforpages.navigateWithSlidepush(
+                        context, AIHackathonsPage());
+                  },
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 20.0),
@@ -34,11 +42,15 @@ class Trendingtracks extends StatelessWidget {
                     padding: 8,
                     height: 163,
                     width: MediaQuery.sizeOf(context).width * 0.43 - 8,
-                    image: 'assets/HomeImage/trendingTracksImages/OR.png',
-                    title: ' Operations Research &Design Support',
-                    color: Color(0xffFFB1F3).withOpacity(0.5),
+                    image: 'assets/tredingTracks/CyberSecurity/image1.png',
+                    title: ' Cybersecurity',
+                    color: Color(0xff0F161E),
                     top: true,
-                    subtitle: 'Data Analysis',
+                    subtitle: '',
+                    onTap: () {
+                      Animationsforpages.navigateWithSlidepush(
+                          context, CyberSecurityPage());
+                    },
                   ),
                 )
               ],
@@ -51,12 +63,15 @@ class Trendingtracks extends StatelessWidget {
                   padding: 8,
                   height: 163,
                   width: MediaQuery.sizeOf(context).width * 0.43 - 8,
-                  image:
-                      'assets/HomeImage/trendingTracksImages/informationTech.png',
-                  title: ' Information Technology',
-                  color: Color(0xffB4FFE4).withOpacity(0.5),
+                  image: 'assets/tredingTracks/DigitalTwins/image1.png',
+                  title: ' Digital Twins',
+                  color: Color(0xff0F161E),
                   top: true,
-                  subtitle: 'Computer Networks',
+                  onTap: () {
+                    Animationsforpages.navigateWithSlidepush(
+                        context, DigitalTwinsPage());
+                  },
+                  subtitle: '',
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 20.0),

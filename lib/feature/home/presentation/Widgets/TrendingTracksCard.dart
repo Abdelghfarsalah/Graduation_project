@@ -11,7 +11,8 @@ class Trendingtrackscard extends StatelessWidget {
       required this.subtitle,
       required this.height,
       required this.width,
-      required this.padding});
+      required this.padding,
+      this.onTap});
   final String image;
   final String title;
   final String subtitle;
@@ -20,55 +21,80 @@ class Trendingtrackscard extends StatelessWidget {
   final double height;
   final double width;
   final double padding;
-
+  final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: height,
-      width: width,
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(24), color: Color(0xffF8F7FF)),
-      child: Padding(
-        padding: EdgeInsets.all(padding),
-        child: Container(
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(24), color: color),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              if (top) Image.asset(image),
-              Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 2.0),
-                    child: Text(
-                      title,
-                      textAlign: TextAlign.center,
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                      style: TextStyle(
-                          fontSize: 13,
-                          fontWeight: FontWeight.w500,
-                          color: Color(0xff0C0A1C),
-                          fontFamily: appFonts.Poppins),
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        height: height,
+        width: width,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(24), color: Color(0xffF8F7FF)),
+        child: Padding(
+          padding: EdgeInsets.all(padding),
+          child: Container(
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(24), color: color),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                if (top)
+                  Container(
+                    height: height / 2,
+                    width: width,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      image: DecorationImage(
+                        fit: BoxFit.fill,
+                        image: AssetImage(image),
+                      ),
                     ),
                   ),
-                  Text(
-                    subtitle,
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        fontSize: 10,
-                        fontWeight: FontWeight.w300,
-                        color: Colors.grey,
-                        fontFamily: appFonts.Poppins),
+                Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 2.0),
+                      child: Text(
+                        title,
+                        textAlign: TextAlign.center,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                            fontSize: 13,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.white,
+                            fontFamily: appFonts.Poppins),
+                      ),
+                    ),
+                    Text(
+                      subtitle,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          fontSize: 10,
+                          fontWeight: FontWeight.w300,
+                          color: Colors.grey,
+                          fontFamily: appFonts.Poppins),
+                    ),
+                  ],
+                ),
+                if (!top)
+                  Container(
+                    height: height / 2.5,
+                    width: width,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        image: DecorationImage(
+                            fit: BoxFit.fill,
+                            image: AssetImage(
+                              image,
+                            ))),
                   ),
-                ],
-              ),
-              if (!top) Image.asset(image),
-            ],
+              ],
+            ),
           ),
         ),
       ),
