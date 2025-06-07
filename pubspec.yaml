@@ -64,6 +64,7 @@ dependencies:
   gal: ^2.3.1
   loading_icon_button: ^0.0.7
   video_player: ^2.10.0
+  youtube_player_flutter: ^9.1.1
 
 dev_dependencies:
   flutter_test:
@@ -124,6 +125,14 @@ flutter:
     - assets/tredingTracks/AiAndML/
     - assets/tredingTracks/CyberSecurity/
     - assets/tredingTracks/DigitalTwins/
+    - assets/tredingTracks/Robotics/
+    - assets/tredingTracks/VirtualReality/
+    - assets/tredingTracks/Blockchain/
+    - assets/tredingTracks/DevOps/
+    - assets/tredingTracks/CloudComputing/
+    - assets/tredingTracks/EdgeComputing/
+    - assets/tredingTracks/Bioinformatics/
+    - assets/tredingTracks/iot/
     
   #   - images/a_dot_ham.jpeg
 

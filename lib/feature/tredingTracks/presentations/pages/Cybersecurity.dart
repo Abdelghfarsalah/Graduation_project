@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class CyberSecurityPage extends StatefulWidget {
   const CyberSecurityPage({super.key});
@@ -10,8 +11,30 @@ class CyberSecurityPage extends StatefulWidget {
 }
 
 class _CyberSecurityPageState extends State<CyberSecurityPage> {
+  late YoutubePlayerController _youtubeController;
+
+  @override
+  void initState() {
+    super.initState();
+    _youtubeController = YoutubePlayerController(
+      initialVideoId: '4CuXNs6SboU',
+      flags: const YoutubePlayerFlags(
+        autoPlay: true,
+        mute: false,
+        disableDragSeek: true,
+        loop: false,
+        isLive: false,
+      ),
+    );
+  }
+
+  @override
+  void dispose() {
+    _youtubeController.dispose();
+    super.dispose();
+  }
+
   void _launchURL(String url) async {
-    if (url.isEmpty) return;
     final uri = Uri.parse(url);
     if (!await launchUrl(uri, mode: LaunchMode.externalApplication)) {
       throw 'Could not launch $url';
@@ -28,7 +51,7 @@ class _CyberSecurityPageState extends State<CyberSecurityPage> {
             expandedHeight: 200.h,
             flexibleSpace: FlexibleSpaceBar(
               background: Image.asset(
-                "assets/tredingTracks/CyberSecurity/image1.png", // Replace with your cybersecurity header image
+                "assets/tredingTracks/CyberSecurity/image1.png", // تأكد من وجود هذه الصورة في مجلد assets
                 fit: BoxFit.cover,
                 color: Colors.black.withOpacity(0.7),
                 colorBlendMode: BlendMode.darken,
@@ -61,14 +84,14 @@ class _CyberSecurityPageState extends State<CyberSecurityPage> {
                   children: [
                     // Cybersecurity Introduction
                     _buildSection(
-                      title: "Cybersecurity Importance",
+                      title: "Cybersecurity",
                       content:
                           "Protection of sensitive information and trust in digital systems are essentially the reasons for the cybersecurity demand. Therefore, cybersecurity needs to be beefed up, especially in the case of those industries like finance, healthcare, and government, where the consequence might be fairly adverse if there is a data-breach concern.",
                     ),
 
                     SizedBox(height: 8.h),
                     Text(
-                      "Key cybersecurity facts:",
+                      "For instance:",
                       style: TextStyle(
                         fontSize: 15.sp,
                         height: 1.6,
@@ -77,56 +100,120 @@ class _CyberSecurityPageState extends State<CyberSecurityPage> {
                     ),
                     SizedBox(height: 8.h),
                     _buildBulletPoint(
-                        "AI-driven threat detection systems can raise alarms in time before threats spread"),
+                        "AI-driven threat detection systems can raise alarms in time before such threats spread out"),
                     _buildBulletPoint(
-                        "Cyber attacks cost countries significant financial losses annually"),
-                    _buildBulletPoint(
-                        "Egypt's cybersecurity market is projected to reach \$444 million by 2030"),
-                    // Divider
+                        "Detect potential cyber threats and protect against those, minimizing the chance of data being taken away"),
+
+                    SizedBox(height: 24.h),
+                    YoutubePlayer(
+                      controller: _youtubeController,
+                      showVideoProgressIndicator: true,
+                      progressIndicatorColor: Colors.blueAccent,
+                      progressColors: const ProgressBarColors(
+                        playedColor: Colors.blue,
+                        handleColor: Colors.blueAccent,
+                      ),
+                      onReady: () {
+                        _youtubeController.addListener(() {});
+                      },
+                    ),
+                    // Career Opportunities Section
                     SizedBox(height: 24.h),
                     Divider(color: Colors.grey[300], height: 1),
                     SizedBox(height: 24.h),
                     Text(
-                      "Cyber attacks cost countries a lot of losses ",
+                      "Cyber attacks cost countries a lot of losses : ",
                       style: TextStyle(
-                        fontSize: 18.sp,
-                        fontWeight: FontWeight.bold,
-                        height: 1.6,
-                        color: Colors.black,
+                        fontSize: 16.sp,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.grey[900],
                       ),
                     ),
-                    // // Divider
-                    // SizedBox(height: 24.h),
-                    // Divider(color: Colors.grey[300], height: 1),
-                    // SizedBox(height: 24.h),
-                    // // Divider
-                    // SizedBox(height: 24.h),
-                    // Divider(color: Colors.grey[300], height: 1),
-                    // SizedBox(height: 24.h),
-                    Image(
-                        image: AssetImage(
-                            "assets/tredingTracks/CyberSecurity/image2.png")),
-                    // Egypt Cybersecurity Section
+                    Image.asset(
+                      "assets/tredingTracks/CyberSecurity/image2.png",
+                    ),
+                    SizedBox(height: 24.h),
+                    Divider(color: Colors.grey[300], height: 1),
+                    SizedBox(height: 24.h),
                     _buildSection(
-                      title: "Cybersecurity in Egypt",
+                      title: "Career Opportunities",
                       content:
-                          "Egypt keeps pace with global development in cybersecurity. The Egypt Cybersecurity Market size is estimated at USD 247.64 million in 2025, and is expected to reach USD 444.08 million by 2030, at a CAGR of 12.39% during the forecast period (2025-2030).",
+                          "This technology is becoming more popular day by day; therefore, there are ample opportunities to build a career in this field. The career opportunities available in the field of cyber security include:",
                     ),
 
-                    SizedBox(height: 8.h),
-                    _buildBulletPoint(
-                        "Government initiatives like the Egyptian Supreme Cybersecurity Council bolster national defenses"),
-                    _buildBulletPoint(
-                        "Programs such as 'Our Future is Digital' and ICT Strategy 2030 strengthen digital infrastructure"),
-                    _buildBulletPoint(
-                        "High-demand sectors: BFSI, IT & Telecom, and government"),
+                    SizedBox(height: 16.h),
+                    _buildCareerCard(
+                      title: "Malware Analyst",
+                      description:
+                          "Investigate malicious software to understand its behavior and develop defenses",
+                      skills:
+                          "Reverse engineering, debugging tools, malware detection techniques",
+                    ),
 
-                    // Divider
+                    _buildCareerCard(
+                      title: "Security Engineer",
+                      description:
+                          "Build and maintain security systems to protect organizations",
+                      skills:
+                          "Firewalls, encryption, vulnerability assessment, security protocols",
+                    ),
+
+                    _buildCareerCard(
+                      title: "Ethical Hacker",
+                      description:
+                          "Legally hack systems to find vulnerabilities before criminals do",
+                      skills:
+                          "Penetration testing, hacking tools, security certifications (CEH)",
+                    ),
+
+                    _buildCareerCard(
+                      title: "Chief Security Officer (CSO)",
+                      description:
+                          "Oversee an organization's entire security strategy",
+                      skills:
+                          "Risk management, security policies, leadership, compliance",
+                    ),
+
+                    SizedBox(height: 16.h),
+                    Text(
+                      "Common Requirements:",
+                      style: TextStyle(
+                        fontSize: 16.sp,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.grey[800],
+                      ),
+                    ),
+                    SizedBox(height: 8.h),
+                    _buildBulletPoint("Cybersecurity fundamentals"),
+                    _buildBulletPoint("Problem-solving skills"),
+                    _buildBulletPoint("Continuous learning mindset"),
+                    _buildBulletPoint(
+                        "Technical certifications (CISSP, OSCP, etc.)"),
+
+                    // Egypt Cybersecurity Market
                     SizedBox(height: 24.h),
                     Divider(color: Colors.grey[300], height: 1),
                     SizedBox(height: 24.h),
 
+                    _buildSection(
+                      title: "Egypt Cybersecurity Market",
+                      content:
+                          "Egypt keeps pace with global development and progress in the field of cybersecurity. The Egypt Cybersecurity Market size is estimated at USD 247.64 million in 2025, and is expected to reach USD 444.08 million by 2030, at a CAGR of 12.39% during the forecast period (2025-2030).",
+                    ),
+
+                    SizedBox(height: 8.h),
+                    _buildBulletPoint(
+                        "Government initiatives like The establishment of the Egyptian Supreme Cybersecurity Council are bolstering national defenses"),
+                    _buildBulletPoint(
+                        "Programs such as 'Our Future is Digital' and the ICT Strategy 2030 aim to strengthen digital infrastructure and literacy"),
+                    _buildBulletPoint(
+                        "High-demand sectors including BFSI, IT & Telecom, and government are leading cybersecurity investments"),
+
                     // Events Section
+                    SizedBox(height: 24.h),
+                    Divider(color: Colors.grey[300], height: 1),
+                    SizedBox(height: 24.h),
+
                     Text(
                       "Featured Cybersecurity Events",
                       style: TextStyle(
@@ -137,36 +224,30 @@ class _CyberSecurityPageState extends State<CyberSecurityPage> {
                     ),
                     SizedBox(height: 16.h),
 
-                    // Event 1 - CyberX Global
-                    _buildHackathonCard(
+                    // Event 1
+                    _buildEventCard(
                       image: "assets/tredingTracks/CyberSecurity/image3.png",
                       title: "CyberX Global",
-                      organizer: "CyberX",
                       description:
-                          "A platform connecting cybersecurity professionals in Egypt with global experts and opportunities.",
-                      prize: "Networking with industry leaders",
+                          "A series of seminars and conferences dedicated to IT & OT Professionals and cyber security technology innovators globally. Events have taken place in Saudi, Qatar, UAE, Oman, Kuwait, Egypt and India.",
                       url: "https://egypt.cyberxglobal.com/",
                     ),
 
-                    // Event 2 - CDIS Hackathon
-                    _buildHackathonCard(
+                    // Event 2
+                    _buildEventCard(
                       image: "assets/tredingTracks/CyberSecurity/image4.png",
                       title: "CDIS Hackathon",
-                      organizer: "CDIS Egypt",
                       description:
-                          "A thrilling three-day event designed to spur innovation, foster learning, and enhance skills within the cybersecurity realm.",
-                      prize: "Exposure to industry experts",
+                          "A thrilling three-day event designed to spur innovation, foster learning, and enhance skills within the cybersecurity realm. By bringing together interested participants, this hackathon serves as a dynamic platform for promoting secure coding practices.",
                       url: "https://cdis-egypt.com/hackathon/",
                     ),
 
-                    // Event 3 - EG-CTF Contest
-                    _buildHackathonCard(
+                    // Event 3
+                    _buildEventCard(
                       image: "assets/tredingTracks/CyberSecurity/image5.png",
                       title: "EG-CTF Contest",
-                      organizer: "EG-CERT",
                       description:
-                          "Egypt's first official national cybersecurity Capture The Flag (CTF) competition with challenges in web exploitation, reverse engineering, cryptography, and more.",
-                      prize: "Prize pool of over 200,000 EGP",
+                          "Egypt's first official national cybersecurity Capture The Flag (CTF) competition organized by EG-CERT. Talented security enthusiasts compete for the fame and a prize pool of over 200,000 Egyptian pounds.",
                       url: "https://ctftime.org/stats/",
                     ),
                   ],
@@ -232,12 +313,59 @@ class _CyberSecurityPageState extends State<CyberSecurityPage> {
     );
   }
 
-  Widget _buildHackathonCard({
+  Widget _buildCareerCard({
+    required String title,
+    required String description,
+    required String skills,
+  }) {
+    return Card(
+      color: Colors.white,
+      margin: EdgeInsets.only(bottom: 16.h),
+      elevation: 1,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(8),
+        side: BorderSide(color: Colors.grey[200]!, width: 1),
+      ),
+      child: Padding(
+        padding: EdgeInsets.all(16.w),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              title,
+              style: TextStyle(
+                fontSize: 16.sp,
+                fontWeight: FontWeight.w600,
+                color: Colors.grey[900],
+              ),
+            ),
+            SizedBox(height: 8.h),
+            Text(
+              "What they do: $description",
+              style: TextStyle(
+                fontSize: 14.sp,
+                color: Colors.grey[700],
+              ),
+            ),
+            SizedBox(height: 8.h),
+            Text(
+              "Key skills: $skills",
+              style: TextStyle(
+                fontSize: 14.sp,
+                color: Colors.grey[700],
+                fontStyle: FontStyle.italic,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildEventCard({
     required String image,
     required String title,
-    required String organizer,
     required String description,
-    required String prize,
     required String url,
   }) {
     return Card(
@@ -272,15 +400,6 @@ class _CyberSecurityPageState extends State<CyberSecurityPage> {
                     color: Colors.grey[900],
                   ),
                 ),
-                SizedBox(height: 4.h),
-                Text(
-                  "Organized by: $organizer",
-                  style: TextStyle(
-                    fontSize: 14.sp,
-                    color: Colors.grey[600],
-                    fontStyle: FontStyle.italic,
-                  ),
-                ),
                 SizedBox(height: 12.h),
                 Text(
                   description,
@@ -288,31 +407,6 @@ class _CyberSecurityPageState extends State<CyberSecurityPage> {
                     fontSize: 15.sp,
                     height: 1.5,
                     color: Colors.grey[700],
-                  ),
-                ),
-                SizedBox(height: 12.h),
-                Container(
-                  padding: EdgeInsets.all(12.w),
-                  decoration: BoxDecoration(
-                    color: Colors.grey[100],
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  child: Row(
-                    children: [
-                      Icon(Icons.emoji_events_outlined,
-                          color: Colors.amber[700], size: 20.w),
-                      SizedBox(width: 8.w),
-                      Expanded(
-                        child: Text(
-                          "Prize: $prize",
-                          style: TextStyle(
-                            fontSize: 14.sp,
-                            color: Colors.grey[800],
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      ),
-                    ],
                   ),
                 ),
                 SizedBox(height: 16.h),

@@ -3,21 +3,21 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
-class AIHackathonsPage extends StatefulWidget {
-  const AIHackathonsPage({super.key});
+class BlockchainPage extends StatefulWidget {
+  const BlockchainPage({super.key});
 
   @override
-  State<AIHackathonsPage> createState() => _AIHackathonsPageState();
+  State<BlockchainPage> createState() => _BlockchainPageState();
 }
 
-class _AIHackathonsPageState extends State<AIHackathonsPage> {
+class _BlockchainPageState extends State<BlockchainPage> {
   late YoutubePlayerController _youtubeController;
 
   @override
   void initState() {
     super.initState();
     _youtubeController = YoutubePlayerController(
-      initialVideoId: 'qYNweeDHiyU',
+      initialVideoId: 'QphJEO9ZX6s',
       flags: const YoutubePlayerFlags(
         autoPlay: true,
         mute: false,
@@ -51,13 +51,13 @@ class _AIHackathonsPageState extends State<AIHackathonsPage> {
             expandedHeight: 200.h,
             flexibleSpace: FlexibleSpaceBar(
               background: Image.asset(
-                "assets/tredingTracks/AiAndML/image.png",
+                "assets/tredingTracks/Blockchain/image1.png",
                 fit: BoxFit.cover,
                 color: Colors.black.withOpacity(0.7),
                 colorBlendMode: BlendMode.darken,
               ),
               title: Text(
-                "AI and ML",
+                "Blockchain Technology",
                 style: TextStyle(
                   fontSize: 18.sp,
                   fontWeight: FontWeight.w600,
@@ -83,25 +83,19 @@ class _AIHackathonsPageState extends State<AIHackathonsPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     _buildSection(
-                      title:
-                          "Artificial Intelligence (AI) and Machine Learning (ML)",
+                      title: "Blockchain Technology",
                       content:
-                          "AI and ML refer to technologies that enable machines to learn from data and also take decisions autonomously. These large technologies through this way have been applied in different areas, from voice assistants to autonomous vehicles, predictive analytics, and detection methods against fraud.",
+                          "Blockchain technology is a structure that stores transactional records, also called block, of the public in several databases, known as the 'chain,' in a network connected through peer-to-peer nodes. We cannot change or take away the data; we can only add to it. It is a method of recording information that makes hacking or manipulation of the systems impossible.",
                     ),
                     SizedBox(height: 8.h),
                     Text(
-                      "AI is no longer just a buzzword; it's transforming industries like healthcare, finance, and entertainment. For instance:",
+                      "This is a secure technology that is used in systems like cryptocurrency and bitcoin. Today, industry giants like Mastercard and IBM are adopting blockchain for supply chains and payments. Blockchain expands its application to voting, healthcare, and the metaverse while focusing on sustainability. From AI integration to Central Bank Digital Currencies (CBDCs), the future of blockchain technology is tied to useful real-world solutions and a wide range of other applications.",
                       style: TextStyle(
                         fontSize: 15.sp,
                         height: 1.6,
                         color: Colors.grey[700],
                       ),
                     ),
-                    SizedBox(height: 8.h),
-                    _buildBulletPoint(
-                        "Large language models (LLMs) like ChatGPT are revolutionizing how we interact with technology"),
-                    _buildBulletPoint(
-                        "AI is even being used to assist in writing research papers (18% of computer science papers now use AI tools)"),
                     SizedBox(height: 24.h),
                     YoutubePlayer(
                       controller: _youtubeController,
@@ -121,57 +115,82 @@ class _AIHackathonsPageState extends State<AIHackathonsPage> {
                     _buildSection(
                       title: "Career Opportunities",
                       content:
-                          "Machine learning and AI are used in various industries, such as finance, healthcare, manufacturing, agriculture, education, and many others. Some of the career opportunities available in the fields of AI and ML include:",
+                          "This field offers plenty of career opportunities with high salary packages. For example, a blockchain developer can earn a salary of up to Rs 20 lakh per year. Some of the other career opportunities in this field include:",
                     ),
                     SizedBox(height: 16.h),
                     _buildCareerCard(
-                      title: "AI Engineer",
+                      title: "Blockchain Developer",
                       description:
-                          "Build and deploy AI systems for real-world applications",
+                          "Build and maintain blockchain protocols, smart contracts, and decentralized apps (DApps).",
                       skills:
-                          "Python, TensorFlow/PyTorch, cloud AI services, model deployment",
+                          "Solidity, Python, JavaScript, cryptography, smart contracts",
                     ),
                     _buildCareerCard(
-                      title: "AI Architect",
+                      title: "Blockchain Architect",
                       description:
-                          "Design the overall AI system infrastructure and strategy",
+                          "Design secure and scalable blockchain systems for businesses.",
                       skills:
-                          "System design, cloud platforms, AI pipelines, scalability planning",
+                          "System design, cloud computing, consensus algorithms (PoW/PoS)",
                     ),
                     _buildCareerCard(
-                      title: "AI Research Scientist",
+                      title: "Smart Contract Developer",
                       description:
-                          "Develop new AI algorithms and advance the field",
+                          "Write self-executing contracts for DeFi, NFTs, and DAOs.",
                       skills:
-                          "Advanced math (linear algebra, calculus), research papers, experimental design",
+                          "Solidity, Vyper, Ethereum tools (Truffle, Hardhat)",
                     ),
                     _buildCareerCard(
-                      title: "Machine Learning Engineer",
+                      title: "Blockchain Analyst",
                       description:
-                          "Develop and optimize ML models for production",
+                          "Analyze blockchain data for trends, security, and business insights.",
                       skills:
-                          "Data preprocessing, model training, ML frameworks, MLOps",
+                          "Data analysis, Python, SQL, blockchain explorers",
                     ),
-                    SizedBox(height: 16.h),
-                    Text(
-                      "Common Requirements:",
-                      style: TextStyle(
-                        fontSize: 16.sp,
-                        fontWeight: FontWeight.w600,
-                        color: Colors.grey[800],
-                      ),
+                    _buildCareerCard(
+                      title: "Crypto Community Manager",
+                      description:
+                          "Engage and grow online communities for blockchain projects.",
+                      skills:
+                          "Social media (Discord/Telegram), crypto knowledge, communication",
                     ),
-                    SizedBox(height: 8.h),
-                    _buildBulletPoint("Strong programming (Python)"),
-                    _buildBulletPoint(
-                        "Understanding of algorithms and data structures"),
-                    _buildBulletPoint("Math/statistics knowledge"),
-                    _buildBulletPoint("Problem-solving skills"),
+                    _buildCareerCard(
+                      title: "Blockchain Consultant",
+                      description:
+                          "Advise companies on blockchain integration and strategy.",
+                      skills:
+                          "Business analysis, industry-specific blockchain use cases",
+                    ),
+                    _buildCareerCard(
+                      title: "Blockchain Security Engineer",
+                      description:
+                          "Protect blockchain networks from hacks and vulnerabilities.",
+                      skills:
+                          "Cybersecurity, penetration testing, cryptography",
+                    ),
+                    _buildCareerCard(
+                      title: "DeFi/NFT Developer",
+                      description:
+                          "Build platforms for decentralized finance or NFT marketplaces.",
+                      skills: "Web3.js, Ethereum, Rust (for Solana), IPFS",
+                    ),
+                    _buildCareerCard(
+                      title: "Blockchain Project Manager",
+                      description:
+                          "Oversee blockchain projects from development to deployment.",
+                      skills:
+                          "Agile/Scrum, team coordination, blockchain basics",
+                    ),
+                    _buildCareerCard(
+                      title: "Cryptocurrency Trader/Analyst",
+                      description: "Analyze crypto markets and execute trades.",
+                      skills:
+                          "Financial analysis, trading tools (e.g., Coinbase Pro), risk management",
+                    ),
                     SizedBox(height: 24.h),
                     Divider(color: Colors.grey[300], height: 1),
                     SizedBox(height: 24.h),
                     Text(
-                      "Featured AI Hackathons",
+                      "Events & Conferences in Egypt (2025)",
                       style: TextStyle(
                         fontSize: 20.sp,
                         fontWeight: FontWeight.w600,
@@ -180,45 +199,64 @@ class _AIHackathonsPageState extends State<AIHackathonsPage> {
                     ),
                     SizedBox(height: 16.h),
                     _buildHackathonCard(
-                      image: "assets/tredingTracks/AiAndML/image1.png",
-                      title: "Global AI Hackathon",
-                      organizer: "MIT RAISE & App Inventor Foundation",
+                      image: "assets/tredingTracks/Blockchain/download.png",
+                      title:
+                          "International Conference on Blockchain Technology and Applications (ICBTA)",
+                      organizer: "Alexandria, Egypt",
                       description:
-                          "A free, open to all ages and virtual hackathon hosted by MIT RAISE and the App Inventor Foundation that encourages people of all ages around the world to build AI apps for a cause.",
-                      prize:
-                          "All-expenses-paid trip to MIT's AI & Education Summit for winners",
+                          "Focuses on blockchain technology and applications. Held on May 16th, 2025.",
+                      prize: "May 16th, 2025 in Alexandria",
+                      url: "https://globalconference.co/Conference/3700/ICBTA/",
+                    ),
+                    _buildHackathonCard(
+                      image: "assets/tredingTracks/Blockchain/image2.png",
+                      title:
+                          "ISBCom25: 2nd International Conference on Intelligent Systems, Blockchain, and Communication Technologies",
+                      organizer: "Egypt",
+                      description:
+                          "A platform for researchers, experts, and innovators in intelligent systems, blockchain, and communication technologies.",
+                      prize: "Various dates in 2025",
+                      url: "https://www.isbcomtech.com/",
+                    ),
+                    _buildHackathonCard(
+                      image: "assets/tredingTracks/Blockchain/image3.png",
+                      title: "Blockchain Summit Code-a-Thon",
+                      organizer: "American University in Cairo",
+                      description:
+                          "A competition where students developed their own blockchain applications.",
+                      prize: "Cairo, Egypt (American University in Cairo)",
                       url:
-                          "https://raise.mit.edu/events/global-ai-hackathon-2025/",
+                          "https://www.aucegypt.edu/news/blockchain-competition-and-implementation",
+                    ),
+                    SizedBox(height: 24.h),
+                    Divider(color: Colors.grey[300], height: 1),
+                    SizedBox(height: 24.h),
+                    Text(
+                      "Future Blockchain Events",
+                      style: TextStyle(
+                        fontSize: 20.sp,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.grey[900],
+                      ),
+                    ),
+                    SizedBox(height: 16.h),
+                    _buildHackathonCard(
+                      image: "assets/tredingTracks/Blockchain/image4e.png",
+                      title: "Future Blockchain Summit",
+                      organizer: "GITEX Global",
+                      description:
+                          "One of the largest blockchain events in the Middle East, featuring top projects and government-backed Web3 initiatives.",
+                      prize: "October 2025 in Dubai, UAE",
+                      url: "https://www.bitcoin.com/conferences/middle-east/",
                     ),
                     _buildHackathonCard(
-                      image: "assets/tredingTracks/AiAndML/image3.png",
-                      title: "AI Agent Hackathon",
-                      organizer: "Microsoft",
+                      image: "assets/tredingTracks/Blockchain/image5e.png",
+                      title: "Global Blockchain Congress",
+                      organizer: "UAE Blockchain Foundation",
                       description:
-                          "Virtual, with expert-led live sessions. Focus on Building AI agents using frameworks like Semantic Kernel, Autogen, and Azure AI organized by Microsoft.",
-                      prize:
-                          "Up to \$20,000 for 'Best Overall Agent,' with language-specific prizes (Python, C#, Java, etc.).",
-                      url: "https://microsoft.github.io/AI_Agents_Hackathon/",
-                    ),
-                    _buildHackathonCard(
-                      image: "assets/tredingTracks/AiAndML/image2.jpeg",
-                      title: "Orange Egypt AI Hackathon",
-                      organizer: "Orange Egypt",
-                      description:
-                          "Orange Egypt has launched the Orange Egypt Artificial Intelligence Hackathon 2025 at its headquarters in Smart Village. The two-day event brought together top tech talents from leading Egyptian universities, supported by experts in technology and entrepreneurship under the theme 'Where Ideas Spark'.",
-                      prize:
-                          "Career opportunities and recognition in Egypt's tech ecosystem",
-                      url:
-                          "https://www.orange.eg/en/about/media-center/press-kit/orange-egypt-launches-ai-hackathon-2025-862-event",
-                    ),
-                    _buildHackathonCard(
-                      image: "assets/tredingTracks/AiAndML/image4.png",
-                      title: "Egypt AI Hackathon",
-                      organizer: "E-Tech Summit",
-                      description:
-                          "The hackathon revolves around the theme of 'AI and IoT Technologies towards a Sustainable Future.' This theme invites you to envision how these transformative technologies can be harnessed to create solutions that promote environmental, social, and economic sustainability.",
-                      prize: "Funding opportunities and industry recognition",
-                      url: "https://etechsummit.com/egypt-ai-hackathon/",
+                          "An exclusive, by-invitation-only congress connecting blockchain innovators with pre-qualified investors.",
+                      prize: "October 30th & 31st, 2025 in Dubai, UAE",
+                      url: "https://www.gbc-uae.com/",
                     ),
                   ],
                 ),
@@ -258,30 +296,30 @@ class _AIHackathonsPageState extends State<AIHackathonsPage> {
     );
   }
 
-  Widget _buildBulletPoint(String text) {
-    return Padding(
-      padding: EdgeInsets.only(bottom: 8.h),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: EdgeInsets.only(top: 6.h, right: 12.w),
-            child: Icon(Icons.circle, size: 8.w, color: Colors.grey[700]),
-          ),
-          Expanded(
-            child: Text(
-              text,
-              style: TextStyle(
-                fontSize: 15.sp,
-                height: 1.5,
-                color: Colors.grey[700],
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
+  // Widget _buildBulletPoint(String text) {
+  //   return Padding(
+  //     padding: EdgeInsets.only(bottom: 8.h),
+  //     child: Row(
+  //       crossAxisAlignment: CrossAxisAlignment.start,
+  //       children: [
+  //         Padding(
+  //           padding: EdgeInsets.only(top: 6.h, right: 12.w),
+  //           child: Icon(Icons.circle, size: 8.w, color: Colors.grey[700]),
+  //         ),
+  //         Expanded(
+  //           child: Text(
+  //             text,
+  //             style: TextStyle(
+  //               fontSize: 15.sp,
+  //               height: 1.5,
+  //               color: Colors.grey[700],
+  //             ),
+  //           ),
+  //         ),
+  //       ],
+  //     ),
+  //   );
+  // }
 
   Widget _buildCareerCard({
     required String title,
@@ -311,7 +349,7 @@ class _AIHackathonsPageState extends State<AIHackathonsPage> {
             ),
             SizedBox(height: 8.h),
             Text(
-              "What they do: $description",
+              "Role: $description",
               style: TextStyle(
                 fontSize: 14.sp,
                 color: Colors.grey[700],
@@ -319,7 +357,7 @@ class _AIHackathonsPageState extends State<AIHackathonsPage> {
             ),
             SizedBox(height: 8.h),
             Text(
-              "Key skills: $skills",
+              "Skills: $skills",
               style: TextStyle(
                 fontSize: 14.sp,
                 color: Colors.grey[700],
@@ -374,7 +412,7 @@ class _AIHackathonsPageState extends State<AIHackathonsPage> {
                 ),
                 SizedBox(height: 4.h),
                 Text(
-                  "Organized by: $organizer",
+                  "Location: $organizer",
                   style: TextStyle(
                     fontSize: 14.sp,
                     color: Colors.grey[600],
@@ -399,12 +437,12 @@ class _AIHackathonsPageState extends State<AIHackathonsPage> {
                   ),
                   child: Row(
                     children: [
-                      Icon(Icons.emoji_events_outlined,
-                          color: Colors.amber[700], size: 20.w),
+                      Icon(Icons.calendar_today,
+                          color: Colors.blue[700], size: 20.w),
                       SizedBox(width: 8.w),
                       Expanded(
                         child: Text(
-                          "Prize: $prize",
+                          "Dates: $prize",
                           style: TextStyle(
                             fontSize: 14.sp,
                             color: Colors.grey[800],

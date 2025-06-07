@@ -5,6 +5,7 @@ import 'package:graduation_project/feature/home/presentation/Widgets/Trendingtra
 import 'package:graduation_project/feature/tredingTracks/presentations/pages/AiMlPage.dart';
 import 'package:graduation_project/feature/tredingTracks/presentations/pages/Cybersecurity.dart';
 import 'package:graduation_project/feature/tredingTracks/presentations/pages/DigitalTwinsPage.dart';
+import 'package:graduation_project/feature/tredingTracks/presentations/pages/Robotics.dart';
 
 class Trendingtracks extends StatelessWidget {
   const Trendingtracks({super.key});
@@ -78,13 +79,16 @@ class Trendingtracks extends StatelessWidget {
                   child: Trendingtrackscard(
                     padding: 15,
                     height: 202,
+                    onTap: () {
+                      Animationsforpages.navigateWithSlidepush(
+                          context, RPAPage());
+                    },
                     width: MediaQuery.sizeOf(context).width * 0.43,
-                    image:
-                        'assets/HomeImage/trendingTracksImages/ArtificialIntelligence.png',
-                    title: 'Artificial Intelligence',
-                    color: Color(0xffFF6348).withOpacity(0.5),
+                    image: "assets/tredingTracks/Robotics/image1.png",
+                    title: 'Robotics Process',
+                    color: Color(0xff0F161E),
                     top: false,
-                    subtitle: 'Machine Learning',
+                    subtitle: 'Automation',
                   ),
                 ),
               ],

@@ -3,21 +3,21 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
-class DigitalTwinsPage extends StatefulWidget {
-  const DigitalTwinsPage({super.key});
+class DevOpsPage extends StatefulWidget {
+  const DevOpsPage({super.key});
 
   @override
-  State<DigitalTwinsPage> createState() => _DigitalTwinsPageState();
+  State<DevOpsPage> createState() => _DevOpsPageState();
 }
 
-class _DigitalTwinsPageState extends State<DigitalTwinsPage> {
+class _DevOpsPageState extends State<DevOpsPage> {
   late YoutubePlayerController _youtubeController;
 
   @override
   void initState() {
     super.initState();
     _youtubeController = YoutubePlayerController(
-      initialVideoId: '2hnoGo27uf8',
+      initialVideoId: 'UbtB4sMaaNM',
       flags: const YoutubePlayerFlags(
         autoPlay: true,
         mute: false,
@@ -51,13 +51,13 @@ class _DigitalTwinsPageState extends State<DigitalTwinsPage> {
             expandedHeight: 200.h,
             flexibleSpace: FlexibleSpaceBar(
               background: Image.asset(
-                "assets/tredingTracks/DigitalTwins/image1.png",
+                "assets/tredingTracks/DevOps/image1.png",
                 fit: BoxFit.cover,
                 color: Colors.black.withOpacity(0.7),
                 colorBlendMode: BlendMode.darken,
               ),
               title: Text(
-                "Digital Twins",
+                "DevOps Technology",
                 style: TextStyle(
                   fontSize: 18.sp,
                   fontWeight: FontWeight.w600,
@@ -82,11 +82,19 @@ class _DigitalTwinsPageState extends State<DigitalTwinsPage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // Digital Twins Introduction
                     _buildSection(
-                      title: "Digital Twins",
+                      title: "DevOps Technology",
                       content:
-                          "Digital twins are virtual replicas of physical objects, systems, or processes that allow for real-time simulation and analysis. By using sensors and data, digital twins mirror the real-world entities they represent, enabling businesses to monitor performance, predict maintenance needs, and optimise operations.",
+                          "DevOps technology is used for software development and IT operations, focusing on collaboration, automation, and a culture of continuous improvement. It integrates development and operations teams, encouraging shared responsibilities and breaking down categories.",
+                    ),
+                    SizedBox(height: 8.h),
+                    Text(
+                      "Automation plays a major role, from continuous integration and deployment to infrastructure management through code. Keeping track of production continuously provides valuable suggestions for continuous development. DevOps involves techniques like containerization, microservice architecture, and DevSecOps that guarantee agility, scalability, and security. It enables organizations to deliver high-quality software more efficiently, with faster time-to-market and reduced risks.",
+                      style: TextStyle(
+                        fontSize: 15.sp,
+                        height: 1.6,
+                        color: Colors.grey[700],
+                      ),
                     ),
 
                     SizedBox(height: 24.h),
@@ -111,41 +119,57 @@ class _DigitalTwinsPageState extends State<DigitalTwinsPage> {
                     _buildSection(
                       title: "Career Opportunities",
                       content:
-                          "Digital twins technology is going to be an important technology in the future. Therefore, there are many career opportunities in this field. Some of them are:",
+                          "The field of DevOps technology offers a wide range of career opportunities as organizations increasingly adopt DevOps practices to improve their software development and operations processes. Some popular career options in DevOps include:",
                     ),
 
                     SizedBox(height: 16.h),
                     _buildCareerCard(
-                      title: "Digital Twin Engineers and Manufacturers",
+                      title: "DevOps Engineer",
                       description:
-                          "Design, build, and maintain digital twin models of physical assets (e.g., machines, factories, or products)",
+                          "Bridge development and operations by automating workflows.",
                       skills:
-                          "IoT and sensor integration, CAD/3D modeling (e.g., Siemens NX, AutoCAD), Cloud platforms (AWS, Azure), Knowledge of Industry 4.0 standards",
+                          "CI/CD, Docker/Kubernetes, scripting (Bash/Python), cloud platforms (AWS/Azure/GCP)",
                     ),
 
                     _buildCareerCard(
-                      title: "Digital Twin Simulation Data Analysts",
+                      title: "Site Reliability Engineer (SRE)",
                       description:
-                          "Analyze real-time and historical data from digital twins to optimize performance and predict failures",
+                          "Ensure system reliability, scalability, and performance.",
                       skills:
-                          "Data analytics (Python, SQL), Predictive maintenance algorithms, Machine learning basics, Visualization tools (Tableau, Power BI)",
+                          "Monitoring (Prometheus/Grafana), incident response, infrastructure as code (Terraform), SLAs/SLOs",
                     ),
 
                     _buildCareerCard(
-                      title: "Product and System Simulation Developers",
-                      description:
-                          "Develop software to simulate how products/systems behave under different conditions using digital twins",
+                      title: "Release Manager",
+                      description: "Oversee software releases and deployments.",
                       skills:
-                          "Simulation tools (ANSYS, MATLAB), Programming (C++, Python), Physics/engineering principles, AI-driven scenario testing",
+                          "Version control (Git), deployment strategies, risk management, coordination across teams",
                     ),
 
-                    // Events Section
+                    _buildCareerCard(
+                      title: "Automation Architect",
+                      description:
+                          "Design and implement large-scale automation solutions.",
+                      skills:
+                          "Infrastructure as Code (IaC), configuration management (Ansible/Puppet), system design, scripting",
+                    ),
+
+                    _buildCareerCard(
+                      title: "CI/CD Engineer",
+                      description:
+                          "Build and maintain continuous integration/deployment pipelines.",
+                      skills:
+                          "Jenkins/GitLab CI, artifact management, testing frameworks, cloud-native tooling",
+                    ),
+
+                    // Divider
                     SizedBox(height: 24.h),
                     Divider(color: Colors.grey[300], height: 1),
                     SizedBox(height: 24.h),
 
+                    // Events & Conferences Section
                     Text(
-                      "Featured Digital Twins Events",
+                      "Events & Conferences",
                       style: TextStyle(
                         fontSize: 20.sp,
                         fontWeight: FontWeight.w600,
@@ -155,23 +179,26 @@ class _DigitalTwinsPageState extends State<DigitalTwinsPage> {
                     SizedBox(height: 16.h),
 
                     // Event 1
-                    _buildEventCard(
-                      image: "assets/tredingTracks/DigitalTwins/image2.png",
-                      title: "Egypt Digital Twin 2025 Summit & Hackathon",
+                    _buildHackathonCard(
+                      image: "assets/tredingTracks/DevOps/image2.png",
+                      title: "DevOpsDays Cairo",
+                      organizer: "The Nile Ritz-Carlton, Cairo",
                       description:
-                          "Focus on Smart cities, infrastructure, and AI-driven digital twins for urban development.",
-                      videoUrl:
-                          "https://youtu.be/wsuuTzNfLt8?si=zCswJfF0WXe-B2lN",
+                          "A worldwide series of technical conferences covering software development, IT infrastructure operations, and the intersection between them. DevOpsDays Cairo is the sole city in the Arab region organizing it since 2018. It brings DevOps practitioners together to discuss automation, agile processes, and cloud solutions.",
+                      prize: "September 27-28, 2025",
+                      url: "https://devopsdays.org/events/2025-cairo/welcome/",
                     ),
 
                     // Event 2
-                    _buildEventCard(
-                      image: "assets/tredingTracks/DigitalTwins/image3.png",
-                      title: "Digital Twin Awards 2025 (Global, incl. Egypt)",
+                    _buildHackathonCard(
+                      image: "assets/tredingTracks/DevOps/image3.png",
+                      title: "Exito DevOps Summit",
+                      organizer: "Shangri-La Dubai",
                       description:
-                          "Egyptian Winner: NAV3D (Cairo-based) won 'People's Choice' for digitally preserving Abu Simbel Temple with Matterport scans - Best Digital Twin for Historical Preservation 2025",
+                          "An international event uniting leaders and professionals to discover the latest DevOps innovations and best practices. The summit focuses on collaboration across teams, agile delivery, quality, and security.",
+                      prize: "Various dates in 2025",
                       url:
-                          "https://www.digitaltwinawards.com/2025/entry/732/32",
+                          "https://www.securitymiddleeastmag.com/event/explore-the-next-era-of-devops-at-exitos-devops-summit-in-dubai/",
                     ),
                   ],
                 ),
@@ -247,7 +274,7 @@ class _DigitalTwinsPageState extends State<DigitalTwinsPage> {
             ),
             SizedBox(height: 8.h),
             Text(
-              "Skills Required: $skills",
+              "Skills: $skills",
               style: TextStyle(
                 fontSize: 14.sp,
                 color: Colors.grey[700],
@@ -260,12 +287,13 @@ class _DigitalTwinsPageState extends State<DigitalTwinsPage> {
     );
   }
 
-  Widget _buildEventCard({
+  Widget _buildHackathonCard({
     required String image,
     required String title,
+    required String organizer,
     required String description,
-    String? url,
-    String? videoUrl,
+    required String prize,
+    required String url,
   }) {
     return Card(
       color: Colors.white,
@@ -299,6 +327,15 @@ class _DigitalTwinsPageState extends State<DigitalTwinsPage> {
                     color: Colors.grey[900],
                   ),
                 ),
+                SizedBox(height: 4.h),
+                Text(
+                  "Location: $organizer",
+                  style: TextStyle(
+                    fontSize: 14.sp,
+                    color: Colors.grey[600],
+                    fontStyle: FontStyle.italic,
+                  ),
+                ),
                 SizedBox(height: 12.h),
                 Text(
                   description,
@@ -308,62 +345,54 @@ class _DigitalTwinsPageState extends State<DigitalTwinsPage> {
                     color: Colors.grey[700],
                   ),
                 ),
-                SizedBox(height: 16.h),
-                Row(
-                  children: [
-                    if (videoUrl != null)
+                SizedBox(height: 12.h),
+                Container(
+                  padding: EdgeInsets.all(12.w),
+                  decoration: BoxDecoration(
+                    color: Colors.grey[100],
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Row(
+                    children: [
+                      Icon(Icons.calendar_today,
+                          color: Colors.blue[700], size: 20.w),
+                      SizedBox(width: 8.w),
                       Expanded(
-                        child: OutlinedButton(
-                          onPressed: () => _launchURL(videoUrl),
-                          style: OutlinedButton.styleFrom(
-                            padding: EdgeInsets.symmetric(vertical: 12.h),
-                            side: BorderSide(color: Colors.blue),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                          ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(Icons.play_arrow,
-                                  color: Colors.blue, size: 20.w),
-                              SizedBox(width: 8.w),
-                              Text(
-                                "WATCH VIDEO",
-                                style: TextStyle(
-                                  fontSize: 14.sp,
-                                  fontWeight: FontWeight.w600,
-                                  color: Colors.blue,
-                                ),
-                              ),
-                            ],
+                        child: Text(
+                          "Dates: $prize",
+                          style: TextStyle(
+                            fontSize: 14.sp,
+                            color: Colors.grey[800],
+                            fontWeight: FontWeight.w500,
                           ),
                         ),
                       ),
-                    if (videoUrl != null && url != null) SizedBox(width: 16.w),
-                    if (url != null)
-                      Expanded(
-                        child: OutlinedButton(
-                          onPressed: () => _launchURL(url),
-                          style: OutlinedButton.styleFrom(
-                            padding: EdgeInsets.symmetric(vertical: 12.h),
-                            side: BorderSide(color: Colors.grey[700]!),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                          ),
-                          child: Text(
-                            "VISIT WEBSITE",
-                            style: TextStyle(
-                              fontSize: 14.sp,
-                              fontWeight: FontWeight.w600,
-                              color: Colors.grey[700],
-                            ),
-                          ),
-                        ),
-                      ),
-                  ],
+                    ],
+                  ),
                 ),
+                SizedBox(height: 16.h),
+                if (url.isNotEmpty)
+                  SizedBox(
+                    width: double.infinity,
+                    child: OutlinedButton(
+                      onPressed: () => _launchURL(url),
+                      style: OutlinedButton.styleFrom(
+                        padding: EdgeInsets.symmetric(vertical: 12.h),
+                        side: BorderSide(color: Colors.grey[700]!),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                      ),
+                      child: Text(
+                        "VISIT WEBSITE",
+                        style: TextStyle(
+                          fontSize: 14.sp,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.grey[700],
+                        ),
+                      ),
+                    ),
+                  ),
               ],
             ),
           ),

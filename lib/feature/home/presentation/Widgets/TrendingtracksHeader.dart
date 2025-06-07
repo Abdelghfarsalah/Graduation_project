@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:graduation_project/core/fonts.dart';
-import 'package:graduation_project/feature/home/presentation/pages/TrendingtracksPage.dart';
+import 'package:graduation_project/core/utils/animations.dart';
+import 'package:graduation_project/feature/tredingTracks/presentations/pages/SeeAllTreadingTracks.dart';
 
 class Trendingtracksheader extends StatelessWidget {
   const Trendingtracksheader({super.key});
@@ -20,12 +21,8 @@ class Trendingtracksheader extends StatelessWidget {
         ),
         GestureDetector(
           onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => Trendingtrackspage(),
-              ),
-            );
+            Animationsforpages.navigateWithSlidepush(
+                context, AllTrendingTracks());
           },
           child: Row(
             children: [

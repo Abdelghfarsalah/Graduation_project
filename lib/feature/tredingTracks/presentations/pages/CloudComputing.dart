@@ -3,23 +3,35 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
-class AIHackathonsPage extends StatefulWidget {
-  const AIHackathonsPage({super.key});
+class CloudComputingPage extends StatefulWidget {
+  const CloudComputingPage({super.key});
 
   @override
-  State<AIHackathonsPage> createState() => _AIHackathonsPageState();
+  State<CloudComputingPage> createState() => _CloudComputingPageState();
 }
 
-class _AIHackathonsPageState extends State<AIHackathonsPage> {
+class _CloudComputingPageState extends State<CloudComputingPage> {
   late YoutubePlayerController _youtubeController;
+  late YoutubePlayerController _conferenceYoutubeController;
 
   @override
   void initState() {
     super.initState();
     _youtubeController = YoutubePlayerController(
-      initialVideoId: 'qYNweeDHiyU',
+      initialVideoId: '27vJg3v9AqM',
       flags: const YoutubePlayerFlags(
         autoPlay: true,
+        mute: false,
+        disableDragSeek: true,
+        loop: false,
+        isLive: false,
+      ),
+    );
+
+    _conferenceYoutubeController = YoutubePlayerController(
+      initialVideoId: 'hVfT0XLiHSo',
+      flags: const YoutubePlayerFlags(
+        autoPlay: false,
         mute: false,
         disableDragSeek: true,
         loop: false,
@@ -31,6 +43,7 @@ class _AIHackathonsPageState extends State<AIHackathonsPage> {
   @override
   void dispose() {
     _youtubeController.dispose();
+    _conferenceYoutubeController.dispose();
     super.dispose();
   }
 
@@ -51,13 +64,13 @@ class _AIHackathonsPageState extends State<AIHackathonsPage> {
             expandedHeight: 200.h,
             flexibleSpace: FlexibleSpaceBar(
               background: Image.asset(
-                "assets/tredingTracks/AiAndML/image.png",
+                "assets/tredingTracks/CloudComputing/image1.png",
                 fit: BoxFit.cover,
                 color: Colors.black.withOpacity(0.7),
                 colorBlendMode: BlendMode.darken,
               ),
               title: Text(
-                "AI and ML",
+                "Cloud Computing",
                 style: TextStyle(
                   fontSize: 18.sp,
                   fontWeight: FontWeight.w600,
@@ -83,14 +96,13 @@ class _AIHackathonsPageState extends State<AIHackathonsPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     _buildSection(
-                      title:
-                          "Artificial Intelligence (AI) and Machine Learning (ML)",
+                      title: "Cloud Computing Technology",
                       content:
-                          "AI and ML refer to technologies that enable machines to learn from data and also take decisions autonomously. These large technologies through this way have been applied in different areas, from voice assistants to autonomous vehicles, predictive analytics, and detection methods against fraud.",
+                          "Cloud computing technology has changed the way computing resources are delivered and managed. It uses a network of remote servers hosted on the internet to store, manage, and process data.",
                     ),
                     SizedBox(height: 8.h),
                     Text(
-                      "AI is no longer just a buzzword; it's transforming industries like healthcare, finance, and entertainment. For instance:",
+                      "We can have access to a wide range of computing services, including storage, processing power, and applications, without the need for users to invest in and maintain physical infrastructure. Cloud computing provides scalability, allowing businesses to easily scale up or down based on their needs. It promotes flexibility, collaboration, and cost-efficiency as users pay for only the resources they consume.",
                       style: TextStyle(
                         fontSize: 15.sp,
                         height: 1.6,
@@ -98,11 +110,17 @@ class _AIHackathonsPageState extends State<AIHackathonsPage> {
                       ),
                     ),
                     SizedBox(height: 8.h),
-                    _buildBulletPoint(
-                        "Large language models (LLMs) like ChatGPT are revolutionizing how we interact with technology"),
-                    _buildBulletPoint(
-                        "AI is even being used to assist in writing research papers (18% of computer science papers now use AI tools)"),
+                    Text(
+                      "With models such as Infrastructure as a Service (IaaS), Platform as a Service (PaaS), and Software as a Service (SaaS), cloud computing has become integral to modern IT architectures, supporting a myriad of applications and services for businesses, individuals, and organizations worldwide.",
+                      style: TextStyle(
+                        fontSize: 15.sp,
+                        height: 1.6,
+                        color: Colors.grey[700],
+                      ),
+                    ),
+
                     SizedBox(height: 24.h),
+                    // Main Video Player Section
                     YoutubePlayer(
                       controller: _youtubeController,
                       showVideoProgressIndicator: true,
@@ -115,63 +133,82 @@ class _AIHackathonsPageState extends State<AIHackathonsPage> {
                         _youtubeController.addListener(() {});
                       },
                     ),
+
+                    // Career Opportunities Section
                     SizedBox(height: 24.h),
                     Divider(color: Colors.grey[300], height: 1),
                     SizedBox(height: 24.h),
+
                     _buildSection(
                       title: "Career Opportunities",
                       content:
-                          "Machine learning and AI are used in various industries, such as finance, healthcare, manufacturing, agriculture, education, and many others. Some of the career opportunities available in the fields of AI and ML include:",
+                          "The field of cloud computing offers diverse career paths as organizations increasingly adopt cloud solutions. Here are some key roles in this domain:",
                     ),
+
                     SizedBox(height: 16.h),
                     _buildCareerCard(
-                      title: "AI Engineer",
+                      title: "Cloud Solutions Architect",
                       description:
-                          "Build and deploy AI systems for real-world applications",
+                          "Design and oversee cloud infrastructure and solutions.",
                       skills:
-                          "Python, TensorFlow/PyTorch, cloud AI services, model deployment",
+                          "Cloud platforms (AWS/Azure/GCP), architecture design, scalability, security",
                     ),
+
                     _buildCareerCard(
-                      title: "AI Architect",
+                      title: "Cloud Engineer",
                       description:
-                          "Design the overall AI system infrastructure and strategy",
+                          "Implement and manage cloud services and deployments.",
                       skills:
-                          "System design, cloud platforms, AI pipelines, scalability planning",
+                          "Infrastructure as Code (Terraform, CloudFormation), CI/CD, cloud networking",
                     ),
+
                     _buildCareerCard(
-                      title: "AI Research Scientist",
+                      title: "Cloud Developer",
                       description:
-                          "Develop new AI algorithms and advance the field",
+                          "Build and optimize cloud-native applications.",
                       skills:
-                          "Advanced math (linear algebra, calculus), research papers, experimental design",
+                          "Serverless computing, APIs, programming (Python/Node.js/Java), databases",
                     ),
+
                     _buildCareerCard(
-                      title: "Machine Learning Engineer",
+                      title: "DevOps Engineer",
                       description:
-                          "Develop and optimize ML models for production",
+                          "Automate and streamline cloud deployments and operations.",
                       skills:
-                          "Data preprocessing, model training, ML frameworks, MLOps",
+                          "CI/CD pipelines, Docker/Kubernetes, scripting, monitoring (Prometheus, Grafana)",
                     ),
-                    SizedBox(height: 16.h),
-                    Text(
-                      "Common Requirements:",
-                      style: TextStyle(
-                        fontSize: 16.sp,
-                        fontWeight: FontWeight.w600,
-                        color: Colors.grey[800],
-                      ),
+
+                    _buildCareerCard(
+                      title: "Cloud Administrator",
+                      description: "Manage and maintain cloud environments.",
+                      skills:
+                          "Cloud resource management, troubleshooting, backup/recovery, security basics",
                     ),
-                    SizedBox(height: 8.h),
-                    _buildBulletPoint("Strong programming (Python)"),
-                    _buildBulletPoint(
-                        "Understanding of algorithms and data structures"),
-                    _buildBulletPoint("Math/statistics knowledge"),
-                    _buildBulletPoint("Problem-solving skills"),
+
+                    _buildCareerCard(
+                      title: "Cloud Consultant",
+                      description:
+                          "Advise businesses on cloud strategy and migration.",
+                      skills:
+                          "Cloud cost optimization, vendor comparison, compliance, best practices",
+                    ),
+
+                    _buildCareerCard(
+                      title: "Cloud Network Engineer",
+                      description:
+                          "Design and manage cloud networking and connectivity.",
+                      skills:
+                          "VPNs, VPCs, load balancing, firewalls, hybrid cloud setups",
+                    ),
+
+                    // Divider
                     SizedBox(height: 24.h),
                     Divider(color: Colors.grey[300], height: 1),
                     SizedBox(height: 24.h),
+
+                    // Events & Conferences Section
                     Text(
-                      "Featured AI Hackathons",
+                      "Events & Conferences",
                       style: TextStyle(
                         fontSize: 20.sp,
                         fontWeight: FontWeight.w600,
@@ -179,46 +216,30 @@ class _AIHackathonsPageState extends State<AIHackathonsPage> {
                       ),
                     ),
                     SizedBox(height: 16.h),
+
+                    // Event 1
                     _buildHackathonCard(
-                      image: "assets/tredingTracks/AiAndML/image1.png",
-                      title: "Global AI Hackathon",
-                      organizer: "MIT RAISE & App Inventor Foundation",
+                      image: "assets/tredingTracks/CloudComputing/image2.png",
+                      title: "AIDC-Expo (AI, Data Centers & Cloud Conference)",
+                      organizer: "Cairo, Egypt",
                       description:
-                          "A free, open to all ages and virtual hackathon hosted by MIT RAISE and the App Inventor Foundation that encourages people of all ages around the world to build AI apps for a cause.",
-                      prize:
-                          "All-expenses-paid trip to MIT's AI & Education Summit for winners",
-                      url:
-                          "https://raise.mit.edu/events/global-ai-hackathon-2025/",
+                          "Focuses on AI, Data Centers, and Cloud technologies in the MENA region.",
+                      prize: "November 16-19, 2025",
+                      url: "https://aidc-expo.com/",
+                      hasVideo: true,
+                      videoController: _conferenceYoutubeController,
                     ),
+
+                    // Event 2
                     _buildHackathonCard(
-                      image: "assets/tredingTracks/AiAndML/image3.png",
-                      title: "AI Agent Hackathon",
-                      organizer: "Microsoft",
+                      image: "assets/tredingTracks/CloudComputing/image3.png",
+                      title:
+                          "Datacentre & Cloud Summit :: Innovation Series | EGYPT",
+                      organizer: "Egypt",
                       description:
-                          "Virtual, with expert-led live sessions. Focus on Building AI agents using frameworks like Semantic Kernel, Autogen, and Azure AI organized by Microsoft.",
-                      prize:
-                          "Up to \$20,000 for 'Best Overall Agent,' with language-specific prizes (Python, C#, Java, etc.).",
-                      url: "https://microsoft.github.io/AI_Agents_Hackathon/",
-                    ),
-                    _buildHackathonCard(
-                      image: "assets/tredingTracks/AiAndML/image2.jpeg",
-                      title: "Orange Egypt AI Hackathon",
-                      organizer: "Orange Egypt",
-                      description:
-                          "Orange Egypt has launched the Orange Egypt Artificial Intelligence Hackathon 2025 at its headquarters in Smart Village. The two-day event brought together top tech talents from leading Egyptian universities, supported by experts in technology and entrepreneurship under the theme 'Where Ideas Spark'.",
-                      prize:
-                          "Career opportunities and recognition in Egypt's tech ecosystem",
-                      url:
-                          "https://www.orange.eg/en/about/media-center/press-kit/orange-egypt-launches-ai-hackathon-2025-862-event",
-                    ),
-                    _buildHackathonCard(
-                      image: "assets/tredingTracks/AiAndML/image4.png",
-                      title: "Egypt AI Hackathon",
-                      organizer: "E-Tech Summit",
-                      description:
-                          "The hackathon revolves around the theme of 'AI and IoT Technologies towards a Sustainable Future.' This theme invites you to envision how these transformative technologies can be harnessed to create solutions that promote environmental, social, and economic sustainability.",
-                      prize: "Funding opportunities and industry recognition",
-                      url: "https://etechsummit.com/egypt-ai-hackathon/",
+                          "Gathering of industry leaders to discuss the future of data centers in Egypt and the MENA region, including cloud computing and AI-driven infrastructure.",
+                      prize: "Various dates in 2025",
+                      url: "https://dcis.traiconevents.com/egypt/",
                     ),
                   ],
                 ),
@@ -258,31 +279,6 @@ class _AIHackathonsPageState extends State<AIHackathonsPage> {
     );
   }
 
-  Widget _buildBulletPoint(String text) {
-    return Padding(
-      padding: EdgeInsets.only(bottom: 8.h),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: EdgeInsets.only(top: 6.h, right: 12.w),
-            child: Icon(Icons.circle, size: 8.w, color: Colors.grey[700]),
-          ),
-          Expanded(
-            child: Text(
-              text,
-              style: TextStyle(
-                fontSize: 15.sp,
-                height: 1.5,
-                color: Colors.grey[700],
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
   Widget _buildCareerCard({
     required String title,
     required String description,
@@ -311,7 +307,7 @@ class _AIHackathonsPageState extends State<AIHackathonsPage> {
             ),
             SizedBox(height: 8.h),
             Text(
-              "What they do: $description",
+              "Role: $description",
               style: TextStyle(
                 fontSize: 14.sp,
                 color: Colors.grey[700],
@@ -319,7 +315,7 @@ class _AIHackathonsPageState extends State<AIHackathonsPage> {
             ),
             SizedBox(height: 8.h),
             Text(
-              "Key skills: $skills",
+              "Skills: $skills",
               style: TextStyle(
                 fontSize: 14.sp,
                 color: Colors.grey[700],
@@ -339,6 +335,8 @@ class _AIHackathonsPageState extends State<AIHackathonsPage> {
     required String description,
     required String prize,
     required String url,
+    bool hasVideo = false,
+    YoutubePlayerController? videoController,
   }) {
     return Card(
       color: Colors.white,
@@ -374,7 +372,7 @@ class _AIHackathonsPageState extends State<AIHackathonsPage> {
                 ),
                 SizedBox(height: 4.h),
                 Text(
-                  "Organized by: $organizer",
+                  "Location: $organizer",
                   style: TextStyle(
                     fontSize: 14.sp,
                     color: Colors.grey[600],
@@ -399,12 +397,12 @@ class _AIHackathonsPageState extends State<AIHackathonsPage> {
                   ),
                   child: Row(
                     children: [
-                      Icon(Icons.emoji_events_outlined,
-                          color: Colors.amber[700], size: 20.w),
+                      Icon(Icons.calendar_today,
+                          color: Colors.blue[700], size: 20.w),
                       SizedBox(width: 8.w),
                       Expanded(
                         child: Text(
-                          "Prize: $prize",
+                          "Dates: $prize",
                           style: TextStyle(
                             fontSize: 14.sp,
                             color: Colors.grey[800],
@@ -415,6 +413,32 @@ class _AIHackathonsPageState extends State<AIHackathonsPage> {
                     ],
                   ),
                 ),
+
+                // Conference video if available
+                if (hasVideo && videoController != null) ...[
+                  SizedBox(height: 16.h),
+                  Text(
+                    "Conference Preview:",
+                    style: TextStyle(
+                      fontSize: 16.sp,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.grey[900],
+                    ),
+                  ),
+                  SizedBox(height: 8.h),
+                  YoutubePlayer(
+                    controller: videoController,
+                    showVideoProgressIndicator: true,
+                    progressIndicatorColor: Colors.blueAccent,
+                    progressColors: const ProgressBarColors(
+                      playedColor: Colors.blue,
+                      handleColor: Colors.blueAccent,
+                    ),
+                    width: double.infinity,
+                    aspectRatio: 16 / 9,
+                  ),
+                ],
+
                 SizedBox(height: 16.h),
                 if (url.isNotEmpty)
                   SizedBox(

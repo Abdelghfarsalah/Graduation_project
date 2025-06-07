@@ -3,21 +3,21 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
-class AIHackathonsPage extends StatefulWidget {
-  const AIHackathonsPage({super.key});
+class VirtualRealityPage extends StatefulWidget {
+  const VirtualRealityPage({super.key});
 
   @override
-  State<AIHackathonsPage> createState() => _AIHackathonsPageState();
+  State<VirtualRealityPage> createState() => _AIHackathonsPageState();
 }
 
-class _AIHackathonsPageState extends State<AIHackathonsPage> {
+class _AIHackathonsPageState extends State<VirtualRealityPage> {
   late YoutubePlayerController _youtubeController;
 
   @override
   void initState() {
     super.initState();
     _youtubeController = YoutubePlayerController(
-      initialVideoId: 'qYNweeDHiyU',
+      initialVideoId: 'Z_0iFPRYAbI',
       flags: const YoutubePlayerFlags(
         autoPlay: true,
         mute: false,
@@ -51,13 +51,13 @@ class _AIHackathonsPageState extends State<AIHackathonsPage> {
             expandedHeight: 200.h,
             flexibleSpace: FlexibleSpaceBar(
               background: Image.asset(
-                "assets/tredingTracks/AiAndML/image.png",
+                "assets/tredingTracks/VirtualReality/image1.png",
                 fit: BoxFit.cover,
                 color: Colors.black.withOpacity(0.7),
                 colorBlendMode: BlendMode.darken,
               ),
               title: Text(
-                "AI and ML",
+                "Virtual Reality",
                 style: TextStyle(
                   fontSize: 18.sp,
                   fontWeight: FontWeight.w600,
@@ -83,26 +83,22 @@ class _AIHackathonsPageState extends State<AIHackathonsPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     _buildSection(
-                      title:
-                          "Artificial Intelligence (AI) and Machine Learning (ML)",
+                      title: "Virtual Reality",
                       content:
-                          "AI and ML refer to technologies that enable machines to learn from data and also take decisions autonomously. These large technologies through this way have been applied in different areas, from voice assistants to autonomous vehicles, predictive analytics, and detection methods against fraud.",
+                          "Virtual reality (VR) technology has experienced an increase in popularity, creating computer generated environments that closely resemble the real world. In the gaming industry, VR offers a transformative experience by transporting players into immersive virtual worlds. Virtual reality headsets, such as the Oculus Quest 2 and HP Reverb G2, have gained popularity because of their way of enhancing user engagement and providing a sense of being present in the virtual world.",
                     ),
                     SizedBox(height: 8.h),
                     Text(
-                      "AI is no longer just a buzzword; it's transforming industries like healthcare, finance, and entertainment. For instance:",
+                      "Apart from entertainment, virtual reality is becoming popular in the field of medical education. Healthcare professionals can utilize VR simulations to practice and improve their skills in a risk-free and controlled environment. For example, surgeons can perform virtual surgeries to practice their techniques before operating on real patients. This not only improves the proficiency of medical practitioners but also promotes patient safety. The potential applications across industries are expected to grow as VR hardware and software continue to advance, opening up new possibilities for training, education, and entertainment.",
                       style: TextStyle(
                         fontSize: 15.sp,
                         height: 1.6,
                         color: Colors.grey[700],
                       ),
                     ),
-                    SizedBox(height: 8.h),
-                    _buildBulletPoint(
-                        "Large language models (LLMs) like ChatGPT are revolutionizing how we interact with technology"),
-                    _buildBulletPoint(
-                        "AI is even being used to assist in writing research papers (18% of computer science papers now use AI tools)"),
+
                     SizedBox(height: 24.h),
+                    // Video Player Section
                     YoutubePlayer(
                       controller: _youtubeController,
                       showVideoProgressIndicator: true,
@@ -115,63 +111,58 @@ class _AIHackathonsPageState extends State<AIHackathonsPage> {
                         _youtubeController.addListener(() {});
                       },
                     ),
+                    // Career Opportunities Section
                     SizedBox(height: 24.h),
                     Divider(color: Colors.grey[300], height: 1),
                     SizedBox(height: 24.h),
+
                     _buildSection(
                       title: "Career Opportunities",
                       content:
-                          "Machine learning and AI are used in various industries, such as finance, healthcare, manufacturing, agriculture, education, and many others. Some of the career opportunities available in the fields of AI and ML include:",
+                          "Building a career in this field does not require specialized knowledge. One can start with a basic knowledge of programming. Some of the career options in the field of this technology are:",
                     ),
+
                     SizedBox(height: 16.h),
                     _buildCareerCard(
-                      title: "AI Engineer",
+                      title: "Virtual Reality (VR) Developer",
                       description:
-                          "Build and deploy AI systems for real-world applications",
+                          "Create 3D virtual environments and experiences",
                       skills:
-                          "Python, TensorFlow/PyTorch, cloud AI services, model deployment",
+                          "Unity/Unreal Engine, C# programming, 3D modeling basics, VR hardware knowledge (Oculus, HTC Vive)",
                     ),
+
                     _buildCareerCard(
-                      title: "AI Architect",
+                      title: "Unity Developer",
                       description:
-                          "Design the overall AI system infrastructure and strategy",
+                          "Build games and applications using Unity engine",
                       skills:
-                          "System design, cloud platforms, AI pipelines, scalability planning",
+                          "Unity development, C# programming, Physics and animation systems, Multiplatform deployment",
                     ),
+
                     _buildCareerCard(
-                      title: "AI Research Scientist",
+                      title: "Augmented Reality (AR) Developer",
                       description:
-                          "Develop new AI algorithms and advance the field",
+                          "Develop apps that overlay digital content on the real world",
                       skills:
-                          "Advanced math (linear algebra, calculus), research papers, experimental design",
+                          "ARKit (iOS) or ARCore (Android), Unity/Unreal development, Mobile development (Swift, Kotlin), Computer vision basics",
                     ),
+
                     _buildCareerCard(
-                      title: "Machine Learning Engineer",
+                      title: "AR Cloud Developer",
                       description:
-                          "Develop and optimize ML models for production",
+                          "Build persistent AR experiences shared across devices",
                       skills:
-                          "Data preprocessing, model training, ML frameworks, MLOps",
+                          "Cloud computing (AWS, Azure), Spatial computing, Multi-user synchronization, SLAM (Simultaneous Localization and Mapping) technology",
                     ),
-                    SizedBox(height: 16.h),
-                    Text(
-                      "Common Requirements:",
-                      style: TextStyle(
-                        fontSize: 16.sp,
-                        fontWeight: FontWeight.w600,
-                        color: Colors.grey[800],
-                      ),
-                    ),
-                    SizedBox(height: 8.h),
-                    _buildBulletPoint("Strong programming (Python)"),
-                    _buildBulletPoint(
-                        "Understanding of algorithms and data structures"),
-                    _buildBulletPoint("Math/statistics knowledge"),
-                    _buildBulletPoint("Problem-solving skills"),
+
+                    // Divider
                     SizedBox(height: 24.h),
                     Divider(color: Colors.grey[300], height: 1),
                     SizedBox(height: 24.h),
+
+                    // VR Experiences Section
                     Text(
-                      "Featured AI Hackathons",
+                      "VR Experiences",
                       style: TextStyle(
                         fontSize: 20.sp,
                         fontWeight: FontWeight.w600,
@@ -179,46 +170,59 @@ class _AIHackathonsPageState extends State<AIHackathonsPage> {
                       ),
                     ),
                     SizedBox(height: 16.h),
+
+                    // Experience 1
                     _buildHackathonCard(
-                      image: "assets/tredingTracks/AiAndML/image1.png",
-                      title: "Global AI Hackathon",
-                      organizer: "MIT RAISE & App Inventor Foundation",
+                      image: "assets/tredingTracks/VirtualReality/image2.png",
+                      title:
+                          "Virtual Reality Shows of Ancient Egypt by Sound and Light Show Company",
+                      organizer: "Sound and Light Show Company",
                       description:
-                          "A free, open to all ages and virtual hackathon hosted by MIT RAISE and the App Inventor Foundation that encourages people of all ages around the world to build AI apps for a cause.",
-                      prize:
-                          "All-expenses-paid trip to MIT's AI & Education Summit for winners",
+                          "Immersive VR experiences bringing ancient Egyptian wonders to life.",
+                      prize: "Various hotel booths in Egypt",
                       url:
-                          "https://raise.mit.edu/events/global-ai-hackathon-2025/",
+                          "https://www.soundandlight.show/en/virtual-reality-show",
                     ),
+
+                    // Experience 2
                     _buildHackathonCard(
-                      image: "assets/tredingTracks/AiAndML/image3.png",
-                      title: "AI Agent Hackathon",
-                      organizer: "Microsoft",
+                      image: "assets/tredingTracks/VirtualReality/image3.png",
+                      title:
+                          "Horizon of Khufu: An Immersive VR Expedition to Ancient Egypt",
+                      organizer: "Fever",
                       description:
-                          "Virtual, with expert-led live sessions. Focus on Building AI agents using frameworks like Semantic Kernel, Autogen, and Azure AI organized by Microsoft.",
-                      prize:
-                          "Up to \$20,000 for 'Best Overall Agent,' with language-specific prizes (Python, C#, Java, etc.).",
-                      url: "https://microsoft.github.io/AI_Agents_Hackathon/",
+                          "A VR experience that takes you back to ancient Egypt to explore the Great Pyramid of Giza",
+                      prize: "London, New York, Montreal, Calgary",
+                      url: "https://feverup.com/m/151257",
                     ),
+
+                    // Divider
+                    SizedBox(height: 24.h),
+                    Divider(color: Colors.grey[300], height: 1),
+                    SizedBox(height: 24.h),
+
+                    // Competitions Section
+                    Text(
+                      "Competitions",
+                      style: TextStyle(
+                        fontSize: 20.sp,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.grey[900],
+                      ),
+                    ),
+                    SizedBox(height: 16.h),
+
+                    // Competition 1
                     _buildHackathonCard(
-                      image: "assets/tredingTracks/AiAndML/image2.jpeg",
-                      title: "Orange Egypt AI Hackathon",
-                      organizer: "Orange Egypt",
+                      image: "assets/tredingTracks/VirtualReality/image4.png",
+                      title: "Games of the Future 2025",
+                      organizer: "Abu Dhabi National Exhibition Center",
                       description:
-                          "Orange Egypt has launched the Orange Egypt Artificial Intelligence Hackathon 2025 at its headquarters in Smart Village. The two-day event brought together top tech talents from leading Egyptian universities, supported by experts in technology and entrepreneurship under the theme 'Where Ideas Spark'.",
+                          "Features phygital sporting competitions with virtual reality immersive fan engagement zones.",
                       prize:
-                          "Career opportunities and recognition in Egypt's tech ecosystem",
+                          "December 18-23, 2025 at Abu Dhabi National Exhibition Center (ADNEC)",
                       url:
-                          "https://www.orange.eg/en/about/media-center/press-kit/orange-egypt-launches-ai-hackathon-2025-862-event",
-                    ),
-                    _buildHackathonCard(
-                      image: "assets/tredingTracks/AiAndML/image4.png",
-                      title: "Egypt AI Hackathon",
-                      organizer: "E-Tech Summit",
-                      description:
-                          "The hackathon revolves around the theme of 'AI and IoT Technologies towards a Sustainable Future.' This theme invites you to envision how these transformative technologies can be harnessed to create solutions that promote environmental, social, and economic sustainability.",
-                      prize: "Funding opportunities and industry recognition",
-                      url: "https://etechsummit.com/egypt-ai-hackathon/",
+                          "https://www.prnewswire.com/ae/news-releases/abu-dhabi-confirmed-as-host-city-for-games-of-the-future-2025-302468087.html",
                     ),
                   ],
                 ),
@@ -258,30 +262,30 @@ class _AIHackathonsPageState extends State<AIHackathonsPage> {
     );
   }
 
-  Widget _buildBulletPoint(String text) {
-    return Padding(
-      padding: EdgeInsets.only(bottom: 8.h),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: EdgeInsets.only(top: 6.h, right: 12.w),
-            child: Icon(Icons.circle, size: 8.w, color: Colors.grey[700]),
-          ),
-          Expanded(
-            child: Text(
-              text,
-              style: TextStyle(
-                fontSize: 15.sp,
-                height: 1.5,
-                color: Colors.grey[700],
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
+  // Widget _buildBulletPoint(String text) {
+  //   return Padding(
+  //     padding: EdgeInsets.only(bottom: 8.h),
+  //     child: Row(
+  //       crossAxisAlignment: CrossAxisAlignment.start,
+  //       children: [
+  //         Padding(
+  //           padding: EdgeInsets.only(top: 6.h, right: 12.w),
+  //           child: Icon(Icons.circle, size: 8.w, color: Colors.grey[700]),
+  //         ),
+  //         Expanded(
+  //           child: Text(
+  //             text,
+  //             style: TextStyle(
+  //               fontSize: 15.sp,
+  //               height: 1.5,
+  //               color: Colors.grey[700],
+  //             ),
+  //           ),
+  //         ),
+  //       ],
+  //     ),
+  //   );
+  // }
 
   Widget _buildCareerCard({
     required String title,
@@ -404,7 +408,7 @@ class _AIHackathonsPageState extends State<AIHackathonsPage> {
                       SizedBox(width: 8.w),
                       Expanded(
                         child: Text(
-                          "Prize: $prize",
+                          "Location/Dates: $prize",
                           style: TextStyle(
                             fontSize: 14.sp,
                             color: Colors.grey[800],

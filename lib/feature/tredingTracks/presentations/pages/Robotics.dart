@@ -3,21 +3,21 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
-class AIHackathonsPage extends StatefulWidget {
-  const AIHackathonsPage({super.key});
+class RPAPage extends StatefulWidget {
+  const RPAPage({super.key});
 
   @override
-  State<AIHackathonsPage> createState() => _AIHackathonsPageState();
+  State<RPAPage> createState() => _RPAPageState();
 }
 
-class _AIHackathonsPageState extends State<AIHackathonsPage> {
+class _RPAPageState extends State<RPAPage> {
   late YoutubePlayerController _youtubeController;
 
   @override
   void initState() {
     super.initState();
     _youtubeController = YoutubePlayerController(
-      initialVideoId: 'qYNweeDHiyU',
+      initialVideoId: '6S1etS5cLYI',
       flags: const YoutubePlayerFlags(
         autoPlay: true,
         mute: false,
@@ -51,13 +51,13 @@ class _AIHackathonsPageState extends State<AIHackathonsPage> {
             expandedHeight: 200.h,
             flexibleSpace: FlexibleSpaceBar(
               background: Image.asset(
-                "assets/tredingTracks/AiAndML/image.png",
+                "assets/tredingTracks/Robotics/image1.png",
                 fit: BoxFit.cover,
                 color: Colors.black.withOpacity(0.7),
                 colorBlendMode: BlendMode.darken,
               ),
               title: Text(
-                "AI and ML",
+                "Robotics Process Automation",
                 style: TextStyle(
                   fontSize: 18.sp,
                   fontWeight: FontWeight.w600,
@@ -82,15 +82,16 @@ class _AIHackathonsPageState extends State<AIHackathonsPage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    // RPA Introduction
                     _buildSection(
-                      title:
-                          "Artificial Intelligence (AI) and Machine Learning (ML)",
+                      title: "Robotics Process Automation",
                       content:
-                          "AI and ML refer to technologies that enable machines to learn from data and also take decisions autonomously. These large technologies through this way have been applied in different areas, from voice assistants to autonomous vehicles, predictive analytics, and detection methods against fraud.",
+                          "Robotic process automation is a type of business process automation that is based on artificial intelligence agents or software robots. As RPA technology develops, it is expected to become more important in automating tasks in several industries, freeing up human resources for more valuable tasks.",
                     ),
+
                     SizedBox(height: 8.h),
                     Text(
-                      "AI is no longer just a buzzword; it's transforming industries like healthcare, finance, and entertainment. For instance:",
+                      "For example:",
                       style: TextStyle(
                         fontSize: 15.sp,
                         height: 1.6,
@@ -99,10 +100,14 @@ class _AIHackathonsPageState extends State<AIHackathonsPage> {
                     ),
                     SizedBox(height: 8.h),
                     _buildBulletPoint(
-                        "Large language models (LLMs) like ChatGPT are revolutionizing how we interact with technology"),
+                        "Tasks such as data entry, report generation, or handling customer service inquiries are typically automated by RPA"),
                     _buildBulletPoint(
-                        "AI is even being used to assist in writing research papers (18% of computer science papers now use AI tools)"),
+                        "This allows human resources to focus on more strategic and value-added activities"),
+                    _buildBulletPoint(
+                        "RPA can integrate APIs into enterprise applications, connect to ITSM systems, and even perform AI tasks like image recognition"),
+
                     SizedBox(height: 24.h),
+                    // Video Player Section
                     YoutubePlayer(
                       controller: _youtubeController,
                       showVideoProgressIndicator: true,
@@ -115,63 +120,57 @@ class _AIHackathonsPageState extends State<AIHackathonsPage> {
                         _youtubeController.addListener(() {});
                       },
                     ),
+                    // Career Opportunities Section
                     SizedBox(height: 24.h),
                     Divider(color: Colors.grey[300], height: 1),
                     SizedBox(height: 24.h),
+
                     _buildSection(
                       title: "Career Opportunities",
                       content:
-                          "Machine learning and AI are used in various industries, such as finance, healthcare, manufacturing, agriculture, education, and many others. Some of the career opportunities available in the fields of AI and ML include:",
+                          "Some highly reputed companies, including WorkFusion, Blue Prism, Pega Systems, Automation Anywhere, and UiPath, hire professionals in this field for various job roles. Some of those job roles are listed below:",
                     ),
+
                     SizedBox(height: 16.h),
                     _buildCareerCard(
-                      title: "AI Engineer",
+                      title: "Process Consultant",
                       description:
-                          "Build and deploy AI systems for real-world applications",
+                          "Analyzes business processes to identify automation opportunities",
                       skills:
-                          "Python, TensorFlow/PyTorch, cloud AI services, model deployment",
+                          "Process mapping, business analysis, communication",
                     ),
+
                     _buildCareerCard(
-                      title: "AI Architect",
+                      title: "RPA Analyst",
                       description:
-                          "Design the overall AI system infrastructure and strategy",
+                          "Evaluates and documents processes suitable for automation; assists in designing RPA solutions",
                       skills:
-                          "System design, cloud platforms, AI pipelines, scalability planning",
+                          "Analytical thinking, understanding of RPA tools, documentation skills",
                     ),
+
                     _buildCareerCard(
-                      title: "AI Research Scientist",
+                      title: "RPA Solution Architect",
                       description:
-                          "Develop new AI algorithms and advance the field",
+                          "Designs the overall architecture of RPA solutions to ensure they meet business needs",
                       skills:
-                          "Advanced math (linear algebra, calculus), research papers, experimental design",
+                          "Technical expertise in RPA platforms, system integration, architecture design",
                     ),
+
                     _buildCareerCard(
-                      title: "Machine Learning Engineer",
+                      title: "RPA Developer",
                       description:
-                          "Develop and optimize ML models for production",
+                          "Develops, tests, and deploys RPA bots based on specified requirements",
                       skills:
-                          "Data preprocessing, model training, ML frameworks, MLOps",
+                          "Programming (e.g., UiPath, Automation Anywhere), debugging, problem-solving",
                     ),
-                    SizedBox(height: 16.h),
-                    Text(
-                      "Common Requirements:",
-                      style: TextStyle(
-                        fontSize: 16.sp,
-                        fontWeight: FontWeight.w600,
-                        color: Colors.grey[800],
-                      ),
-                    ),
-                    SizedBox(height: 8.h),
-                    _buildBulletPoint("Strong programming (Python)"),
-                    _buildBulletPoint(
-                        "Understanding of algorithms and data structures"),
-                    _buildBulletPoint("Math/statistics knowledge"),
-                    _buildBulletPoint("Problem-solving skills"),
+
+                    // Events Section
                     SizedBox(height: 24.h),
                     Divider(color: Colors.grey[300], height: 1),
                     SizedBox(height: 24.h),
+
                     Text(
-                      "Featured AI Hackathons",
+                      "Featured RPA Events",
                       style: TextStyle(
                         fontSize: 20.sp,
                         fontWeight: FontWeight.w600,
@@ -179,46 +178,72 @@ class _AIHackathonsPageState extends State<AIHackathonsPage> {
                       ),
                     ),
                     SizedBox(height: 16.h),
-                    _buildHackathonCard(
-                      image: "assets/tredingTracks/AiAndML/image1.png",
-                      title: "Global AI Hackathon",
-                      organizer: "MIT RAISE & App Inventor Foundation",
+
+                    // Event 1
+                    _buildEventCard(
+                      image: "assets/tredingTracks/Robotics/image2.png",
+                      title: "Cairo ICT",
                       description:
-                          "A free, open to all ages and virtual hackathon hosted by MIT RAISE and the App Inventor Foundation that encourages people of all ages around the world to build AI apps for a cause.",
-                      prize:
-                          "All-expenses-paid trip to MIT's AI & Education Summit for winners",
-                      url:
-                          "https://raise.mit.edu/events/global-ai-hackathon-2025/",
+                          "A major technology conference and exhibition in the Middle East and Africa. It showcases the latest advancements in technology, including AI and automation solutions. It serves national objectives, businesses, development, and human resources.",
+                      location:
+                          "Egypt International Exhibition Center, Cairo, Egypt",
+                      dates: "November 16 - 19, 2025",
+                      url: "https://cairoict.com/",
                     ),
-                    _buildHackathonCard(
-                      image: "assets/tredingTracks/AiAndML/image3.png",
-                      title: "AI Agent Hackathon",
-                      organizer: "Microsoft",
+
+                    // Event 2
+                    _buildEventCard(
+                      image: "assets/tredingTracks/Robotics/image3.png",
+                      title: "GITEX Technology Week",
                       description:
-                          "Virtual, with expert-led live sessions. Focus on Building AI agents using frameworks like Semantic Kernel, Autogen, and Azure AI organized by Microsoft.",
-                      prize:
-                          "Up to \$20,000 for 'Best Overall Agent,' with language-specific prizes (Python, C#, Java, etc.).",
-                      url: "https://microsoft.github.io/AI_Agents_Hackathon/",
+                          "A large technology event in the Middle East, North Africa & South Asia. It showcases advancements in AI, 5G, cloud computing, big data, cybersecurity, blockchain, and more. It attracts industry leaders, startups, and government entities.",
+                      location: "Dubai World Trade Centre, Dubai, UAE",
+                      dates: "October 13 - 17, 2025",
+                      url: "https://www.gitex.com/",
                     ),
-                    _buildHackathonCard(
-                      image: "assets/tredingTracks/AiAndML/image2.jpeg",
-                      title: "Orange Egypt AI Hackathon",
-                      organizer: "Orange Egypt",
-                      description:
-                          "Orange Egypt has launched the Orange Egypt Artificial Intelligence Hackathon 2025 at its headquarters in Smart Village. The two-day event brought together top tech talents from leading Egyptian universities, supported by experts in technology and entrepreneurship under the theme 'Where Ideas Spark'.",
-                      prize:
-                          "Career opportunities and recognition in Egypt's tech ecosystem",
-                      url:
-                          "https://www.orange.eg/en/about/media-center/press-kit/orange-egypt-launches-ai-hackathon-2025-862-event",
+
+                    // Robotics Competitions
+                    SizedBox(height: 24.h),
+                    Divider(color: Colors.grey[300], height: 1),
+                    SizedBox(height: 24.h),
+
+                    _buildSection(
+                      title: "Robotics Competitions for Students in Egypt",
+                      content:
+                          "Several robotics competitions are held annually for young people in Egypt, including:",
                     ),
-                    _buildHackathonCard(
-                      image: "assets/tredingTracks/AiAndML/image4.png",
-                      title: "Egypt AI Hackathon",
-                      organizer: "E-Tech Summit",
-                      description:
-                          "The hackathon revolves around the theme of 'AI and IoT Technologies towards a Sustainable Future.' This theme invites you to envision how these transformative technologies can be harnessed to create solutions that promote environmental, social, and economic sustainability.",
-                      prize: "Funding opportunities and industry recognition",
-                      url: "https://etechsummit.com/egypt-ai-hackathon/",
+
+                    SizedBox(height: 8.h),
+                    _buildBulletPoint("First Lego League Junior (ages 6-10)"),
+                    _buildBulletPoint("FIRST Tech Challenge (FTC)"),
+                    _buildBulletPoint("FIRST LEGO League (FLL)"),
+                    _buildBulletPoint("RoboCupJunior Egypt"),
+                    _buildBulletPoint("ROV Competition"),
+                    _buildBulletPoint("The World Robot Olympiad (WRO)"),
+                    _buildBulletPoint("The VEX Robotics Competition"),
+
+                    SizedBox(height: 16.h),
+                    SizedBox(
+                      width: double.infinity,
+                      child: OutlinedButton(
+                        onPressed: () => _launchURL(
+                            "https://egyptinnovate.com/en/articles/top-7-robotics-competitions-students-egypt"),
+                        style: OutlinedButton.styleFrom(
+                          padding: EdgeInsets.symmetric(vertical: 12.h),
+                          side: BorderSide(color: Colors.grey[700]!),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                        ),
+                        child: Text(
+                          "LEARN MORE ABOUT COMPETITIONS",
+                          style: TextStyle(
+                            fontSize: 14.sp,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.grey[700],
+                          ),
+                        ),
+                      ),
                     ),
                   ],
                 ),
@@ -311,7 +336,7 @@ class _AIHackathonsPageState extends State<AIHackathonsPage> {
             ),
             SizedBox(height: 8.h),
             Text(
-              "What they do: $description",
+              "Role: $description",
               style: TextStyle(
                 fontSize: 14.sp,
                 color: Colors.grey[700],
@@ -319,7 +344,7 @@ class _AIHackathonsPageState extends State<AIHackathonsPage> {
             ),
             SizedBox(height: 8.h),
             Text(
-              "Key skills: $skills",
+              "Key Skills: $skills",
               style: TextStyle(
                 fontSize: 14.sp,
                 color: Colors.grey[700],
@@ -332,12 +357,12 @@ class _AIHackathonsPageState extends State<AIHackathonsPage> {
     );
   }
 
-  Widget _buildHackathonCard({
+  Widget _buildEventCard({
     required String image,
     required String title,
-    required String organizer,
     required String description,
-    required String prize,
+    required String location,
+    required String dates,
     required String url,
   }) {
     return Card(
@@ -372,14 +397,40 @@ class _AIHackathonsPageState extends State<AIHackathonsPage> {
                     color: Colors.grey[900],
                   ),
                 ),
+                SizedBox(height: 8.h),
+                Row(
+                  children: [
+                    Icon(Icons.location_on,
+                        size: 16.w, color: Colors.grey[600]),
+                    SizedBox(width: 4.w),
+                    SizedBox(
+                      width: MediaQuery.sizeOf(context).width * 0.6,
+                      child: Text(
+                        location,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          fontSize: 14.sp,
+                          color: Colors.grey[600],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
                 SizedBox(height: 4.h),
-                Text(
-                  "Organized by: $organizer",
-                  style: TextStyle(
-                    fontSize: 14.sp,
-                    color: Colors.grey[600],
-                    fontStyle: FontStyle.italic,
-                  ),
+                Row(
+                  children: [
+                    Icon(Icons.calendar_today,
+                        size: 16.w, color: Colors.grey[600]),
+                    SizedBox(width: 4.w),
+                    Text(
+                      dates,
+                      style: TextStyle(
+                        fontSize: 14.sp,
+                        color: Colors.grey[600],
+                      ),
+                    ),
+                  ],
                 ),
                 SizedBox(height: 12.h),
                 Text(
@@ -390,54 +441,28 @@ class _AIHackathonsPageState extends State<AIHackathonsPage> {
                     color: Colors.grey[700],
                   ),
                 ),
-                SizedBox(height: 12.h),
-                Container(
-                  padding: EdgeInsets.all(12.w),
-                  decoration: BoxDecoration(
-                    color: Colors.grey[100],
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  child: Row(
-                    children: [
-                      Icon(Icons.emoji_events_outlined,
-                          color: Colors.amber[700], size: 20.w),
-                      SizedBox(width: 8.w),
-                      Expanded(
-                        child: Text(
-                          "Prize: $prize",
-                          style: TextStyle(
-                            fontSize: 14.sp,
-                            color: Colors.grey[800],
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
                 SizedBox(height: 16.h),
-                if (url.isNotEmpty)
-                  SizedBox(
-                    width: double.infinity,
-                    child: OutlinedButton(
-                      onPressed: () => _launchURL(url),
-                      style: OutlinedButton.styleFrom(
-                        padding: EdgeInsets.symmetric(vertical: 12.h),
-                        side: BorderSide(color: Colors.grey[700]!),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8),
-                        ),
+                SizedBox(
+                  width: double.infinity,
+                  child: OutlinedButton(
+                    onPressed: () => _launchURL(url),
+                    style: OutlinedButton.styleFrom(
+                      padding: EdgeInsets.symmetric(vertical: 12.h),
+                      side: BorderSide(color: Colors.grey[700]!),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
                       ),
-                      child: Text(
-                        "VISIT WEBSITE",
-                        style: TextStyle(
-                          fontSize: 14.sp,
-                          fontWeight: FontWeight.w600,
-                          color: Colors.grey[700],
-                        ),
+                    ),
+                    child: Text(
+                      "VISIT WEBSITE",
+                      style: TextStyle(
+                        fontSize: 14.sp,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.grey[700],
                       ),
                     ),
                   ),
+                ),
               ],
             ),
           ),
