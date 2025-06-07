@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:graduation_project/feature/Initiatives/presentation/widgets/cusormyoutubevideoplayer.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Iti3 extends StatefulWidget {
@@ -107,7 +108,24 @@ class _Iti3State extends State<Iti3> {
                     SizedBox(height: 24.h),
                     Divider(color: Colors.grey[300], height: 1),
                     SizedBox(height: 24.h),
-
+                    Text(
+                      "Introductory Video",
+                      style: TextStyle(
+                        fontSize: 18.sp,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.grey[900],
+                      ),
+                    ),
+                    SizedBox(height: 24.h),
+                    // CustomVideoPlayer(
+                    //   assetPath: 'assets/Initiatives/videos/FWK1.mp4',
+                    // ),
+                    CustomYoutubePlayer(
+                      videoUrl: 'https://youtu.be/kZw1700GZ2M',
+                    ),
+                    SizedBox(height: 24.h),
+                    Divider(color: Colors.grey[300], height: 1),
+                    SizedBox(height: 24.h),
                     // Important Links
                     Text(
                       "Important Links",
@@ -122,11 +140,6 @@ class _Iti3State extends State<Iti3> {
                       icon: Icons.language,
                       title: "Official Website",
                       url: "https://identity.iti.gov.eg/Account/Login",
-                    ),
-                    _buildLinkTile(
-                      icon: Icons.play_circle_outline,
-                      title: "Introductory Video",
-                      url: "https://youtu.be/kZw1700GZ2M",
                     ),
 
                     SizedBox(height: 32.h),

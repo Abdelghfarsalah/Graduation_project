@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:graduation_project/feature/Initiatives/presentation/widgets/widgettoplayVideo.dart';
+import 'package:graduation_project/feature/Initiatives/presentation/widgets/cusormyoutubevideoplayer.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class DigitalPioneersInitiative extends StatefulWidget {
@@ -131,32 +131,13 @@ class _DigitalPioneersInitiativeState extends State<DigitalPioneersInitiative> {
                       ),
                     ),
                     SizedBox(height: 24.h),
-                    CustomVideoPlayer(
-                      assetPath: 'assets/Initiatives/videos/DPI1.mp4',
+                    //
+                    CustomYoutubePlayer(
+                      videoUrl: 'https://youtu.be/4iybOr64jZ4',
                     ),
                     SizedBox(height: 24.h),
                     Divider(color: Colors.grey[300], height: 1),
                     SizedBox(height: 24.h),
-                    // Links Section
-                    // Text(
-                    //   "Important Links",
-                    //   style: TextStyle(
-                    //     fontSize: 18.sp,
-                    //     fontWeight: FontWeight.w600,
-                    //     color: Colors.grey[900],
-                    //   ),
-                    // ),
-                    // SizedBox(height: 16.h),
-                    // _buildLinkTile(
-                    //   icon: Icons.language,
-                    //   title: "Official Website",
-                    //   url: "https://www.digilians.gov.eg/",
-                    // ),
-                    // _buildLinkTile(
-                    //   icon: Icons.ondemand_video,
-                    //   title: "Introductory Video",
-                    //   url: "https://youtu.be/4iybOr64jZ4",
-                    // ),
 
                     SizedBox(height: 32.h),
                     SizedBox(
@@ -248,43 +229,6 @@ class _DigitalPioneersInitiativeState extends State<DigitalPioneersInitiative> {
             ),
           ),
         ],
-      ),
-    );
-  }
-
-  Widget _buildLinkTile({
-    required IconData icon,
-    required String title,
-    required String url,
-  }) {
-    return Container(
-      margin: EdgeInsets.only(bottom: 12.h),
-      decoration: BoxDecoration(
-        border: Border(
-          bottom: BorderSide(color: Colors.grey[200]!, width: 1),
-        ),
-      ),
-      child: InkWell(
-        onTap: () => _launchURL(url),
-        child: Padding(
-          padding: EdgeInsets.symmetric(vertical: 16.h),
-          child: Row(
-            children: [
-              Icon(icon, color: Colors.grey[600], size: 22.w),
-              SizedBox(width: 16.w),
-              Text(
-                title,
-                style: TextStyle(
-                  fontSize: 16.sp,
-                  color: Colors.grey[800],
-                ),
-              ),
-              const Spacer(),
-              Icon(Icons.arrow_forward_ios,
-                  size: 16.w, color: Colors.grey[500]),
-            ],
-          ),
-        ),
       ),
     );
   }

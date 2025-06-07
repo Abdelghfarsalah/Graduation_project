@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:graduation_project/feature/Initiatives/presentation/widgets/widgettoplayVideo.dart';
+import 'package:graduation_project/feature/Initiatives/presentation/widgets/cusormyoutubevideoplayer.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class EgyptDigitalPioneersInitiative extends StatefulWidget {
@@ -131,13 +131,15 @@ class _EgyptDigitalPioneersInitiativeState
                       ),
                     ),
                     SizedBox(height: 24.h),
-                    CustomVideoPlayer(
-                      assetPath: 'assets/Initiatives/videos/Ep1.mp4',
+
+                    CustomYoutubePlayer(
+                      videoUrl:
+                          'https://youtu.be/nopT9qzWkAE?si=b-v_US7hEP0pL5Kt',
                     ),
                     SizedBox(height: 24.h),
                     Divider(color: Colors.grey[300], height: 1),
                     SizedBox(height: 24.h),
-                    // Divider
+
                     SizedBox(height: 24.h),
                     Divider(color: Colors.grey[300], height: 1),
                     SizedBox(height: 24.h),
@@ -150,37 +152,13 @@ class _EgyptDigitalPioneersInitiativeState
                       ),
                     ),
                     SizedBox(height: 24.h),
-                    CustomVideoPlayer(
-                      assetPath: 'assets/Initiatives/videos/Ep2.mp4',
+                    // CustomVideoPlayer(
+                    //   assetPath: 'assets/Initiatives/videos/FWK1.mp4',
+                    // ),
+                    CustomYoutubePlayer(
+                      videoUrl:
+                          'https://youtu.be/uFCSvgmDbKo?si=mojKeuwiud9ot3rk',
                     ),
-                    SizedBox(height: 24.h),
-                    Divider(color: Colors.grey[300], height: 1),
-                    SizedBox(height: 24.h),
-                    // Links Section
-                    // Text(
-                    //   "Important Links",
-                    //   style: TextStyle(
-                    //     fontSize: 18.sp,
-                    //     fontWeight: FontWeight.w600,
-                    //     color: Colors.grey[900],
-                    //   ),
-                    // ),
-                    // SizedBox(height: 16.h),
-                    // _buildLinkTile(
-                    //   icon: Icons.language,
-                    //   title: "Official Website",
-                    //   url: "https://depi.gov.eg/content/home",
-                    // ),
-                    // _buildLinkTile(
-                    //   icon: Icons.play_circle_outline,
-                    //   title: "Introductory Video",
-                    //   url: "https://www.facebook.com/watch/?v=1106248841060015",
-                    // ),
-                    // _buildLinkTile(
-                    //   icon: Icons.record_voice_over,
-                    //   title: "Students' Testimonials",
-                    //   url: "https://www.facebook.com/reel/1078265787247837",
-                    // ),
 
                     // Apply Button
                     SizedBox(height: 32.h),
@@ -272,43 +250,6 @@ class _EgyptDigitalPioneersInitiativeState
             ),
           ),
         ],
-      ),
-    );
-  }
-
-  Widget _buildLinkTile({
-    required IconData icon,
-    required String title,
-    required String url,
-  }) {
-    return Container(
-      margin: EdgeInsets.only(bottom: 12.h),
-      decoration: BoxDecoration(
-        border: Border(
-          bottom: BorderSide(color: Colors.grey[200]!, width: 1),
-        ),
-      ),
-      child: InkWell(
-        onTap: () => _launchURL(url),
-        child: Padding(
-          padding: EdgeInsets.symmetric(vertical: 16.h),
-          child: Row(
-            children: [
-              Icon(icon, color: Colors.grey[600], size: 22.w),
-              SizedBox(width: 16.w),
-              Text(
-                title,
-                style: TextStyle(
-                  fontSize: 16.sp,
-                  color: Colors.grey[800],
-                ),
-              ),
-              const Spacer(),
-              Icon(Icons.arrow_forward_ios,
-                  size: 16.w, color: Colors.grey[500]),
-            ],
-          ),
-        ),
       ),
     );
   }
