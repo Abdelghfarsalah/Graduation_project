@@ -136,9 +136,6 @@ class _EgyptDigitalPioneersInitiativeState
                       videoUrl:
                           'https://youtu.be/nopT9qzWkAE?si=b-v_US7hEP0pL5Kt',
                     ),
-                    SizedBox(height: 24.h),
-                    Divider(color: Colors.grey[300], height: 1),
-                    SizedBox(height: 24.h),
 
                     SizedBox(height: 24.h),
                     Divider(color: Colors.grey[300], height: 1),

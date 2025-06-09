@@ -4,17 +4,18 @@ import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:graduation_project/feature/recommendChat/domain/RoadmapModel%20.dart';
+import 'package:graduation_project/feature/recommendChat/domain/models/RoadmapModel%20.dart';
 
 import 'reccomend_chat_bloc_event.dart';
 import 'reccomend_chat_bloc_state.dart';
 
 class ReccomendChatBlocBloc
     extends Bloc<ReccomendChatBlocEvent, ReccomendChatBlocState> {
-  List<Roadmapmodel> chat = [];
+  List<Roadmapmodel2> chat = [];
   bool bottom = true;
   String track = "";
-  late Roadmapmodel roadmap;
+  late Map<String, dynamic> SaveMaptoStartLearning;
+  late Roadmapmodel2 roadmap;
   final Dio dio;
   final TextEditingController controller = TextEditingController();
   ReccomendChatBlocBloc({required this.dio}) : super(Initrecommendstate()) {
@@ -28,7 +29,7 @@ class ReccomendChatBlocBloc
 
   Future<void> _onFetchData(
       Fetchroadmap event, Emitter<ReccomendChatBlocState> emit) async {
-    chat.add(Roadmapmodel(title: event.text, fromuser: true));
+    chat.add(Roadmapmodel2(title: event.text, fromuser: true));
     emit(Loading());
     try {
       print(
@@ -40,7 +41,8 @@ class ReccomendChatBlocBloc
       print(
           "===============success=============================================================");
       print(response.data);
-      roadmap = Roadmapmodel.fromJson(response.data);
+      SaveMaptoStartLearning = response.data;
+      roadmap = Roadmapmodel2.fromJson(response.data);
       chat.add(roadmap);
       emit(SuccessRoadmapstate());
     } catch (e) {
@@ -57,21 +59,14 @@ class ReccomendChatBlocBloc
 
   Future<void> _FetchroadmapwithQuestion(FetchroadmapwithQuestion event,
       Emitter<ReccomendChatBlocState> emit) async {
-    chat.add(Roadmapmodel(title: event.Question, fromuser: true));
+    chat.add(Roadmapmodel2(title: event.Question, fromuser: true));
     print(event.Question);
     emit(Loading());
     try {
       String jsonString = jsonEncode(roadmap.toJson());
       String escaped = jsonEncode(jsonString);
       print(jsonString);
-      print(
-          "=============${track}===========================dfdfd===============================");
-      print(
-          "=============${event.Question}===========================dfdfd===============================");
-      print(
-          "=============${escaped.length}===========================dfdfd===============================");
-      print(roadmap.title);
-      print(event.Question);
+
       var response = await dio
           .post("http://164.128.130.9:8000/generate-roadmap", data: {
         "track": track,
@@ -79,7 +74,8 @@ class ReccomendChatBlocBloc
         "roadmap": "$escaped"
       });
 
-      chat.add(Roadmapmodel.fromJson(response.data));
+      SaveMaptoStartLearning = response.data;
+      chat.add(Roadmapmodel2.fromJson(response.data));
       roadmap = response.data["roadmap"];
       emit(SuccessRoadmapstate());
     } catch (e) {

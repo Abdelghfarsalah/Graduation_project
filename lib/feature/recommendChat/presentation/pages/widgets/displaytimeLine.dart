@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:graduation_project/feature/recommendChat/domain/RoadmapModel%20.dart';
+import 'package:graduation_project/core/colors.dart';
+import 'package:graduation_project/core/utils/animations.dart';
+import 'package:graduation_project/feature/RoamapProgress/presentaion/pages/progressPage.dart';
+import 'package:graduation_project/feature/recommendChat/domain/models/RoadmapModel%20.dart';
 import 'package:graduation_project/feature/recommendChat/presentation/pages/widgets/SectionTimeline.dart';
 import 'package:graduation_project/feature/recommendChat/presentation/pages/widgets/customlisttimelineview.dart';
 // import 'package:url_launcher/url_launcher.dart';
 
 class Displaytimeline extends StatefulWidget {
   const Displaytimeline({super.key, required this.mdoel});
-  final Roadmapmodel mdoel;
+  final Roadmapmodel2 mdoel;
 
   @override
   State<Displaytimeline> createState() => _DisplaytimelineState();
@@ -65,12 +68,13 @@ class _DisplaytimelineState extends State<Displaytimeline> {
                   },
                   child: AnimatedContainer(
                     decoration: BoxDecoration(
-                        color: timline ? Colors.grey[700] : Colors.grey[200],
+                        color:
+                            timline ? appColor.Primarycolor : Colors.grey[200],
                         borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(50),
                           bottomLeft: Radius.circular(50),
                         )),
-                    duration: Duration(seconds: 1),
+                    duration: Duration(milliseconds: 500),
                     child: Center(
                       child: Text(
                         "timeline",
@@ -92,12 +96,13 @@ class _DisplaytimelineState extends State<Displaytimeline> {
                   },
                   child: AnimatedContainer(
                     decoration: BoxDecoration(
-                        color: !timline ? Colors.grey[700] : Colors.grey[200],
+                        color:
+                            !timline ? appColor.Primarycolor : Colors.grey[200],
                         borderRadius: BorderRadius.only(
                           topRight: Radius.circular(50),
                           bottomRight: Radius.circular(50),
                         )),
-                    duration: Duration(seconds: 1),
+                    duration: Duration(milliseconds: 500),
                     child: Center(
                       child: Text(
                         "Section",
@@ -123,6 +128,34 @@ class _DisplaytimelineState extends State<Displaytimeline> {
           : Sectiontimeline(
               mdoel: widget.mdoel,
             ),
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {
+          Animationsforpages.navigateWithSlidepush(
+            context,
+            Progresspage(),
+          );
+        },
+        backgroundColor: Colors.green.shade600,
+        foregroundColor: Colors.white,
+        elevation: 6,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(16),
+        ),
+        label: Row(
+          children: [
+            Icon(Icons.play_arrow_rounded, size: 24),
+            SizedBox(width: 8),
+            Text(
+              'Start Learning',
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w600,
+                letterSpacing: 0.5,
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

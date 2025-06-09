@@ -1,4 +1,4 @@
-import 'package:graduation_project/feature/recommendChat/domain/CategoryModel.dart';
+import 'package:graduation_project/feature/recommendChat/domain/models/CategoryModel.dart';
 
 class StepModel {
   final int? stepNumber;

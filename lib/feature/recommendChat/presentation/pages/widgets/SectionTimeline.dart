@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:graduation_project/feature/recommendChat/domain/RoadmapModel%20.dart';
+import 'package:graduation_project/feature/recommendChat/domain/models/RoadmapModel%20.dart';
 import 'package:graduation_project/feature/recommendChat/presentation/pages/widgets/CustomDropDownbutton.dart';
 
 class Sectiontimeline extends StatefulWidget {
   const Sectiontimeline({super.key, required this.mdoel});
-  final Roadmapmodel mdoel;
+  final Roadmapmodel2 mdoel;
 
   @override
   State<Sectiontimeline> createState() => _SectiontimelineState();

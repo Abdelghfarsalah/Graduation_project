@@ -1,4 +1,4 @@
-import 'package:graduation_project/feature/recommendChat/domain/parentclass.dart';
+import 'package:graduation_project/feature/recommendChat/domain/models/parentclass.dart';
 
 class FlutterRoadmapModel extends Parentclass {
   final String track;

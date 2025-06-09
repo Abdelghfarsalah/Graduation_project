@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/fonts.dart';
-import 'package:graduation_project/feature/recommendChat/domain/RoadmapModel%20.dart';
+import 'package:graduation_project/feature/recommendChat/domain/models/RoadmapModel%20.dart';
+import 'package:graduation_project/feature/recommendChat/presentation/pages/widgets/GetIconType.dart';
 import 'package:timeline_tile/timeline_tile.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Customlisttimelineview extends StatefulWidget {
   const Customlisttimelineview({super.key, required this.mdoel});
-  final Roadmapmodel mdoel;
+  final Roadmapmodel2 mdoel;
 
   @override
   State<Customlisttimelineview> createState() => _CustomlisttimelineviewState();
@@ -111,11 +112,26 @@ class _CustomlisttimelineviewState extends State<Customlisttimelineview> {
                                     child: Padding(
                                       padding: const EdgeInsets.only(
                                           left: 12, top: 2, bottom: 15),
-                                      child: Text(
-                                        "Click Here",
-                                        style: TextStyle(
-                                            color: Colors.blueAccent,
-                                            fontSize: 13),
+                                      child: Row(
+                                        children: [
+                                          Text(
+                                            "Click ",
+                                            style: TextStyle(
+                                              color: Colors.blueAccent,
+                                              fontSize: 13,
+                                            ),
+                                          ),
+                                          getIconForType(
+                                              item.value.typeOfLink!),
+                                          Text(
+                                            "  |   ${item.value.duration} ",
+                                            style: TextStyle(
+                                              color: Colors.black,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 14.sp,
+                                            ),
+                                          ),
+                                        ],
                                       ),
                                     ),
                                   )

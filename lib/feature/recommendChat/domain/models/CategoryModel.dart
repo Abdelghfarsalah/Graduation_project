@@ -1,4 +1,4 @@
-import 'package:graduation_project/feature/recommendChat/domain/ItemModel.dart';
+import 'package:graduation_project/feature/recommendChat/domain/models/ItemModel.dart';
 
 class CategoryModel {
   final String? categoryTitle;

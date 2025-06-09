@@ -1,16 +1,16 @@
-import 'package:graduation_project/feature/recommendChat/domain/StepModel.dart';
-import 'package:graduation_project/feature/recommendChat/domain/parentclass.dart';
+import 'package:graduation_project/feature/recommendChat/domain/models/StepModel.dart';
+import 'package:graduation_project/feature/recommendChat/domain/models/parentclass.dart';
 
-class Roadmapmodel extends Parentclass {
+class Roadmapmodel2 extends Parentclass {
   final String? title;
   final String? introduction;
   final List<StepModel>? steps;
   final bool? fromuser;
 
-  Roadmapmodel({this.title, this.introduction, this.steps, this.fromuser});
+  Roadmapmodel2({this.title, this.introduction, this.steps, this.fromuser});
 
-  factory Roadmapmodel.fromJson(Map<String, dynamic> json) {
-    return Roadmapmodel(
+  factory Roadmapmodel2.fromJson(Map<String, dynamic> json) {
+    return Roadmapmodel2(
       title: json['title'],
       introduction: json['introduction'],
       steps:
