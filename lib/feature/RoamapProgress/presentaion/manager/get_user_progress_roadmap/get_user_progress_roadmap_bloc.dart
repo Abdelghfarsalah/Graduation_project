@@ -12,6 +12,9 @@ class GetUserProgressRoadmapBloc
     on<getRoadmap>(_getRoadmap);
   }
 
+  List<double> percentages = [];
+  double ProgressRate = 0.0;
+  late Map<String, bool> markItemAsComleted;
   void _getRoadmap(
       getRoadmap event, Emitter<GetUserProgressRoadmapBlocState> emit) async {
     emit(GetUserProgressRoadmapLoading());

@@ -11,7 +11,7 @@ class Userpreogreaaroadmap {
 
   Userpreogreaaroadmap({required this.dio});
 
-  Future<Either<bool, UserRoadmapprogress>> GetUseroadmap() async {
+  Future<Either<bool, UserRoadmapProgress>> GetUseroadmap() async {
     try {
       log("message");
       log("message1254");
@@ -23,7 +23,39 @@ class Userpreogreaaroadmap {
           'Content-Type': 'application/json',
         }),
       );
-      UserRoadmapprogress model = UserRoadmapprogress.fromJson(response.data);
+      UserRoadmapProgress model = UserRoadmapProgress.fromJson(response.data);
+      return Right(model);
+    } on DioException catch (e) {
+      print(e.toString());
+      return Left(false); // Error case
+    } catch (e) {
+      print(e.toString());
+      return Left(false);
+    }
+  }
+
+  Future<Either<bool, UserRoadmapProgress>> completeitem(
+      {required int stepNumber,
+      required String categoryTitle,
+      required String itemTitle}) async {
+    try {
+      print(stepNumber);
+      print(categoryTitle);
+      print(itemTitle);
+      String token = await SharedPreferencesDemo.getToken() ?? "";
+
+      var response = await dio.post(
+        Preogressapi.complete_item,
+        data: {
+          "stepNumber": stepNumber + 1,
+          "categoryTitle": categoryTitle,
+          "itemTitle": itemTitle
+        },
+        options: Options(headers: {
+          'Authorization': 'Bearer $token',
+        }),
+      );
+      UserRoadmapProgress model = UserRoadmapProgress.fromJson(response.data);
       return Right(model);
     } on DioException catch (e) {
       print(e.toString());

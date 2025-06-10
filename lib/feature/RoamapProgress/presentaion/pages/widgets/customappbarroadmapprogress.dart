@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/fonts.dart';
+import 'package:graduation_project/feature/RoamapProgress/presentaion/pages/widgets/progressinAppbar.dart';
 
 PreferredSize roadmapAppBarForProgress(
     BuildContext context, String title, double progress) {
   return PreferredSize(
-    preferredSize: Size.fromHeight(120.h),
+    preferredSize: Size.fromHeight(120.h), // زيادة الارتفاع قليلاً
     child: AppBar(
       automaticallyImplyLeading: false,
       backgroundColor: Colors.transparent,
       elevation: 0,
       flexibleSpace: ClipRRect(
         borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(20.r),
-          bottomRight: Radius.circular(20.r),
+          bottomLeft: Radius.circular(30.r), // زاوية أكبر
+          bottomRight: Radius.circular(30.r),
         ),
         child: Container(
           decoration: BoxDecoration(
@@ -21,89 +22,56 @@ PreferredSize roadmapAppBarForProgress(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
               colors: [
-                Color(0xFF1976D2),
-                Color(0xFF2196F3),
+                Color(0xFF6A11CB), // لون غامق أنيق
+                Color(0xFF2575FC), // لون أزرق جذاب
               ],
+              stops: [0.1, 0.9], // تحسين التدرج اللوني
             ),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.2),
+                blurRadius: 15,
+                offset: Offset(0, 5),
+              ),
+            ],
           ),
           child: SafeArea(
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
+              padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 0.h),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Row(
                     children: [
-                      IconButton(
-                        icon: Icon(Icons.arrow_back_rounded,
-                            color: Colors.white, size: 24.w),
-                        onPressed: () => Navigator.pop(context),
-                      ),
-                      SizedBox(width: 8.w),
-                      Expanded(
-                        child: Text(
-                          title,
-                          style: TextStyle(
-                            fontSize: 16.sp,
-                            fontWeight: FontWeight.w700,
-                            color: Colors.white,
-                            fontFamily: appFonts.Poppins,
-                          ),
-                          overflow: TextOverflow.ellipsis,
+                      Container(
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Colors.white.withOpacity(0.2),
+                        ),
+                        child: IconButton(
+                          icon: Icon(Icons.arrow_back_rounded,
+                              color: Colors.white, size: 22.w),
+                          onPressed: () => Navigator.pop(context),
                         ),
                       ),
-                      IconButton(
-                        icon: Icon(Icons.more_vert_rounded,
-                            color: Colors.white, size: 24.w),
-                        onPressed: () {
-                          // Show menu options
-                        },
+                      SizedBox(width: 12.w),
+                      Text(
+                        title,
+                        style: TextStyle(
+                          fontSize: 18.sp,
+                          fontWeight: FontWeight.w800,
+                          color: Colors.white,
+                          fontFamily: appFonts.Poppins,
+                          letterSpacing: 0.5,
+                        ),
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
                       ),
                     ],
                   ),
-                  SizedBox(height: 12.h),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 16.w),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              'Progress',
-                              style: TextStyle(
-                                fontSize: 14.sp,
-                                color: Colors.white.withOpacity(0.9),
-                              ),
-                            ),
-                            Text(
-                              '${(progress * 100).toStringAsFixed(0)}%',
-                              style: TextStyle(
-                                fontSize: 14.sp,
-                                fontWeight: FontWeight.w600,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      SizedBox(height: 8.h),
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 16.w),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(10.r),
-                          child: LinearProgressIndicator(
-                            value: progress,
-                            minHeight: 8.h,
-                            backgroundColor: Colors.white.withOpacity(0.2),
-                            valueColor:
-                                AlwaysStoppedAnimation<Color>(Colors.white),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
+                  SizedBox(height: 15.h),
+                  // مؤشر التقدم مع تأثيرات حديثة
+                  Progressinappbar()
                 ],
               ),
             ),

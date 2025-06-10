@@ -57,12 +57,11 @@ class _RatewidgetState extends State<Ratewidget> {
                 children: [
                   select == index
                       ? Icon(
-                          Icons.check_box,
+                          Icons.check_circle,
                           color: appColor.Primarycolor,
                         )
                       : Icon(
-                          Icons.check_box_outline_blank_outlined,
-                          size: 18,
+                          Icons.circle_outlined,
                         ),
                   Text(
                     "${statuses[index]}",

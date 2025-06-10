@@ -66,6 +66,7 @@ dependencies:
   video_player: ^2.10.0
   youtube_player_flutter: ^9.1.1
   fl_chart: ^0.71.0
+  percent_indicator: ^4.2.5
 
 dev_dependencies:
   flutter_test:

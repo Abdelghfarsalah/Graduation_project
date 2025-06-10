@@ -7,7 +7,7 @@ class GetUserProgressRoadmapInit extends GetUserProgressRoadmapBlocState {}
 class GetUserProgressRoadmapLoading extends GetUserProgressRoadmapBlocState {}
 
 class GetUserProgressRoadmapSuccess extends GetUserProgressRoadmapBlocState {
-  final UserRoadmapprogress data; // لو عايز تحمل الداتا مع النجاح
+  final UserRoadmapProgress data; // لو عايز تحمل الداتا مع النجاح
 
   GetUserProgressRoadmapSuccess(this.data);
 }

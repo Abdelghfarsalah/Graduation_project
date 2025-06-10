@@ -1,17 +1,17 @@
-class UserRoadmapprogress {
+class UserRoadmapProgress {
   final bool? success;
   final String? message;
   final RoadmapData? data;
 
-  UserRoadmapprogress({
+  UserRoadmapProgress({
     this.success,
     this.message,
     this.data,
   });
 
-  factory UserRoadmapprogress.fromJson(Map<String, dynamic>? json) {
-    if (json == null) return UserRoadmapprogress();
-    return UserRoadmapprogress(
+  factory UserRoadmapProgress.fromJson(Map<String, dynamic>? json) {
+    if (json == null) return UserRoadmapProgress();
+    return UserRoadmapProgress(
       success: json['success'],
       message: json['message'],
       data: json['data'] != null ? RoadmapData.fromJson(json['data']) : null,
@@ -26,28 +26,56 @@ class UserRoadmapprogress {
 }
 
 class RoadmapData {
-  final String? title;
-  final String? introduction;
-  final List<RoadmapStep>? steps;
-  final int? progressPercent;
+  final Roadmap? roadmap;
+  final double? progressPercent;
+  final List<StepProgress>? stepsProgress;
 
   RoadmapData({
-    this.title,
-    this.introduction,
-    this.steps,
+    this.roadmap,
     this.progressPercent,
+    this.stepsProgress,
   });
 
   factory RoadmapData.fromJson(Map<String, dynamic>? json) {
     if (json == null) return RoadmapData();
     return RoadmapData(
+      roadmap:
+          json['roadmap'] != null ? Roadmap.fromJson(json['roadmap']) : null,
+      progressPercent: json['progresspercent']?.toDouble(),
+      stepsProgress: json['stepsProgress'] != null
+          ? List<StepProgress>.from(
+              json['stepsProgress'].map((x) => StepProgress.fromJson(x)))
+          : null,
+    );
+  }
+
+  Map<String, dynamic> toJson() => {
+        'roadmap': roadmap?.toJson(),
+        'progresspercent': progressPercent,
+        'stepsProgress': stepsProgress?.map((x) => x.toJson()).toList(),
+      };
+}
+
+class Roadmap {
+  final String? title;
+  final String? introduction;
+  final List<RoadmapStep>? steps;
+
+  Roadmap({
+    this.title,
+    this.introduction,
+    this.steps,
+  });
+
+  factory Roadmap.fromJson(Map<String, dynamic>? json) {
+    if (json == null) return Roadmap();
+    return Roadmap(
       title: json['title'],
       introduction: json['introduction'],
       steps: json['steps'] != null
           ? List<RoadmapStep>.from(
               json['steps'].map((x) => RoadmapStep.fromJson(x)))
           : null,
-      progressPercent: json['progressPercent'],
     );
   }
 
@@ -55,7 +83,6 @@ class RoadmapData {
         'title': title,
         'introduction': introduction,
         'steps': steps?.map((x) => x.toJson()).toList(),
-        'progressPercent': progressPercent,
       };
 }
 
@@ -159,5 +186,28 @@ class CategoryItem {
         'duration': duration,
         'type_of_link': typeOfLink,
         'completed': completed,
+      };
+}
+
+class StepProgress {
+  final int? stepNumber;
+  final double? progressPercent;
+
+  StepProgress({
+    this.stepNumber,
+    this.progressPercent,
+  });
+
+  factory StepProgress.fromJson(Map<String, dynamic>? json) {
+    if (json == null) return StepProgress();
+    return StepProgress(
+      stepNumber: json['step_number'],
+      progressPercent: json['progressPercent']?.toDouble(),
+    );
+  }
+
+  Map<String, dynamic> toJson() => {
+        'step_number': stepNumber,
+        'progressPercent': progressPercent,
       };
 }

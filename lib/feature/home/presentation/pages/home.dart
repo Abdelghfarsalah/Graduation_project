@@ -4,6 +4,7 @@ import 'package:graduation_project/core/colors.dart';
 import 'package:graduation_project/core/utils/animations.dart';
 import 'package:graduation_project/core/utils/helper.dart';
 import 'package:graduation_project/feature/Community/presentation/pages/mainCommunity.dart';
+import 'package:graduation_project/feature/RoamapProgress/presentaion/pages/progressPage.dart';
 import 'package:graduation_project/feature/home/presentation/manager/BottomNavBar/BottomNavBarBloc.dart';
 import 'package:graduation_project/feature/home/presentation/manager/BottomNavBar/BottomNavBarEvent.dart';
 import 'package:graduation_project/feature/home/presentation/manager/BottomNavBar/BottomNavBarState.dart';
@@ -56,6 +57,10 @@ class Home extends StatelessWidget {
           if (state.index == 2) {
             Animationsforpages.navigateWithSlidepushfrombottpm(
                 context, Maincommunity());
+          }
+          if (state.index == 1) {
+            Animationsforpages.navigateWithSlidepushfrombottpm(
+                context, Progresspage());
           }
         }
       },

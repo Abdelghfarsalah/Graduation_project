@@ -92,10 +92,10 @@ class Helper {
           label: "Home"),
       BottomNavigationBarItem(
           icon: Icon(
-            FontAwesomeIcons.magnifyingGlass,
+            Icons.bar_chart,
             size: 21,
           ),
-          label: "Search"),
+          label: "your Learning"),
       BottomNavigationBarItem(
           icon: Icon(
             FontAwesomeIcons.users,
