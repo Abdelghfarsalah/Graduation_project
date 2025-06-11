@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:graduation_project/feature/tracksAndRoadmapStaticinHome/presentation/manager/tracks/tracks_bloc.dart';
+import 'package:graduation_project/feature/tracksAndRoadmapStaticinHome/presentation/manager/tracks/tracks_event.dart';
 
 class BeautifulSearchField extends StatefulWidget {
   const BeautifulSearchField({super.key});
@@ -21,10 +24,12 @@ class _BeautifulSearchFieldState extends State<BeautifulSearchField> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(
-          horizontal: 20, vertical: 20), // نفس تنسيق الـ UI
+          horizontal: 0, vertical: 20), // نفس تنسيق الـ UI
       child: TextField(
         controller: _controller,
-        onChanged: (value) {},
+        onChanged: (value) {
+          context.read<TracksBloc>().add(SearchTracks(name: value));
+        },
         onSubmitted: (value) {},
         style: TextStyle(
           color: Colors.blue[900],

@@ -61,7 +61,7 @@ class Sliderinhome extends StatelessWidget {
                 // );
               },
               image: 'assets/HomeImage/CoreLanguages.png',
-              title: "Roadmaps",
+              title: "Tracks",
             ),
             SizedBox(
               width: 10,

@@ -13,6 +13,7 @@ class CustomAppBarINTracks extends StatelessWidget
     return AppBar(
       backgroundColor: Colors.white,
       elevation: 0,
+      scrolledUnderElevation: 0,
       leading: IconButton(
         onPressed: () {
           Navigator.pop(context);

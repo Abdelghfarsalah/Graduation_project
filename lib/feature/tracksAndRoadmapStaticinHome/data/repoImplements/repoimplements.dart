@@ -15,4 +15,14 @@ class RepotracksImplement extends Repotracks {
       (ifRight) => right(ifRight),
     );
   }
+
+  @override
+  Future<Either<bool, TracksResponse>> SearchTracks(
+      {required String name}) async {
+    var response = await datasources.SearchTracks(name: name);
+    return response.fold(
+      (ifLeft) => left(ifLeft),
+      (ifRight) => right(ifRight),
+    );
+  }
 }

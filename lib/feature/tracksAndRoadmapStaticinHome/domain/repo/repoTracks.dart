@@ -3,4 +3,5 @@ import 'package:graduation_project/feature/tracksAndRoadmapStaticinHome/data/mod
 
 abstract class Repotracks {
   Future<Either<bool, TracksResponse>> GetAllTracks();
+  Future<Either<bool, TracksResponse>> SearchTracks({required String name});
 }

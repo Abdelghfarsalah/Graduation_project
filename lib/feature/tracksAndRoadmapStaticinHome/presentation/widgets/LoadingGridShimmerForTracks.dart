@@ -5,14 +5,16 @@ class DetailedLoadingShimmer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-      padding: EdgeInsets.all(16),
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+      padding: const EdgeInsets.all(16),
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 3,
         crossAxisSpacing: 12,
         mainAxisSpacing: 12,
         childAspectRatio: 0.75,
       ),
-      itemCount: 21, // 2 rows of 3 items
+      itemCount: 21,
       itemBuilder: (context, index) {
         return Shimmer.fromColors(
           baseColor: Colors.grey[300]!,
@@ -27,6 +29,18 @@ class DetailedLoadingShimmer extends StatelessWidget {
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(8),
                 ),
+              ),
+              const SizedBox(height: 8),
+              Container(
+                height: 10,
+                width: double.infinity,
+                color: Colors.white,
+              ),
+              const SizedBox(height: 4),
+              Container(
+                height: 10,
+                width: 80,
+                color: Colors.white,
               ),
             ],
           ),

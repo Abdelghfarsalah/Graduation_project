@@ -9,6 +9,7 @@ import 'package:graduation_project/feature/tracksAndRoadmapStaticinHome/presenta
 import 'package:graduation_project/feature/tracksAndRoadmapStaticinHome/presentation/widgets/StataictrackspagebodyContent.dart';
 import 'package:graduation_project/feature/tracksAndRoadmapStaticinHome/presentation/widgets/StaticTracksAppbar.dart';
 import 'package:graduation_project/feature/tracksAndRoadmapStaticinHome/presentation/widgets/TracksErrorWidget.dart';
+import 'package:graduation_project/feature/tracksAndRoadmapStaticinHome/presentation/widgets/tracksSearchField.dart';
 
 class Stataictrackspagebody extends StatefulWidget {
   const Stataictrackspagebody({super.key});
@@ -20,7 +21,6 @@ class Stataictrackspagebody extends StatefulWidget {
 class _StataictrackspagebodyState extends State<Stataictrackspagebody> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
       context.read<TracksBloc>().add(GetAllTracksInHome());
@@ -32,23 +32,35 @@ class _StataictrackspagebodyState extends State<Stataictrackspagebody> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: CustomAppBarINTracks(
-        title: 'Roadmaps',
+        title: 'Tracks',
       ),
-      body: BlocConsumer<TracksBloc, TracksState>(
-        listener: (context, state) {
-          log(state.toString());
-        },
-        builder: (context, state) {
-          if (state is TracksSuccess) {
-            return Stataictrackspagebodycontent(
-              data: state.data,
-            );
-          } else if (state is TracksLoading) {
-            return DetailedLoadingShimmer();
-          } else {
-            return TracksErrorWidget();
-          }
-        },
+      body: CustomScrollView(
+        slivers: [
+          /// Search Field (برا الـ Bloc)
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: BeautifulSearchField(),
+            ),
+          ),
+
+          SliverToBoxAdapter(
+            child: BlocConsumer<TracksBloc, TracksState>(
+              listener: (context, state) {
+                log(state.toString());
+              },
+              builder: (context, state) {
+                if (state is TracksLoading) {
+                  return DetailedLoadingShimmer();
+                } else if (state is TracksSuccess) {
+                  return Stataictrackspagebodycontent(data: state.data);
+                } else {
+                  return const TracksErrorWidget();
+                }
+              },
+            ),
+          ),
+        ],
       ),
     );
   }
