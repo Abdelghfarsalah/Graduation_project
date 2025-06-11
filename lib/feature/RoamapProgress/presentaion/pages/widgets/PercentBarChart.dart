@@ -1,7 +1,6 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/feature/RoamapProgress/presentaion/manager/get_user_progress_roadmap/get_user_progress_roadmap_bloc.dart';
 
 class PercentBarChart extends StatelessWidget {
@@ -40,11 +39,10 @@ class PercentBarChart extends StatelessWidget {
               sideTitles: SideTitles(
                 showTitles: true,
                 interval: 20,
-                getTitlesWidget: (value, _) => SizedBox(
-                    child: Text(
+                getTitlesWidget: (value, _) => Text(
                   '${value.toInt()}',
-                  style: TextStyle(fontSize: 12.sp),
-                )),
+                  style: TextStyle(fontSize: 12),
+                ),
               ),
             ),
             topTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
