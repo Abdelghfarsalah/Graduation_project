@@ -188,4 +188,17 @@ class SharedPreferencesDemo {
     final prefs = await SharedPreferences.getInstance();
     return prefs.getString('groupName');
   }
+
+  //chat bot "show welcome page"
+
+  static Future<void> SetDontshowwelcomepageForchatBot() async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setBool('dontshowwelcomepage', true);
+  }
+
+  /// جلب الاسم فقط
+  static Future<bool?> GetDontshowwelcomepageForChatBot() async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getBool('dontshowwelcomepage');
+  }
 }

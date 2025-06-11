@@ -19,7 +19,7 @@ class Buttons extends StatelessWidget {
           visible: !Fourpage,
           child: TextButton(
               onPressed: () {
-                Animationsforpages.navigateWithSlidepush(
+                Animationsforpages.navigateWithSlidepushandreplace(
                     context, WelcomePage());
                 // Navigator.push(context,
                 //     MaterialPageRoute(builder: (context) => WelcomePage()));

@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:graduation_project/core/fonts.dart';
+import 'package:graduation_project/core/utils/SharedPreferencesDemo.dart';
+import 'package:graduation_project/core/utils/animations.dart';
+import 'package:graduation_project/feature/chat/presentation/pages/chatpage.dart';
 import 'package:graduation_project/feature/chat/presentation/pages/welcomepage.dart';
 import 'package:graduation_project/feature/onboarding/presentaion/pages/widget/login_button.dart';
 import 'package:graduation_project/feature/onboarding/presentaion/pages/widget/register_button.dart';
@@ -37,12 +40,18 @@ class WelcomePage extends StatelessWidget {
                         fontWeight: FontWeight.w700),
                   ),
                   GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => WelcomepageChabot()),
-                      );
+                    onTap: () async {
+                      bool dontshowwelcomepage = await SharedPreferencesDemo
+                              .GetDontshowwelcomepageForChatBot() ??
+                          false;
+                      if (dontshowwelcomepage) {
+                        Animationsforpages.navigateWithSlidepush(
+                            context, Chatpage());
+                        ;
+                      } else {
+                        Animationsforpages.navigateWithSlidepush(
+                            context, WelcomepageChabot());
+                      }
                     },
                     child: Container(
                       height: 38.h,

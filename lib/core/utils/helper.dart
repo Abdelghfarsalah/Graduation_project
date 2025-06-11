@@ -95,7 +95,7 @@ class Helper {
             Icons.bar_chart,
             size: 21,
           ),
-          label: "your Learning"),
+          label: "Learning"),
       BottomNavigationBarItem(
           icon: Icon(
             FontAwesomeIcons.users,

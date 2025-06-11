@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:graduation_project/core/fonts.dart';
+import 'package:graduation_project/core/utils/SharedPreferencesDemo.dart';
 import 'package:graduation_project/feature/chat/presentation/pages/chatpage.dart';
 
 class Welcomepagebody extends StatelessWidget {
@@ -55,7 +56,9 @@ class Welcomepagebody extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20.0),
             child: GestureDetector(
-              onTap: () {
+              onTap: () async {
+                await SharedPreferencesDemo.SetDontshowwelcomepageForchatBot();
+
                 Navigator.pushReplacement(
                   context,
                   PageRouteBuilder(

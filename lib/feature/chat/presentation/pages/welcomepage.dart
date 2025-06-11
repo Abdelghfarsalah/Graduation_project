@@ -2,9 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/feature/chat/presentation/widget/welcomepagebody.dart';
 
-class WelcomepageChabot extends StatelessWidget {
+class WelcomepageChabot extends StatefulWidget {
   const WelcomepageChabot({super.key});
 
+  @override
+  State<WelcomepageChabot> createState() => _WelcomepageChabotState();
+}
+
+class _WelcomepageChabotState extends State<WelcomepageChabot> {
+  @override
   @override
   Widget build(BuildContext context) {
     return Scaffold(
