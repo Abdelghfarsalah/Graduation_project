@@ -13,7 +13,7 @@ class PercentBarChart extends StatelessWidget {
   Widget build(BuildContext context) {
     var bloc = BlocProvider.of<GetUserProgressRoadmapBloc>(context).percentages;
     return SizedBox(
-      height: MediaQuery.sizeOf(context).width,
+      height: MediaQuery.sizeOf(context).height * 0.25,
       child: BarChart(
         BarChartData(
           maxY: 100,

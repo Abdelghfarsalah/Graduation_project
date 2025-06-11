@@ -6,6 +6,8 @@ import 'package:graduation_project/core/fonts.dart';
 import 'package:graduation_project/core/utils/SharedPreferencesDemo.dart';
 import 'package:graduation_project/feature/Account/presentation/manager/update_avatar/update_avatar_bloc.dart';
 import 'package:graduation_project/feature/Account/presentation/manager/update_avatar/update_avatar_state.dart';
+import 'package:graduation_project/feature/Account/presentation/manager/update_name/update_name_bloc.dart';
+import 'package:graduation_project/feature/Account/presentation/manager/update_name/update_name_state.dart';
 import 'package:graduation_project/feature/Account/presentation/widgets/avatarImageinAccount.dart';
 
 class Accountcard extends StatefulWidget {
@@ -58,26 +60,33 @@ class _AccountcardState extends State<Accountcard> {
                       SizedBox(
                         height: 15.h,
                       ),
-                      FutureBuilder<String>(
-                        future: getUserName(),
-                        builder: (context, snapshot) {
-                          if (snapshot.connectionState ==
-                              ConnectionState.waiting) {
-                            return CircularProgressIndicator(); // أو Placeholder
-                          } else if (snapshot.hasError) {
-                            return Text("Error: ${snapshot.error}");
-                          } else if (snapshot.hasData) {
-                            return Text(
-                              snapshot.data!,
-                              style: TextStyle(
-                                fontFamily: appFonts.Poppins,
-                                fontSize: 20.sp,
-                                fontWeight: FontWeight.w700,
-                              ),
-                            );
-                          } else {
-                            return Text("No name available");
-                          }
+                      BlocConsumer<UpdateNameBloc, UpdateNameStatus>(
+                        listener: (context, state) {
+                          // TODO: implement listener
+                        },
+                        builder: (context, state) {
+                          return FutureBuilder<String>(
+                            future: getUserName(),
+                            builder: (context, snapshot) {
+                              if (snapshot.connectionState ==
+                                  ConnectionState.waiting) {
+                                return CircularProgressIndicator(); // أو Placeholder
+                              } else if (snapshot.hasError) {
+                                return Text("Error: ${snapshot.error}");
+                              } else if (snapshot.hasData) {
+                                return Text(
+                                  snapshot.data!,
+                                  style: TextStyle(
+                                    fontFamily: appFonts.Poppins,
+                                    fontSize: 20.sp,
+                                    fontWeight: FontWeight.w700,
+                                  ),
+                                );
+                              } else {
+                                return Text("No name available");
+                              }
+                            },
+                          );
                         },
                       ),
                       SizedBox(

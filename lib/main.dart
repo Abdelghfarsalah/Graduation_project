@@ -1,3 +1,4 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gemini/flutter_gemini.dart';
@@ -19,12 +20,17 @@ void main() async {
   final bool seenOnboarding = await SharedPreferencesDemo.getFirstTime();
   final bool haveToken =
       await SharedPreferencesDemo.getToken() == null ? false : true;
-  runApp(AppBlocProviders.getblocprovider(
-    child: GraduationProject(
-      seenOnboarding: seenOnboarding,
-      haveToken: haveToken,
+  runApp(
+    DevicePreview(
+      enabled: true, // استخدم DevicePreview فقط في وضع التطوير
+      builder: (context) => AppBlocProviders.getblocprovider(
+        child: GraduationProject(
+          seenOnboarding: seenOnboarding,
+          haveToken: haveToken,
+        ),
+      ),
     ),
-  ));
+  );
 }
 
 class GraduationProject extends StatelessWidget {

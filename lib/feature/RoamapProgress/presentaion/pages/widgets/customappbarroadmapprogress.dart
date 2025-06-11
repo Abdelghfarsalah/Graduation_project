@@ -55,17 +55,20 @@ PreferredSize roadmapAppBarForProgress(
                         ),
                       ),
                       SizedBox(width: 12.w),
-                      Text(
-                        title,
-                        style: TextStyle(
-                          fontSize: 18.sp,
-                          fontWeight: FontWeight.w800,
-                          color: Colors.white,
-                          fontFamily: appFonts.Poppins,
-                          letterSpacing: 0.5,
+                      SizedBox(
+                        width: MediaQuery.sizeOf(context).width * 0.7,
+                        child: Text(
+                          title,
+                          style: TextStyle(
+                            fontSize: 18.sp,
+                            fontWeight: FontWeight.w800,
+                            color: Colors.white,
+                            fontFamily: appFonts.Poppins,
+                            letterSpacing: 0.5,
+                          ),
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
                         ),
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
                       ),
                     ],
                   ),
