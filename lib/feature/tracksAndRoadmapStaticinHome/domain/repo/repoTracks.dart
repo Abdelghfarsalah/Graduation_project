@@ -1,0 +1,6 @@
+import 'package:dartz/dartz.dart';
+import 'package:graduation_project/feature/tracksAndRoadmapStaticinHome/data/models/staticTrackmodels.dart';
+
+abstract class Repotracks {
+  Future<Either<bool, TracksResponse>> GetAllTracks();
+}

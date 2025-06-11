@@ -225,8 +225,6 @@ class _CustomDropdownState extends State<Diplayroadmapinprogress> {
                                                             extractTitleCompletedMap(
                                                                 state.data);
                                                       }
-                                                      print(
-                                                          "==========================object");
                                                     },
                                                     builder: (context, state) {
                                                       return Row(

@@ -28,9 +28,11 @@ class Authdatasources {
       LoginResponse model = LoginResponse.fromJson(response.data);
       return Right(model); // Success case
     } on DioException catch (e) {
+      print(e.toString());
       String errorMessage = Dioerrorhelper.handleDioError(e);
       return Left(Loginfailuer(errorMessage)); // Error case
     } catch (e) {
+      print(e.toString());
       return Left(Loginfailuer("Unexpected error occurred"));
     }
   }
