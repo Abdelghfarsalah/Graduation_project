@@ -7,4 +7,9 @@ class Trackshelper {
   static searchTracksMethod(String name) {
     return searchTracks + name;
   }
+
+  static String getytrackById = "$baseurl/track/";
+  static getytrackByIdMethod(String id) {
+    return getytrackById + id;
+  }
 }
