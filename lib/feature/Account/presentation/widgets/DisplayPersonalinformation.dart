@@ -24,7 +24,7 @@ class _DisplaypersonalinformationState
           future: SharedPreferencesDemo.getUserEmail(),
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
-              return CircularProgressIndicator(); // أو شيمر مثلاً
+              return Text(" loading email..."); // أو شيمر مثلاً
             } else if (snapshot.hasError) {
               return Text("Error loading email");
             } else if (snapshot.hasData) {

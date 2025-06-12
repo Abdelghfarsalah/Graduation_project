@@ -70,7 +70,17 @@ class _AccountcardState extends State<Accountcard> {
                             builder: (context, snapshot) {
                               if (snapshot.connectionState ==
                                   ConnectionState.waiting) {
-                                return CircularProgressIndicator(); // أو Placeholder
+                                return Text(
+                                  "Loading Name ...",
+                                  style: TextStyle(
+                                    fontFamily: appFonts.Poppins,
+                                    fontSize: 22,
+                                    fontWeight: FontWeight.w600,
+                                    color: Colors.white,
+                                  ),
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                ); // أو Placeholder
                               } else if (snapshot.hasError) {
                                 return Text("Error: ${snapshot.error}");
                               } else if (snapshot.hasData) {

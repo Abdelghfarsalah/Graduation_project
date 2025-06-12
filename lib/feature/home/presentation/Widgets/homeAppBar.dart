@@ -46,7 +46,17 @@ class Homeappbar extends StatelessWidget {
                       builder: (context, snapshot) {
                         if (snapshot.connectionState ==
                             ConnectionState.waiting) {
-                          return CircularProgressIndicator(); // عرض مؤشر تحميل أثناء جلب البيانات
+                          return Text(
+                            "Loading Name ...",
+                            style: TextStyle(
+                              fontFamily: appFonts.Poppins,
+                              fontSize: 22,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.white,
+                            ),
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                          ); // عرض مؤشر تحميل أثناء جلب البيانات
                         } else if (snapshot.hasError) {
                           return Text(
                               "خطأ في تحميل الاسم"); // التعامل مع الأخطاء
