@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:graduation_project/core/utils/animations.dart';
 import 'package:graduation_project/feature/Account/presentation/pages/SettingPage.dart';
 
 class Settingicon extends StatelessWidget {
@@ -13,8 +14,9 @@ class Settingicon extends StatelessWidget {
         right: 20.w,
         child: GestureDetector(
             onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => Settingpage()));
+              Animationsforpages.navigateWithSlidepush(context, Settingpage());
+              // Navigator.push(context,
+              //     MaterialPageRoute(builder: (context) => Settingpage()));
             },
             child: Image.asset("assets/HomeImage/Accountimages/Setting.png")));
   }
