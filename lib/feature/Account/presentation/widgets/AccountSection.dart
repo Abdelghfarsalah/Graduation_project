@@ -8,7 +8,6 @@ import 'package:graduation_project/feature/Account/presentation/pages/Editpage.d
 import 'package:graduation_project/feature/Account/presentation/pages/SettingPages/PrivacyPage.dart';
 import 'package:graduation_project/feature/Account/presentation/pages/SettingPages/SecurityPage.dart';
 import 'package:graduation_project/feature/Account/presentation/widgets/SettingCard.dart';
-import 'package:graduation_project/feature/Notifications/presentation/pages/Notificationpages.dart';
 
 class Accountsection extends StatelessWidget {
   const Accountsection({super.key});
@@ -47,13 +46,13 @@ class Accountsection extends StatelessWidget {
             onTap: () {
               Animationsforpages.navigateWithSlidepush(context, SecurityPage());
             }),
-        Settingcard(
-            title: "Notifications",
-            icon: Icon(FontAwesomeIcons.bell),
-            onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => Notificationpages()));
-            }),
+        // Settingcard(
+        //     title: "Notifications",
+        //     icon: Icon(FontAwesomeIcons.bell),
+        //     onTap: () {
+        //       Navigator.push(context,
+        //           MaterialPageRoute(builder: (context) => Notificationpages()));
+        //     }),
         Settingcard(
             title: "Privacy",
             icon: Icon(Icons.lock_outline_rounded),

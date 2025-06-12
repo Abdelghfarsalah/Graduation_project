@@ -25,7 +25,7 @@ class _AccountpageState extends State<Accountpage> {
   bool inAsyncCall = false;
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<UpdateAvatarBloc, UpdateAvatarStatus>(
+    return BlocConsumer<UpdateAvatarBloc, UpdateAvatarStates>(
       listener: (context, state) {
         if (state is UpdateAvatarLoading) {
           inAsyncCall = true;

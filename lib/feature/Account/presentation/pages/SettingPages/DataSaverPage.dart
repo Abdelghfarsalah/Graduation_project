@@ -16,7 +16,7 @@ class DataSaverPage extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: AppBar(
         title: const Text('Data Saver & Cache Policy'),
-        backgroundColor: const Color(0xffF4F4F7),
+        backgroundColor: Colors.white,
         foregroundColor: Colors.black,
         scrolledUnderElevation: 0,
       ),

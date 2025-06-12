@@ -19,7 +19,7 @@ class _BlockchainPageState extends State<BlockchainPage> {
     _youtubeController = YoutubePlayerController(
       initialVideoId: 'QphJEO9ZX6s',
       flags: const YoutubePlayerFlags(
-        autoPlay: true,
+        autoPlay: false,
         mute: false,
         disableDragSeek: true,
         loop: false,

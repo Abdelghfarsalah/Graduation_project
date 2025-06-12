@@ -19,7 +19,7 @@ class _RPAPageState extends State<RPAPage> {
     _youtubeController = YoutubePlayerController(
       initialVideoId: '6S1etS5cLYI',
       flags: const YoutubePlayerFlags(
-        autoPlay: true,
+        autoPlay: false,
         mute: false,
         disableDragSeek: true,
         loop: false,

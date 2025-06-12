@@ -20,7 +20,7 @@ class _CloudComputingPageState extends State<CloudComputingPage> {
     _youtubeController = YoutubePlayerController(
       initialVideoId: '27vJg3v9AqM',
       flags: const YoutubePlayerFlags(
-        autoPlay: true,
+        autoPlay: false,
         mute: false,
         disableDragSeek: true,
         loop: false,

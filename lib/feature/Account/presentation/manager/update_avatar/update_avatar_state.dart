@@ -1,12 +1,12 @@
-abstract class UpdateAvatarStatus {}
+abstract class UpdateAvatarStates {}
 
-class UpdateAvatarInitial extends UpdateAvatarStatus {}
+class UpdateAvatarInitial extends UpdateAvatarStates {}
 
-class UpdateAvatarLoading extends UpdateAvatarStatus {}
+class UpdateAvatarLoading extends UpdateAvatarStates {}
 
-class UpdateAvatarSuccess extends UpdateAvatarStatus {}
+class UpdateAvatarSuccess extends UpdateAvatarStates {}
 
-class UpdateAvatarFailure extends UpdateAvatarStatus {
+class UpdateAvatarFailure extends UpdateAvatarStates {
   final String error;
 
   UpdateAvatarFailure(this.error);

@@ -16,7 +16,7 @@ class TermsAndPoliciesPage extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: AppBar(
         title: const Text('Terms & Policies'),
-        backgroundColor: const Color(0xffF4F4F7),
+        backgroundColor: Colors.white,
         foregroundColor: Colors.black,
         scrolledUnderElevation: 0,
       ),

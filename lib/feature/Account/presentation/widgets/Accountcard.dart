@@ -46,7 +46,7 @@ class _AccountcardState extends State<Accountcard> {
               top: -50.h,
               child: Avatarimageinaccount(),
             ),
-            BlocConsumer<UpdateAvatarBloc, UpdateAvatarStatus>(
+            BlocConsumer<UpdateAvatarBloc, UpdateAvatarStates>(
               listener: (context, state) {
                 if (state is UpdateAvatarSuccess) {
                   setState(() {});

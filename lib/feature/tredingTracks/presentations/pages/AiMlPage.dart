@@ -19,7 +19,7 @@ class _AIHackathonsPageState extends State<AIHackathonsPage> {
     _youtubeController = YoutubePlayerController(
       initialVideoId: 'qYNweeDHiyU',
       flags: const YoutubePlayerFlags(
-        autoPlay: true,
+        autoPlay: false,
         mute: false,
         disableDragSeek: true,
         loop: false,

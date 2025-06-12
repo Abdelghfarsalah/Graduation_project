@@ -19,7 +19,7 @@ class _CyberSecurityPageState extends State<CyberSecurityPage> {
     _youtubeController = YoutubePlayerController(
       initialVideoId: '4CuXNs6SboU',
       flags: const YoutubePlayerFlags(
-        autoPlay: true,
+        autoPlay: false,
         mute: false,
         disableDragSeek: true,
         loop: false,

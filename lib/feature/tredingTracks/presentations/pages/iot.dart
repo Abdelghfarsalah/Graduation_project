@@ -19,7 +19,7 @@ class _IoTDevelopmentPageState extends State<IoTDevelopmentPage> {
     _youtubeController = YoutubePlayerController(
       initialVideoId: 'GIfWNtMfYvk',
       flags: const YoutubePlayerFlags(
-        autoPlay: true,
+        autoPlay: false,
         mute: false,
         disableDragSeek: true,
         loop: false,

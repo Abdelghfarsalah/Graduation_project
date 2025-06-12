@@ -19,7 +19,7 @@ class _DigitalTwinsPageState extends State<DigitalTwinsPage> {
     _youtubeController = YoutubePlayerController(
       initialVideoId: '2hnoGo27uf8',
       flags: const YoutubePlayerFlags(
-        autoPlay: true,
+        autoPlay: false,
         mute: false,
         disableDragSeek: true,
         loop: false,

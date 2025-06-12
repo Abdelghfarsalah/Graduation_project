@@ -19,7 +19,7 @@ class _AIHackathonsPageState extends State<VirtualRealityPage> {
     _youtubeController = YoutubePlayerController(
       initialVideoId: 'Z_0iFPRYAbI',
       flags: const YoutubePlayerFlags(
-        autoPlay: true,
+        autoPlay: false,
         mute: false,
         disableDragSeek: true,
         loop: false,

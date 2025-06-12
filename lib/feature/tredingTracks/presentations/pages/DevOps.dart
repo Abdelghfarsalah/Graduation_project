@@ -19,7 +19,7 @@ class _DevOpsPageState extends State<DevOpsPage> {
     _youtubeController = YoutubePlayerController(
       initialVideoId: 'UbtB4sMaaNM',
       flags: const YoutubePlayerFlags(
-        autoPlay: true,
+        autoPlay: false,
         mute: false,
         disableDragSeek: true,
         loop: false,

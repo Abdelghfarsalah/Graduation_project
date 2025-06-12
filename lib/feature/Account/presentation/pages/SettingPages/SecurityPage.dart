@@ -16,7 +16,7 @@ class SecurityPage extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: AppBar(
         title: const Text('Security'),
-        backgroundColor: Color(0xffF4F4F7),
+        backgroundColor: Colors.white,
         foregroundColor: Colors.black,
         scrolledUnderElevation: 0,
       ),

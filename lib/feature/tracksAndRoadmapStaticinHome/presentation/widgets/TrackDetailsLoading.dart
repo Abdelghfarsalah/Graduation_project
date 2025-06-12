@@ -14,6 +14,16 @@ class TrackDetailsLoading extends StatelessWidget {
           SliverAppBar(
             expandedHeight: 200.h,
             pinned: true,
+            leading: IconButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: Icon(
+                Icons.arrow_back_ios,
+                color: Colors.black,
+              ),
+            ),
+            automaticallyImplyLeading: false,
             backgroundColor: Colors.black,
             flexibleSpace: Shimmer.fromColors(
               baseColor: Colors.grey[300]!,

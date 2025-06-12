@@ -5,14 +5,14 @@ import 'package:graduation_project/feature/Account/presentation/manager/update_a
 
 import 'update_avatar_state.dart';
 
-class UpdateAvatarBloc extends Bloc<UpdateAvatarEvent, UpdateAvatarStatus> {
+class UpdateAvatarBloc extends Bloc<UpdateAvatarEvent, UpdateAvatarStates> {
   final accountrepo repo;
   UpdateAvatarBloc(this.repo) : super(UpdateAvatarInitial()) {
     on<updateAvatar>(_updateAvatar);
   }
 
   void _updateAvatar(
-      updateAvatar event, Emitter<UpdateAvatarStatus> emit) async {
+      updateAvatar event, Emitter<UpdateAvatarStates> emit) async {
     emit(UpdateAvatarLoading());
 
     final result = await repo.updateUseravatar(event.imageFile);

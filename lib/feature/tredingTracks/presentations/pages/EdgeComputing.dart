@@ -19,7 +19,7 @@ class _EdgeComputingPageState extends State<EdgeComputingPage> {
     _youtubeController = YoutubePlayerController(
       initialVideoId: 'cEOUeItHDdo',
       flags: const YoutubePlayerFlags(
-        autoPlay: true,
+        autoPlay: false,
         mute: false,
         disableDragSeek: true,
         loop: false,

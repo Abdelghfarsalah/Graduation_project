@@ -4,6 +4,7 @@ import 'package:graduation_project/feature/RoamapProgress/data/model/userRoadmap
 import 'package:graduation_project/feature/RoamapProgress/presentaion/manager/get_user_progress_roadmap/get_user_progress_roadmap_bloc.dart';
 import 'package:graduation_project/feature/RoamapProgress/presentaion/manager/get_user_progress_roadmap/get_user_progress_roadmap_event.dart';
 import 'package:graduation_project/feature/RoamapProgress/presentaion/manager/get_user_progress_roadmap/get_user_progress_roadmap_state.dart';
+import 'package:graduation_project/feature/RoamapProgress/presentaion/pages/widgets/LearningMapErrorPage.dart';
 import 'package:graduation_project/feature/RoamapProgress/presentaion/pages/widgets/customappbarroadmapprogress.dart';
 import 'package:graduation_project/feature/RoamapProgress/presentaion/pages/widgets/progressBody.dart';
 
@@ -63,6 +64,7 @@ class _UserroabmapprogresspageState extends State<Userroabmapprogresspage> {
         } else {
           return Scaffold(
             appBar: roadmapAppBarForProgress(context, "Roadmap", 0),
+            body: LearningMapErrorPage(),
           );
         }
       },

@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:graduation_project/feature/Account/presentation/manager/update_avatar/update_avatar_bloc.dart';
+import 'package:graduation_project/feature/Account/presentation/manager/update_avatar/update_avatar_state.dart';
 import 'package:graduation_project/feature/Account/presentation/manager/update_name/update_name_bloc.dart';
 import 'package:graduation_project/feature/Account/presentation/manager/update_name/update_name_event.dart';
 import 'package:graduation_project/feature/Account/presentation/manager/update_name/update_name_state.dart';
+import 'package:graduation_project/feature/Account/presentation/widgets/avatarImageinAccount.dart';
 import 'package:loading_indicator/loading_indicator.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
@@ -45,60 +49,79 @@ class _EditNamePageState extends State<EditNamePage> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<UpdateNameBloc, UpdateNameStatus>(
+    return BlocConsumer<UpdateAvatarBloc, UpdateAvatarStates>(
       listener: (context, state) {
-        if (state is UpdateNameLoading) {
+        if (state is UpdateAvatarLoading) {
           inAsyncCall = true;
         } else {
           inAsyncCall = false;
         }
-        if (state is UpdateNameSuccess) {
-          Fluttertoast.showToast(
-            msg: "Name updated successfully 🎉",
-            toastLength: Toast.LENGTH_SHORT,
-            gravity: ToastGravity.BOTTOM,
-            backgroundColor: const Color(0xFF4CAF50), // Green color
-            textColor: Colors.white,
-            fontSize: 16.0,
-          );
-          Navigator.pop(context, _nameController.text.trim());
-        } else if (state is UpdateNameFailure) {
-          Fluttertoast.showToast(
-            msg: "Failed to update name. Please try again.",
-            toastLength: Toast.LENGTH_SHORT,
-            gravity: ToastGravity.BOTTOM,
-            backgroundColor: Colors.redAccent,
-            textColor: Colors.white,
-            fontSize: 16.0,
-          );
-        }
       },
-      builder: (BuildContext context, state) {
-        return ModalProgressHUD(
-          progressIndicator: _buildLoadingIndicator(context),
-          inAsyncCall: inAsyncCall,
-          child: Scaffold(
-            backgroundColor: Colors.grey[50],
-            appBar: _buildAppBar(),
-            body: SingleChildScrollView(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 24.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const SizedBox(height: 24),
-                    _buildHeaderSection(),
-                    const SizedBox(height: 32),
-                    _buildNameForm(),
-                    const SizedBox(height: 24),
-                    _buildSaveButton(),
-                    const SizedBox(height: 16),
-                    _buildNameGuidelines(),
-                  ],
+      builder: (context, state) {
+        return BlocConsumer<UpdateNameBloc, UpdateNameStatus>(
+          listener: (context, state) {
+            if (state is UpdateNameLoading) {
+              inAsyncCall = true;
+            } else {
+              inAsyncCall = false;
+            }
+            if (state is UpdateNameSuccess) {
+              Fluttertoast.showToast(
+                msg: "Name updated successfully 🎉",
+                toastLength: Toast.LENGTH_SHORT,
+                gravity: ToastGravity.BOTTOM,
+                backgroundColor: const Color(0xFF4CAF50), // Green color
+                textColor: Colors.white,
+                fontSize: 16.0,
+              );
+              // Navigator.pop(context, _nameController.text.trim());
+            } else if (state is UpdateNameFailure) {
+              Fluttertoast.showToast(
+                msg: "Failed to update name. Please try again.",
+                toastLength: Toast.LENGTH_SHORT,
+                gravity: ToastGravity.BOTTOM,
+                backgroundColor: Colors.redAccent,
+                textColor: Colors.white,
+                fontSize: 16.0,
+              );
+            }
+          },
+          builder: (BuildContext context, state) {
+            return ModalProgressHUD(
+              progressIndicator: _buildLoadingIndicator(context),
+              inAsyncCall: inAsyncCall,
+              child: Scaffold(
+                backgroundColor: Colors.grey[50],
+                appBar: _buildAppBar(),
+                body: SingleChildScrollView(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        _buildHeaderSection('Update Your Profile Avatar',
+                            'This avatar will be visible to other users in the app'),
+                        Center(child: Avatarimageinaccount()),
+                        const SizedBox(height: 24),
+                        SizedBox(height: 24.h),
+                        Divider(color: Colors.grey[300], height: 1),
+                        SizedBox(height: 24.h),
+                        const SizedBox(height: 24),
+                        _buildHeaderSection('Update Your Profile Name',
+                            'This name will be visible to other users in the app'),
+                        const SizedBox(height: 32),
+                        _buildNameForm(),
+                        const SizedBox(height: 24),
+                        _buildSaveButton(ontap: () => _saveName(context)),
+                        const SizedBox(height: 16),
+                        _buildNameGuidelines(),
+                      ],
+                    ),
+                  ),
                 ),
               ),
-            ),
-          ),
+            );
+          },
         );
       },
     );
@@ -128,13 +151,14 @@ class _EditNamePageState extends State<EditNamePage> {
     return AppBar(
       backgroundColor: Colors.transparent,
       elevation: 0,
+      scrolledUnderElevation: 0,
       leading: IconButton(
         icon:
             const Icon(Icons.arrow_back_ios_new_rounded, color: Colors.black87),
         onPressed: () => Navigator.pop(context),
       ),
       title: Text(
-        'Edit Profile Name',
+        'Edit Profile ',
         style: GoogleFonts.poppins(
           fontWeight: FontWeight.w600,
           color: Colors.black87,
@@ -145,21 +169,21 @@ class _EditNamePageState extends State<EditNamePage> {
     );
   }
 
-  Widget _buildHeaderSection() {
+  Widget _buildHeaderSection(String title, String subtitle) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Update Your Profile Name',
+          title,
           style: GoogleFonts.poppins(
-            fontSize: 22,
+            fontSize: 16,
             fontWeight: FontWeight.w700,
             color: Colors.black87,
           ),
         ),
         const SizedBox(height: 8),
         Text(
-          'This name will be visible to other users in the app',
+          subtitle,
           style: GoogleFonts.poppins(
             fontSize: 14,
             color: Colors.grey[600],
@@ -230,11 +254,11 @@ class _EditNamePageState extends State<EditNamePage> {
     );
   }
 
-  Widget _buildSaveButton() {
+  Widget _buildSaveButton({required void Function()? ontap}) {
     return SizedBox(
       width: double.infinity,
       child: ElevatedButton(
-        onPressed: () => _saveName(context),
+        onPressed: ontap,
         style: ElevatedButton.styleFrom(
           backgroundColor: const Color(0xFF4A90E2),
           padding: const EdgeInsets.symmetric(vertical: 18),

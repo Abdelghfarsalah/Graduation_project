@@ -19,7 +19,7 @@ class _BioinformaticsPageState extends State<BioinformaticsPage> {
     _youtubeController = YoutubePlayerController(
       initialVideoId: 'qhoDiwEX8mI',
       flags: const YoutubePlayerFlags(
-        autoPlay: true,
+        autoPlay: false,
         mute: false,
         disableDragSeek: true,
         loop: false,
