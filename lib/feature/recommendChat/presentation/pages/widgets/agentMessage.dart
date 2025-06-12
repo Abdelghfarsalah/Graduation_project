@@ -15,14 +15,22 @@ import 'package:graduation_project/feature/recommendChat/presentation/pages/widg
 import 'package:graduation_project/feature/recommendChat/presentation/pages/widgets/displaytimeLine.dart';
 
 class Agentmessage extends StatelessWidget {
-  const Agentmessage({super.key, required this.text});
+  const Agentmessage(
+      {super.key,
+      required this.text,
+      required this.indexTOgetDataForStartLearning});
   final Roadmapmodel2 text;
-
+  final int indexTOgetDataForStartLearning;
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => StartLearningTracksBloc(
-          Roadmaprpo(datasources: Rescommendchatdatasources(dio: Dio()))),
+        Roadmaprpo(
+          datasources: Rescommendchatdatasources(
+            dio: Dio(),
+          ),
+        ),
+      ),
       child: IntrinsicWidth(
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.end,
@@ -107,31 +115,21 @@ class Agentmessage extends StatelessWidget {
                                     ),
                                   )),
                         ),
+                        SizedBox(height: 18.h),
 
                         /// الزر
                         Center(
                           child: Padding(
                             padding: const EdgeInsets.symmetric(
-                                horizontal: 16.0, vertical: 0),
-                            child: ElevatedButton(
-                              onPressed: () {
+                                horizontal: 0, vertical: 0),
+                            child: GestureDetector(
+                              onTap: () {
                                 Animationsforpages.navigateWithSlidepush(
                                   context,
                                   Displaytimeline(mdoel: text),
                                 );
                               },
-                              style: ElevatedButton.styleFrom(
-                                foregroundColor: Colors.white,
-                                backgroundColor: Colors.transparent,
-                                elevation: 0,
-                                shadowColor: Colors.blue.withOpacity(0.3),
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: 24, vertical: 14),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(30),
-                                ),
-                              ),
-                              child: Ink(
+                              child: Container(
                                 decoration: BoxDecoration(
                                   gradient: LinearGradient(
                                     colors: [
@@ -143,38 +141,38 @@ class Agentmessage extends StatelessWidget {
                                   ),
                                   borderRadius: BorderRadius.circular(30),
                                 ),
-                                child: Container(
-                                  padding: EdgeInsets.symmetric(
-                                      horizontal: 20.w, vertical: 12.h),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-                                      Text(
-                                        'Show Timeline',
-                                        style: TextStyle(
-                                          fontSize: 16.sp,
-                                          fontWeight: FontWeight.w600,
-                                          letterSpacing: 0.8,
-                                          color: Colors.white,
-                                        ),
-                                      ),
-                                      SizedBox(width: 10.w),
-                                      Icon(
-                                        Icons.arrow_forward_rounded,
-                                        size: 24.sp,
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: 20.w, vertical: 12.h),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Text(
+                                      'Show Timeline',
+                                      style: TextStyle(
+                                        fontSize: 16.sp,
+                                        fontWeight: FontWeight.w600,
+                                        letterSpacing: 0.8,
                                         color: Colors.white,
                                       ),
-                                    ],
-                                  ),
+                                    ),
+                                    SizedBox(width: 10.w),
+                                    Icon(
+                                      Icons.arrow_forward_rounded,
+                                      size: 24.sp,
+                                      color: Colors.white,
+                                    ),
+                                  ],
                                 ),
                               ),
                             ),
                           ),
                         ),
+                        SizedBox(height: 18.h),
 
                         Startlearnbuttoninagnentmessages(
                           text: BlocProvider.of<ReccomendChatBlocBloc>(context)
-                              .SaveMaptoStartLearning,
+                                  .SaveRoadmapsToStartLearning[
+                              indexTOgetDataForStartLearning],
                         ),
 
                         SizedBox(height: 18.h),

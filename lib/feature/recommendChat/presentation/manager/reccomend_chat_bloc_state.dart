@@ -4,7 +4,11 @@ class Initrecommendstate extends ReccomendChatBlocState {}
 
 class Loading extends ReccomendChatBlocState {}
 
-class SuccessRoadmapstate extends ReccomendChatBlocState {}
+class SuccessRoadmapstate extends ReccomendChatBlocState {
+  final int Roadmapindex;
+
+  SuccessRoadmapstate({required this.Roadmapindex});
+}
 
 class Failuer extends ReccomendChatBlocState {}
 

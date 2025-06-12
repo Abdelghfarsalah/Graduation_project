@@ -12,9 +12,10 @@ import 'reccomend_chat_bloc_state.dart';
 class ReccomendChatBlocBloc
     extends Bloc<ReccomendChatBlocEvent, ReccomendChatBlocState> {
   List<Roadmapmodel2> chat = [];
+
+  List<Map<String, dynamic>> SaveRoadmapsToStartLearning = [];
   bool bottom = true;
   String track = "";
-  late Map<String, dynamic> SaveMaptoStartLearning;
   late Roadmapmodel2 roadmap;
   final Dio dio;
   final TextEditingController controller = TextEditingController();
@@ -32,30 +33,22 @@ class ReccomendChatBlocBloc
     chat.add(Roadmapmodel2(title: event.text, fromuser: true));
     emit(Loading());
     try {
-      print(
-          "=========================================loading===================================");
       track = event.text;
       var response = await dio.post(
           "http://164.128.130.9:8000/generate-roadmap",
           data: {"track": event.text});
-      print(
-          "===============success=============================================================");
+
       print(response.data);
-      SaveMaptoStartLearning = response.data;
+      SaveRoadmapsToStartLearning.add(response.data);
       roadmap = Roadmapmodel2.fromJson(response.data);
       chat.add(roadmap);
-      emit(SuccessRoadmapstate());
+      emit(SuccessRoadmapstate(
+          Roadmapindex: SaveRoadmapsToStartLearning.length - 1));
     } catch (e) {
       print(e.toString());
       emit(Failuer());
     }
   }
-
-  // void addtochat(FlutterRoadmapModel model) {
-  //   emit(Loading());
-  //   chat.add(model);
-  //   emit(Success());
-  // }
 
   Future<void> _FetchroadmapwithQuestion(FetchroadmapwithQuestion event,
       Emitter<ReccomendChatBlocState> emit) async {
@@ -74,10 +67,11 @@ class ReccomendChatBlocBloc
         "roadmap": "$escaped"
       });
 
-      SaveMaptoStartLearning = response.data;
+      SaveRoadmapsToStartLearning.add(response.data);
       chat.add(Roadmapmodel2.fromJson(response.data));
       roadmap = response.data["roadmap"];
-      emit(SuccessRoadmapstate());
+      emit(SuccessRoadmapstate(
+          Roadmapindex: SaveRoadmapsToStartLearning.length - 1));
     } catch (e) {
       print(e.toString());
       emit(Failuer());
@@ -86,19 +80,23 @@ class ReccomendChatBlocBloc
 
   void _onAddMessage(AddMessage event, Emitter<ReccomendChatBlocState> emit) {
     // chat.add(event.message);
-    emit(SuccessRoadmapstate());
+    emit(SuccessRoadmapstate(
+        Roadmapindex: SaveRoadmapsToStartLearning.length - 1));
   }
 
   void _onClearMessages(
       ClearMessages event, Emitter<ReccomendChatBlocState> emit) {
     chat.clear();
     track = "";
+
+    SaveRoadmapsToStartLearning.clear();
     emit(clearstate());
   }
 
   void _onScrollToStart(
       ScrollToStart event, Emitter<ReccomendChatBlocState> emit) {
     bottom = false;
+
     emit(scrollstate());
   }
 

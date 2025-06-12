@@ -25,7 +25,10 @@ class Usermessage extends StatelessWidget {
                 return CircleAvatar(
                   radius: 25,
                   backgroundColor: Colors.white,
-                  child: CircularProgressIndicator(strokeWidth: 2),
+                  child: CircularProgressIndicator(
+                    strokeWidth: 2,
+                    color: Colors.blueGrey,
+                  ),
                 );
               } else if (snapshot.hasError ||
                   !snapshot.hasData ||

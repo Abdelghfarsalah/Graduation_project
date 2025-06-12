@@ -52,8 +52,6 @@ class _StreamViewState extends State<Recommendchatview> {
       builder: (context, state) {
         return BlocConsumer<ReccomendChatBlocBloc, ReccomendChatBlocState>(
           listener: (context, state) {
-            print(state);
-            print("========================");
             if (state is Loading) {
               showLoadingAnalog(context);
             } else if (state is SuccessRoadmapstate || state is Failuer) {
@@ -82,6 +80,8 @@ class _StreamViewState extends State<Recommendchatview> {
                                     text: context
                                         .read<ReccomendChatBlocBloc>()
                                         .chat[index],
+                                    indexTOgetDataForStartLearning:
+                                        ((index - 1) / 2).toInt(),
                                   );
                           },
                         ),
