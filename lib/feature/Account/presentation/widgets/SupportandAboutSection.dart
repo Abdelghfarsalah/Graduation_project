@@ -5,6 +5,7 @@ import 'package:graduation_project/core/utils/animations.dart';
 import 'package:graduation_project/feature/Account/presentation/pages/SettingPages/HelpAndSupport.dart';
 import 'package:graduation_project/feature/Account/presentation/pages/SettingPages/TermsAndPolicies.dart';
 import 'package:graduation_project/feature/Account/presentation/widgets/SettingCard.dart';
+import 'package:graduation_project/feature/Courses/presentation/pages/UserCoursesPages.dart';
 
 class Supportandaboutsection extends StatelessWidget {
   const Supportandaboutsection({super.key});
@@ -28,7 +29,10 @@ class Supportandaboutsection extends StatelessWidget {
         Settingcard(
             title: "My Subscribtion",
             icon: Icon(Icons.subtitles),
-            onTap: () {}),
+            onTap: () {
+              Animationsforpages.navigateWithSlidepush(
+                  context, Usercoursespages());
+            }),
         Settingcard(
             title: "Help & Support",
             icon: Icon(Icons.help_outline_outlined),

@@ -16,9 +16,11 @@ class Videocard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context
-            .read<VideoplayerBloc>()
-            .add(playvideo(url: video.videoUrl, id: video.id));
+        context.read<VideoplayerBloc>().add(playvideo(
+            id: video.id,
+            videoUrl: video.videoUrl,
+            videoType: video.videoType,
+            youtubeId: video.youtubeId));
         !video.watched
             ? context
                 .read<MarkVideoAswatchedBloc>()

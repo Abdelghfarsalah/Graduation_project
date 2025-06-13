@@ -5,6 +5,7 @@ import 'package:graduation_project/core/utils/SharedPreferencesDemo.dart';
 import 'package:graduation_project/feature/Courses/domain/models/CourseWithProgressResponse.dart';
 import 'package:graduation_project/feature/Courses/domain/models/CoursesResponse.dart';
 import 'package:graduation_project/feature/Courses/domain/models/Enrollmentmodel.dart';
+import 'package:graduation_project/feature/Courses/domain/models/UserCoursesMode.dart';
 
 class Coursesdatasources {
   final Dio dio;
@@ -22,6 +23,26 @@ class Coursesdatasources {
         }),
       );
       CoursesResponse model = CoursesResponse.fromJson(response.data);
+      return Right(model); // Success case
+    } on DioException catch (e) {
+      // String errorMessage = Dioerrorhelper.handleDioError(e);
+      return Left(false); // Error case
+    } catch (e) {
+      return Left(false);
+    }
+  }
+
+  Future<Either<bool, UserCoursesModel>> GetUserCourses() async {
+    try {
+      String token = await SharedPreferencesDemo.getToken() ?? "";
+      var response = await dio.get(
+        Courseshelper.GetUserCourses,
+        options: Options(headers: {
+          'Authorization': 'Bearer $token',
+          'Content-Type': 'application/json',
+        }),
+      );
+      UserCoursesModel model = UserCoursesModel.fromJson(response.data);
       return Right(model); // Success case
     } on DioException catch (e) {
       // String errorMessage = Dioerrorhelper.handleDioError(e);
@@ -89,10 +110,12 @@ class Coursesdatasources {
           CourseWithProgressResponse.fromJson(response.data);
       return Right(model); // Success case
     } on DioException catch (e) {
+      print(e.toString());
       // String errorMessage = Dioerrorhelper.handleDioError(e);
 
       return Left(false); // Error case
     } catch (e) {
+      print(e.toString());
       return Left(false);
     }
   }

@@ -6,6 +6,7 @@ import 'package:graduation_project/feature/Courses/presentation/manager/videopla
 import 'package:graduation_project/feature/Courses/presentation/manager/videoplayer/videoplayer_state.dart';
 import 'package:graduation_project/feature/Courses/presentation/widgets/VideoPlayerWidget.dart';
 import 'package:graduation_project/feature/Courses/presentation/widgets/displaySection.dart';
+import 'package:graduation_project/feature/Courses/presentation/widgets/youtubeVideoPlayer.dart';
 
 class Viewcoursepagebody extends StatelessWidget {
   const Viewcoursepagebody(
@@ -23,11 +24,21 @@ class Viewcoursepagebody extends StatelessWidget {
         BlocBuilder<VideoplayerBloc, VideoplayerState>(
           builder: (context, state) {
             if (state is PlayingVideoState) {
-              return VideoPlayerWidget(
-                videoUrl: state.videoUrl,
-                videoiId: state.id,
-                CourseId: Courseid,
-              );
+              if (state.videoType == "youtube") {
+                print(state.videoUrl);
+                print(state.youtubeId);
+                return CustomYoutubePlayer(
+                  videoUrl: state.videoUrl,
+                  videoiId: state.youtubeId!,
+                  courseId: Courseid,
+                );
+              } else {
+                return VideoPlayerWidget(
+                  videoUrl: state.videoUrl,
+                  videoiId: state.id,
+                  CourseId: Courseid,
+                );
+              }
             } else {
               return Container(
                 width: MediaQuery.of(context).size.width,

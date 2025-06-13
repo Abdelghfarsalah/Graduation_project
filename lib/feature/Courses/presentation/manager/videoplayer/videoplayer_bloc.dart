@@ -12,6 +12,11 @@ class VideoplayerBloc extends Bloc<VideoplayerEvent, VideoplayerState> {
   }
 
   void _playvideo(playvideo event, Emitter<VideoplayerState> emit) async {
-    emit(PlayingVideoState(videoUrl: event.url, id: event.id));
+    emit(PlayingVideoState(
+      videoUrl: event.videoUrl,
+      id: event.id,
+      videoType: event.videoType,
+      youtubeId: event.youtubeId,
+    ));
   }
 }

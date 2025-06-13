@@ -1,8 +1,14 @@
 abstract class VideoplayerEvent {}
 
 class playvideo extends VideoplayerEvent {
-  final String url;
+  final String videoUrl;
   final String id;
+  final String videoType;
+  final String? youtubeId;
 
-  playvideo({required this.url, required this.id});
+  playvideo(
+      {required this.videoUrl,
+      required this.id,
+      required this.videoType,
+      this.youtubeId});
 }

@@ -23,4 +23,5 @@ class Courseshelper {
 
   //======================
   static String markvideoAsWatched = "$baseurl/courses/mark-video-watched";
+  static String GetUserCourses = "$baseurl/courses/user";
 }

@@ -182,7 +182,7 @@ class _VideoPlayerWidgetState extends State<VideoPlayerWidget> {
             ),
           )
         : AspectRatio(
-            aspectRatio: _controller.value.aspectRatio,
+            aspectRatio: 1 / 0.6,
             child: Container(
               decoration: BoxDecoration(color: Colors.black),
               child: Center(

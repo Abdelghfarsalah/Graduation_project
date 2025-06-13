@@ -3,6 +3,7 @@ import 'package:graduation_project/feature/Courses/data/Api/coursesDataSources.d
 import 'package:graduation_project/feature/Courses/domain/models/CourseWithProgressResponse.dart';
 import 'package:graduation_project/feature/Courses/domain/models/CoursesResponse.dart';
 import 'package:graduation_project/feature/Courses/domain/models/Enrollmentmodel.dart';
+import 'package:graduation_project/feature/Courses/domain/models/UserCoursesMode.dart';
 import 'package:graduation_project/feature/Courses/domain/repo/coursesrepo.dart';
 
 class Coursesrepoimple implements Coursesrepo {
@@ -56,6 +57,16 @@ class Coursesrepoimple implements Coursesrepo {
       {required String courseID, required String videoId}) async {
     var resonse = await coursesdatasources.markvideoAsWatched(
         courseID: courseID, videoId: videoId);
+    return resonse.fold((ifLeft) {
+      return left(ifLeft);
+    }, (ifRight) {
+      return right(ifRight);
+    });
+  }
+
+  @override
+  Future<Either<bool, UserCoursesModel>> GetUserCourses() async {
+    var resonse = await coursesdatasources.GetUserCourses();
     return resonse.fold((ifLeft) {
       return left(ifLeft);
     }, (ifRight) {
