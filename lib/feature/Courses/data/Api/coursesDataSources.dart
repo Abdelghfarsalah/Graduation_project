@@ -25,6 +25,7 @@ class Coursesdatasources {
       CoursesResponse model = CoursesResponse.fromJson(response.data);
       return Right(model); // Success case
     } on DioException catch (e) {
+      print(e.toString());
       // String errorMessage = Dioerrorhelper.handleDioError(e);
       return Left(false); // Error case
     } catch (e) {
@@ -45,6 +46,8 @@ class Coursesdatasources {
       UserCoursesModel model = UserCoursesModel.fromJson(response.data);
       return Right(model); // Success case
     } on DioException catch (e) {
+      print(e.toString());
+
       // String errorMessage = Dioerrorhelper.handleDioError(e);
       return Left(false); // Error case
     } catch (e) {
@@ -66,6 +69,8 @@ class Coursesdatasources {
       CoursesResponse model = CoursesResponse.fromJson(response.data);
       return Right(model); // Success case
     } on DioException catch (e) {
+      print(e.toString());
+
       // String errorMessage = Dioerrorhelper.handleDioError(e);
       return Left(false); // Error case
     } catch (e) {
@@ -88,6 +93,7 @@ class Coursesdatasources {
       return Right(model); // Success case
     } on DioException catch (e) {
       // String errorMessage = Dioerrorhelper.handleDioError(e);
+      print(e.toString());
 
       return Left(false); // Error case
     } catch (e) {

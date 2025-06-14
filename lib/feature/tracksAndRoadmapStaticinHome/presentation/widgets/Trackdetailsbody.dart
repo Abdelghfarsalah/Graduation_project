@@ -3,9 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graduation_project/feature/tracksAndRoadmapStaticinHome/presentation/manager/get_track_by_id/get_track_by_id_bloc.dart';
 import 'package:graduation_project/feature/tracksAndRoadmapStaticinHome/presentation/manager/get_track_by_id/get_track_by_id_event.dart';
 import 'package:graduation_project/feature/tracksAndRoadmapStaticinHome/presentation/manager/get_track_by_id/get_track_by_id_state.dart';
+import 'package:graduation_project/feature/tracksAndRoadmapStaticinHome/presentation/widgets/DetailsTracksError.dart';
 import 'package:graduation_project/feature/tracksAndRoadmapStaticinHome/presentation/widgets/TackDetailScreencontent.dart';
 import 'package:graduation_project/feature/tracksAndRoadmapStaticinHome/presentation/widgets/TrackDetailsLoading.dart';
-import 'package:graduation_project/feature/tracksAndRoadmapStaticinHome/presentation/widgets/TracksErrorWidget.dart';
 
 class Trackdetailsbody extends StatefulWidget {
   const Trackdetailsbody({super.key, required this.id});
@@ -34,7 +34,7 @@ class _TrackdetailsbodyState extends State<Trackdetailsbody> {
             trackData: state.data,
           );
         } else if (state is GetTrackByIDError) {
-          return TracksErrorWidget();
+          return TracksdetailsErrorWidget();
         } else {
           return TrackDetailsLoading();
         }

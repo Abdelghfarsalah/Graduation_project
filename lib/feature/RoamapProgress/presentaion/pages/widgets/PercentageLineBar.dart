@@ -6,8 +6,7 @@ import 'package:graduation_project/feature/RoamapProgress/presentaion/manager/co
 import 'package:graduation_project/feature/RoamapProgress/presentaion/manager/get_user_progress_roadmap/get_user_progress_roadmap_bloc.dart';
 
 class PercentageLineBar extends StatefulWidget {
-// مثال: 0.75 تعني 75%
-  int index;
+  final int index;
   PercentageLineBar({super.key, required this.index});
 
   @override
