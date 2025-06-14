@@ -52,6 +52,13 @@ class _CoursespagebodyState extends State<Coursespagebody> {
                 },
                 builder: (context, state) {
                   if (state is GetCoursesSuccess) {
+                    state.cources.data.coursesWithPagination.items
+                        .forEach((action) {
+                      context
+                          .read<GetCousesBlocBloc>()
+                          .isEnrollments
+                          .add(action.isEnrollment);
+                    });
                     return Displayallcourses(
                       coursesResponse: state.cources,
                     );

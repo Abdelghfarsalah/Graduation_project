@@ -11,6 +11,7 @@ import 'package:graduation_project/feature/Courses/domain/models/CourseItem.dart
 import 'package:graduation_project/feature/Courses/presentation/manager/course_progress/course_progress_bloc.dart';
 import 'package:graduation_project/feature/Courses/presentation/manager/course_progress/course_progress_event.dart';
 import 'package:graduation_project/feature/Courses/presentation/manager/enrollment/enrollment_bloc.dart';
+import 'package:graduation_project/feature/Courses/presentation/manager/get_couses_bloc/get_couses_bloc_bloc.dart';
 import 'package:graduation_project/feature/Courses/presentation/pages/DisplaySpesificCourse.dart';
 import 'package:graduation_project/feature/Courses/presentation/widgets/CustomIconTogetCourse.dart';
 import 'package:graduation_project/feature/Courses/presentation/widgets/changeStateEnrollButtonWhenEnrollSuccess.dart';
@@ -18,17 +19,19 @@ import 'package:graduation_project/feature/Courses/presentation/widgets/changeSt
 class CourseCard extends StatelessWidget {
   final CourseItem item;
   final String id;
+  final int index;
   const CourseCard({
     super.key,
     required this.item,
     required this.id,
+    required this.index,
   });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        if (item.isEnrollment) {
+        if (context.read<GetCousesBlocBloc>().isEnrollments[index]) {
           context.read<CourseProgressBloc>().add(GetcourseById(id: id));
           Animationsforpages.navigateWithSlidepush(
               context,
@@ -115,6 +118,7 @@ class CourseCard extends StatelessWidget {
                               ),
                               child: Changestateenrollbuttonwhenenrollsuccess(
                                 id: id,
+                                index: index,
                                 title: item.title,
                               ),
                             )

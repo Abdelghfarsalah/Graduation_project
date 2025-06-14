@@ -26,6 +26,7 @@ class Displayallcourses extends StatelessWidget {
             itemBuilder: (context, index) => CourseCard(
               item: coursesResponse.data.coursesWithPagination.items[index],
               id: coursesResponse.data.coursesWithPagination.items[index].id,
+              index: index,
             ),
           ),
         ),

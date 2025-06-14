@@ -11,6 +11,7 @@ class GetCousesBlocBloc extends Bloc<GetCousesBlocEvent, GetCoursesBlocState> {
     on<GetCourses>(_GetCourses);
     on<SrearchforCourses>(_SrearchforCourses);
   }
+  List<bool> isEnrollments = [];
   bool loadcourses = false;
 
   void _GetCourses(GetCourses event, Emitter<GetCoursesBlocState> emit) async {
