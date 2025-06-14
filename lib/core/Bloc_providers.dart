@@ -21,7 +21,6 @@ import 'package:graduation_project/feature/Community/presentation/manager/commun
 import 'package:graduation_project/feature/Courses/data/Api/coursesDataSources.dart';
 import 'package:graduation_project/feature/Courses/data/repoimplemts/CoursesrepoImple.dart';
 import 'package:graduation_project/feature/Courses/presentation/manager/course_progress/course_progress_bloc.dart';
-import 'package:graduation_project/feature/Courses/presentation/manager/mark_video_aswatched/mark_video_aswatched_bloc.dart';
 import 'package:graduation_project/feature/RecommendationSystem/presentation/manager/Recommendationsystembloc/Recommendationsystembloc.dart';
 import 'package:graduation_project/feature/chat/presentation/manager/chatbloc.dart';
 import 'package:graduation_project/feature/home/presentation/manager/BottomNavBar/BottomNavBarBloc.dart';
@@ -46,15 +45,15 @@ class AppBlocProviders {
               ))),
       BlocProvider(create: (context) => Bottomnavbarbloc()),
       BlocProvider(create: (context) => BotBloc()),
-      BlocProvider(
-        create: (context) => MarkVideoAswatchedBloc(
-          Coursesrepoimple(
-            coursesdatasources: Coursesdatasources(
-              dio: Dio(),
-            ),
-          ),
-        ),
-      ),
+      // BlocProvider(
+      //   create: (context) => MarkVideoAswatchedBloc(
+      //     Coursesrepoimple(
+      //       coursesdatasources: Coursesdatasources(
+      //         dio: Dio(),
+      //       ),
+      //     ),
+      //   ),
+      // ),
       // BlocProvider(
       //   create: (context) => VideoplayerBloc(
       //     Coursesrepoimple(

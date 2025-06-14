@@ -1,6 +1,11 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:graduation_project/feature/Courses/data/Api/coursesDataSources.dart';
+import 'package:graduation_project/feature/Courses/data/repoimplemts/CoursesrepoImple.dart';
 import 'package:graduation_project/feature/Courses/domain/models/Section.dart';
+import 'package:graduation_project/feature/Courses/presentation/manager/mark_video_aswatched/mark_video_aswatched_bloc.dart';
 import 'package:graduation_project/feature/Courses/presentation/widgets/videocard.dart';
 
 class Displaysection extends StatefulWidget {
@@ -100,11 +105,19 @@ class _CustomDropdownState extends State<Displaysection> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const SizedBox(height: 10),
+                      SizedBox(height: 10),
                       ...widget.section.videos.map((video) {
-                        return Videocard(
-                          video: video,
-                          courseId: widget.courseId,
+                        return BlocProvider(
+                          create: (context) => MarkVideoAswatchedBloc(
+                            Coursesrepoimple(
+                              coursesdatasources:
+                                  Coursesdatasources(dio: Dio()),
+                            ),
+                          ),
+                          child: Videocard(
+                            video: video,
+                            courseId: widget.courseId,
+                          ),
                         );
                       }).toList(),
                     ],
