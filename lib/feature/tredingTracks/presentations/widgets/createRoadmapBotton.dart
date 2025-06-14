@@ -29,7 +29,7 @@ class CreateRadmapButton extends StatelessWidget {
             Icon(Icons.map_sharp, size: 24, color: Colors.white),
             SizedBox(width: 8),
             Text(
-              'Create a roadmap',
+              'Generate roadmap',
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 16,

@@ -81,33 +81,36 @@ class MyMessage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               if (msg.image != null)
-                GestureDetector(
-                  onTap: () {
-                    Animationsforpages.navigateWithSlidepushfromleft(
-                        context, DisplayImage(imageUrl: msg.image!));
-                  },
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.only(
-                      topRight: Radius.circular(10.r),
-                      bottomRight: Radius.circular(10.r),
-                      bottomLeft: Radius.circular(10.r),
-                    ),
-                    child: CachedNetworkImage(
-                      imageUrl: msg.image!,
-                      // height: 200.h,
-                      width: MediaQuery.sizeOf(context).width *
-                          0.8, // إذا حبيت تملي العرض
-                      fit: BoxFit.cover, // علشان الصورة تبان بشكل مرتب
-                      placeholder: (context, url) => Shimmer.fromColors(
-                        baseColor: Colors.grey[300]!,
-                        highlightColor: Colors.grey[100]!,
-                        child: Container(
-                          // height: 200.h,
-                          width: MediaQuery.sizeOf(context).width * 0.8,
-                          color: Colors.white,
-                        ),
+                SizedBox(
+                  height: MediaQuery.sizeOf(context).height * 0.5,
+                  child: GestureDetector(
+                    onTap: () {
+                      Animationsforpages.navigateWithSlidepushfromleft(
+                          context, DisplayImage(imageUrl: msg.image!));
+                    },
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.only(
+                        topRight: Radius.circular(10.r),
+                        bottomRight: Radius.circular(10.r),
+                        bottomLeft: Radius.circular(10.r),
                       ),
-                      errorWidget: (context, url, error) => Icon(Icons.error),
+                      child: CachedNetworkImage(
+                        imageUrl: msg.image!,
+                        // height: 200.h,
+                        width: MediaQuery.sizeOf(context).width *
+                            0.8, // إذا حبيت تملي العرض
+                        fit: BoxFit.fill, // علشان الصورة تبان بشكل مرتب
+                        placeholder: (context, url) => Shimmer.fromColors(
+                          baseColor: Colors.grey[300]!,
+                          highlightColor: Colors.grey[100]!,
+                          child: Container(
+                            // height: 200.h,
+                            width: MediaQuery.sizeOf(context).width * 0.8,
+                            color: Colors.white,
+                          ),
+                        ),
+                        errorWidget: (context, url, error) => Icon(Icons.error),
+                      ),
                     ),
                   ),
                 ),

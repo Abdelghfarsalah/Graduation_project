@@ -396,6 +396,7 @@ class _CommunitybodyState extends State<Communitybody> {
         if (!mounted) return;
         if (fetched.isNotEmpty) {
           lastMessageId = fetched.last.id;
+          if (!mounted) return;
           setState(() {
             messages.addAll(fetched);
             print("====================================================");

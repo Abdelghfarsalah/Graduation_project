@@ -100,36 +100,40 @@ class Othermessage extends StatelessWidget {
             children: [
               if (msg.image != null) Customshareicon(msg: msg.image ?? ""),
               if (msg.image != null)
-                GestureDetector(
-                  onTap: () {
-                    Animationsforpages.navigateWithSlidepush(
-                        context, DisplayImage(imageUrl: msg.image!));
-                  },
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(10.r),
-                      bottomRight: Radius.circular(10.r),
-                      bottomLeft: Radius.circular(10.r),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.only(top: 0),
-                      child: CachedNetworkImage(
-                        imageUrl: msg.image!,
-                        height: 250.h,
-                        width: MediaQuery.sizeOf(context).width *
-                            0.7, // اختياري، لو حابب تمتد على عرض الشاشة
-                        fit:
-                            BoxFit.cover, // اختياري، حسب طريقة العرض اللي تحبها
-                        placeholder: (context, url) => Shimmer.fromColors(
-                          baseColor: Colors.grey[300]!,
-                          highlightColor: Colors.grey[100]!,
-                          child: Container(
-                            // height: 200.h,
-                            width: MediaQuery.sizeOf(context).width * 0.7,
-                            color: Colors.white,
+                Padding(
+                  padding: EdgeInsets.only(right: 40.w),
+                  child: GestureDetector(
+                    onTap: () {
+                      Animationsforpages.navigateWithSlidepush(
+                          context, DisplayImage(imageUrl: msg.image!));
+                    },
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(10.r),
+                        bottomRight: Radius.circular(10.r),
+                        bottomLeft: Radius.circular(10.r),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 0),
+                        child: CachedNetworkImage(
+                          imageUrl: msg.image!,
+                          height: 250.h,
+                          width: MediaQuery.sizeOf(context).width *
+                              0.7, // اختياري، لو حابب تمتد على عرض الشاشة
+                          fit: BoxFit
+                              .cover, // اختياري، حسب طريقة العرض اللي تحبها
+                          placeholder: (context, url) => Shimmer.fromColors(
+                            baseColor: Colors.grey[300]!,
+                            highlightColor: Colors.grey[100]!,
+                            child: Container(
+                              // height: 200.h,
+                              width: MediaQuery.sizeOf(context).width * 0.7,
+                              color: Colors.white,
+                            ),
                           ),
+                          errorWidget: (context, url, error) =>
+                              Icon(Icons.error),
                         ),
-                        errorWidget: (context, url, error) => Icon(Icons.error),
                       ),
                     ),
                   ),
