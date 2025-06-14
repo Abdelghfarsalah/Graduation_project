@@ -8,6 +8,7 @@ import 'package:graduation_project/feature/Courses/presentation/manager/course_p
 import 'package:graduation_project/feature/Courses/presentation/manager/course_progress/course_progress_event.dart';
 import 'package:graduation_project/feature/Courses/presentation/pages/DisplaySpesificCourse.dart';
 import 'package:graduation_project/feature/Courses/presentation/widgets/CustomIconTogetCourse.dart';
+import 'package:graduation_project/feature/Courses/presentation/widgets/convertdataTimetohoure.dart';
 
 class Usercoursescard extends StatelessWidget {
   final Course item;
@@ -42,60 +43,70 @@ class Usercoursescard extends StatelessWidget {
             ),
           ],
         ),
-        child: Row(
+        child: Column(
           children: [
-            Container(
-              height: 100.h,
-              width: 120.h,
-              decoration: BoxDecoration(
-                  image: DecorationImage(
-                      fit: BoxFit.fill,
-                      image: CachedNetworkImageProvider(item.image))),
-            ),
-            const SizedBox(width: 12),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(item.title,
-                      style: const TextStyle(
-                          fontWeight: FontWeight.bold, fontSize: 16)),
-                  const SizedBox(height: 4),
-                  Text(item.description,
-                      style: TextStyle(fontSize: 14, color: Colors.grey[600])),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            Row(
+              children: [
+                Container(
+                  height: 100.h,
+                  width: 120.h,
+                  decoration: BoxDecoration(
+                      image: DecorationImage(
+                          fit: BoxFit.fill,
+                          image: CachedNetworkImageProvider(item.image))),
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text("${item.totalDuration} min  ",
+                      Text(item.title,
+                          style: const TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 16)),
+                      const SizedBox(height: 4),
+                      Text(item.description,
+                          maxLines: 3,
                           style:
                               TextStyle(fontSize: 14, color: Colors.grey[600])),
-                      RichText(
-                        text: TextSpan(
-                          children: [
-                            TextSpan(
-                              text: "${item.averageRating} ",
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(formateDatatime(item.totalDuration),
+                              maxLines: 3,
                               style: TextStyle(
-                                  fontSize: 14, color: Colors.grey[600]),
+                                  fontSize: 14, color: Colors.grey[600])),
+                          RichText(
+                            text: TextSpan(
+                              children: [
+                                TextSpan(
+                                  text: "${item.averageRating} ",
+                                  style: TextStyle(
+                                      fontSize: 14, color: Colors.grey[600]),
+                                ),
+                                WidgetSpan(
+                                  child: Icon(
+                                    Icons.star,
+                                    size: 14,
+                                    color: Colors.amber,
+                                  ),
+                                ),
+                              ],
                             ),
-                            WidgetSpan(
-                              child: Icon(
-                                Icons.star,
-                                size: 14,
-                                color: Colors.amber,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Customicontogetcourse(
-                        id: id,
-                        title: item.title,
-                      ),
+                          ),
+                          Customicontogetcourse(
+                            id: id,
+                            title: item.title,
+                          ),
+                        ],
+                      )
                     ],
-                  )
-                ],
-              ),
+                  ),
+                ),
+              ],
             ),
+            SizedBox(height: 5.h),
+            Divider(color: Colors.grey[300], height: 1),
+            SizedBox(height: 5.h),
           ],
         ),
       ),

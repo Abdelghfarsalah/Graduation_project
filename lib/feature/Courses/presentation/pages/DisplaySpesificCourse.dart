@@ -52,6 +52,7 @@ class Displayspesificcourse extends StatelessWidget {
                 sections: state.cources.data.course.sections,
                 image: state.cources.data.course.image,
                 Courseid: state.cources.data.course.id,
+                Des: state.cources.data.course.description,
               ),
             );
           } else {

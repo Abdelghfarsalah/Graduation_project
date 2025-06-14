@@ -12,6 +12,8 @@ class VideoplayerBloc extends Bloc<VideoplayerEvent, VideoplayerState> {
   }
 
   void _playvideo(playvideo event, Emitter<VideoplayerState> emit) async {
+    print("video pressed: ${event.videoUrl}");
+    emit(PlayingVideoloading());
     emit(PlayingVideoState(
       videoUrl: event.videoUrl,
       id: event.id,

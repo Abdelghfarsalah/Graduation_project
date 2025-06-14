@@ -20,6 +20,7 @@ class Courseappbar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       backgroundColor: backgroundColor,
       foregroundColor: foregroundColor,
+      scrolledUnderElevation: 0,
       title: Text(
         title,
         style: TextStyle(

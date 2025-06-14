@@ -23,6 +23,10 @@ class _CustomYoutubePlayerState extends State<CustomYoutubePlayer> {
   @override
   void initState() {
     super.initState();
+    _initController();
+  }
+
+  void _initController() {
     _youtubeController = YoutubePlayerController(
       initialVideoId: widget.videoiId,
       flags: const YoutubePlayerFlags(
@@ -30,6 +34,15 @@ class _CustomYoutubePlayerState extends State<CustomYoutubePlayer> {
         mute: false,
       ),
     );
+  }
+
+  /// ✅ أهم إضافة: تحديث الفيديو عند تغيّر الـ videoId
+  @override
+  void didUpdateWidget(covariant CustomYoutubePlayer oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.videoiId != widget.videoiId) {
+      _youtubeController.load(widget.videoiId);
+    }
   }
 
   @override
@@ -48,11 +61,6 @@ class _CustomYoutubePlayerState extends State<CustomYoutubePlayer> {
         playedColor: Colors.blue,
         handleColor: Colors.blueAccent,
       ),
-      onReady: () {
-        _youtubeController.addListener(() {
-          // ممكن تستخدم courseId هنا لو عايز تسجل المشاهدة مثلاً
-        });
-      },
     );
   }
 }
