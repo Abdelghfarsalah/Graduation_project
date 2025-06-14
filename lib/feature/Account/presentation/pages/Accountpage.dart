@@ -9,7 +9,6 @@ import 'package:graduation_project/feature/Account/presentation/manager/update_a
 import 'package:graduation_project/feature/Account/presentation/widgets/Accountcard.dart';
 import 'package:graduation_project/feature/Account/presentation/widgets/BackgroundimageinAccount.dart';
 import 'package:graduation_project/feature/Account/presentation/widgets/DisplayPersonalinformation.dart';
-import 'package:graduation_project/feature/Account/presentation/widgets/PersonalInformationOther.dart';
 import 'package:graduation_project/feature/Account/presentation/widgets/SettingIcon.dart';
 import 'package:loading_indicator/loading_indicator.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
@@ -97,12 +96,12 @@ class _AccountpageState extends State<Accountpage> {
                 ),
               ),
               Displaypersonalinformation(),
-              Personalinformationother(),
-              SliverToBoxAdapter(
-                child: SizedBox(
-                  height: MediaQuery.of(context).padding.bottom + 15,
-                ),
-              )
+              // Personalinformationother(),
+              // SliverToBoxAdapter(
+              //   child: SizedBox(
+              //     height: MediaQuery.of(context).padding.bottom + 15,
+              //   ),
+              // )
             ],
           ),
         );

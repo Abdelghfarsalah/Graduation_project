@@ -12,16 +12,16 @@ import 'package:graduation_project/feature/Account/presentation/widgets/avatarIm
 import 'package:loading_indicator/loading_indicator.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
-class EditNamePage extends StatefulWidget {
+class EditPage extends StatefulWidget {
   final String initialName;
 
-  const EditNamePage({Key? key, required this.initialName}) : super(key: key);
+  const EditPage({Key? key, required this.initialName}) : super(key: key);
 
   @override
-  State<EditNamePage> createState() => _EditNamePageState();
+  State<EditPage> createState() => _EditPageState();
 }
 
-class _EditNamePageState extends State<EditNamePage> {
+class _EditPageState extends State<EditPage> {
   final _formKey = GlobalKey<FormState>();
   late TextEditingController _nameController;
   bool inAsyncCall = false;
@@ -38,17 +38,28 @@ class _EditNamePageState extends State<EditNamePage> {
     super.dispose();
   }
 
+  String Name = "";
   void _saveName(BuildContext context) {
-    if (_formKey.currentState!.validate()) {
+    if (_formKey.currentState!.validate() && Name != _nameController.text) {
       FocusScope.of(context).unfocus(); // Dismiss keyboard
       context
           .read<UpdateNameBloc>()
           .add(UpdateName(name: _nameController.text));
+    } else if (Name == _nameController.text) {
+      Fluttertoast.showToast(
+        msg: "Please change the name",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.BOTTOM,
+        backgroundColor: Colors.red, // Green color
+        textColor: Colors.white,
+        fontSize: 16.0,
+      );
     }
   }
 
   @override
   Widget build(BuildContext context) {
+    Name = widget.initialName;
     return BlocConsumer<UpdateAvatarBloc, UpdateAvatarStates>(
       listener: (context, state) {
         if (state is UpdateAvatarLoading) {
@@ -74,6 +85,7 @@ class _EditNamePageState extends State<EditNamePage> {
                 textColor: Colors.white,
                 fontSize: 16.0,
               );
+              Name = _nameController.text;
               // Navigator.pop(context, _nameController.text.trim());
             } else if (state is UpdateNameFailure) {
               Fluttertoast.showToast(

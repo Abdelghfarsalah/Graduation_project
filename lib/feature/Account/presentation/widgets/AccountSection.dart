@@ -36,7 +36,7 @@ class Accountsection extends StatelessWidget {
               // print(name);
               Animationsforpages.navigateWithSlidepush(
                   context,
-                  EditNamePage(
+                  EditPage(
                     initialName: name,
                   ));
             }),

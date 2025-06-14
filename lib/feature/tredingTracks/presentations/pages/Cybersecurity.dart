@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:graduation_project/core/utils/animations.dart';
+import 'package:graduation_project/feature/recommendChat/presentation/pages/recommendchatPage.dart';
+import 'package:graduation_project/feature/tredingTracks/presentations/widgets/createRoadmapBotton.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
@@ -256,6 +259,15 @@ class _CyberSecurityPageState extends State<CyberSecurityPage> {
             ]),
           ),
         ],
+      ),
+      floatingActionButton: CreateRadmapButton(
+        onPressed: () {
+          Animationsforpages.navigateWithSlidepush(
+              context,
+              Recommendchatpage(
+                text: "Cybersecurity",
+              ));
+        },
       ),
     );
   }

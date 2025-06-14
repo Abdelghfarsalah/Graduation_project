@@ -41,8 +41,10 @@ class _ResetyourpasswordpageState extends State<Resetyourpasswordpage> {
               textColor: Colors.white,
               fontSize: 16.0);
 
-          Navigator.pop(context);
-          Navigator.pop(context);
+          // Navigator.pop(context);
+          // Navigator.pop(context);
+          Navigator.popUntil(context, (route) => route.isFirst);
+
           loading = false;
         } else {
           Fluttertoast.showToast(

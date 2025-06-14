@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:graduation_project/core/fonts.dart';
 import 'package:graduation_project/core/utils/SharedPreferencesDemo.dart';
+import 'package:graduation_project/core/utils/animations.dart';
 import 'package:graduation_project/feature/Account/presentation/manager/update_avatar/update_avatar_bloc.dart';
 import 'package:graduation_project/feature/Account/presentation/manager/update_avatar/update_avatar_state.dart';
 import 'package:graduation_project/feature/Account/presentation/manager/update_name/update_name_bloc.dart';
 import 'package:graduation_project/feature/Account/presentation/manager/update_name/update_name_state.dart';
+import 'package:graduation_project/feature/Account/presentation/pages/Editpage.dart';
 import 'package:graduation_project/feature/Account/presentation/widgets/avatarImageinAccount.dart';
 
 class Accountcard extends StatefulWidget {
@@ -21,7 +22,7 @@ class _AccountcardState extends State<Accountcard> {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      top: MediaQuery.sizeOf(context).height * 0.15,
+      top: MediaQuery.sizeOf(context).height * 0.16,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 30.0),
         child: Stack(
@@ -112,13 +113,25 @@ class _AccountcardState extends State<Accountcard> {
                         ),
                       ),
                       SizedBox(
-                        height: 9.h,
+                        height: 20.h,
                       ),
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
+                          // SizedBox(
+                          //   width: 20.h,
+                          // ),
                           GestureDetector(
-                            onTap: () {},
+                            onTap: () async {
+                              var name =
+                                  await SharedPreferencesDemo.getUserName();
+                              // print(name);
+                              Animationsforpages.navigateWithSlidepush(
+                                  context,
+                                  EditPage(
+                                    initialName: name,
+                                  ));
+                            },
                             child: Container(
                               height: 45.h,
                               width: MediaQuery.of(context).size.width * 0.55,
@@ -133,7 +146,7 @@ class _AccountcardState extends State<Accountcard> {
                                       ])),
                               child: Center(
                                 child: Text(
-                                  "Complete your Profile",
+                                  "Edit your profile",
                                   style: TextStyle(
                                       fontFamily: appFonts.Poppins,
                                       fontSize: 16.sp,
@@ -143,26 +156,26 @@ class _AccountcardState extends State<Accountcard> {
                               ),
                             ),
                           ),
-                          SizedBox(
-                            width: 20.h,
-                          ),
-                          GestureDetector(
-                            onTap: () {},
-                            child: Container(
-                              height: 45.h,
-                              width: 45.w,
-                              decoration: BoxDecoration(
-                                color: Color(0xff9CC7FF).withOpacity(0.2),
-                                borderRadius: BorderRadius.circular(6),
-                              ),
-                              child: Center(
-                                child: Icon(
-                                  FontAwesomeIcons.paperPlane,
-                                  color: Colors.blue,
-                                ),
-                              ),
-                            ),
-                          )
+                          // SizedBox(
+                          //   width: 20.h,
+                          // ),
+                          // GestureDetector(
+                          //   onTap: () {},
+                          //   child: Container(
+                          //     height: 45.h,
+                          //     width: 45.w,
+                          //     decoration: BoxDecoration(
+                          //       color: Color(0xff9CC7FF).withOpacity(0.2),
+                          //       borderRadius: BorderRadius.circular(6),
+                          //     ),
+                          //     child: Center(
+                          //       child: Icon(
+                          //         FontAwesomeIcons.paperPlane,
+                          //         color: Colors.blue,
+                          //       ),
+                          //     ),
+                          //   ),
+                          // )
                         ],
                       )
                     ],

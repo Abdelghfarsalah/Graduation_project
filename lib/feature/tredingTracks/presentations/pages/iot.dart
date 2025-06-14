@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:graduation_project/core/utils/animations.dart';
+import 'package:graduation_project/feature/recommendChat/presentation/pages/recommendchatPage.dart';
+import 'package:graduation_project/feature/tredingTracks/presentations/widgets/createRoadmapBotton.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
@@ -223,6 +226,15 @@ class _IoTDevelopmentPageState extends State<IoTDevelopmentPage> {
           ),
         ],
       ),
+      floatingActionButton: CreateRadmapButton(
+        onPressed: () {
+          Animationsforpages.navigateWithSlidepush(
+              context,
+              Recommendchatpage(
+                text: "iot",
+              ));
+        },
+      ),
     );
   }
 
@@ -254,30 +266,30 @@ class _IoTDevelopmentPageState extends State<IoTDevelopmentPage> {
     );
   }
 
-  Widget _buildBulletPoint(String text) {
-    return Padding(
-      padding: EdgeInsets.only(bottom: 8.h),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: EdgeInsets.only(top: 6.h, right: 12.w),
-            child: Icon(Icons.circle, size: 8.w, color: Colors.grey[700]),
-          ),
-          Expanded(
-            child: Text(
-              text,
-              style: TextStyle(
-                fontSize: 15.sp,
-                height: 1.5,
-                color: Colors.grey[700],
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
+  // Widget _buildBulletPoint(String text) {
+  //   return Padding(
+  //     padding: EdgeInsets.only(bottom: 8.h),
+  //     child: Row(
+  //       crossAxisAlignment: CrossAxisAlignment.start,
+  //       children: [
+  //         Padding(
+  //           padding: EdgeInsets.only(top: 6.h, right: 12.w),
+  //           child: Icon(Icons.circle, size: 8.w, color: Colors.grey[700]),
+  //         ),
+  //         Expanded(
+  //           child: Text(
+  //             text,
+  //             style: TextStyle(
+  //               fontSize: 15.sp,
+  //               height: 1.5,
+  //               color: Colors.grey[700],
+  //             ),
+  //           ),
+  //         ),
+  //       ],
+  //     ),
+  //   );
+  // }
 
   Widget _buildCareerCard({
     required String title,
