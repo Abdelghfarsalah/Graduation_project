@@ -37,6 +37,7 @@ class _CoursespagebodyState extends State<Coursespagebody> {
       backgroundColor: Colors.white,
       appBar: Courseappbar(
         title: 'Courses',
+        elevation: 0,
       ),
       body: Padding(
         padding: const EdgeInsets.all(20),

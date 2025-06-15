@@ -29,8 +29,8 @@ class Initiativespage extends StatelessWidget {
           onTap: () {
             Animationsforpages.navigateWithSlidepush(context, FWD());
           },
-          image: 'assets/Initiatives/image.png',
-          title: 'Egypt FWB',
+          image: "assets/Initiatives/images (1).png",
+          title: 'Egypt FWD',
           subtitle:
               'Our Future is Digital (FWD) is an 18-month initiative offering multiple scholarships.',
         ),

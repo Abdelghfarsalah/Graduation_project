@@ -28,7 +28,7 @@ class _FWDState extends State<FWD> {
             expandedHeight: 180.h,
             flexibleSpace: FlexibleSpaceBar(
               background: Image.asset(
-                "assets/Initiatives/image.png", // عدل اسم الصورة حسب الموجود عندك
+                "assets/Initiatives/images (1).png", // عدل اسم الصورة حسب الموجود عندك
                 fit: BoxFit.cover,
                 color: Colors.black.withOpacity(0.8),
                 colorBlendMode: BlendMode.darken,
@@ -71,7 +71,7 @@ class _FWDState extends State<FWD> {
                         ),
                         child: ClipOval(
                           child: Image.asset(
-                            "assets/Initiatives/image.png",
+                            "assets/Initiatives/images (1).png",
                             fit: BoxFit.contain,
                           ),
                         ),

@@ -48,7 +48,7 @@ class _DescriptionincoursespagesState extends State<Descriptionincoursespages> {
               data: widget.dse,
               style: {
                 "body": Style(
-                  fontSize: FontSize(14.0),
+                  fontSize: FontSize(16.0),
                   color: Colors.grey[600],
                   maxLines: showmore ? 3 : 50,
                   textOverflow: TextOverflow.ellipsis,

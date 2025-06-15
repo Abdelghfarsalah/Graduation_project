@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/colors.dart';
 import 'package:graduation_project/core/fonts.dart';
 import 'package:graduation_project/core/utils/SharedPreferencesDemo.dart';
 import 'package:graduation_project/core/utils/animations.dart';
 import 'package:graduation_project/feature/Account/domain/Entities/PersonalInformationmodel.dart';
+import 'package:graduation_project/feature/Account/presentation/manager/update_name/update_name_bloc.dart';
+import 'package:graduation_project/feature/Account/presentation/manager/update_name/update_name_state.dart';
 import 'package:graduation_project/feature/Account/presentation/widgets/PersonalInformationCard.dart';
 import 'package:graduation_project/feature/Authentication/presentation/pages/ForgetPassword.dart';
 
@@ -46,14 +49,45 @@ class _DisplaypersonalinformationState
             },
           )),
       Personalinformationmodel(
-        title: "Mobile Phone",
-        icon: Text(
-          "+201008751062",
-          style: TextStyle(
-              fontFamily: appFonts.Poppins,
-              fontSize: 12.sp,
-              color: Color(0xff001A4D),
-              fontWeight: FontWeight.w400),
+        title: "Name",
+        icon: BlocConsumer<UpdateNameBloc, UpdateNameStatus>(
+          listener: (context, state) {
+            // TODO: implement listener
+          },
+          builder: (context, state) {
+            return FutureBuilder<String>(
+              future: getUserName(),
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return Text(
+                    "Loading Name ...",
+                    style: TextStyle(
+                      fontFamily: appFonts.Poppins,
+                      fontSize: 12.sp,
+                      color: Color(0xff001A4D),
+                      fontWeight: FontWeight.w400,
+                    ),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  ); // أو Placeholder
+                } else if (snapshot.hasError) {
+                  return Text("Error: ${snapshot.error}");
+                } else if (snapshot.hasData) {
+                  return Text(
+                    snapshot.data!,
+                    style: TextStyle(
+                      fontFamily: appFonts.Poppins,
+                      fontSize: 12.sp,
+                      color: Color(0xff001A4D),
+                      fontWeight: FontWeight.w400,
+                    ),
+                  );
+                } else {
+                  return Text("No name available");
+                }
+              },
+            );
+          },
         ),
       ),
       Personalinformationmodel(
@@ -123,4 +157,9 @@ class _DisplaypersonalinformationState
       ),
     );
   }
+}
+
+Future<String> getUserName() async {
+  var x = await SharedPreferencesDemo.getUserName(); // مثال للتأخير
+  return x;
 }

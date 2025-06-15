@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:graduation_project/core/colors.dart';
 import 'package:graduation_project/feature/Account/presentation/manager/update_avatar/update_avatar_bloc.dart';
 import 'package:graduation_project/feature/Account/presentation/manager/update_avatar/update_avatar_state.dart';
 import 'package:graduation_project/feature/Account/presentation/manager/update_name/update_name_bloc.dart';
@@ -219,6 +220,7 @@ class _EditPageState extends State<EditPage> {
           child: Column(
             children: [
               TextFormField(
+                cursorColor: appColor.Primarycolor,
                 controller: _nameController,
                 style: GoogleFonts.poppins(
                   fontSize: 16,

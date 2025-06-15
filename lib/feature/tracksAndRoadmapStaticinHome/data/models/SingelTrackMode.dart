@@ -41,16 +41,16 @@ class Track {
   final String title;
   final String icon;
   final String body;
-  final String createdAt;
-  final String updatedAt;
+  String? createdAt;
+  String? updatedAt;
 
   Track({
     required this.id,
     required this.title,
     required this.icon,
     required this.body,
-    required this.createdAt,
-    required this.updatedAt,
+    this.createdAt,
+    this.updatedAt,
   });
 
   factory Track.fromJson(Map<String, dynamic> json) {

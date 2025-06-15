@@ -96,13 +96,13 @@ class Homeappbar extends StatelessWidget {
                       ));
                 },
                 child: CircleAvatar(
-                  radius: 16,
+                  radius: 18,
                   backgroundColor: Colors.white,
                   child: CircleAvatar(
-                    radius: 14,
+                    radius: 17,
                     backgroundColor: appColor.Primarycolor,
-                    child: Center(
-                      child: Image.asset("assets/Icons/logo.png"),
+                    backgroundImage: AssetImage(
+                      "assets/Icons/WhatsApp Image 2025-06-15 at 1.02.58 AM.jpeg",
                     ),
                   ),
                 ),

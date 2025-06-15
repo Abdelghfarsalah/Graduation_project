@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:graduation_project/core/fonts.dart';
 import 'package:graduation_project/core/utils/animations.dart';
 import 'package:graduation_project/feature/home/presentation/Widgets/TrendingTracksCard.dart';
 import 'package:graduation_project/feature/tredingTracks/presentations/pages/Blockchain.dart';
@@ -90,6 +91,42 @@ class Righttredingtarcks extends StatelessWidget {
                 context, IoTDevelopmentPage());
           },
           subtitle: '(IoT) ',
+        ),
+      ),
+      Padding(
+        padding: const EdgeInsets.only(top: 20.0, bottom: 20),
+        child: Container(
+          height: 202,
+          width: MediaQuery.sizeOf(context).width * 0.43 - 8,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(24),
+            color: Color(0xffF8F7FF),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(24),
+                color: const Color.fromARGB(
+                    255, 26, 20, 43), // نفس لون الكارت الداخلي
+              ),
+              child: Center(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                  child: Text(
+                    "Keep exploring...\nMore tracks coming soon!",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 13,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.white,
+                      fontFamily: appFonts.Poppins, // استخدم نفس الفونت بتاعك
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
         ),
       ),
     ]);
