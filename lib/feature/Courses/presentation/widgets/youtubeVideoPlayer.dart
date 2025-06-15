@@ -5,10 +5,12 @@ class CustomYoutubePlayer extends StatefulWidget {
   final String videoUrl;
   final String videoiId;
   final String courseId;
+  final String title;
 
   const CustomYoutubePlayer({
     super.key,
     required this.videoUrl,
+    required this.title,
     required this.videoiId,
     required this.courseId,
   });
@@ -53,14 +55,29 @@ class _CustomYoutubePlayerState extends State<CustomYoutubePlayer> {
 
   @override
   Widget build(BuildContext context) {
-    return YoutubePlayer(
-      controller: _youtubeController,
-      showVideoProgressIndicator: true,
-      progressIndicatorColor: Colors.blueAccent,
-      progressColors: const ProgressBarColors(
-        playedColor: Colors.blue,
-        handleColor: Colors.blueAccent,
-      ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        YoutubePlayer(
+          controller: _youtubeController,
+          showVideoProgressIndicator: true,
+          progressIndicatorColor: Colors.blueAccent,
+          progressColors: const ProgressBarColors(
+            playedColor: Colors.blue,
+            handleColor: Colors.blueAccent,
+          ),
+        ),
+        SizedBox(
+          height: 12,
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 12.0),
+          child: Text(
+            widget.title,
+            style: TextStyle(fontWeight: FontWeight.w900, fontSize: 13),
+          ),
+        )
+      ],
     );
   }
 }

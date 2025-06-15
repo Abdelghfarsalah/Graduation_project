@@ -39,7 +39,7 @@ class Sliderinhome extends StatelessWidget {
                 // Navigator.push(
                 //   context,
                 //   MaterialPageRoute(
-                //       builder: (context) => Recommendationsystempage()),
+                //       ..builder: (context) => Recommendationsystempage()),
                 // );
               },
               image: "assets/HomeImage/Sliderimage1.png",
@@ -79,7 +79,7 @@ class Sliderinhome extends StatelessWidget {
                 _launchURL();
               },
               image: "assets/HomeImage/PopularTracks.png",
-              title: "Mentor App",
+              title: "Mentor",
             ),
             SizedBox(
               width: 10,

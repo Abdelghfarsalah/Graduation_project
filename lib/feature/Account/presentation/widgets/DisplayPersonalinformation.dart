@@ -90,28 +90,28 @@ class _DisplaypersonalinformationState
           },
         ),
       ),
-      Personalinformationmodel(
-        title: "Current Track",
-        icon: Text(
-          "UI Designer",
-          style: TextStyle(
-              fontFamily: appFonts.Poppins,
-              fontSize: 12.sp,
-              color: Color(0xff001A4D),
-              fontWeight: FontWeight.w400),
-        ),
-      ),
-      Personalinformationmodel(
-        title: "Number of completed Tracks ",
-        icon: Text(
-          "3",
-          style: TextStyle(
-              fontFamily: appFonts.Poppins,
-              fontSize: 12.sp,
-              color: Color(0xff001A4D),
-              fontWeight: FontWeight.w400),
-        ),
-      ),
+      // Personalinformationmodel(
+      //   title: "Current Track",
+      //   icon: Text(
+      //     "UI Designer",
+      //     style: TextStyle(
+      //         fontFamily: appFonts.Poppins,
+      //         fontSize: 12.sp,
+      //         color: Color(0xff001A4D),
+      //         fontWeight: FontWeight.w400),
+      //   ),
+      // ),
+      // Personalinformationmodel(
+      //   title: "Number of completed Tracks ",
+      //   icon: Text(
+      //     "3",
+      //     style: TextStyle(
+      //         fontFamily: appFonts.Poppins,
+      //         fontSize: 12.sp,
+      //         color: Color(0xff001A4D),
+      //         fontWeight: FontWeight.w400),
+      //   ),
+      // ),
       // Personalinformationmodel(
       //   title: "Digital badges or awards",
       //   icon: Text(

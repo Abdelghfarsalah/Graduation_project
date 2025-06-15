@@ -21,6 +21,7 @@ class Videocard extends StatelessWidget {
       onTap: () {
         log("fofnf");
         context.read<VideoplayerBloc>().add(playvideo(
+            title: video.title,
             id: video.id,
             videoUrl: video.videoUrl,
             videoType: video.videoType,

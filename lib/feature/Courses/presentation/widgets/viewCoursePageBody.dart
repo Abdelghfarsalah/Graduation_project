@@ -44,6 +44,7 @@ class Viewcoursepagebody extends StatelessWidget {
                   videoUrl: state.videoUrl,
                   videoiId: state.youtubeId!,
                   courseId: Courseid,
+                  title: state.title,
                 );
               } else {
                 return VideoPlayerWidget(
