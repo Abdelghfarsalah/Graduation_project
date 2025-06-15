@@ -2,13 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:graduation_project/core/colors.dart';
 import 'package:graduation_project/core/fonts.dart';
 import 'package:graduation_project/core/utils/SharedPreferencesDemo.dart';
-import 'package:graduation_project/core/utils/animations.dart';
 import 'package:graduation_project/feature/home/presentation/Widgets/avatarImage.dart';
-import 'package:graduation_project/feature/recommendChat/presentation/pages/recommendchatPage.dart';
 
 class Homeappbar extends StatelessWidget {
-  const Homeappbar({super.key});
-
+  const Homeappbar({super.key, required this.scaffoldkey});
+  final GlobalKey<ScaffoldState> scaffoldkey;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -89,22 +87,17 @@ class Homeappbar extends StatelessWidget {
               Spacer(),
               GestureDetector(
                 onTap: () {
-                  Animationsforpages.navigateWithSlidepush(
-                      context,
-                      Recommendchatpage(
-                        text: '',
-                      ));
+                  scaffoldkey.currentState!.openEndDrawer();
+                  // Animationsforpages.navigateWithSlidepush(
+                  //     context,
+                  //     Recommendchatpage(
+                  //       text: '',
+                  //     ));
                 },
-                child: CircleAvatar(
-                  radius: 18,
-                  backgroundColor: Colors.white,
-                  child: CircleAvatar(
-                    radius: 17,
-                    backgroundColor: appColor.Primarycolor,
-                    backgroundImage: AssetImage(
-                      "assets/Icons/WhatsApp Image 2025-06-15 at 1.02.58 AM.jpeg",
-                    ),
-                  ),
+                child: Icon(
+                  Icons.menu,
+                  color: Colors.white,
+                  size: 28,
                 ),
               ),
             ],
