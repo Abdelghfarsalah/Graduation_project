@@ -27,7 +27,7 @@ class Registeractivities extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      "Already Have An Account?",
+                      "Don't Have An Account?",
                       style: TextStyle(
                           fontFamily: appFonts.Poppins,
                           fontSize: 14.sp,

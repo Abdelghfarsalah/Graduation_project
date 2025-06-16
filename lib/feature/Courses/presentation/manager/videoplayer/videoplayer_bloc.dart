@@ -20,6 +20,7 @@ class VideoplayerBloc extends Bloc<VideoplayerEvent, VideoplayerState> {
       videoType: event.videoType,
       youtubeId: event.youtubeId,
       title: event.title,
+      watched: event.watched,
     ));
   }
 }

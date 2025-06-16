@@ -1,12 +1,8 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/feature/Courses/domain/models/Videomodel.dart';
-import 'package:graduation_project/feature/Courses/presentation/manager/mark_video_aswatched/mark_video_aswatched_bloc.dart';
-import 'package:graduation_project/feature/Courses/presentation/manager/mark_video_aswatched/mark_video_aswatched_event.dart';
-import 'package:graduation_project/feature/Courses/presentation/manager/mark_video_aswatched/mark_video_aswatched_state.dart';
+import 'package:graduation_project/feature/Courses/presentation/manager/course_progress/course_progress_bloc.dart';
 import 'package:graduation_project/feature/Courses/presentation/manager/videoplayer/videoplayer_bloc.dart';
 import 'package:graduation_project/feature/Courses/presentation/manager/videoplayer/videoplayer_event.dart';
 
@@ -19,46 +15,76 @@ class Videocard extends StatelessWidget {
     return GestureDetector(
       behavior: HitTestBehavior.opaque,
       onTap: () {
-        log("fofnf");
         context.read<VideoplayerBloc>().add(playvideo(
             title: video.title,
             id: video.id,
             videoUrl: video.videoUrl,
             videoType: video.videoType,
-            youtubeId: video.youtubeId));
+            youtubeId: video.youtubeId,
+            watched: video.watched));
 
-        !video.watched
-            ? context
-                .read<MarkVideoAswatchedBloc>()
-                .add(MarkvideoAsWatched(courseID: courseId, videoID: video.id))
-            : null;
+        // !video.watched
+        //     ? context
+        //         .read<MarkVideoAswatchedBloc>()
+        //         .add(MarkvideoAsWatched(courseID: courseId, videoID: video.id))
+        //     : null;
       },
       child: Container(
         width: MediaQuery.sizeOf(context).width,
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            BlocConsumer<MarkVideoAswatchedBloc, MarkVideoAswatchedState>(
-              listener: (context, state) {
-                // TODO: implement listener
-              },
-              builder: (context, state) {
-                if (state is MarkvideoasWatchedSuccess) {
-                  return Icon(Icons.check_box, color: Colors.black, size: 22);
-                } else {
-                  return video.watched
-                      ? Icon(Icons.check_box, color: Colors.black, size: 22)
-                      : Container(
-                          height: 20.h,
-                          width: 20.w,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(2),
-                              border:
-                                  Border.all(color: Colors.black, width: 2)),
-                        );
-                }
-              },
-            ),
+            // BlocConsumer<MarkVideoAswatchedBloc, MarkVideoAswatchedState>(
+            //   listener: (context, state) {
+            //     if (state is MarkvideoasWatchedSuccess) {
+            //       context.read<MarkVideoAswatchedBloc>().watched = true;
+            //       log(state.toString());
+            //     }
+            //   },
+            //   builder: (context, state) {
+            //     return
+            context.read<CourseProgressBloc>().watchedMap[video.id]!
+                ? Container(
+                    height: 20.h,
+                    width: 20.w,
+                    decoration: BoxDecoration(
+                        color: Colors.black,
+                        borderRadius: BorderRadius.circular(2),
+                        border: Border.all(color: Colors.black, width: 2)),
+                    child: FittedBox(
+                        child: Center(
+                            child: Icon(
+                      Icons.done,
+                      size: 30,
+                      color: Colors.white,
+                    ))),
+                  )
+                : Container(
+                    height: 20.h,
+                    width: 20.w,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(2),
+                        border: Border.all(color: Colors.black, width: 2)),
+                  )
+
+            // ;
+            // if (state is MarkvideoasWatchedSuccess) {
+            //   return Icon(Icons.check_box, color: Colors.black, size: 22);
+            // } else {
+            //   return video.watched
+            //       ? Icon(Icons.check_box, color: Colors.black, size: 22)
+            //       : Container(
+            //           height: 20.h,
+            //           width: 20.w,
+            //           decoration: BoxDecoration(
+            //               borderRadius: BorderRadius.circular(2),
+            //               border:
+            //                   Border.all(color: Colors.black, width: 2)),
+            //         );
+            // }
+            //   },
+            // ),
+            ,
             SizedBox(
               width: 15.w,
             ),

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HelpAndSupportPage extends StatelessWidget {
   const HelpAndSupportPage({super.key});
@@ -47,19 +49,33 @@ class HelpAndSupportPage extends StatelessWidget {
             ),
             const SizedBox(height: 12),
             _buildSocialRow(
-                icon: Icons.facebook, name: 'Facebook', link: '@OurCompany'),
+              icon: Icons.facebook,
+              name: 'Facebook',
+              link: 'https://www.facebook.com/share/15fsdgYUeL/',
+            ),
             _buildSocialRow(
-                icon: Icons.camera_alt, name: 'Instagram', link: '@OurCompany'),
+              icon: Icons.camera_alt,
+              name: 'Instagram',
+              link:
+                  'https://www.instagram.com/abdelghafar.salah?igsh=cWVqNXltaWJnbGtl',
+            ),
             _buildSocialRow(
-                icon: Icons.chat, name: 'Messenger', link: '@OurCompany'),
+              icon: Icons.chat,
+              name: 'Messenger',
+              link:
+                  'https://www.facebook.com/share/15fsdgYUeL/', // هذا هو رابط ماسنجر الصحيح
+            ),
             _buildSocialRow(
-                icon: Icons.alternate_email,
-                name: 'Twitter (X)',
-                link: '@OurCompany'),
+              icon: Icons.alternate_email,
+              name: 'Twitter (X)',
+              link:
+                  'https://x.com/Abdelghfar80987?t=rYKnztQjP6SDSjlsu7Gv4w&s=09',
+            ),
             _buildSocialRow(
-                icon: Icons.mail,
-                name: 'Email',
-                link: 'support@ourcompany.com'),
+              icon: Icons.mail,
+              name: 'abdelghfarsalah8@gmail.com',
+              link: 'abdelghfarsalah8@gmail.com',
+            ),
             const SizedBox(height: 24),
             Text('📖 FAQ & Tutorials', style: subheadingStyle),
             const SizedBox(height: 8),
@@ -80,19 +96,71 @@ class HelpAndSupportPage extends StatelessWidget {
     );
   }
 
-  Widget _buildSocialRow(
-      {required IconData icon, required String name, required String link}) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 6),
-      child: Row(
-        children: [
-          Icon(icon, color: Colors.grey[800]),
-          const SizedBox(width: 10),
-          Text('$name: ', style: TextStyle(fontWeight: FontWeight.bold)),
-          Expanded(
-              child: Text(link, style: TextStyle(color: Colors.grey[700]))),
-        ],
+  Widget _buildSocialRow({
+    required IconData icon,
+    required String name,
+    required String link,
+    Color? iconColor,
+  }) {
+    // تحديد لون الأيقونة حسب المنصة إذا لم يتم تحديد لون مخصص
+    final Color platformColor = iconColor ?? _getPlatformColor(name);
+
+    return Container(
+      margin: EdgeInsets.symmetric(vertical: 6, horizontal: 8),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(12),
+        color: Colors.white,
+        boxShadow: [],
+      ),
+      child: GestureDetector(
+        onTap: () async {
+          final Uri url = Uri.parse(link);
+          if (await canLaunchUrl(url)) {
+            await launchUrl(url, mode: LaunchMode.externalApplication);
+          }
+        },
+        child: Padding(
+          padding: EdgeInsets.all(12),
+          child: Row(
+            children: [
+              Container(
+                child: Icon(icon, size: 24, color: platformColor),
+              ),
+              SizedBox(width: 16),
+              Expanded(
+                child: Text(
+                  '$name',
+                  style: TextStyle(
+                    fontSize: 16.sp,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.grey[800],
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
+  }
+
+// دالة مساعدة لتحديد ألوان المنصات المختلفة
+  Color _getPlatformColor(String platform) {
+    switch (platform.toLowerCase()) {
+      case 'facebook':
+        return Color(0xFF1877F2);
+      case 'twitter':
+        return Color(0xFF1DA1F2);
+      case 'instagram':
+        return Color(0xFFE4405F);
+      case 'linkedin':
+        return Color(0xFF0A66C2);
+      case 'youtube':
+        return Color(0xFFFF0000);
+      case 'whatsapp':
+        return Color(0xFF25D366);
+      default:
+        return Colors.blue;
+    }
   }
 }

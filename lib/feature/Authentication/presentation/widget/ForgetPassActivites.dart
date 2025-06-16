@@ -46,14 +46,16 @@ class _ForgetpassactivitesState extends State<Forgetpassactivites> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    setState(() {
-                      Selectemail = false;
-                    });
+                    // setState(() {
+                    //   Selectemail = false;
+                    // });
                   },
                   child: SentCodeForResetPasswordWidget(
                       Selectemail: !Selectemail,
-                      title: "Phone ",
-                      icon: SvgPicture.asset("assets/Icons/Email Icon (1).svg"),
+                      title: "Phone       soon....",
+                      icon: SvgPicture.asset(
+                        "assets/Icons/Email Icon (1).svg",
+                      ),
                       subtitle: "Code Send to your Phone"),
                 ),
                 SizedBox(

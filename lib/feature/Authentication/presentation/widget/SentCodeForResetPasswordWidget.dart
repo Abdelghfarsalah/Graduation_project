@@ -21,19 +21,21 @@ class SentCodeForResetPasswordWidget extends StatelessWidget {
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          color: Colors.white,
+          color: Selectemail ? Colors.white : Colors.grey[200],
           border: Selectemail
               ? Border.all(
                   color: Color(0xff0050D0),
                 )
               : null,
           boxShadow: [
-            BoxShadow(
-              color: const Color.fromARGB(255, 174, 205, 245),
-              offset: const Offset(4, 4),
-              blurRadius: 10.r,
-              spreadRadius: 1,
-            ),
+            Selectemail
+                ? BoxShadow(
+                    color: const Color.fromARGB(255, 174, 205, 245),
+                    offset: const Offset(4, 4),
+                    blurRadius: 10.r,
+                    spreadRadius: 1,
+                  )
+                : BoxShadow(),
           ],
         ),
         child: Row(
@@ -42,7 +44,9 @@ class SentCodeForResetPasswordWidget extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 10.0),
               child: CircleAvatar(
                 radius: 22.r,
-                backgroundColor: const Color.fromARGB(255, 191, 218, 254),
+                backgroundColor: Selectemail
+                    ? const Color.fromARGB(255, 191, 218, 254)
+                    : Colors.grey[300],
                 child: icon,
               ),
             ),
@@ -56,7 +60,9 @@ class SentCodeForResetPasswordWidget extends StatelessWidget {
                     fontSize: 17.sp,
                     fontWeight: FontWeight.w600,
                     fontFamily: "Poppins", // تأكد من إضافة الخط في pubspec.yaml
-                    color: const Color(0xff0050D0),
+                    color: Selectemail
+                        ? const Color(0xff0050D0)
+                        : Colors.grey[500],
                   ),
                 ),
                 Text(

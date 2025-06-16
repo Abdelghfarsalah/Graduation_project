@@ -12,13 +12,13 @@ class MarkVideoAswatchedBloc
       : super(initMarkvideoasWatchedSuccess()) {
     on<MarkvideoAsWatched>(_MarkvideoAsWatched);
   }
-
+  bool watched = false;
   void _MarkvideoAsWatched(
       MarkvideoAsWatched event, Emitter<MarkVideoAswatchedState> emit) async {
     var response = await coursesrepo.markvideoAsWatched(
         courseID: event.courseID, videoId: event.videoID);
     response.fold((ifLeft) {}, (ifRight) {
-      emit(MarkvideoasWatchedSuccess());
+      emit(MarkvideoasWatchedSuccess(id: event.videoID));
     });
   }
 }

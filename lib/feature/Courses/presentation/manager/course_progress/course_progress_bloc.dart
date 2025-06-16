@@ -12,7 +12,7 @@ class CourseProgressBloc
       : super(InitoneGetCoursesState()) {
     on<GetcourseById>(_GetcourseById);
   }
-
+  Map<String, bool> watchedMap = {};
   void _GetcourseById(
       GetcourseById event, Emitter<GetoneCoursesBlocState> emit) async {
     emit(GetoneCoursesLoading());

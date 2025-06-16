@@ -13,11 +13,13 @@ class PlayingVideoState extends VideoplayerState {
   final String title;
   final String videoType;
   final String? youtubeId;
+  final bool watched;
 
   PlayingVideoState({
     required this.videoUrl,
     required this.id,
     required this.title,
+    required this.watched,
     required this.videoType,
     this.youtubeId,
   });

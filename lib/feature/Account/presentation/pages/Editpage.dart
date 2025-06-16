@@ -283,7 +283,7 @@ class _EditPageState extends State<EditPage> {
           shadowColor: const Color(0xFF4A90E2).withOpacity(0.3),
         ),
         child: Text(
-          'Save Changes',
+          'Save Name',
           style: GoogleFonts.poppins(
             fontSize: 16,
             fontWeight: FontWeight.w600,

@@ -4,6 +4,9 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:graduation_project/feature/Courses/domain/models/Section.dart';
+import 'package:graduation_project/feature/Courses/presentation/manager/course_progress/course_progress_bloc.dart';
+import 'package:graduation_project/feature/Courses/presentation/manager/mark_video_aswatched/mark_video_aswatched_bloc.dart';
+import 'package:graduation_project/feature/Courses/presentation/manager/mark_video_aswatched/mark_video_aswatched_state.dart';
 import 'package:graduation_project/feature/Courses/presentation/manager/videoplayer/videoplayer_bloc.dart';
 import 'package:graduation_project/feature/Courses/presentation/manager/videoplayer/videoplayer_state.dart';
 import 'package:graduation_project/feature/Courses/presentation/widgets/VideoPlayerWidget.dart';
@@ -35,16 +38,16 @@ class Viewcoursepagebody extends StatelessWidget {
             log("state changed: $state");
           },
           builder: (context, state) {
-            log(state.toString());
-            log("state.toString()");
-            log(state.toString());
             if (state is PlayingVideoState) {
               if (state.videoType == "youtube") {
                 return CustomYoutubePlayer(
+                  key: ValueKey(state.youtubeId), // ← أضف Key هنا
                   videoUrl: state.videoUrl,
                   videoiId: state.youtubeId!,
                   courseId: Courseid,
                   title: state.title,
+                  id: state.id,
+                  watched: state.watched,
                 );
               } else {
                 return VideoPlayerWidget(
@@ -79,10 +82,157 @@ class Viewcoursepagebody extends StatelessWidget {
         ),
         SliverList(
           delegate: SliverChildBuilderDelegate(
-            (context, index) => Displaysection(
-              section: sections[index],
-              index: index,
-              courseId: Courseid,
+            (context, index) =>
+                BlocConsumer<MarkVideoAswatchedBloc, MarkVideoAswatchedState>(
+              listener: (context, state) {
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print(state.toString());
+                print("===============");
+                print(state.toString());
+                if (state is MarkvideoasWatchedSuccess) {
+                  context.read<CourseProgressBloc>().watchedMap[state.id] =
+                      true;
+                }
+              },
+              builder: (context, state) {
+                return Displaysection(
+                  section: sections[index],
+                  index: index,
+                  courseId: Courseid,
+                );
+              },
             ),
             childCount: sections.length,
           ),

@@ -7,12 +7,14 @@ class playvideo extends VideoplayerEvent with EquatableMixin {
   final String id;
   final String videoType;
   final String title;
+  final bool watched;
   final String? youtubeId;
 
   playvideo({
     required this.videoUrl,
     required this.id,
     required this.title,
+    required this.watched,
     required this.videoType,
     this.youtubeId,
   });
