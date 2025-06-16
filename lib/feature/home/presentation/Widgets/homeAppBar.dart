@@ -9,8 +9,7 @@ import 'package:graduation_project/feature/chat/presentation/pages/welcomepage.d
 import 'package:graduation_project/feature/home/presentation/Widgets/avatarImage.dart';
 
 class Homeappbar extends StatelessWidget {
-  const Homeappbar({super.key, required this.scaffoldkey});
-  final GlobalKey<ScaffoldState> scaffoldkey;
+  const Homeappbar({super.key});
   @override
   Widget build(BuildContext context) {
     return Container(
