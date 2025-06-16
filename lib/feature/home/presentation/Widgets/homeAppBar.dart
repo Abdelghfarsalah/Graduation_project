@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/colors.dart';
 import 'package:graduation_project/core/fonts.dart';
 import 'package:graduation_project/core/utils/SharedPreferencesDemo.dart';
+import 'package:graduation_project/core/utils/animations.dart';
+import 'package:graduation_project/feature/chat/presentation/pages/chatpage.dart';
+import 'package:graduation_project/feature/chat/presentation/pages/welcomepage.dart';
 import 'package:graduation_project/feature/home/presentation/Widgets/avatarImage.dart';
 
 class Homeappbar extends StatelessWidget {
@@ -48,7 +52,7 @@ class Homeappbar extends StatelessWidget {
                             "Loading Name ...",
                             style: TextStyle(
                               fontFamily: appFonts.Poppins,
-                              fontSize: 22,
+                              fontSize: 22.sp,
                               fontWeight: FontWeight.w600,
                               color: Colors.white,
                             ),
@@ -63,7 +67,7 @@ class Homeappbar extends StatelessWidget {
                             snapshot.data ?? "اسم غير متوفر",
                             style: TextStyle(
                               fontFamily: appFonts.Poppins,
-                              fontSize: 22,
+                              fontSize: 22.sp,
                               fontWeight: FontWeight.w600,
                               color: Colors.white,
                             ),
@@ -78,7 +82,7 @@ class Homeappbar extends StatelessWidget {
                     "Let’s start learning ",
                     style: TextStyle(
                         fontFamily: appFonts.Poppins,
-                        fontSize: 10,
+                        fontSize: 10.sp,
                         fontWeight: FontWeight.w400,
                         color: Colors.white),
                   ),
@@ -86,20 +90,48 @@ class Homeappbar extends StatelessWidget {
               ),
               Spacer(),
               GestureDetector(
-                onTap: () {
-                  scaffoldkey.currentState!.openEndDrawer();
-                  // Animationsforpages.navigateWithSlidepush(
-                  //     context,
-                  //     Recommendchatpage(
-                  //       text: '',
-                  //     ));
+                onTap: () async {
+                  bool dontshowwelcomepage = await SharedPreferencesDemo
+                          .GetDontshowwelcomepageForChatBot() ??
+                      false;
+                  if (dontshowwelcomepage) {
+                    Animationsforpages.navigateWithSlidepush(
+                        context, Chatpage());
+                    ;
+                  } else {
+                    Animationsforpages.navigateWithSlidepush(
+                        context, WelcomepageChabot());
+                  }
                 },
-                child: Icon(
-                  Icons.menu,
-                  color: Colors.white,
-                  size: 28,
+                child: Container(
+                  height: 38.h,
+                  width: 38.w,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    // borderRadius: BorderRadius.circular(8.r),
+                    // color: Colors.black),
+                  ),
+                  child: Center(
+                    child: Image.asset("assets/HomeImage/8943377.png",
+                        height: 35.h, width: 35.w),
+                  ),
                 ),
-              ),
+              )
+              // GestureDetector(
+              //   onTap: () {
+              //     scaffoldkey.currentState!.openEndDrawer();
+              //     // Animationsforpages.navigateWithSlidepush(
+              //     //     context,
+              //     //     Recommendchatpage(
+              //     //       text: '',
+              //     //     ));
+              //   },
+              //   child: Icon(
+              //     Icons.menu,
+              //     color: Colors.white,
+              //     size: 28,
+              //   ),
+              // ),
             ],
           ),
         ),

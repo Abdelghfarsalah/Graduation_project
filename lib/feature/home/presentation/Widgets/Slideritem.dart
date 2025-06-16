@@ -20,6 +20,7 @@ class Slideritem extends StatelessWidget {
             height: 154,
             width: 249,
             decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(16),
                 image: DecorationImage(
                     image: AssetImage(image), fit: BoxFit.fill)),
           ),

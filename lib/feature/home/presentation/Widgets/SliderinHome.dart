@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:graduation_project/core/utils/animations.dart';
 import 'package:graduation_project/feature/RecommendationSystem/presentation/pages/RecommendationSystempage.dart';
 import 'package:graduation_project/feature/home/presentation/Widgets/Slideritem.dart';
+import 'package:graduation_project/feature/recommendChat/presentation/pages/recommendchatPage.dart';
 import 'package:graduation_project/feature/tracksAndRoadmapStaticinHome/presentation/pages/stataicTracksPage.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -44,6 +45,20 @@ class Sliderinhome extends StatelessWidget {
               },
               image: "assets/HomeImage/Sliderimage1.png",
               title: "Recommendation System",
+            ),
+            SizedBox(
+              width: 10,
+            ),
+            Slideritem(
+              onTap: () {
+                Animationsforpages.navigateWithSlidepush(
+                    context,
+                    Recommendchatpage(
+                      text: '',
+                    ));
+              },
+              image: "assets/HomeImage/ChatGPTImage.png",
+              title: "Roadmap generator",
             ),
             SizedBox(
               width: 10,
