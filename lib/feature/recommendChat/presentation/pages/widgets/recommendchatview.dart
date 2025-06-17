@@ -6,6 +6,7 @@ import 'package:graduation_project/feature/recommendChat/presentation/pages/widg
 import 'package:graduation_project/feature/recommendChat/presentation/pages/widgets/RoadmapEmptyContent.dart';
 import 'package:graduation_project/feature/recommendChat/presentation/pages/widgets/agentMessage.dart';
 import 'package:graduation_project/feature/recommendChat/presentation/pages/widgets/customfiledforrecommendchat.dart';
+import 'package:graduation_project/feature/recommendChat/presentation/pages/widgets/showCustomErrorDialog.dart';
 import 'package:graduation_project/feature/recommendChat/presentation/pages/widgets/userMessage.dart';
 
 class Recommendchatview extends StatefulWidget {
@@ -56,6 +57,23 @@ class _StreamViewState extends State<Recommendchatview> {
               showLoadingAnalog(context);
             } else if (state is SuccessRoadmapstate || state is Failuer) {
               Navigator.of(context).pop(); // Close the dialog
+            }
+            if (state is Failuer) {
+              context
+                  .read<ReccomendChatBlocBloc>()
+                  .SaveRoadmapsToStartLearning
+                  .clear();
+              context.read<ReccomendChatBlocBloc>().chat.clear();
+              // Fluttertoast.showToast(
+              //   msg: "${state.message}",
+              //   toastLength: Toast.LENGTH_LONG,
+              //   gravity: ToastGravity.CENTER,
+              //   backgroundColor: appColor.Primarycolor, // Green color
+              //   textColor: Colors.white,
+              //   fontSize: 16.0,
+              // );
+
+              showTechTrackErrorDialog(context, state.userMessage);
             }
           },
           builder: (context, state) {

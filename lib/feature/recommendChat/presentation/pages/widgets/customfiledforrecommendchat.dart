@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -40,10 +42,12 @@ class _TextfiledcustomState extends State<customfiledforrecommendchat> {
                                 .title!
                                 .length !=
                             0) {
+                      log("---------------------------------------");
                       context
                           .read<ReccomendChatBlocBloc>()
                           .add(FetchroadmapwithQuestion(Question: value));
                     } else {
+                      log("+++++++++++++++++++++++++++++++++++");
                       context
                           .read<ReccomendChatBlocBloc>()
                           .add(Fetchroadmap(value));

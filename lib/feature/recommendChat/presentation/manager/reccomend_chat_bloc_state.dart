@@ -10,8 +10,15 @@ class SuccessRoadmapstate extends ReccomendChatBlocState {
   SuccessRoadmapstate({required this.Roadmapindex});
 }
 
-class Failuer extends ReccomendChatBlocState {}
+class Failuer extends ReccomendChatBlocState {
+  final String message;
+  final String userMessage;
+
+  Failuer({required this.message, required this.userMessage});
+}
 
 class clearstate extends ReccomendChatBlocState {}
 
 class scrollstate extends ReccomendChatBlocState {}
+
+class ErorrState extends ReccomendChatBlocState {}
